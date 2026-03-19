@@ -1,0 +1,20 @@
+{
+  "semantic": {
+    "comment": "Sharp theme — zero radius, no shadows. Combine with light or dark color theme.",
+
+    "radius": {
+      "component":   { "$value": "{radius.none}", "$type": "borderRadius" },
+      "container":   { "$value": "{radius.none}", "$type": "borderRadius" },
+      "interactive": { "$value": "{radius.none}", "$type": "borderRadius" },
+      "badge":       { "$value": "{radius.xs}",   "$type": "borderRadius" }
+    },
+
+    "shadow": {
+      "component":  { "$value": "none",                             "$type": "shadow" },
+      "container":  { "$value": "none",                             "$type": "shadow" },
+      "floating":   { "$value": "{shadow.none}",                    "$type": "shadow" },
+      "overlay":    { "$value": "{shadow.none}",                    "$type": "shadow" },
+      "focus":      { "$value": "0 0 0 2px currentColor",           "$type": "shadow", "$description": "Solid outline, no blur" }
+    }
+  }
+}

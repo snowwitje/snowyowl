@@ -1,0 +1,20 @@
+{
+  "semantic": {
+    "comment": "Elevated theme — stronger radius, pronounced shadows. Combine with light or dark color theme.",
+
+    "radius": {
+      "component":   { "$value": "{radius.lg}",  "$type": "borderRadius" },
+      "container":   { "$value": "{radius.2xl}", "$type": "borderRadius" },
+      "interactive": { "$value": "{radius.xl}",  "$type": "borderRadius" },
+      "badge":       { "$value": "{radius.full}", "$type": "borderRadius" }
+    },
+
+    "shadow": {
+      "component":  { "$value": "{shadow.sm}", "$type": "shadow" },
+      "container":  { "$value": "{shadow.lg}", "$type": "shadow" },
+      "floating":   { "$value": "{shadow.xl}", "$type": "shadow" },
+      "overlay":    { "$value": "{shadow.2xl}","$type": "shadow" },
+      "focus":      { "$value": "0 0 0 4px rgba(59, 130, 246, 0.35)", "$type": "shadow" }
+    }
+  }
+}

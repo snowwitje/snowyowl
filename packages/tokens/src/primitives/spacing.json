@@ -1,0 +1,27 @@
+{
+  "space": {
+    "comment": "4px base unit scale — all values are multiples of 4",
+    "0":    { "$value": "0px",   "$type": "spacing" },
+    "0.5":  { "$value": "2px",   "$type": "spacing", "$description": "Hairline" },
+    "1":    { "$value": "4px",   "$type": "spacing", "$description": "Base unit" },
+    "1.5":  { "$value": "6px",   "$type": "spacing" },
+    "2":    { "$value": "8px",   "$type": "spacing" },
+    "2.5":  { "$value": "10px",  "$type": "spacing" },
+    "3":    { "$value": "12px",  "$type": "spacing" },
+    "4":    { "$value": "16px",  "$type": "spacing", "$description": "Standard component padding" },
+    "5":    { "$value": "20px",  "$type": "spacing" },
+    "6":    { "$value": "24px",  "$type": "spacing" },
+    "7":    { "$value": "28px",  "$type": "spacing" },
+    "8":    { "$value": "32px",  "$type": "spacing" },
+    "10":   { "$value": "40px",  "$type": "spacing" },
+    "12":   { "$value": "48px",  "$type": "spacing" },
+    "14":   { "$value": "56px",  "$type": "spacing" },
+    "16":   { "$value": "64px",  "$type": "spacing" },
+    "20":   { "$value": "80px",  "$type": "spacing" },
+    "24":   { "$value": "96px",  "$type": "spacing" },
+    "32":   { "$value": "128px", "$type": "spacing" },
+    "40":   { "$value": "160px", "$type": "spacing" },
+    "48":   { "$value": "192px", "$type": "spacing" },
+    "64":   { "$value": "256px", "$type": "spacing" }
+  }
+}

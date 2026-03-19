@@ -1,0 +1,91 @@
+{
+  "semantic": {
+    "comment": "Semantic tokens — these are what components consume. Override these in themes, not primitives.",
+
+    "color": {
+      "comment": "--- SURFACE ---",
+      "surface": {
+        "default":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Page / app background" },
+        "subtle":    { "$value": "{color.neutral.50}",  "$type": "color", "$description": "Sidebar, secondary areas" },
+        "raised":    { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Cards, panels" },
+        "overlay":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Modals, drawers" },
+        "sunken":    { "$value": "{color.neutral.100}", "$type": "color", "$description": "Inset areas, code blocks" }
+      },
+
+      "border": {
+        "default":   { "$value": "{color.neutral.200}", "$type": "color" },
+        "subtle":    { "$value": "{color.neutral.100}", "$type": "color" },
+        "strong":    { "$value": "{color.neutral.300}", "$type": "color" },
+        "focus":     { "$value": "{color.blue.500}",    "$type": "color", "$description": "Focus ring" }
+      },
+
+      "text": {
+        "default":   { "$value": "{color.neutral.900}", "$type": "color", "$description": "Body text" },
+        "subtle":    { "$value": "{color.neutral.500}", "$type": "color", "$description": "Secondary, captions" },
+        "disabled":  { "$value": "{color.neutral.400}", "$type": "color" },
+        "inverse":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "On dark backgrounds" },
+        "link":      { "$value": "{color.blue.600}",    "$type": "color" },
+        "linkHover": { "$value": "{color.blue.700}",    "$type": "color" }
+      },
+
+      "interactive": {
+        "primary":          { "$value": "{color.blue.600}",    "$type": "color" },
+        "primaryHover":     { "$value": "{color.blue.700}",    "$type": "color" },
+        "primaryActive":    { "$value": "{color.blue.800}",    "$type": "color" },
+        "primarySubtle":    { "$value": "{color.blue.50}",     "$type": "color" },
+        "secondary":        { "$value": "{color.neutral.800}", "$type": "color" },
+        "secondaryHover":   { "$value": "{color.neutral.900}", "$type": "color" },
+        "secondarySubtle":  { "$value": "{color.neutral.100}", "$type": "color" }
+      },
+
+      "status": {
+        "success":         { "$value": "{color.green.600}",  "$type": "color" },
+        "successSubtle":   { "$value": "{color.green.50}",   "$type": "color" },
+        "warning":         { "$value": "{color.yellow.600}", "$type": "color" },
+        "warningSubtle":   { "$value": "{color.yellow.50}",  "$type": "color" },
+        "error":           { "$value": "{color.red.600}",    "$type": "color" },
+        "errorSubtle":     { "$value": "{color.red.50}",     "$type": "color" },
+        "info":            { "$value": "{color.blue.600}",   "$type": "color" },
+        "infoSubtle":      { "$value": "{color.blue.50}",    "$type": "color" }
+      }
+    },
+
+    "comment2": "--- SHAPE PERSONALITY --- Override these 4 tokens to change your theme's visual character",
+    "radius": {
+      "component":    { "$value": "{radius.md}",   "$type": "borderRadius", "$description": "⭐ Primary radius override — buttons, inputs, chips" },
+      "container":    { "$value": "{radius.lg}",   "$type": "borderRadius", "$description": "⭐ Cards, panels, modals" },
+      "interactive":  { "$value": "{radius.md}",   "$type": "borderRadius", "$description": "⭐ Interactive elements" },
+      "badge":        { "$value": "{radius.full}",  "$type": "borderRadius", "$description": "Tags and badges" }
+    },
+
+    "shadow": {
+      "component":    { "$value": "{shadow.xs}",   "$type": "shadow", "$description": "⭐ Primary shadow override — inputs, chips" },
+      "container":    { "$value": "{shadow.sm}",   "$type": "shadow", "$description": "⭐ Cards, panels" },
+      "floating":     { "$value": "{shadow.md}",   "$type": "shadow", "$description": "Dropdowns, popovers" },
+      "overlay":      { "$value": "{shadow.xl}",   "$type": "shadow", "$description": "Modals" },
+      "focus":        { "$value": "0 0 0 3px rgba(59, 130, 246, 0.4)", "$type": "shadow", "$description": "⭐ Focus ring style" }
+    },
+
+    "typography": {
+      "family-body":      { "$value": "{font.family.sans}",  "$type": "fontFamily", "$description": "⭐ Body / UI font" },
+      "family-heading":   { "$value": "{font.family.sans}",  "$type": "fontFamily", "$description": "⭐ Heading font — swap for personality" },
+      "family-code":      { "$value": "{font.family.mono}",  "$type": "fontFamily" },
+      "size-body":        { "$value": "{font.size.md}",       "$type": "fontSize" },
+      "size-body-sm":     { "$value": "{font.size.sm}",       "$type": "fontSize" },
+      "weight-body":      { "$value": "{font.weight.regular}","$type": "fontWeight" },
+      "weight-heading":   { "$value": "{font.weight.bold}",   "$type": "fontWeight" },
+      "weight-label":     { "$value": "{font.weight.medium}", "$type": "fontWeight" }
+    },
+
+    "spacing": {
+      "component-xs":  { "$value": "{space.1}",  "$type": "spacing" },
+      "component-sm":  { "$value": "{space.2}",  "$type": "spacing" },
+      "component-md":  { "$value": "{space.4}",  "$type": "spacing" },
+      "component-lg":  { "$value": "{space.6}",  "$type": "spacing" },
+      "layout-sm":     { "$value": "{space.8}",  "$type": "spacing" },
+      "layout-md":     { "$value": "{space.12}", "$type": "spacing" },
+      "layout-lg":     { "$value": "{space.16}", "$type": "spacing" },
+      "layout-xl":     { "$value": "{space.24}", "$type": "spacing" }
+    }
+  }
+}

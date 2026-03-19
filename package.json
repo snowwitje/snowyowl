@@ -1,0 +1,30 @@
+{
+  "name": "snowyowl",
+  "version": "0.0.1",
+  "private": true,
+  "description": "SnowyOwl Design System — open-source, theme-extensible",
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "build:tokens": "turbo run build --filter=@snowyowl/tokens",
+    "dev": "turbo run dev",
+    "storybook": "turbo run storybook --filter=@snowyowl/storybook",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\""
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.4.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "$value": "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Primary UI font — swap this in your theme for personality"
+      },
+      "mono": {
+        "$value": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+        "$type": "fontFamily",
+        "$description": "Code and technical content"
+      },
+      "serif": {
+        "$value": "'Lora', 'Georgia', serif",
+        "$type": "fontFamily",
+        "$description": "Editorial / long-form use cases"
+      }
+    },
+
+    "weight": {
+      "regular":   { "$value": "400", "$type": "fontWeight" },
+      "medium":    { "$value": "500", "$type": "fontWeight" },
+      "semibold":  { "$value": "600", "$type": "fontWeight" },
+      "bold":      { "$value": "700", "$type": "fontWeight" }
+    },
+
+    "size": {
+      "comment": "Base-16 scale with minor-third ratio (×1.25) from 12px",
+      "2xs": { "$value": "10px", "$type": "fontSize" },
+      "xs":  { "$value": "12px", "$type": "fontSize" },
+      "sm":  { "$value": "14px", "$type": "fontSize" },
+      "md":  { "$value": "16px", "$type": "fontSize", "$description": "Body base" },
+      "lg":  { "$value": "18px", "$type": "fontSize" },
+      "xl":  { "$value": "20px", "$type": "fontSize" },
+      "2xl": { "$value": "24px", "$type": "fontSize" },
+      "3xl": { "$value": "30px", "$type": "fontSize" },
+      "4xl": { "$value": "36px", "$type": "fontSize" },
+      "5xl": { "$value": "48px", "$type": "fontSize" },
+      "6xl": { "$value": "60px", "$type": "fontSize" },
+      "7xl": { "$value": "72px", "$type": "fontSize" }
+    },
+
+    "lineHeight": {
+      "tight":   { "$value": "1.2",  "$type": "lineHeight", "$description": "Headings" },
+      "snug":    { "$value": "1.375","$type": "lineHeight" },
+      "normal":  { "$value": "1.5",  "$type": "lineHeight", "$description": "Body text" },
+      "relaxed": { "$value": "1.625","$type": "lineHeight" },
+      "loose":   { "$value": "2",    "$type": "lineHeight" }
+    },
+
+    "letterSpacing": {
+      "tighter": { "$value": "-0.05em", "$type": "letterSpacing" },
+      "tight":   { "$value": "-0.025em","$type": "letterSpacing" },
+      "normal":  { "$value": "0em",     "$type": "letterSpacing" },
+      "wide":    { "$value": "0.025em", "$type": "letterSpacing" },
+      "wider":   { "$value": "0.05em",  "$type": "letterSpacing" },
+      "widest":  { "$value": "0.1em",   "$type": "letterSpacing", "$description": "Caps labels" }
+    }
+  }
+}

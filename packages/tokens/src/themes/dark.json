@@ -1,0 +1,60 @@
+{
+  "semantic": {
+    "comment": "Dark theme — overrides surface/text/border semantic tokens only. Shape personality tokens inherit from base or the active style theme.",
+
+    "color": {
+      "surface": {
+        "default":   { "$value": "{color.neutral.950}", "$type": "color" },
+        "subtle":    { "$value": "{color.neutral.900}", "$type": "color" },
+        "raised":    { "$value": "{color.neutral.800}", "$type": "color" },
+        "overlay":   { "$value": "{color.neutral.900}", "$type": "color" },
+        "sunken":    { "$value": "#000000",             "$type": "color" }
+      },
+
+      "border": {
+        "default":   { "$value": "{color.neutral.700}", "$type": "color" },
+        "subtle":    { "$value": "{color.neutral.800}", "$type": "color" },
+        "strong":    { "$value": "{color.neutral.600}", "$type": "color" },
+        "focus":     { "$value": "{color.blue.400}",    "$type": "color" }
+      },
+
+      "text": {
+        "default":   { "$value": "{color.neutral.50}",  "$type": "color" },
+        "subtle":    { "$value": "{color.neutral.400}", "$type": "color" },
+        "disabled":  { "$value": "{color.neutral.600}", "$type": "color" },
+        "inverse":   { "$value": "{color.neutral.900}", "$type": "color" },
+        "link":      { "$value": "{color.blue.400}",    "$type": "color" },
+        "linkHover": { "$value": "{color.blue.300}",    "$type": "color" }
+      },
+
+      "interactive": {
+        "primary":          { "$value": "{color.blue.500}",    "$type": "color" },
+        "primaryHover":     { "$value": "{color.blue.400}",    "$type": "color" },
+        "primaryActive":    { "$value": "{color.blue.300}",    "$type": "color" },
+        "primarySubtle":    { "$value": "rgba(59,130,246,0.15)", "$type": "color" },
+        "secondary":        { "$value": "{color.neutral.200}", "$type": "color" },
+        "secondaryHover":   { "$value": "{color.neutral.50}",  "$type": "color" },
+        "secondarySubtle":  { "$value": "{color.neutral.800}", "$type": "color" }
+      },
+
+      "status": {
+        "success":         { "$value": "{color.green.400}",  "$type": "color" },
+        "successSubtle":   { "$value": "rgba(74,222,128,0.12)", "$type": "color" },
+        "warning":         { "$value": "{color.yellow.400}", "$type": "color" },
+        "warningSubtle":   { "$value": "rgba(250,204,21,0.12)", "$type": "color" },
+        "error":           { "$value": "{color.red.400}",    "$type": "color" },
+        "errorSubtle":     { "$value": "rgba(248,113,113,0.12)", "$type": "color" },
+        "info":            { "$value": "{color.blue.400}",   "$type": "color" },
+        "infoSubtle":      { "$value": "rgba(96,165,250,0.12)", "$type": "color" }
+      }
+    },
+
+    "shadow": {
+      "component":  { "$value": "0 1px 2px 0 rgba(0, 0, 0, 0.3)",  "$type": "shadow" },
+      "container":  { "$value": "0 1px 3px 0 rgba(0, 0, 0, 0.4)",  "$type": "shadow" },
+      "floating":   { "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.5)", "$type": "shadow" },
+      "overlay":    { "$value": "0 20px 25px -5px rgba(0, 0, 0, 0.6)", "$type": "shadow" },
+      "focus":      { "$value": "0 0 0 3px rgba(96, 165, 250, 0.4)", "$type": "shadow" }
+    }
+  }
+}

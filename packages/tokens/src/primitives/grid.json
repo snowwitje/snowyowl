@@ -1,0 +1,66 @@
+{
+  "grid": {
+    "comment": "CSS Grid token system — token-driven, no fixed column counts. Use repeat(auto-fill, minmax(grid.column.min, 1fr)) patterns.",
+
+    "column": {
+      "min-xs":   { "$value": "120px", "$type": "dimension", "$description": "Smallest auto-fill column — dense grids, icon lists" },
+      "min-sm":   { "$value": "160px", "$type": "dimension", "$description": "Compact cards, small tiles" },
+      "min-md":   { "$value": "240px", "$type": "dimension", "$description": "Standard cards, form fields" },
+      "min-lg":   { "$value": "320px", "$type": "dimension", "$description": "Wide cards, content columns" },
+      "min-xl":   { "$value": "400px", "$type": "dimension", "$description": "Large content blocks" },
+      "sidebar":  { "$value": "260px", "$type": "dimension", "$description": "Sidebar width in named-area layouts" },
+      "panel":    { "$value": "360px", "$type": "dimension", "$description": "Detail panel, drawer" }
+    },
+
+    "gutter": {
+      "comment": "Gutter width per breakpoint",
+      "xs":   { "$value": "16px", "$type": "spacing", "$description": "Mobile default" },
+      "sm":   { "$value": "16px", "$type": "spacing" },
+      "md":   { "$value": "24px", "$type": "spacing" },
+      "lg":   { "$value": "32px", "$type": "spacing" },
+      "xl":   { "$value": "32px", "$type": "spacing" },
+      "2xl":  { "$value": "40px", "$type": "spacing" }
+    },
+
+    "margin": {
+      "comment": "Outer margin (page bleed) per breakpoint",
+      "xs":   { "$value": "16px", "$type": "spacing" },
+      "sm":   { "$value": "24px", "$type": "spacing" },
+      "md":   { "$value": "32px", "$type": "spacing" },
+      "lg":   { "$value": "48px", "$type": "spacing" },
+      "xl":   { "$value": "64px", "$type": "spacing" },
+      "2xl":  { "$value": "80px", "$type": "spacing" }
+    },
+
+    "maxWidth": {
+      "content": { "$value": "720px",  "$type": "dimension", "$description": "Prose / article max width" },
+      "layout":  { "$value": "1280px", "$type": "dimension", "$description": "Standard page max width" },
+      "wide":    { "$value": "1536px", "$type": "dimension", "$description": "Wide / dashboard layouts" },
+      "fluid":   { "$value": "100%",   "$type": "dimension", "$description": "Full-width" }
+    }
+  },
+
+  "breakpoint": {
+    "comment": "Min-width breakpoints (mobile-first)",
+    "xs":  { "$value": "0px",    "$type": "dimension" },
+    "sm":  { "$value": "480px",  "$type": "dimension" },
+    "md":  { "$value": "768px",  "$type": "dimension" },
+    "lg":  { "$value": "1024px", "$type": "dimension" },
+    "xl":  { "$value": "1280px", "$type": "dimension" },
+    "2xl": { "$value": "1536px", "$type": "dimension" }
+  },
+
+  "zIndex": {
+    "comment": "Z-index stack — layers of your UI",
+    "below":    { "$value": "-1",  "$type": "number" },
+    "base":     { "$value": "0",   "$type": "number" },
+    "raised":   { "$value": "10",  "$type": "number", "$description": "Sticky headers, floating buttons" },
+    "dropdown": { "$value": "100", "$type": "number" },
+    "sticky":   { "$value": "200", "$type": "number" },
+    "overlay":  { "$value": "300", "$type": "number", "$description": "Modal backdrop" },
+    "modal":    { "$value": "400", "$type": "number" },
+    "popover":  { "$value": "500", "$type": "number" },
+    "toast":    { "$value": "600", "$type": "number" },
+    "tooltip":  { "$value": "700", "$type": "number" }
+  }
+}
