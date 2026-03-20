@@ -14,13 +14,16 @@
     "./css": "./dist/tokens.css",
     "./json": "./dist/tokens.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs --watch",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
+    "@tokens-studio/sd-transforms": "^2.0.3",
     "style-dictionary": "^4.1.0"
   }
 }
