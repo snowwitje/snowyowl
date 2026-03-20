@@ -1,8 +1,10 @@
-# 🦉 SnowyOwl Design System
+# SnowyOwl Design System
+
+<img src="/assets/snowyowl.svg" alt="SnowyOwl" width="52px" height="52px">
 
 An open-source, theme-extensible design system built as framework-agnostic web components.
 
-[![CI](https://github.com/[your-username]/snowyowl/actions/workflows/ci.yml/badge.svg)](https://github.com/[your-username]/snowyowl/actions)
+[![CI](https://github.com/snowwitje/snowyowl/actions/workflows/ci.yml/badge.svg)](https://github.com/snowwitje/snowyowl/actions)
 
 ---
 
