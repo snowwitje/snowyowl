@@ -1,4 +1,4 @@
-# <img src="assets/snowyowl.svg" alt="SnowyOwl" width="20px" height="20px"> SnowyOwl Design System
+# <img src="assets/snowyowl.svg" alt="SnowyOwl" width="24px" height="24px"> SnowyOwl Design System
 
 An open-source, theme-extensible design system built as framework-agnostic web components.
 
