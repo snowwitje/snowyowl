@@ -1,0 +1,98 @@
+[
+  {
+    "id": "light",
+    "name": "light",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "disabled",
+      "themes/sharp": "disabled",
+      "themes/elevated": "disabled"
+    },
+    "group": "Color mode"
+  },
+  {
+    "id": "dark",
+    "name": "dark",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "enabled",
+      "themes/sharp": "disabled",
+      "themes/elevated": "disabled"
+    },
+    "group": "Color mode"
+  },
+  {
+    "id": "light-sharp",
+    "name": "light-sharp",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "disabled",
+      "themes/sharp": "enabled",
+      "themes/elevated": "disabled"
+    },
+    "group": "Style personality"
+  },
+  {
+    "id": "dark-sharp",
+    "name": "dark-sharp",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "enabled",
+      "themes/sharp": "enabled",
+      "themes/elevated": "disabled"
+    },
+    "group": "Style personality"
+  },
+  {
+    "id": "light-elevated",
+    "name": "light-elevated",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "disabled",
+      "themes/sharp": "disabled",
+      "themes/elevated": "enabled"
+    },
+    "group": "Style personality"
+  },
+  {
+    "id": "dark-elevated",
+    "name": "dark-elevated",
+    "selectedTokenSets": {
+      "primitives/color": "enabled",
+      "primitives/typography": "enabled",
+      "primitives/spacing": "enabled",
+      "primitives/shape": "enabled",
+      "primitives/grid": "enabled",
+      "semantic/base": "enabled",
+      "themes/dark": "enabled",
+      "themes/sharp": "disabled",
+      "themes/elevated": "enabled"
+    },
+    "group": "Style personality"
+  }
+]
