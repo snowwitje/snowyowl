@@ -1,6 +1,5 @@
 {
   "semantic": {
-    "comment": "Elevated theme — stronger radius, pronounced shadows. Combine with light or dark color theme.",
 
     "radius": {
       "component":   { "$value": "{radius.lg}",  "$type": "borderRadius" },

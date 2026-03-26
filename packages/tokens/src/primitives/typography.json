@@ -26,7 +26,6 @@
     },
 
     "size": {
-      "comment": "Base-16 scale with minor-third ratio (×1.25) from 12px",
       "2xs": { "$value": "10px", "$type": "fontSize" },
       "xs":  { "$value": "12px", "$type": "fontSize" },
       "sm":  { "$value": "14px", "$type": "fontSize" },

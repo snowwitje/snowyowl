@@ -1,6 +1,5 @@
 {
   "color": {
-    "comment": "Primitive color palette — raw values only, no semantic meaning here",
 
     "neutral": {
       "0":    { "$value": "#ffffff", "$type": "color" },

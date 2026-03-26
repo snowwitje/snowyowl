@@ -1,6 +1,5 @@
 {
   "radius": {
-    "comment": "Border radius scale — override radius-component in your theme for rounded vs square personality",
     "none":  { "$value": "0px",     "$type": "borderRadius" },
     "xs":    { "$value": "2px",     "$type": "borderRadius" },
     "sm":    { "$value": "4px",     "$type": "borderRadius" },
@@ -13,7 +12,6 @@
   },
 
   "shadow": {
-    "comment": "Elevation scale — override shadow-component in your theme for flat vs elevated personality",
     "none": {
       "$value": "none",
       "$type": "shadow"

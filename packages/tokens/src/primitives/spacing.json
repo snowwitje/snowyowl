@@ -1,6 +1,5 @@
 {
   "space": {
-    "comment": "4px base unit scale — all values are multiples of 4",
     "0":    { "$value": "0px",   "$type": "spacing" },
     "0.5":  { "$value": "2px",   "$type": "spacing", "$description": "Hairline" },
     "1":    { "$value": "4px",   "$type": "spacing", "$description": "Base unit" },

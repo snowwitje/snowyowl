@@ -1,6 +1,5 @@
 {
   "grid": {
-    "comment": "CSS Grid token system — token-driven, no fixed column counts. Use repeat(auto-fill, minmax(grid.column.min, 1fr)) patterns.",
 
     "column": {
       "min-xs":   { "$value": "120px", "$type": "dimension", "$description": "Smallest auto-fill column — dense grids, icon lists" },
@@ -13,7 +12,6 @@
     },
 
     "gutter": {
-      "comment": "Gutter width per breakpoint",
       "xs":   { "$value": "16px", "$type": "spacing", "$description": "Mobile default" },
       "sm":   { "$value": "16px", "$type": "spacing" },
       "md":   { "$value": "24px", "$type": "spacing" },
@@ -23,7 +21,6 @@
     },
 
     "margin": {
-      "comment": "Outer margin (page bleed) per breakpoint",
       "xs":   { "$value": "16px", "$type": "spacing" },
       "sm":   { "$value": "24px", "$type": "spacing" },
       "md":   { "$value": "32px", "$type": "spacing" },
@@ -41,7 +38,6 @@
   },
 
   "breakpoint": {
-    "comment": "Min-width breakpoints (mobile-first)",
     "xs":  { "$value": "0px",    "$type": "dimension" },
     "sm":  { "$value": "480px",  "$type": "dimension" },
     "md":  { "$value": "768px",  "$type": "dimension" },
@@ -51,7 +47,6 @@
   },
 
   "zIndex": {
-    "comment": "Z-index stack — layers of your UI",
     "below":    { "$value": "-1",  "$type": "number" },
     "base":     { "$value": "0",   "$type": "number" },
     "raised":   { "$value": "10",  "$type": "number", "$description": "Sticky headers, floating buttons" },

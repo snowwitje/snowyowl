@@ -1,6 +1,5 @@
 {
   "semantic": {
-    "comment": "Dark theme — overrides surface/text/border semantic tokens only. Shape personality tokens inherit from base or the active style theme.",
 
     "color": {
       "surface": {

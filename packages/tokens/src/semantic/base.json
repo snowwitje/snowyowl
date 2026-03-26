@@ -1,9 +1,7 @@
 {
   "semantic": {
-    "comment": "Semantic tokens — these are what components consume. Override these in themes, not primitives.",
 
     "color": {
-      "comment": "--- SURFACE ---",
       "surface": {
         "default":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Page / app background" },
         "subtle":    { "$value": "{color.neutral.50}",  "$type": "color", "$description": "Sidebar, secondary areas" },
@@ -49,8 +47,6 @@
         "infoSubtle":      { "$value": "{color.blue.50}",    "$type": "color" }
       }
     },
-
-    "comment2": "--- SHAPE PERSONALITY --- Override these 4 tokens to change your theme's visual character",
     "radius": {
       "component":    { "$value": "{radius.md}",   "$type": "borderRadius", "$description": "⭐ Primary radius override — buttons, inputs, chips" },
       "container":    { "$value": "{radius.lg}",   "$type": "borderRadius", "$description": "⭐ Cards, panels, modals" },
