@@ -31,7 +31,7 @@
         "primaryHover":    { "$value": "{color.mauve.300}", "$type": "color", "$description": "12.10 AAA — lightens on hover" },
         "primaryActive":   { "$value": "{color.mauve.500}", "$type": "color", "$description": "5.68 AA — darkens on press" },
         "primarySubtle":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Selected/active state background" },
-        "primaryText":     { "$value": "{color.neutral.950}", "$type": "color", "$description": "Dark text on light mauve buttons — 8.43 AAA" },
+        "actionText":     { "$value": "{color.neutral.950}", "$type": "color", "$description": "Dark text on light buttons" },
         "secondary":       { "$value": "{color.neutral.200}", "$type": "color", "$description": "Light fill for secondary button on dark" },
         "secondaryHover":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Lightens on hover" },
         "secondaryActive": { "$value": "{color.neutral.300}", "$type": "color", "$description": "Slightly darker on press" },
