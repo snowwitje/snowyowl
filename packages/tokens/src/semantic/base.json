@@ -18,8 +18,8 @@
       },
 
       "text": {
-        "default":   { "$value": "{color.neutral.700}", "$type": "color", "$description": "Body text" },
-        "subtle":    { "$value": "{color.neutral.500}", "$type": "color", "$description": "Captions, metadata, helper text" },
+        "default":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Body text — 14.68 AAA" },
+        "subtle":    { "$value": "{color.neutral.600}", "$type": "color", "$description": "Captions, metadata, helper text — 7.56 AAA" },
         "disabled":  { "$value": "{color.neutral.400}", "$type": "color", "$description": "Disabled — WCAG exempt for inactive UI" },
         "inverse":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "On dark backgrounds" },
         "link":      { "$value": "{color.mauve.600}",   "$type": "color" },
