@@ -31,6 +31,7 @@
         "primaryHover":    { "$value": "{color.mauve.300}", "$type": "color", "$description": "12.10 AAA — lightens on hover" },
         "primaryActive":   { "$value": "{color.mauve.500}", "$type": "color", "$description": "5.68 AA — darkens on press" },
         "primarySubtle":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Selected/active state background" },
+        "primaryText":     { "$value": "{color.neutral.950}", "$type": "color", "$description": "Dark text on light mauve buttons — 8.43 AAA" },
         "secondary":       { "$value": "{color.neutral.200}", "$type": "color", "$description": "Light fill for secondary button on dark" },
         "secondaryHover":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Lightens on hover" },
         "secondaryActive": { "$value": "{color.neutral.300}", "$type": "color", "$description": "Slightly darker on press" },
@@ -41,13 +42,13 @@
 
       "status": {
         "success":       { "$value": "{color.green.400}",  "$type": "color", "$description": "11.55 AAA on dark" },
-        "successSubtle": { "$value": "{color.neutral.800}","$type": "color", "$description": "Dark tint bg — green.400 text passes AA on top" },
+        "successSubtle": { "$value": "rgba(74, 222, 128, 0.15)", "$type": "color", "$description": "green.400 at 15% opacity — overlays on surface.raised" },
         "warning":       { "$value": "{color.orange.400}", "$type": "color", "$description": "8.90 AAA on dark" },
-        "warningSubtle": { "$value": "{color.neutral.800}","$type": "color" },
+        "warningSubtle": { "$value": "rgba(251, 146, 60, 0.15)", "$type": "color", "$description": "orange.400 at 15% opacity" },
         "error":         { "$value": "{color.red.400}",    "$type": "color", "$description": "7.28 AAA on dark" },
-        "errorSubtle":   { "$value": "{color.neutral.800}","$type": "color" },
+        "errorSubtle":   { "$value": "rgba(248, 113, 113, 0.15)", "$type": "color", "$description": "red.400 at 15% opacity" },
         "info":          { "$value": "{color.purple.400}", "$type": "color", "$description": "7.62 AAA on dark" },
-        "infoSubtle":    { "$value": "{color.neutral.800}","$type": "color" }
+        "infoSubtle":    { "$value": "rgba(192, 132, 252, 0.15)", "$type": "color", "$description": "purple.400 at 15% opacity" }
       }
     },
 

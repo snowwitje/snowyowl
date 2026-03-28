@@ -31,6 +31,7 @@
         "primaryHover":    { "$value": "{color.mauve.700}",   "$type": "color" },
         "primaryActive":   { "$value": "{color.mauve.800}",   "$type": "color" },
         "primarySubtle":   { "$value": "{color.mauve.50}",    "$type": "color", "$description": "Selected/active state background" },
+        "primaryText":     { "$value": "{color.neutral.0}",    "$type": "color", "$description": "Text/icon on primary button — white on mauve" },
         "secondary":       { "$value": "{color.neutral.800}", "$type": "color", "$description": "Filled secondary button color" },
         "secondaryHover":  { "$value": "{color.neutral.900}", "$type": "color", "$description": "Secondary button hover — darkens" },
         "secondaryActive": { "$value": "{color.neutral.950}", "$type": "color", "$description": "Secondary button press — darkest" },
@@ -60,7 +61,7 @@
 
     "shadow": {
       "component": { "$value": "{shadow.xs}",                        "$type": "shadow", "$description": "⭐ Inputs, chips" },
-      "container": { "$value": "{shadow.sm}",                        "$type": "shadow", "$description": "⭐ Cards, panels" },
+      "container": { "$value": "{shadow.md}",                        "$type": "shadow", "$description": "⭐ Cards, panels" },
       "floating":  { "$value": "{shadow.md}",                        "$type": "shadow", "$description": "Dropdowns, popovers" },
       "overlay":   { "$value": "{shadow.xl}",                        "$type": "shadow", "$description": "Modals" },
       "focus":     { "$value": "0 0 0 3px rgba(147, 51, 234, 0.4)", "$type": "shadow", "$description": "⭐ Focus ring — purple.600 at 40% opacity" }
