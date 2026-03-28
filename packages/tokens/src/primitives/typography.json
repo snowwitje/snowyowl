@@ -19,6 +19,9 @@
     },
 
     "weight": {
+      "thin":      { "$value": "100", "$type": "fontWeight" },
+      "extraLight": { "$value": "200", "$type": "fontWeight" },
+      "light":     { "$value": "300", "$type": "fontWeight" },
       "regular":   { "$value": "400", "$type": "fontWeight" },
       "medium":    { "$value": "500", "$type": "fontWeight" },
       "semibold":  { "$value": "600", "$type": "fontWeight" },
