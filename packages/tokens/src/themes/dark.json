@@ -35,9 +35,12 @@
         "secondary":       { "$value": "{color.neutral.200}", "$type": "color", "$description": "Light fill for secondary button on dark" },
         "secondaryHover":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Lightens on hover" },
         "secondaryActive": { "$value": "{color.neutral.300}", "$type": "color", "$description": "Slightly darker on press" },
-        "ghostHover":      { "$value": "{color.neutral.800}", "$type": "color", "$description": "Ghost/list item hover — dark tint" },
-        "ghostActive":     { "$value": "{color.neutral.700}", "$type": "color", "$description": "Ghost/list item pressed" },
-        "ghostSubtle":     { "$value": "{color.neutral.800}", "$type": "color", "$description": "Persistent selected bg for nav/lists" }
+        "ghostHover":        { "$value": "{color.neutral.800}", "$type": "color", "$description": "Ghost/list item hover — dark tint, transient" },
+        "ghostActive":       { "$value": "{color.neutral.700}", "$type": "color", "$description": "Ghost/list item pressed — transient" },
+        "navSelected":       { "$value": "{color.mauve.600}",   "$type": "color", "$description": "Selected nav/list item — brand mauve on dark, persistent" },
+        "navSelectedText":   { "$value": "{color.neutral.950}", "$type": "color", "$description": "Text on selected item — dark on mauve, 8.43 AAA" },
+        "navSelectedHover":  { "$value": "{color.mauve.700}",   "$type": "color", "$description": "Hover on already-selected item — darker mauve" },
+        "navUnselected":     { "$value": "{color.neutral.800}", "$type": "color", "$description": "Persistent unselected bg — subtle dark tint" }
       },
 
       "status": {
