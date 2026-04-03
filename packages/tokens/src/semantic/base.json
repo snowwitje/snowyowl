@@ -162,11 +162,11 @@
           "$type": "color"
         },
         "info": {
-          "$value": "{color.mauve.600}",
+          "$value": "{color.purple.600}",
           "$type": "color"
         },
         "infoSubtle": {
-          "$value": "{color.mauve.100}",
+          "$value": "{color.purple.100}",
           "$type": "color"
         }
       }
