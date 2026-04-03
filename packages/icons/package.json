@@ -1,0 +1,28 @@
+{
+  "name": "@snowyowl/icons",
+  "version": "0.1.0",
+  "description": "SnowyOwl icon set — 278 SVG icons as web components",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./sprite.svg": "./sprite.svg",
+    "./icon-names": "./icon-names.js"
+  },
+  "files": ["dist", "sprite.svg", "icon-names.ts", "icon-names.js"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "lit": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

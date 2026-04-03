@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "lit": "^3.1.0",
-    "@snowyowl/tokens": "workspace:*"
+    "@snowyowl/tokens": "workspace:*",
+    "@snowyowl/icons": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0"

@@ -1,0 +1,324 @@
+# SnowyOwl Icon Catalog
+
+**Total icons:** 278
+
+## Naming conventions
+
+- Filled variant: `icon-name` (e.g. `bell`, `folder`)
+- Outline variant: `icon-name-outline` (e.g. `bell-outline`, `folder-outline`)
+- Thin variant: `icon-name-thin-outline`
+- Directional: `arrow-right`, `chevron-down`, `angle-up`
+
+## Notable renames from source
+
+| Original | New name | Reason |
+|---|---|---|
+| `cog / cogs` | `settings / settings-multi` | More descriptive |
+| `eye-open / eye-close` | `eye / eye-off` | Standard pattern |
+| `pencil` | `edit` | More semantic |
+| `envelope / envelope-o` | `mail / mail-outline` | Cleaner |
+| `add-circle` | `plus-circle` | Consistent with minus-circle |
+| `locked / unlocked` | `lock / unlocked` | Simpler |
+| `bars` | `menu-bars` | Avoid ambiguity with bar-chart |
+| `*-o suffix (39 icons)` | `*-outline` | Normalize away from FontAwesome convention |
+| `swap-exchage` | `swap-exchange` | Fix typo |
+| `arrow-dropdown/dropleft/etc` | `arrow-down-small/etc` | Clearer naming |
+| `checkmark / checkmark-sharp` | `check-alt / check-sharp` | Avoid redundancy with check |
+| `alarm-clock` | `clock-alarm` | Noun-first naming |
+| `clock-outline` | `clock` | Simplify — only one clock variant |
+
+## Missing for full component coverage
+
+- delete (use trash)
+- copy
+- paste
+- redo
+- save
+- share
+- pause
+- stop
+- back (use arrow-left)
+- forward (use arrow-right)
+- eye-off (added)
+- settings (added from cog)
+
+## Full icon list
+
+- `address-book`
+- `air`
+- `angle-double-down`
+- `angle-double-left`
+- `angle-double-right`
+- `angle-double-up`
+- `angle-down`
+- `angle-left`
+- `angle-right`
+- `angle-up`
+- `archive`
+- `archive-files`
+- `arrow-circle-up-line`
+- `arrow-down`
+- `arrow-down-small`
+- `arrow-down-sort`
+- `arrow-left`
+- `arrow-left-small`
+- `arrow-move`
+- `arrow-right`
+- `arrow-right-small`
+- `arrow-up`
+- `arrow-up-small`
+- `arrow-up-sort`
+- `attach`
+- `ban`
+- `bar-chart`
+- `barcode`
+- `battery-0`
+- `battery-1`
+- `battery-2`
+- `battery-3`
+- `battery-4`
+- `battery-power`
+- `bell`
+- `bell-outline`
+- `bell-slash`
+- `bell-slash-outline`
+- `bluetooth`
+- `bolt`
+- `book`
+- `briefcase`
+- `buffer`
+- `buffer-outline`
+- `bug`
+- `building`
+- `bullseye`
+- `calendar`
+- `calendar-check-outline`
+- `calendar-outline`
+- `calendar-times-outline`
+- `camera`
+- `chart-area`
+- `chart-bar`
+- `chart-line`
+- `chart-pie`
+- `chart-scatter`
+- `check`
+- `check-alt`
+- `check-circle`
+- `check-circle-outline`
+- `check-circle-thin-outline`
+- `check-sharp`
+- `chevron-down`
+- `chevron-left`
+- `chevron-right`
+- `chevron-up`
+- `circle`
+- `circle-outline`
+- `circle-thin`
+- `classification`
+- `clipboard`
+- `clock`
+- `clock-alarm`
+- `clone`
+- `close`
+- `close-circle`
+- `close-circle-thin-outline`
+- `close-thin`
+- `cloud`
+- `cloud-download`
+- `cloud-download-outline`
+- `cloud-outline`
+- `cloud-upload`
+- `cloud-upload-outline`
+- `code`
+- `collapse`
+- `columns`
+- `comment`
+- `comment-outline`
+- `comments`
+- `comments-outline`
+- `compare`
+- `compass`
+- `compliance-report`
+- `compose`
+- `cube`
+- `dashboard`
+- `database`
+- `database-outline`
+- `datamatrix`
+- `desktop`
+- `download`
+- `edit`
+- `edit-circle`
+- `edit-recipients`
+- `envelope-outline`
+- `exclamation`
+- `exclamation-circle`
+- `exclamation-triangle`
+- `expand`
+- `external-link`
+- `eye`
+- `eye-off`
+- `factory`
+- `file`
+- `file-archive-outline`
+- `file-audio-outline`
+- `file-chart`
+- `file-code-outline`
+- `file-config`
+- `file-deck`
+- `file-excel-outline`
+- `file-image-outline`
+- `file-outline`
+- `file-pdf-outline`
+- `file-powerpoint-outline`
+- `file-text`
+- `file-text-outline`
+- `file-video-outline`
+- `file-word-outline`
+- `files-outline`
+- `filter`
+- `flag`
+- `flag-outline`
+- `flame`
+- `flask`
+- `flow-cascade`
+- `flow-tree`
+- `folder`
+- `folder-open`
+- `folder-open-outline`
+- `folder-outline`
+- `gasbottle`
+- `globe`
+- `graduation-cap`
+- `hand-pointer-outline`
+- `hdd-outline`
+- `heart`
+- `heart-outline`
+- `help-buoy`
+- `hierarchy`
+- `history`
+- `home`
+- `hourglass`
+- `image`
+- `images`
+- `info-circle`
+- `info-circle-outline`
+- `information`
+- `jump-left`
+- `jump-right`
+- `key`
+- `keyboard`
+- `laptop`
+- `layers`
+- `leak`
+- `lightbulb`
+- `lightbulb-shine`
+- `link`
+- `list`
+- `list-ul`
+- `location-arrow`
+- `location-pin`
+- `lock`
+- `lock-circled`
+- `log-in`
+- `log-out`
+- `long-arrow-down`
+- `long-arrow-left`
+- `long-arrow-right`
+- `long-arrow-up`
+- `mail`
+- `mailinglist`
+- `map`
+- `menu`
+- `menu-bars`
+- `menu-dots`
+- `minus`
+- `minus-circle`
+- `minus-circle-thin-outline`
+- `minus-square-outline`
+- `mobile-signal`
+- `moon-outline`
+- `options`
+- `page-multiple`
+- `pencil-square-outline`
+- `phone-portrait`
+- `pin`
+- `play`
+- `plot-probability`
+- `plus`
+- `plus-circle`
+- `plus-circle-thin-outline`
+- `plus-square-outline`
+- `power`
+- `print`
+- `pulse-strong`
+- `question`
+- `question-circle`
+- `question-circle-thin-outline`
+- `radio-tower`
+- `rain-weather`
+- `refinery`
+- `refresh`
+- `repeat`
+- `report`
+- `reset-password`
+- `resize-arrow-down`
+- `resize-arrow-up`
+- `resize-full`
+- `resize-horizontal`
+- `resize-small`
+- `resize-vertical`
+- `search`
+- `search-minus`
+- `search-plus`
+- `sensor`
+- `setting-tools`
+- `settings`
+- `settings-multi`
+- `smile`
+- `smiley-frown`
+- `smiley-meh`
+- `sort`
+- `sort-alpha-asc`
+- `sort-alpha-desc`
+- `sort-amount-asc`
+- `sort-amount-desc`
+- `sort-numeric-asc`
+- `sort-numeric-desc`
+- `star`
+- `star-outline`
+- `sun-weather`
+- `swap-exchange`
+- `tag`
+- `tags`
+- `tasks`
+- `th`
+- `th-large`
+- `th-list`
+- `thermometer`
+- `thumbs-down`
+- `thumbs-down-outline`
+- `thumbs-up`
+- `thumbs-up-outline`
+- `traffic-cone`
+- `trash`
+- `trash-outline`
+- `trends`
+- `truck`
+- `undo`
+- `unlocked`
+- `upload`
+- `user`
+- `user-circle`
+- `users`
+- `users-all`
+- `valve`
+- `video-camera`
+- `volume-down`
+- `volume-off`
+- `volume-up`
+- `warning`
+- `water`
+- `wifi`
+- `world`
+- `wrench`
