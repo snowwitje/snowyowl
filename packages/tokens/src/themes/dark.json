@@ -131,16 +131,10 @@
           "$type": "color",
           "$description": "Ghost/list item pressed"
         },
-        "ghostSubtle": {
-          "$value": "{color.neutral.800}",
-          "$type": "color",
-          "$description": "Persistent selected bg for nav/lists"
-        },
         "navSelected":       { "$value": "{color.mauve.400}",   "$type": "color", "$description": "Selected nav/list item — brand mauve on dark, persistent" },
         "navSelectedText":   { "$value": "{color.neutral.950}", "$type": "color", "$description": "Text on selected item — dark on mauve, 8.43 AAA" },
         "navSelectedHover":  { "$value": "{color.mauve.300}",   "$type": "color", "$description": "Hover on already-selected item — darker mauve" },
         "navUnselected":     { "$value": "{color.neutral.800}", "$type": "color", "$description": "Persistent unselected bg — subtle dark tint" }
-
       },
       "status": {
         "success": {
