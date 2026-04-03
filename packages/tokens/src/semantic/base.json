@@ -1,237 +1,701 @@
 {
   "semantic": {
-
     "color": {
       "surface": {
-        "default":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Page / app background" },
-        "subtle":    { "$value": "{color.neutral.50}",  "$type": "color", "$description": "Dashboard canvas, sidebar, secondary areas" },
-        "raised":    { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Cards, panels — sits on subtle" },
-        "overlay":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Modals, drawers" },
-        "sunken":    { "$value": "{color.neutral.100}", "$type": "color", "$description": "Inset areas, code blocks" }
+        "default": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Page / app background"
+        },
+        "subtle": {
+          "$value": "{color.sand.50}",
+          "$type": "color",
+          "$description": "Dashboard canvas, sidebar \u2014 warm sand tint"
+        },
+        "raised": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Cards, panels \u2014 sits on subtle"
+        },
+        "overlay": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Modals, drawers"
+        },
+        "sunken": {
+          "$value": "{color.neutral.100}",
+          "$type": "color",
+          "$description": "Inset areas, code blocks"
+        }
       },
-
       "border": {
-        "default":   { "$value": "{color.neutral.200}", "$type": "color" },
-        "subtle":    { "$value": "{color.neutral.100}", "$type": "color" },
-        "strong":    { "$value": "{color.neutral.300}", "$type": "color" },
-        "focus":     { "$value": "{color.purple.600}",  "$type": "color", "$description": "Focus ring color" }
+        "default": {
+          "$value": "{color.sand.200}",
+          "$type": "color"
+        },
+        "subtle": {
+          "$value": "{color.sand.100}",
+          "$type": "color"
+        },
+        "strong": {
+          "$value": "{color.neutral.300}",
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{color.purple.600}",
+          "$type": "color",
+          "$description": "Focus ring color"
+        }
       },
-
       "text": {
-        "default":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Body text — 14.68 AAA" },
-        "subtle":    { "$value": "{color.neutral.600}", "$type": "color", "$description": "Captions, metadata, helper text — 7.56 AAA" },
-        "disabled":  { "$value": "{color.neutral.400}", "$type": "color", "$description": "Disabled — WCAG exempt for inactive UI" },
-        "inverse":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "On dark backgrounds" },
-        "link":      { "$value": "{color.mauve.600}",   "$type": "color" },
-        "linkHover": { "$value": "{color.mauve.700}",   "$type": "color" }
+        "default": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Body text \u2014 14.68 AAA"
+        },
+        "subtle": {
+          "$value": "{color.neutral.600}",
+          "$type": "color",
+          "$description": "Captions, metadata, helper text \u2014 7.56 AAA"
+        },
+        "disabled": {
+          "$value": "{color.neutral.400}",
+          "$type": "color",
+          "$description": "Disabled \u2014 WCAG exempt for inactive UI"
+        },
+        "inverse": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "On dark backgrounds"
+        },
+        "link": {
+          "$value": "{color.mauve.600}",
+          "$type": "color"
+        },
+        "linkHover": {
+          "$value": "{color.mauve.700}",
+          "$type": "color"
+        }
       },
-
       "interactive": {
-        "primary":         { "$value": "{color.mauve.600}",   "$type": "color" },
-        "primaryHover":    { "$value": "{color.mauve.700}",   "$type": "color" },
-        "primaryActive":   { "$value": "{color.mauve.800}",   "$type": "color" },
-        "primarySubtle":   { "$value": "{color.mauve.50}",    "$type": "color", "$description": "Selected/active state background" },
-        "actionText":     { "$value": "{color.neutral.0}",    "$type": "color", "$description": "Text/icon on all filled buttons — primary and secondary" },
-        "secondary":       { "$value": "{color.neutral.800}", "$type": "color", "$description": "Filled secondary button color" },
-        "secondaryHover":  { "$value": "{color.neutral.900}", "$type": "color", "$description": "Secondary button hover — darkens" },
-        "secondaryActive": { "$value": "{color.neutral.950}", "$type": "color", "$description": "Secondary button press — darkest" },
-        "ghostHover":        { "$value": "{color.neutral.100}", "$type": "color", "$description": "Ghost button / list item hover bg — transient" },
-        "ghostActive":       { "$value": "{color.neutral.200}", "$type": "color", "$description": "Ghost button / list item pressed bg — transient" },
-        "navSelected":       { "$value": "{color.neutral.800}", "$type": "color", "$description": "Selected nav/list item bg — dark, persistent" },
-        "navSelectedText":   { "$value": "{color.neutral.0}",   "$type": "color", "$description": "Text on selected nav/list item — white on dark bg" },
-        "navSelectedHover":  { "$value": "{color.neutral.700}", "$type": "color", "$description": "Hover on already-selected nav/list item" },
-        "navUnselected":     { "$value": "{color.neutral.100}", "$type": "color", "$description": "Persistent unselected bg — subtle tint, replaces ghostSubtle" }
+        "primary": {
+          "$value": "{color.mauve.600}",
+          "$type": "color"
+        },
+        "primaryHover": {
+          "$value": "{color.mauve.700}",
+          "$type": "color"
+        },
+        "primaryActive": {
+          "$value": "{color.mauve.800}",
+          "$type": "color"
+        },
+        "primarySubtle": {
+          "$value": "{color.mauve.50}",
+          "$type": "color",
+          "$description": "Selected/active state background"
+        },
+        "actionText": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Text/icon on all filled buttons \u2014 primary and secondary"
+        },
+        "secondary": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Filled secondary button color"
+        },
+        "secondaryHover": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "Secondary button hover \u2014 darkens"
+        },
+        "secondaryActive": {
+          "$value": "{color.neutral.950}",
+          "$type": "color",
+          "$description": "Secondary button press \u2014 darkest"
+        },
+        "ghostHover": {
+          "$value": "{color.sand.100}",
+          "$type": "color",
+          "$description": "Ghost / list item hover bg \u2014 transient"
+        },
+        "ghostActive": {
+          "$value": "{color.sand.200}",
+          "$type": "color",
+          "$description": "Ghost / list item pressed bg \u2014 transient"
+        },
+        "ghostSubtle": {
+          "$value": "{color.neutral.100}",
+          "$type": "color",
+          "$description": "Persistent selected background for list items, nav"
+        },
+        "navUnselected": {
+          "$value": "{color.sand.100}",
+          "$type": "color",
+          "$description": "Persistent unselected bg \u2014 subtle warm tint"
+        }
       },
-
       "status": {
-        "success":       { "$value": "{color.green.700}",  "$type": "color" },
-        "successSubtle": { "$value": "{color.green.100}",  "$type": "color" },
-        "warning":       { "$value": "{color.orange.700}", "$type": "color" },
-        "warningSubtle": { "$value": "{color.orange.100}", "$type": "color" },
-        "error":         { "$value": "{color.red.600}",    "$type": "color" },
-        "errorSubtle":   { "$value": "{color.red.100}",    "$type": "color" },
-        "info":          { "$value": "{color.mauve.600}",  "$type": "color" },
-        "infoSubtle":    { "$value": "{color.mauve.100}",  "$type": "color" }
+        "success": {
+          "$value": "{color.green.700}",
+          "$type": "color"
+        },
+        "successSubtle": {
+          "$value": "{color.green.100}",
+          "$type": "color"
+        },
+        "warning": {
+          "$value": "{color.orange.700}",
+          "$type": "color"
+        },
+        "warningSubtle": {
+          "$value": "{color.orange.100}",
+          "$type": "color"
+        },
+        "error": {
+          "$value": "{color.red.600}",
+          "$type": "color"
+        },
+        "errorSubtle": {
+          "$value": "{color.red.100}",
+          "$type": "color"
+        },
+        "info": {
+          "$value": "{color.mauve.600}",
+          "$type": "color"
+        },
+        "infoSubtle": {
+          "$value": "{color.mauve.100}",
+          "$type": "color"
+        }
       }
     },
-
     "radius": {
-      "component":   { "$value": "{radius.md}",   "$type": "borderRadius", "$description": "⭐ Buttons, inputs, chips" },
-      "container":   { "$value": "{radius.lg}",   "$type": "borderRadius", "$description": "⭐ Cards, panels, modals" },
-      "interactive": { "$value": "{radius.md}",   "$type": "borderRadius", "$description": "⭐ Interactive elements" },
-      "badge":       { "$value": "{radius.full}", "$type": "borderRadius", "$description": "Tags and badges" }
+      "component": {
+        "$value": "{radius.md}",
+        "$type": "borderRadius",
+        "$description": "\u2b50 Buttons, inputs, chips"
+      },
+      "container": {
+        "$value": "{radius.lg}",
+        "$type": "borderRadius",
+        "$description": "\u2b50 Cards, panels, modals"
+      },
+      "interactive": {
+        "$value": "{radius.md}",
+        "$type": "borderRadius",
+        "$description": "\u2b50 Interactive elements"
+      },
+      "badge": {
+        "$value": "{radius.full}",
+        "$type": "borderRadius",
+        "$description": "Tags and badges"
+      }
     },
-
     "shadow": {
-      "component": { "$value": "{shadow.xs}",                        "$type": "shadow", "$description": "⭐ Inputs, chips" },
-      "container": { "$value": "{shadow.md}",                        "$type": "shadow", "$description": "⭐ Cards, panels" },
-      "floating":  { "$value": "{shadow.md}",                        "$type": "shadow", "$description": "Dropdowns, popovers" },
-      "overlay":   { "$value": "{shadow.xl}",                        "$type": "shadow", "$description": "Modals" },
-      "focus":     { "$value": "0 0 0 3px rgba(147, 51, 234, 0.4)", "$type": "shadow", "$description": "⭐ Focus ring — purple.600 at 40% opacity" }
+      "component": {
+        "$value": "{shadow.xs}",
+        "$type": "shadow",
+        "$description": "\u2b50 Inputs, chips"
+      },
+      "container": {
+        "$value": "{shadow.md}",
+        "$type": "shadow",
+        "$description": "\u2b50 Cards, panels"
+      },
+      "floating": {
+        "$value": "{shadow.md}",
+        "$type": "shadow",
+        "$description": "Dropdowns, popovers"
+      },
+      "overlay": {
+        "$value": "{shadow.xl}",
+        "$type": "shadow",
+        "$description": "Modals"
+      },
+      "focus": {
+        "$value": "0 0 0 3px rgba(147, 51, 234, 0.4)",
+        "$type": "shadow",
+        "$description": "\u2b50 Focus ring \u2014 purple.600 at 40% opacity"
+      }
     },
-
     "typography": {
-      "family-body":     { "$value": "{font.family.sans}", "$type": "fontFamily", "$description": "⭐ Body / UI font" },
-      "family-heading":  { "$value": "{font.family.sans}", "$type": "fontFamily", "$description": "⭐ Heading font — swap for personality" },
-      "family-code":     { "$value": "{font.family.mono}", "$type": "fontFamily" },
-      "size-body":       { "$value": "{font.size.md}",     "$type": "fontSize" },
-      "size-body-sm":    { "$value": "{font.size.sm}",     "$type": "fontSize" },
-      "weight-body":     { "$value": "{font.weight.light}",   "$type": "fontWeight", "$description": "300 — Geologica is thick, light weight for body" },
-      "weight-body-sm":  { "$value": "{font.weight.regular}", "$type": "fontWeight", "$description": "400 — regular at small sizes for readability" },
-      "weight-heading":  { "$value": "{font.weight.bold}",    "$type": "fontWeight" },
-      "weight-label":    { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
-      "weight-footnote": { "$value": "{font.weight.light}",   "$type": "fontWeight" },
-      "weight-caption":  { "$value": "{font.weight.light}",   "$type": "fontWeight" }
+      "family-body": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily",
+        "$description": "\u2b50 Body / UI font"
+      },
+      "family-heading": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily",
+        "$description": "\u2b50 Heading font \u2014 swap for personality"
+      },
+      "family-code": {
+        "$value": "{font.family.mono}",
+        "$type": "fontFamily"
+      },
+      "size-body": {
+        "$value": "{font.size.md}",
+        "$type": "fontSize"
+      },
+      "size-body-sm": {
+        "$value": "{font.size.sm}",
+        "$type": "fontSize"
+      },
+      "weight-body": {
+        "$value": "{font.weight.light}",
+        "$type": "fontWeight",
+        "$description": "300 \u2014 Geologica is thick, light weight for body"
+      },
+      "weight-body-sm": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight",
+        "$description": "400 \u2014 regular at small sizes for readability"
+      },
+      "weight-heading": {
+        "$value": "{font.weight.bold}",
+        "$type": "fontWeight"
+      },
+      "weight-label": {
+        "$value": "{font.weight.medium}",
+        "$type": "fontWeight"
+      },
+      "weight-footnote": {
+        "$value": "{font.weight.light}",
+        "$type": "fontWeight"
+      },
+      "weight-caption": {
+        "$value": "{font.weight.light}",
+        "$type": "fontWeight"
+      }
     },
-
     "textStyle": {
       "display-2xl": {
-        "fontFamily":    { "$value": "{font.family.sans}",         "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.7xl}",            "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.bold}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.tight}", "$type": "letterSpacing" },
-        "$description": "Hero / marketing display — 72px bold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.7xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.bold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.tight}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Hero / marketing display \u2014 72px bold"
       },
       "display-xl": {
-        "fontFamily":    { "$value": "{font.family.sans}",         "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.6xl}",            "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.bold}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.tight}", "$type": "letterSpacing" },
-        "$description": "Large display — 60px bold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.6xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.bold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.tight}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Large display \u2014 60px bold"
       },
       "heading-xl": {
-        "fontFamily":    { "$value": "{font.family.sans}",         "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.4xl}",            "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.bold}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.tight}", "$type": "letterSpacing" },
-        "$description": "Page title — 36px bold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.4xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.bold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.tight}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Page title \u2014 36px bold"
       },
       "heading-lg": {
-        "fontFamily":    { "$value": "{font.family.sans}",         "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.3xl}",            "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.bold}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.tight}", "$type": "letterSpacing" },
-        "$description": "Section heading — 30px bold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.3xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.bold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.tight}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Section heading \u2014 30px bold"
       },
       "heading-md": {
-        "fontFamily":    { "$value": "{font.family.sans}",         "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.2xl}",            "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.semibold}",     "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.snug}",     "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.tight}", "$type": "letterSpacing" },
-        "$description": "Subsection heading — 24px semibold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.2xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.semibold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.snug}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.tight}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Subsection heading \u2014 24px semibold"
       },
       "heading-sm": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.xl}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.semibold}",      "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.snug}",      "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Card heading, panel title — 20px semibold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.xl}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.semibold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.snug}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Card heading, panel title \u2014 20px semibold"
       },
       "heading-xs": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.lg}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.semibold}",      "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.snug}",      "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Small heading, widget title — 18px semibold"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.lg}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.semibold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.snug}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Small heading, widget title \u2014 18px semibold"
       },
       "body-lg": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.lg}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.light}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.relaxed}",   "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Large body — 18px light, long-form prose"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.lg}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.light}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.relaxed}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Large body \u2014 18px light, long-form prose"
       },
       "body-md": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.md}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.light}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.normal}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Default body — 16px light"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.md}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.light}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.normal}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Default body \u2014 16px light"
       },
       "body-sm": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.sm}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.regular}",       "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.normal}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Small body — 14px regular (heavier for readability)"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.sm}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.regular}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.normal}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Small body \u2014 14px regular (heavier for readability)"
       },
       "label-lg": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.md}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.medium}",        "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",     "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Button label, form label — 16px medium"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.md}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.medium}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Button label, form label \u2014 16px medium"
       },
       "label-md": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.sm}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.medium}",        "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",     "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Small button, input label — 14px medium"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.sm}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.medium}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Small button, input label \u2014 14px medium"
       },
       "label-sm": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.xs}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.medium}",        "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",     "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.wide}",   "$type": "letterSpacing" },
-        "$description": "Badge, tag, chip label — 12px medium, slightly tracked"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.xs}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.medium}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.wide}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Badge, tag, chip label \u2014 12px medium, slightly tracked"
       },
       "caption": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.xs}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.light}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.normal}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Image captions, helper text — 12px light"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.xs}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.light}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.normal}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Image captions, helper text \u2014 12px light"
       },
       "footnote": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.2xs}",             "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.light}",         "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.normal}",    "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Legal, footnotes — 10px light"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.2xs}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.light}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.normal}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Legal, footnotes \u2014 10px light"
       },
       "code": {
-        "fontFamily":    { "$value": "{font.family.mono}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.sm}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.regular}",       "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.relaxed}",   "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.normal}", "$type": "letterSpacing" },
-        "$description": "Inline code, code blocks — JetBrains Mono 14px"
+        "fontFamily": {
+          "$value": "{font.family.mono}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.sm}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.regular}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.relaxed}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.normal}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Inline code, code blocks \u2014 JetBrains Mono 14px"
       },
       "overline": {
-        "fontFamily":    { "$value": "{font.family.sans}",          "$type": "fontFamily" },
-        "fontSize":      { "$value": "{font.size.xs}",              "$type": "fontSize" },
-        "fontWeight":    { "$value": "{font.weight.semibold}",      "$type": "fontWeight" },
-        "lineHeight":    { "$value": "{font.lineHeight.tight}",     "$type": "lineHeight" },
-        "letterSpacing": { "$value": "{font.letterSpacing.widest}", "$type": "letterSpacing" },
-        "$description": "Section labels, eyebrow text — 12px semibold, wide tracking"
+        "fontFamily": {
+          "$value": "{font.family.sans}",
+          "$type": "fontFamily"
+        },
+        "fontSize": {
+          "$value": "{font.size.xs}",
+          "$type": "fontSize"
+        },
+        "fontWeight": {
+          "$value": "{font.weight.semibold}",
+          "$type": "fontWeight"
+        },
+        "lineHeight": {
+          "$value": "{font.lineHeight.tight}",
+          "$type": "lineHeight"
+        },
+        "letterSpacing": {
+          "$value": "{font.letterSpacing.widest}",
+          "$type": "letterSpacing"
+        },
+        "$description": "Section labels, eyebrow text \u2014 12px semibold, wide tracking"
       }
     },
-
     "spacing": {
-      "component-xs": { "$value": "{space.1}",  "$type": "spacing" },
-      "component-sm": { "$value": "{space.2}",  "$type": "spacing" },
-      "component-md": { "$value": "{space.4}",  "$type": "spacing" },
-      "component-lg": { "$value": "{space.6}",  "$type": "spacing" },
-      "layout-sm":    { "$value": "{space.8}",  "$type": "spacing" },
-      "layout-md":    { "$value": "{space.12}", "$type": "spacing" },
-      "layout-lg":    { "$value": "{space.16}", "$type": "spacing" },
-      "layout-xl":    { "$value": "{space.24}", "$type": "spacing" }
+      "component-xs": {
+        "$value": "{space.1}",
+        "$type": "spacing"
+      },
+      "component-sm": {
+        "$value": "{space.2}",
+        "$type": "spacing"
+      },
+      "component-md": {
+        "$value": "{space.4}",
+        "$type": "spacing"
+      },
+      "component-lg": {
+        "$value": "{space.6}",
+        "$type": "spacing"
+      },
+      "layout-sm": {
+        "$value": "{space.8}",
+        "$type": "spacing"
+      },
+      "layout-md": {
+        "$value": "{space.12}",
+        "$type": "spacing"
+      },
+      "layout-lg": {
+        "$value": "{space.16}",
+        "$type": "spacing"
+      },
+      "layout-xl": {
+        "$value": "{space.24}",
+        "$type": "spacing"
+      }
     }
   }
 }

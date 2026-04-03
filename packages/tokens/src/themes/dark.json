@@ -1,66 +1,207 @@
 {
   "semantic": {
-
     "color": {
       "surface": {
-        "default":  { "$value": "{color.neutral.950}", "$type": "color", "$description": "Dark page background" },
-        "subtle":   { "$value": "{color.neutral.900}", "$type": "color", "$description": "Dark sidebar, secondary areas" },
-        "raised":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Dark cards, panels" },
-        "overlay":  { "$value": "{color.neutral.800}", "$type": "color", "$description": "Dark modals, drawers" },
-        "sunken":   { "$value": "{color.neutral.1000}","$type": "color", "$description": "Pure black inset areas" }
+        "default": {
+          "$value": "{color.neutral.950}",
+          "$type": "color",
+          "$description": "Dark page background"
+        },
+        "subtle": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "Dark sidebar, secondary areas"
+        },
+        "raised": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Dark cards, panels"
+        },
+        "overlay": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Dark modals, drawers"
+        },
+        "sunken": {
+          "$value": "{color.neutral.1000}",
+          "$type": "color",
+          "$description": "Pure black inset areas"
+        }
       },
-
       "border": {
-        "default":  { "$value": "{color.neutral.600}", "$type": "color", "$description": "3:1+ on dark surfaces" },
-        "subtle":   { "$value": "{color.neutral.700}", "$type": "color" },
-        "strong":   { "$value": "{color.neutral.500}", "$type": "color" },
-        "focus":    { "$value": "{color.purple.500}",  "$type": "color", "$description": "5.09 AA on darkest surface" }
+        "default": {
+          "$value": "{color.neutral.600}",
+          "$type": "color",
+          "$description": "3:1+ on dark surfaces"
+        },
+        "subtle": {
+          "$value": "{color.neutral.700}",
+          "$type": "color"
+        },
+        "strong": {
+          "$value": "{color.neutral.500}",
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{color.purple.500}",
+          "$type": "color",
+          "$description": "5.09 AA on darkest surface"
+        }
       },
-
       "text": {
-        "default":  { "$value": "{color.neutral.50}",  "$type": "color", "$description": "19.27 AAA — softer than pure white" },
-        "subtle":   { "$value": "{color.neutral.400}", "$type": "color", "$description": "7.93 AAA" },
-        "disabled": { "$value": "{color.neutral.600}", "$type": "color", "$description": "WCAG exempt — inactive UI" },
-        "inverse":  { "$value": "{color.neutral.900}", "$type": "color", "$description": "On light surfaces within dark theme" },
-        "link":     { "$value": "{color.mauve.400}",   "$type": "color", "$description": "8.43 AAA" },
-        "linkHover":{ "$value": "{color.mauve.300}",   "$type": "color", "$description": "12.10 AAA" }
+        "default": {
+          "$value": "{color.neutral.50}",
+          "$type": "color",
+          "$description": "19.27 AAA \u2014 softer than pure white"
+        },
+        "subtle": {
+          "$value": "{color.neutral.400}",
+          "$type": "color",
+          "$description": "7.93 AAA"
+        },
+        "disabled": {
+          "$value": "{color.neutral.600}",
+          "$type": "color",
+          "$description": "WCAG exempt \u2014 inactive UI"
+        },
+        "inverse": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "On light surfaces within dark theme"
+        },
+        "link": {
+          "$value": "{color.mauve.400}",
+          "$type": "color",
+          "$description": "8.43 AAA"
+        },
+        "linkHover": {
+          "$value": "{color.mauve.300}",
+          "$type": "color",
+          "$description": "12.10 AAA"
+        }
       },
-
       "interactive": {
-        "primary":         { "$value": "{color.mauve.400}", "$type": "color", "$description": "8.43 AAA on surface.default" },
-        "primaryHover":    { "$value": "{color.mauve.300}", "$type": "color", "$description": "12.10 AAA — lightens on hover" },
-        "primaryActive":   { "$value": "{color.mauve.500}", "$type": "color", "$description": "5.68 AA — darkens on press" },
-        "primarySubtle":   { "$value": "{color.neutral.800}", "$type": "color", "$description": "Selected/active state background" },
-        "actionText":     { "$value": "{color.neutral.950}", "$type": "color", "$description": "Dark text on light buttons" },
-        "secondary":       { "$value": "{color.neutral.200}", "$type": "color", "$description": "Light fill for secondary button on dark" },
-        "secondaryHover":  { "$value": "{color.neutral.100}", "$type": "color", "$description": "Lightens on hover" },
-        "secondaryActive": { "$value": "{color.neutral.300}", "$type": "color", "$description": "Slightly darker on press" },
-        "ghostHover":        { "$value": "{color.neutral.800}", "$type": "color", "$description": "Ghost/list item hover — dark tint, transient" },
-        "ghostActive":       { "$value": "{color.neutral.700}", "$type": "color", "$description": "Ghost/list item pressed — transient" },
-        "navSelected":       { "$value": "{color.mauve.600}",   "$type": "color", "$description": "Selected nav/list item — brand mauve on dark, persistent" },
-        "navSelectedText":   { "$value": "{color.neutral.950}", "$type": "color", "$description": "Text on selected item — dark on mauve, 8.43 AAA" },
-        "navSelectedHover":  { "$value": "{color.mauve.700}",   "$type": "color", "$description": "Hover on already-selected item — darker mauve" },
-        "navUnselected":     { "$value": "{color.neutral.800}", "$type": "color", "$description": "Persistent unselected bg — subtle dark tint" }
+        "primary": {
+          "$value": "{color.mauve.400}",
+          "$type": "color",
+          "$description": "8.43 AAA on surface.default"
+        },
+        "primaryHover": {
+          "$value": "{color.mauve.300}",
+          "$type": "color",
+          "$description": "12.10 AAA \u2014 lightens on hover"
+        },
+        "primaryActive": {
+          "$value": "{color.mauve.500}",
+          "$type": "color",
+          "$description": "5.68 AA \u2014 darkens on press"
+        },
+        "primarySubtle": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Selected/active state background"
+        },
+        "actionText": {
+          "$value": "{color.neutral.950}",
+          "$type": "color",
+          "$description": "Dark text on light buttons"
+        },
+        "secondary": {
+          "$value": "{color.neutral.200}",
+          "$type": "color",
+          "$description": "Light fill for secondary button on dark"
+        },
+        "secondaryHover": {
+          "$value": "{color.neutral.100}",
+          "$type": "color",
+          "$description": "Lightens on hover"
+        },
+        "secondaryActive": {
+          "$value": "{color.neutral.300}",
+          "$type": "color",
+          "$description": "Slightly darker on press"
+        },
+        "ghostHover": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Ghost/list item hover \u2014 dark tint"
+        },
+        "ghostActive": {
+          "$value": "{color.neutral.700}",
+          "$type": "color",
+          "$description": "Ghost/list item pressed"
+        },
+        "ghostSubtle": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Persistent selected bg for nav/lists"
+        }
       },
-
       "status": {
-        "success":       { "$value": "{color.green.400}",  "$type": "color", "$description": "11.55 AAA on dark" },
-        "successSubtle": { "$value": "rgba(74, 222, 128, 0.15)", "$type": "color", "$description": "green.400 at 15% opacity — overlays on surface.raised" },
-        "warning":       { "$value": "{color.orange.400}", "$type": "color", "$description": "8.90 AAA on dark" },
-        "warningSubtle": { "$value": "rgba(251, 146, 60, 0.15)", "$type": "color", "$description": "orange.400 at 15% opacity" },
-        "error":         { "$value": "{color.red.400}",    "$type": "color", "$description": "7.28 AAA on dark" },
-        "errorSubtle":   { "$value": "rgba(248, 113, 113, 0.15)", "$type": "color", "$description": "red.400 at 15% opacity" },
-        "info":          { "$value": "{color.purple.400}", "$type": "color", "$description": "7.62 AAA on dark" },
-        "infoSubtle":    { "$value": "rgba(192, 132, 252, 0.15)", "$type": "color", "$description": "purple.400 at 15% opacity" }
+        "success": {
+          "$value": "{color.green.400}",
+          "$type": "color",
+          "$description": "11.55 AAA on dark"
+        },
+        "successSubtle": {
+          "$value": "rgba(74, 222, 128, 0.15)",
+          "$type": "color",
+          "$description": "green.400 at 15% opacity \u2014 overlays on surface.raised"
+        },
+        "warning": {
+          "$value": "{color.orange.400}",
+          "$type": "color",
+          "$description": "8.90 AAA on dark"
+        },
+        "warningSubtle": {
+          "$value": "rgba(251, 146, 60, 0.15)",
+          "$type": "color",
+          "$description": "orange.400 at 15% opacity"
+        },
+        "error": {
+          "$value": "{color.red.400}",
+          "$type": "color",
+          "$description": "7.28 AAA on dark"
+        },
+        "errorSubtle": {
+          "$value": "rgba(248, 113, 113, 0.15)",
+          "$type": "color",
+          "$description": "red.400 at 15% opacity"
+        },
+        "info": {
+          "$value": "{color.purple.400}",
+          "$type": "color",
+          "$description": "7.62 AAA on dark"
+        },
+        "infoSubtle": {
+          "$value": "rgba(192, 132, 252, 0.15)",
+          "$type": "color",
+          "$description": "purple.400 at 15% opacity"
+        }
       }
     },
-
     "shadow": {
-      "component": { "$value": "0 1px 2px 0 rgba(0, 0, 0, 0.4)",                                          "$type": "shadow" },
-      "container": { "$value": "0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.4)",      "$type": "shadow" },
-      "floating":  { "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4)",   "$type": "shadow" },
-      "overlay":   { "$value": "0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5)","$type": "shadow" },
-      "focus":     { "$value": "0 0 0 3px rgba(168, 85, 247, 0.5)",                                        "$type": "shadow", "$description": "⭐ purple.500 at 50% — slightly higher opacity for dark bg visibility" }
+      "component": {
+        "$value": "0 1px 2px 0 rgba(0, 0, 0, 0.4)",
+        "$type": "shadow"
+      },
+      "container": {
+        "$value": "0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.4)",
+        "$type": "shadow"
+      },
+      "floating": {
+        "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4)",
+        "$type": "shadow"
+      },
+      "overlay": {
+        "$value": "0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5)",
+        "$type": "shadow"
+      },
+      "focus": {
+        "$value": "0 0 0 3px rgba(168, 85, 247, 0.5)",
+        "$type": "shadow",
+        "$description": "\u2b50 purple.500 at 50% \u2014 slightly higher opacity for dark bg visibility"
+      }
     }
   }
 }
