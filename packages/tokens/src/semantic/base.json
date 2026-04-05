@@ -26,6 +26,11 @@
           "$value": "{color.sand.100}",
           "$type": "color",
           "$description": "Inset areas, code blocks"
+        },
+        "skeleton": {
+          "$value": "{color.neutral.300}",
+          "$type": "color",
+          "$description": "Skeleton elements"
         }
       },
       "border": {
@@ -144,6 +149,21 @@
           "$value": "{color.sand.100}",
           "$type": "color",
           "$description": "Persistent unselected bg \u2014 subtle warm tint"
+        },
+         "danger": {
+          "$value": "{color.red.800}",
+          "$type": "color",
+          "$description": "Danger button color"
+        },
+        "dangerHover": {
+          "$value": "{color.red.900}",
+          "$type": "color",
+          "$description": "Danger button hover \u2014 darkens"
+        },
+        "dangerActive": {
+          "$value": "{color.red.950}",
+          "$type": "color",
+          "$description": "Danger button press \u2014 darkest"
         }
       },
       "status": {
@@ -183,17 +203,17 @@
     },
     "radius": {
       "component": {
-        "$value": "{radius.md}",
+        "$value": "{radius.lg}",
         "$type": "borderRadius",
         "$description": "\u2b50 Buttons, inputs, chips"
       },
       "container": {
-        "$value": "{radius.lg}",
+        "$value": "{radius.xl}",
         "$type": "borderRadius",
         "$description": "\u2b50 Cards, panels, modals"
       },
       "interactive": {
-        "$value": "{radius.md}",
+        "$value": "{radius.lg}",
         "$type": "borderRadius",
         "$description": "\u2b50 Interactive elements"
       },
@@ -225,9 +245,9 @@
         "$description": "Modals"
       },
       "focus": {
-        "$value": "0 0 0 3px rgba(147, 51, 234, 0.4)",
+        "$value": "0 0 0 3px rgba(147, 51, 234, 1)",
         "$type": "shadow",
-        "$description": "\u2b50 Focus ring \u2014 purple.600 at 40% opacity"
+        "$description": "\u2b50 Focus ring"
       }
     },
     "typography": {

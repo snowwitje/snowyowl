@@ -26,6 +26,11 @@
           "$value": "{color.neutral.1000}",
           "$type": "color",
           "$description": "Pure black inset areas"
+        },
+        "skeleton": {
+          "$value": "{color.neutral.600}",
+          "$type": "color",
+          "$description": "Skeleton elements"
         }
       },
       "border": {
@@ -150,6 +155,21 @@
           "$value": "{color.neutral.800}",
           "$type": "color",
           "$description": "Persistent unselected bg — subtle dark tint" 
+        },
+         "danger": {
+          "$value": "{color.red.500}",
+          "$type": "color",
+          "$description": "Danger button color"
+        },
+        "dangerHover": {
+          "$value": "{color.red.400}",
+          "$type": "color",
+          "$description": "Danger button lightens on hover"
+        },
+        "dangerActive": {
+          "$value": "{color.red.600}",
+          "$type": "color",
+          "$description": "Danger button slightly darker on press"
         }
       },
       "status": {
