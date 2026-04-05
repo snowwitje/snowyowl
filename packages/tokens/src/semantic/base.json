@@ -151,17 +151,17 @@
           "$description": "Persistent unselected bg \u2014 subtle warm tint"
         },
          "danger": {
-          "$value": "{color.red.800}",
+          "$value": "{color.red.700}",
           "$type": "color",
           "$description": "Danger button color"
         },
         "dangerHover": {
-          "$value": "{color.red.900}",
+          "$value": "{color.red.800}",
           "$type": "color",
           "$description": "Danger button hover \u2014 darkens"
         },
         "dangerActive": {
-          "$value": "{color.red.950}",
+          "$value": "{color.red.900}",
           "$type": "color",
           "$description": "Danger button press \u2014 darkest"
         }
