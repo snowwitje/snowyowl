@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../assets/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnowyOwl — Token Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ :root {
+ --bg: #faf7f5;
+ --bg-panel: #ffffff;
+ --border: #ede0d8;
+ --border-strong: #c8c8c2;
+ --text: #1a1a18;
+ --text-subtle: #4b5563;
+ --text-xsubtle: #6b7280;
+ --accent: #6F5A7E;
+ --tag-bg: #ece5ea;
+ --tag-text: #5a5160;
+ --nav-width: 220px;
+ --font-sans: 'Geologica', system-ui, sans-serif;
+ --font-mono: 'JetBrains Mono', monospace;
+ }
+
+ html { font-size: 14px; }
+ body {
+ font-family: var(--font-sans);
+ background: var(--bg);
+ color: var(--text);
+ display: flex;
+ min-height: 100vh;
+ }
+
+ /* ── Nav ── */
+ nav {
+ width: var(--nav-width);
+ flex-shrink: 0;
+ position: fixed;
+ top: 0; left: 0; bottom: 0;
+ background: var(--bg-panel);
+ border-right: 1px solid var(--border);
+ overflow-y: auto;
+ padding: 24px 0 40px;
+ z-index: 10;
+ }
+ .nav-logo {
+ padding: 0 20px 24px;
+ border-bottom: 1px solid var(--border);
+ margin-bottom: 16px;
+ }
+ .nav-logo-mark { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+ .nav-logo-sub { font-size: 11px; color: var(--text-xsubtle); margin-top: 2px; font-family: var(--font-mono); }
+ .nav-section { padding: 0 20px; margin-bottom: 4px; }
+ .nav-section-label {
+ font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+ text-transform: uppercase; color: var(--text-xsubtle);
+ padding: 12px 0 6px;
+ }
+ nav a {
+ display: block; padding: 5px 8px; border-radius: 4px;
+ text-decoration: none; color: var(--text-subtle);
+ font-size: 13px; transition: all 0.1s;
+ }
+ nav a:hover { background: var(--tag-bg); color: var(--text); }
+ nav a.active { background: var(--accent); color: #fff; }
+
+ /* ── Main ── */
+ main {
+ margin-left: var(--nav-width);
+ flex: 1;
+ padding: 48px 56px;
+ max-width: 1100px;
+ }
+
+ .page-header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+ .page-header h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; }
+ .page-header p { color: var(--text-subtle); margin-top: 6px; line-height: 1.6; font-size: 14px; }
+
+ /* ── Sections ── */
+ .section { margin-bottom: 64px; scroll-margin-top: 32px; }
+ .section-header {
+ display: flex; align-items: baseline; gap: 12px;
+ margin-bottom: 20px; padding-bottom: 12px;
+ border-bottom: 1px solid var(--border);
+ }
+ .section-header h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+ .section-header .section-count {
+ font-family: var(--font-mono); font-size: 11px;
+ color: var(--text-xsubtle); background: var(--tag-bg);
+ padding: 2px 7px; border-radius: 99px;
+ }
+ .subsection { margin-bottom: 36px; }
+ .subsection-label {
+ font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+ text-transform: uppercase; color: var(--text-xsubtle);
+ margin-bottom: 10px;
+ }
+
+ /* ── Token Table ── */
+ .token-table { width: 100%; border-collapse: collapse; }
+ .token-table th {
+ text-align: left; font-size: 11px; font-weight: 600;
+ letter-spacing: 0.06em; text-transform: uppercase;
+ color: var(--text-xsubtle); padding: 0 12px 8px;
+ border-bottom: 1px solid var(--border);
+ }
+ .token-table td {
+ padding: 10px 12px; border-bottom: 1px solid var(--border);
+ vertical-align: middle; font-size: 13px;
+ }
+ .token-table tr:last-child td { border-bottom: none; }
+ .token-table tr:hover td { background: #ffffff; }
+
+ .token-name {
+ font-family: var(--font-mono); font-size: 12px;
+ background: var(--tag-bg); color: var(--tag-text);
+ padding: 2px 7px; border-radius: 4px;
+ white-space: nowrap; display: inline-block;
+ }
+ .token-value {
+ font-family: var(--font-mono); font-size: 12px;
+ color: var(--text-subtle);
+ }
+ .token-ref {
+ font-family: var(--font-mono); font-size: 11px;
+ color: var(--text-xsubtle);
+ }
+ .token-desc { color: var(--text-subtle); font-size: 12px; }
+ .star { color: #d4a017; margin-right: 3px; }
+
+ /* ── Color Swatch ── */
+ .swatch-wrap { display: flex; align-items: center; gap: 10px; }
+ .swatch {
+ width: 32px; height: 32px; border-radius: 4px; flex-shrink: 0;
+ border: 1px solid rgba(0,0,0,0.08);
+ box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+ }
+ .swatch-hex { font-family: var(--font-mono); font-size: 12px; color: var(--text-subtle); }
+
+ /* ── Color Palette Grid ── */
+ .palette-grid { display: flex; flex-direction: column; gap: 12px; }
+ .palette-row { display: flex; gap: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+ .palette-cell {
+ flex: 1; height: 56px; position: relative;
+ display: flex; flex-direction: column;
+ justify-content: flex-end; padding: 4px 6px;
+ }
+ .palette-cell-label {
+ font-family: var(--font-mono); font-size: 9px;
+ opacity: 0.7; line-height: 1.3;
+ }
+ .palette-row-label {
+ font-size: 11px; font-weight: 600; text-transform: uppercase;
+ letter-spacing: 0.05em; color: var(--text-xsubtle);
+ margin-bottom: 6px; width: 60px; display: flex;
+ align-items: center;
+ }
+ .palette-row-wrap { display: flex; align-items: center; gap: 10px; }
+
+ /* ── Spacing Visual ── */
+ .spacing-bar-wrap { display: flex; align-items: center; gap: 12px; }
+ .spacing-bar {
+ background: #1a1a18; height: 8px; border-radius: 2px;
+ flex-shrink: 0; min-width: 1px;
+ }
+
+ /* ── Radius Visual ── */
+ .radius-box {
+ width: 40px; height: 40px;
+ background: var(--tag-bg); border: 2px solid var(--border-strong);
+ }
+
+ /* ── Shadow Visual ── */
+ .shadow-box {
+ width: 56px; height: 36px; border-radius: 8px;
+ background: white; border: 1px solid var(--border);
+ }
+
+ /* ── Type Scale ── */
+ .type-sample { line-height: 1.2; color: var(--text); font-family: var(--font-sans); }
+
+ /* ── Motion ── */
+ .motion-demo {
+ width: 28px; height: 28px; border-radius: 6px;
+ background: var(--accent); cursor: pointer;
+ transition-property: transform;
+ transition-timing-function: var(--demo-easing, ease);
+ transition-duration: var(--demo-dur, 200ms);
+ }
+ .motion-demo:hover { transform: translateX(48px); }
+ .motion-cell { width: 120px; }
+
+ /* ── Theme comparison table ── */
+ .theme-compare { width: 100%; border-collapse: collapse; }
+ .theme-compare th {
+ text-align: left; font-size: 11px; font-weight: 600;
+ letter-spacing: 0.06em; text-transform: uppercase;
+ color: var(--text-xsubtle); padding: 0 12px 8px;
+ border-bottom: 1px solid var(--border);
+ }
+ .theme-compare td {
+ padding: 8px 12px; border-bottom: 1px solid var(--border);
+ vertical-align: middle; font-size: 12px;
+ }
+ .theme-compare tr:last-child td { border-bottom: none; }
+ .theme-swatch-group { display: flex; gap: 4px; }
+ .theme-swatch {
+ width: 36px; height: 36px; border-radius: 4px;
+ border: 1px solid rgba(0,0,0,0.1);
+ flex-shrink: 0;
+ }
+</style>
+</head>
+<body>
+
+<nav>
+ <div class="nav-logo">
+ <div class="nav-logo-mark" style="display:flex;align-items:center;gap:9px">
+ <img src="../assets/snowyowl.svg" width="32" height="32" alt="SnowyOwl">
+ <span>SnowyOwl</span>
+ </div>
+ <div class="nav-logo-sub">Token Reference v0.1</div>
+ </div>
+ <div class="nav-section">
+ <div class="nav-section-label">Primitives</div>
+ <a href="#color-primitives">Color palette</a>
+ <a href="#typography">Typography</a>
+ <a href="#spacing">Spacing</a>
+ <a href="#shape-primitives">Radius &amp; Shadow</a>
+ <a href="#motion">Motion</a>
+ <a href="#grid">Grid &amp; Layout</a>
+ </div>
+ <div class="nav-section">
+ <div class="nav-section-label">Semantic</div>
+ <a href="#sem-color">Color — semantic</a>
+ <a href="#sem-shape">Shape personality</a>
+ <a href="#sem-text-styles">Text Styles</a>
+ </div>
+ <div class="nav-section">
+ <div class="nav-section-label">Themes</div>
+ <a href="#themes-overview">Theme overview</a>
+ <a href="#light-theme">Light theme</a>
+ <a href="#dark-theme">Dark theme</a>
+ <a href="#dataviz">Dataviz colors</a>
+ </div>
+</nav>
+
+<main>
+
+ <div class="page-header">
+ <h1>Token Reference</h1>
+ <p>Every design token in SnowyOwl — primitives, semantic, and theme overrides.<br>
+ Semantic tokens marked with <span class="star">★</span> are primary theme override points.</p>
+ </div>
+
+ <!-- ═══════════════════════════════════════════════════
+ COLOR PRIMITIVES
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="color-primitives">
+ <div class="section-header">
+ <h2>Color — Primitives</h2>
+ <span class="section-count">primitives/color.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:20px">Raw color values. Never use these directly in components — always reference semantic color tokens instead.</p>
+
+ <!-- Palette strip display -->
+ <div class="palette-grid" style="margin-bottom:32px">
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Neutral</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#ffffff"><span class="palette-cell-label" style="color:#999">0<br>#ffffff</span></div>
+ <div class="palette-cell" style="background:#f9fafb"><span class="palette-cell-label" style="color:#999">50<br>#f9fafb</span></div>
+ <div class="palette-cell" style="background:#f3f4f6"><span class="palette-cell-label" style="color:#999">100<br>#f3f4f6</span></div>
+ <div class="palette-cell" style="background:#e5e7eb"><span class="palette-cell-label" style="color:#999">200<br>#e5e7eb</span></div>
+ <div class="palette-cell" style="background:#d1d5db"><span class="palette-cell-label" style="color:#777">300<br>#d1d5db</span></div>
+ <div class="palette-cell" style="background:#9ca3af"><span class="palette-cell-label" style="color:#fff">400<br>#9ca3af</span></div>
+ <div class="palette-cell" style="background:#6b7280"><span class="palette-cell-label" style="color:#fff">500<br>#6b7280</span></div>
+ <div class="palette-cell" style="background:#4b5563"><span class="palette-cell-label" style="color:#fff">600<br>#4b5563</span></div>
+ <div class="palette-cell" style="background:#374151"><span class="palette-cell-label" style="color:#fff">700<br>#374151</span></div>
+ <div class="palette-cell" style="background:#1f2937"><span class="palette-cell-label" style="color:#fff">800<br>#1f2937</span></div>
+ <div class="palette-cell" style="background:#111827"><span class="palette-cell-label" style="color:#fff">900<br>#111827</span></div>
+ <div class="palette-cell" style="background:#030712"><span class="palette-cell-label" style="color:#fff">950<br>#030712</span></div>
+ <div class="palette-cell" style="background:#000000"><span class="palette-cell-label" style="color:#fff">1000<br>#000000</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Gray</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#efefef"><span class="palette-cell-label" style="color:#999">50<br>#efefef</span></div>
+ <div class="palette-cell" style="background:#e6e6e6"><span class="palette-cell-label" style="color:#999">100<br>#e6e6e6</span></div>
+ <div class="palette-cell" style="background:#cccccc"><span class="palette-cell-label" style="color:#999">200<br>#cccccc</span></div>
+ <div class="palette-cell" style="background:#b3b3b3"><span class="palette-cell-label" style="color:#777">300<br>#b3b3b3</span></div>
+ <div class="palette-cell" style="background:#999999"><span class="palette-cell-label" style="color:#fff">400<br>#999999</span></div>
+ <div class="palette-cell" style="background:#808080"><span class="palette-cell-label" style="color:#fff">500<br>#808080</span></div>
+ <div class="palette-cell" style="background:#666666"><span class="palette-cell-label" style="color:#fff">600<br>#666666</span></div>
+ <div class="palette-cell" style="background:#4d4d4d"><span class="palette-cell-label" style="color:#fff">700<br>#4d4d4d</span></div>
+ <div class="palette-cell" style="background:#333333"><span class="palette-cell-label" style="color:#fff">800<br>#333333</span></div>
+ <div class="palette-cell" style="background:#1a1a1a"><span class="palette-cell-label" style="color:#fff">900<br>#1a1a1a</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Blue</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#eff6ff"><span class="palette-cell-label" style="color:#999">50<br>#eff6ff</span></div>
+ <div class="palette-cell" style="background:#dbeafe"><span class="palette-cell-label" style="color:#999">100<br>#dbeafe</span></div>
+ <div class="palette-cell" style="background:#bfdbfe"><span class="palette-cell-label" style="color:#999">200<br>#bfdbfe</span></div>
+ <div class="palette-cell" style="background:#93c5fd"><span class="palette-cell-label" style="color:#777">300<br>#93c5fd</span></div>
+ <div class="palette-cell" style="background:#60a5fa"><span class="palette-cell-label" style="color:#fff">400<br>#60a5fa</span></div>
+ <div class="palette-cell" style="background:#3b82f6"><span class="palette-cell-label" style="color:#fff">500<br>#3b82f6</span></div>
+ <div class="palette-cell" style="background:#2563eb"><span class="palette-cell-label" style="color:#fff">600<br>#2563eb</span></div>
+ <div class="palette-cell" style="background:#1d4ed8"><span class="palette-cell-label" style="color:#fff">700<br>#1d4ed8</span></div>
+ <div class="palette-cell" style="background:#1e40af"><span class="palette-cell-label" style="color:#fff">800<br>#1e40af</span></div>
+ <div class="palette-cell" style="background:#063270"><span class="palette-cell-label" style="color:#fff">900<br>#063270</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Green</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#f0fdf4"><span class="palette-cell-label" style="color:#999">50<br>#f0fdf4</span></div>
+ <div class="palette-cell" style="background:#dcfce7"><span class="palette-cell-label" style="color:#999">100<br>#dcfce7</span></div>
+ <div class="palette-cell" style="background:#C1EFD1"><span class="palette-cell-label" style="color:#999">200<br>#C1EFD1</span></div>
+ <div class="palette-cell" style="background:#8DE0A9"><span class="palette-cell-label" style="color:#fff">300<br>#8DE0A9</span></div>
+ <div class="palette-cell" style="background:#4ade80"><span class="palette-cell-label" style="color:#fff">400<br>#4ade80</span></div>
+ <div class="palette-cell" style="background:#22c55e"><span class="palette-cell-label" style="color:#fff">500<br>#22c55e</span></div>
+ <div class="palette-cell" style="background:#16a34a"><span class="palette-cell-label" style="color:#fff">600<br>#16a34a</span></div>
+ <div class="palette-cell" style="background:#148448"><span class="palette-cell-label" style="color:#fff">700<br>#148448</span></div>
+ <div class="palette-cell" style="background:#086B39"><span class="palette-cell-label" style="color:#fff">800<br>#086B39</span></div>
+ <div class="palette-cell" style="background:#14532d"><span class="palette-cell-label" style="color:#fff">900<br>#14532d</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Yellow</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#fffceb"><span class="palette-cell-label" style="color:#999">50<br>#fffbeb</span></div>
+ <div class="palette-cell" style="background:#fff8d6"><span class="palette-cell-label" style="color:#999">100<br>#fff8d6</span></div>
+ <div class="palette-cell" style="background:#ffed99"><span class="palette-cell-label" style="color:#999">200<br>#ffed99</span></div>
+ <div class="palette-cell" style="background:#ffe066"><span class="palette-cell-label" style="color:#999">300<br>#ffd94d</span></div>
+ <div class="palette-cell" style="background:#ffd233"><span class="palette-cell-label" style="color:#777">400<br>#ffd233</span></div>
+ <div class="palette-cell" style="background:#ffc107"><span class="palette-cell-label" style="color:#fff">500<br>#ffc107</span></div>
+ <div class="palette-cell" style="background:#F09C14"><span class="palette-cell-label" style="color:#fff">600<br>#F09C14</span></div>
+ <div class="palette-cell" style="background:#DC800F"><span class="palette-cell-label" style="color:#fff">700<br>#DC800F</span></div>
+ <div class="palette-cell" style="background:#B16400"><span class="palette-cell-label" style="color:#fff">800<br>#B16400</span></div>
+ <div class="palette-cell" style="background:#743E00"><span class="palette-cell-label" style="color:#fff">900<br>#743E00</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Red</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#fef2f2"><span class="palette-cell-label" style="color:#999">50<br>#fef2f2</span></div>
+ <div class="palette-cell" style="background:#fee2e2"><span class="palette-cell-label" style="color:#999">100<br>#fee2e2</span></div>
+ <div class="palette-cell" style="background:#FFCACF"><span class="palette-cell-label" style="color:#999">200<br>#FFCACF</span></div>
+ <div class="palette-cell" style="background:#F5A5B0"><span class="palette-cell-label" style="color:#fff">300<br>#F5A5B0</span></div>
+ <div class="palette-cell" style="background:#f87171"><span class="palette-cell-label" style="color:#fff">400<br>#f87171</span></div>
+ <div class="palette-cell" style="background:#ef4444"><span class="palette-cell-label" style="color:#fff">500<br>#ef4444</span></div>
+ <div class="palette-cell" style="background:#D9233B"><span class="palette-cell-label" style="color:#fff">600<br>#D9233B</span></div>
+ <div class="palette-cell" style="background:#BB1637"><span class="palette-cell-label" style="color:#fff">700<br>#BB1637</span></div>
+ <div class="palette-cell" style="background:#95020E"><span class="palette-cell-label" style="color:#fff">800<br>#95020E</span></div>
+ <div class="palette-cell" style="background:#6E0B13"><span class="palette-cell-label" style="color:#fff">900<br>#6E0B13</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Orange</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#fff7ed"><span class="palette-cell-label" style="color:#999">50<br>#fff7ed</span></div>
+ <div class="palette-cell" style="background:#FBEBD8"><span class="palette-cell-label" style="color:#999">100<br>#FBEBD8</span></div>
+ <div class="palette-cell" style="background:#FFDABD"><span class="palette-cell-label" style="color:#999">200<br>#FFDABD</span></div>
+ <div class="palette-cell" style="background:#FFBC85"><span class="palette-cell-label" style="color:#fff">300<br>#FFBC85</span></div>
+ <div class="palette-cell" style="background:#fb923c"><span class="palette-cell-label" style="color:#fff">400<br>#fb923c</span></div>
+ <div class="palette-cell" style="background:#f97316"><span class="palette-cell-label" style="color:#fff">500<br>#f97316</span></div>
+ <div class="palette-cell" style="background:#ea580c"><span class="palette-cell-label" style="color:#fff">600<br>#ea580c</span></div>
+ <div class="palette-cell" style="background:#C94500"><span class="palette-cell-label" style="color:#fff">700<br>#C94500</span></div>
+ <div class="palette-cell" style="background:#A72E05"><span class="palette-cell-label" style="color:#fff">800<br>#A72E05</span></div>
+ <div class="palette-cell" style="background:#6F1E03"><span class="palette-cell-label" style="color:#fff">900<br>#6F1E03</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Purple</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#faf5ff"><span class="palette-cell-label" style="color:#999">50<br>#faf5ff</span></div>
+ <div class="palette-cell" style="background:#f3e8ff"><span class="palette-cell-label" style="color:#999">100<br>#f3e8ff</span></div>
+ <div class="palette-cell" style="background:#e9d5ff"><span class="palette-cell-label" style="color:#999">200<br>#e9d5ff</span></div>
+ <div class="palette-cell" style="background:#d8b4fe"><span class="palette-cell-label" style="color:#777">300<br>#d8b4fe</span></div>
+ <div class="palette-cell" style="background:#c084fc"><span class="palette-cell-label" style="color:#fff">400<br>#c084fc</span></div>
+ <div class="palette-cell" style="background:#a855f7"><span class="palette-cell-label" style="color:#fff">500<br>#a855f7</span></div>
+ <div class="palette-cell" style="background:#9333ea"><span class="palette-cell-label" style="color:#fff">600<br>#9333ea</span></div>
+ <div class="palette-cell" style="background:#7e22ce"><span class="palette-cell-label" style="color:#fff">700<br>#7e22ce</span></div>
+ <div class="palette-cell" style="background:#541886"><span class="palette-cell-label" style="color:#fff">800<br>#541886</span></div>
+ <div class="palette-cell" style="background:#3d115e"><span class="palette-cell-label" style="color:#fff">900<br>#3d115e</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Pink</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#fdf2f8"><span class="palette-cell-label" style="color:#999">50<br>#fdf2f8</span></div>
+ <div class="palette-cell" style="background:#fce7f3"><span class="palette-cell-label" style="color:#999">100<br>#fce7f3</span></div>
+ <div class="palette-cell" style="background:#fccfe8"><span class="palette-cell-label" style="color:#999">200<br>#fccfe8</span></div>
+ <div class="palette-cell" style="background:#faa6c1"><span class="palette-cell-label" style="color:#777">300<br>#faa6c1</span></div>
+ <div class="palette-cell" style="background:#f472b6"><span class="palette-cell-label" style="color:#fff">400<br>#f472b6</span></div>
+ <div class="palette-cell" style="background:#ec4899"><span class="palette-cell-label" style="color:#fff">500<br>#ec4899</span></div>
+ <div class="palette-cell" style="background:#db2777"><span class="palette-cell-label" style="color:#fff">600<br>#db2777</span></div>
+ <div class="palette-cell" style="background:#be185d"><span class="palette-cell-label" style="color:#fff">700<br>#be185d</span></div>
+ <div class="palette-cell" style="background:#9d174d"><span class="palette-cell-label" style="color:#fff">800<br>#9d174d</span></div>
+ <div class="palette-cell" style="background:#831843"><span class="palette-cell-label" style="color:#fff">900<br>#831843</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Magenta</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#FFF3FB"><span class="palette-cell-label" style="color:#999">50<br>#FFF3FB</span></div>
+ <div class="palette-cell" style="background:#fce7f6"><span class="palette-cell-label" style="color:#999">100<br>#fce7f6</span></div>
+ <div class="palette-cell" style="background:#f9c2ec"><span class="palette-cell-label" style="color:#999">200<br>#f9c2ec</span></div>
+ <div class="palette-cell" style="background:#f490d9"><span class="palette-cell-label" style="color:#777">300<br>#f490d9</span></div>
+ <div class="palette-cell" style="background:#ee5ec4"><span class="palette-cell-label" style="color:#fff">400<br>#ee5ec4</span></div>
+ <div class="palette-cell" style="background:#e029a8"><span class="palette-cell-label" style="color:#fff">500<br>#e029a8</span></div>
+ <div class="palette-cell" style="background:#c01a8c"><span class="palette-cell-label" style="color:#fff">600<br>#c01a8c</span></div>
+ <div class="palette-cell" style="background:#9a1270"><span class="palette-cell-label" style="color:#fff">700<br>#9a1270</span></div>
+ <div class="palette-cell" style="background:#730d54"><span class="palette-cell-label" style="color:#fff">800<br>#730d54</span></div>
+ <div class="palette-cell" style="background:#4d0838"><span class="palette-cell-label" style="color:#fff">900<br>#4d0838</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Teal</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#f0fdfa"><span class="palette-cell-label" style="color:#999">50<br>#f0fdfa</span></div>
+ <div class="palette-cell" style="background:#ccfbf1"><span class="palette-cell-label" style="color:#999">100<br>#ccfbf1</span></div>
+ <div class="palette-cell" style="background:#99f6e4"><span class="palette-cell-label" style="color:#999">200<br>#99f6e4</span></div>
+ <div class="palette-cell" style="background:#5eead4"><span class="palette-cell-label" style="color:#777">300<br>#5eead4</span></div>
+ <div class="palette-cell" style="background:#2dd4bf"><span class="palette-cell-label" style="color:#fff">400<br>#2dd4bf</span></div>
+ <div class="palette-cell" style="background:#14b8a6"><span class="palette-cell-label" style="color:#fff">500<br>#14b8a6</span></div>
+ <div class="palette-cell" style="background:#0d9488"><span class="palette-cell-label" style="color:#fff">600<br>#0d9488</span></div>
+ <div class="palette-cell" style="background:#0f766e"><span class="palette-cell-label" style="color:#fff">700<br>#0f766e</span></div>
+ <div class="palette-cell" style="background:#115e59"><span class="palette-cell-label" style="color:#fff">800<br>#115e59</span></div>
+ <div class="palette-cell" style="background:#134e4a"><span class="palette-cell-label" style="color:#fff">900<br>#134e4a</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Cyan</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#ecfeff"><span class="palette-cell-label" style="color:#999">50<br>#ecfeff</span></div>
+ <div class="palette-cell" style="background:#cffafe"><span class="palette-cell-label" style="color:#999">100<br>#cffafe</span></div>
+ <div class="palette-cell" style="background:#a5f3fc"><span class="palette-cell-label" style="color:#999">200<br>#a5f3fc</span></div>
+ <div class="palette-cell" style="background:#67e8f9"><span class="palette-cell-label" style="color:#777">300<br>#67e8f9</span></div>
+ <div class="palette-cell" style="background:#22d3ee"><span class="palette-cell-label" style="color:#fff">400<br>#22d3ee</span></div>
+ <div class="palette-cell" style="background:#06b6d4"><span class="palette-cell-label" style="color:#fff">500<br>#06b6d4</span></div>
+ <div class="palette-cell" style="background:#0891b2"><span class="palette-cell-label" style="color:#fff">600<br>#0891b2</span></div>
+ <div class="palette-cell" style="background:#0e7490"><span class="palette-cell-label" style="color:#fff">700<br>#0e7490</span></div>
+ <div class="palette-cell" style="background:#155e75"><span class="palette-cell-label" style="color:#fff">800<br>#155e75</span></div>
+ <div class="palette-cell" style="background:#164e63"><span class="palette-cell-label" style="color:#fff">900<br>#164e63</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Mauve</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#f6f3f5"><span class="palette-cell-label" style="color:#999">50<br>#f6f3f5</span></div>
+ <div class="palette-cell" style="background:#ece5ea"><span class="palette-cell-label" style="color:#999">100<br>#ece5ea</span></div>
+ <div class="palette-cell" style="background:#ddd0d7"><span class="palette-cell-label" style="color:#999">200<br>#ddd0d7</span></div>
+ <div class="palette-cell" style="background:#c9b5bf"><span class="palette-cell-label" style="color:#999">300<br>#c9b5bf</span></div>
+ <div class="palette-cell" style="background:#a6808c"><span class="palette-cell-label" style="color:#fff">400<br>#a6808c</span></div>
+ <div class="palette-cell" style="background:#8d6876"><span class="palette-cell-label" style="color:#fff">500<br>#8d6876</span></div>
+ <div class="palette-cell" style="background:#6F5A7E"><span class="palette-cell-label" style="color:#fff">600<br>#6F5A7E</span></div>
+ <div class="palette-cell" style="background:#5a5160"><span class="palette-cell-label" style="color:#fff">700<br>#5a5160</span></div>
+ <div class="palette-cell" style="background:#433c4a"><span class="palette-cell-label" style="color:#fff">800<br>#433c4a</span></div>
+ <div class="palette-cell" style="background:#2d2833"><span class="palette-cell-label" style="color:#fff">900<br>#2d2833</span></div>
+ </div>
+ </div>
+
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Sand</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#faf7f5"><span class="palette-cell-label" style="color:#999">50<br>#faf7f5</span></div>
+ <div class="palette-cell" style="background:#f5ede8"><span class="palette-cell-label" style="color:#999">100<br>#f5ede8</span></div>
+ <div class="palette-cell" style="background:#ede0d8"><span class="palette-cell-label" style="color:#999">200<br>#ede0d8</span></div>
+ <div class="palette-cell" style="background:#deccc3"><span class="palette-cell-label" style="color:#999">300<br>#deccc3</span></div>
+ <div class="palette-cell" style="background:#ccb7ae"><span class="palette-cell-label" style="color:#777">400<br>#ccb7ae</span></div>
+ <div class="palette-cell" style="background:#b89d92"><span class="palette-cell-label" style="color:#fff">500<br>#b89d92</span></div>
+ <div class="palette-cell" style="background:#9e7f72"><span class="palette-cell-label" style="color:#fff">600<br>#9e7f72</span></div>
+ <div class="palette-cell" style="background:#7d6356"><span class="palette-cell-label" style="color:#fff">700<br>#7d6356</span></div>
+ <div class="palette-cell" style="background:#5e4a40"><span class="palette-cell-label" style="color:#fff">800<br>#5e4a40</span></div>
+ <div class="palette-cell" style="background:#3d2f28"><span class="palette-cell-label" style="color:#fff">900<br>#3d2f28</span></div>
+ </div>
+ </div>
+
+  <div class="palette-row-wrap">
+ <div class="palette-row-label">Slate</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#f8fafc"><span class="palette-cell-label" style="color:#999">50<br>#f8fafc</span></div>
+ <div class="palette-cell" style="background:#f1f5f9"><span class="palette-cell-label" style="color:#999">100<br>#f1f5f9</span></div>
+ <div class="palette-cell" style="background:#e2e8f0"><span class="palette-cell-label" style="color:#999">200<br>#e2e8f0</span></div>
+ <div class="palette-cell" style="background:#cbd5e1"><span class="palette-cell-label" style="color:#999">300<br>#cbd5e1</span></div>
+ <div class="palette-cell" style="background:#94a3b8"><span class="palette-cell-label" style="color:#fff">400<br>#94a3b8</span></div>
+ <div class="palette-cell" style="background:#64748b"><span class="palette-cell-label" style="color:#fff">500<br>#64748b</span></div>
+ <div class="palette-cell" style="background:#475569"><span class="palette-cell-label" style="color:#fff">600<br>#475569</span></div>
+ <div class="palette-cell" style="background:#334155"><span class="palette-cell-label" style="color:#fff">700<br>#334155</span></div>
+ <div class="palette-cell" style="background:#1e293b"><span class="palette-cell-label" style="color:#fff">800<br>#1e293b</span></div>
+ <div class="palette-cell" style="background:#0f172a"><span class="palette-cell-label" style="color:#fff">900<br>#0f172a</span></div>
+ </div>
+ </div>
+
+ <div class="palette-row-wrap">
+ <div class="palette-row-label">Olive</div>
+ <div class="palette-row">
+ <div class="palette-cell" style="background:#f6f7ee"><span class="palette-cell-label" style="color:#999">50<br>#f6f7ee</span></div>
+ <div class="palette-cell" style="background:#eef0dc"><span class="palette-cell-label" style="color:#999">100<br>#eef0dc</span></div>
+ <div class="palette-cell" style="background:#e8ead8"><span class="palette-cell-label" style="color:#999">200<br>#e8ead8</span></div>
+ <div class="palette-cell" style="background:#d0d4ae"><span class="palette-cell-label" style="color:#999">300<br>#d0d4ae</span></div>
+ <div class="palette-cell" style="background:#a8ad7e"><span class="palette-cell-label" style="color:#777">400<br>#a8ad7e</span></div>
+ <div class="palette-cell" style="background:#8a9057"><span class="palette-cell-label" style="color:#fff">500<br>#8a9057</span></div>
+ <div class="palette-cell" style="background:#6e7344"><span class="palette-cell-label" style="color:#fff">600<br>#6e7344</span></div>
+ <div class="palette-cell" style="background:#575c2e"><span class="palette-cell-label" style="color:#fff">700<br>#575c2e</span></div>
+ <div class="palette-cell" style="background:#3f4220"><span class="palette-cell-label" style="color:#fff">800<br>#3f4220</span></div>
+ <div class="palette-cell" style="background:#2a2d12"><span class="palette-cell-label" style="color:#fff">900<br>#2a2d12</span></div>
+ </div>
+ </div> 
+
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ SEMANTIC COLOR
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="sem-color">
+ <div class="section-header">
+ <h2>Color — Semantic</h2>
+ <span class="section-count">semantic/base.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">These are the tokens components consume. Override these in themes — never the primitives.</p>
+
+ <!-- Surface -->
+ <div class="subsection">
+ <div class="subsection-label">Surface</div>
+ <table class="token-table">
+ <thead><tr><th style="width:350px">Token</th><th>Role</th><th style="width:250px">Value (light)</th><th style="width:80px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.surface.default</span></td><td class="token-desc">Page / app background</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.subtle</span></td><td class="token-desc">Sidebar, secondary areas</td><td class="token-value">#faf7f5 <span class="token-ref">{color.sand.50}</span></td><td><div class="swatch" style="background:#faf7f5"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.raised</span></td><td class="token-desc">Cards, panels</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.overlay</span></td><td class="token-desc">Modals, drawers</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.sunken</span></td><td class="token-desc">Inset areas, code blocks</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.skeleton</span></td><td class="token-desc">Skeleton elements</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:#d1d5db"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Text -->
+ <div class="subsection">
+ <div class="subsection-label">Text</div>
+ <table class="token-table">
+ <thead><tr><th style="width:350px">Token</th><th>Role</th><th style="width:250px">Value (light)</th><th style="width:80px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.text.default</span></td><td class="token-desc">Body text</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.subtle</span></td><td class="token-desc">Captions, metadata</td><td class="token-value">#4b5563 <span class="token-ref">{color.neutral.600}</span></td><td><div class="swatch" style="background:#4b5563"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.disabled</span></td><td class="token-desc">Disabled state</td><td class="token-value">#9ca3af <span class="token-ref">{color.neutral.400}</span></td><td><div class="swatch" style="background:#9ca3af"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.inverse</span></td><td class="token-desc">On dark backgrounds</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#111827; display:flex; align-items:center; justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.link</span></td><td class="token-desc">Link default</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.linkHover</span></td><td class="token-desc">Link hover</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Border -->
+ <div class="subsection">
+ <div class="subsection-label">Border</div>
+ <table class="token-table">
+ <thead><tr><th style="width:350px">Token</th><th>Role</th><th style="width:250px">Value (light)</th><th style="width:80px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.border.default</span></td><td class="token-desc">Standard borders</td><td class="token-value">#ede0d8 <span class="token-ref">{color.sand.200}</span></td><td><div class="swatch" style="background:#ede0d8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.subtle</span></td><td class="token-desc">Hairline, dividers</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.strong</span></td><td class="token-desc">Emphasized borders</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:#d1d5db"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.focus</span></td><td class="token-desc">Focus ring</td><td class="token-value">#9333ea <span class="token-ref">{color.purple.600}</span></td><td><div class="swatch" style="background:#9333ea"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Interactive -->
+ <div class="subsection">
+ <div class="subsection-label">Interactive</div>
+ <table class="token-table">
+ <thead><tr><th style="width:350px">Token</th><th>Role</th><th style="width:250px">Value (light)</th><th style="width:80px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.interactive.primary</span></td><td class="token-desc">Primary action</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryHover</span></td><td class="token-desc">Primary hover</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryActive</span></td><td class="token-desc">Primary pressed</td><td class="token-value">#433c4a <span class="token-ref">{color.mauve.800}</span></td><td><div class="swatch" style="background:#433c4a"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primarySubtle</span></td><td class="token-desc">Primary tint bg</td><td class="token-value">#f6f3f5 <span class="token-ref">{color.mauve.50}</span></td><td><div class="swatch" style="background:#f6f3f5"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.actionText</span></td><td class="token-desc">Text on primary button — white</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#6F5A7E;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondary</span></td><td class="token-desc">Filled secondary button color</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryHover</span></td><td class="token-desc">Secondary button hover — darkens</td><td class="token-value">#111827 <span class="token-ref">{color.neutral.900}</span></td><td><div class="swatch" style="background:#111827"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryActive</span></td><td class="token-desc">Secondary button press — darkest</td><td class="token-value">#030712 <span class="token-ref">{color.neutral.950}</span></td><td><div class="swatch" style="background:#030712"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.ghostHover</span></td><td class="token-desc">Ghost / list item hover bg — transient</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.ghostActive</span></td><td class="token-desc">Ghost / list item pressed bg — transient</td><td class="token-value">#ede0d8 <span class="token-ref">{color.sand.200}</span></td><td><div class="swatch" style="background:#ede0d8"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.navSelected</span></td><td class="token-desc">Selected nav/list item bg — dark, persistent</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.navSelectedText</span></td><td class="token-desc">Text on selected item — white on dark bg</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#6F5A7E;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.navSelectedHover</span></td><td class="token-desc">Hover on already-selected item</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.navUnselected</span></td><td class="token-desc">Persistent unselected bg — subtle warm tint</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+
+<tr><td><span class="token-name">semantic.color.interactive.danger</span></td><td class="token-desc">Danger button background</td><td class="token-value">#BB1637 <span class="token-ref">{color.red.700}</span></td><td><div class="swatch" style="background:#BB1637"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerHover</span></td><td class="token-desc">Danger button background hover</td><td class="token-value">#95020E <span class="token-ref">{color.red.800}</span></td><td><div class="swatch" style="background:#95020E"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerActive</span></td><td class="token-desc">Danger button background active</td><td class="token-value">#6E0B13 <span class="token-ref">{color.red.900}</span></td><td><div class="swatch" style="background:#6E0B13"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Status -->
+ <div class="subsection">
+ <div class="subsection-label">Status</div>
+ <table class="token-table">
+ <thead><tr><th style="width:350px">Token</th><th>Role</th><th style="width:250px">Value (light)</th><th style="width:80px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.status.success</span></td><td class="token-desc">Positive / confirmed</td><td class="token-value">#148448 <span class="token-ref">{color.green.700}</span></td><td><div class="swatch" style="background:#148448"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.successSubtle</span></td><td class="token-desc">Success background tint</td><td class="token-value">#dcfce7 <span class="token-ref">{color.green.100}</span></td><td><div class="swatch" style="background:#dcfce7"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warning</span></td><td class="token-desc">Caution</td><td class="token-value">#C94500 <span class="token-ref">{color.orange.700}</span></td><td><div class="swatch" style="background:#C94500"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warningSubtle</span></td><td class="token-desc">Warning background tint</td><td class="token-value">#FBEBD8 <span class="token-ref">{color.orange.100}</span></td><td><div class="swatch" style="background:#FBEBD8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.error</span></td><td class="token-desc">Error / destructive</td><td class="token-value">#D9233B <span class="token-ref">{color.red.600}</span></td><td><div class="swatch" style="background:#D9233B"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.errorSubtle</span></td><td class="token-desc">Error background tint</td><td class="token-value">#fee2e2 <span class="token-ref">{color.red.100}</span></td><td><div class="swatch" style="background:#fee2e2"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.info</span></td><td class="token-desc">Informational</td><td class="token-value">#9333ea <span class="token-ref">{color.purple.600}</span></td><td><div class="swatch" style="background:#9333ea"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.infoSubtle</span></td><td class="token-desc">Info background tint</td><td class="token-value">#f3e8ff <span class="token-ref">{color.purple.100}</span></td><td><div class="swatch" style="background:#f3e8ff"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ SHAPE PERSONALITY
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="sem-shape">
+ <div class="section-header">
+ <h2>Shape Personality</h2>
+ <span class="section-count">semantic + themes</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">These 4 semantic tokens control the entire visual character of a theme. Override only these to switch between sharp, friendly, and elevated personalities.</p>
+
+ <!-- Radius -->
+ <div class="subsection">
+ <div class="subsection-label">Radius — Semantic</div>
+ <table class="token-table">
+ <thead><tr><th style="width:280px">Token</th><th>Role</th><th>Base value</th><th>Sharp</th><th>Elevated</th><th style="width:60px">Visual</th></tr></thead>
+ <tbody>
+ <tr>
+ <td><span class="token-name">⭐ semantic.radius.component</span></td>
+ <td class="token-desc">Buttons, inputs, chips</td>
+ <td class="token-value">8px (lg)</td><td class="token-value">0px (none)</td><td class="token-value">12px (xl)</td>
+ <td><div class="radius-box" style="border-radius:8px"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">⭐ semantic.radius.container</span></td>
+ <td class="token-desc">Cards, panels, modals</td>
+ <td class="token-value">12px (xl)</td><td class="token-value">0px (none)</td><td class="token-value">16px (2xl)</td>
+ <td><div class="radius-box" style="border-radius:12px"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">semantic.radius.interactive</span></td>
+ <td class="token-desc">Interactive elements</td>
+ <td class="token-value">8px (lg)</td><td class="token-value">0px (none)</td><td class="token-value">12px (xl)</td>
+ <td><div class="radius-box" style="border-radius:8px"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">semantic.radius.badge</span></td>
+ <td class="token-desc">Tags, badges, chips</td>
+ <td class="token-value">9999px</td><td class="token-value">2px</td><td class="token-value">9999px</td>
+ <td><div class="radius-box" style="border-radius:9999px;width:56px;height:24px"></div></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <!-- Shadow -->
+ <div class="subsection">
+ <div class="subsection-label">Shadow — Semantic</div>
+ <table class="token-table">
+ <thead><tr><th style="width:280px">Token</th><th>Role</th><th>Base</th><th>Sharp</th><th>Elevated</th><th style="width:80px">Visual</th></tr></thead>
+ <tbody>
+ <tr>
+ <td><span class="token-name">⭐ semantic.shadow.component</span></td>
+ <td class="token-desc">Input / chip elevation</td>
+ <td class="token-value">xs</td><td class="token-value">none</td><td class="token-value">sm</td>
+ <td><div class="shadow-box" style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.05)"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">⭐ semantic.shadow.container</span></td>
+ <td class="token-desc">Card / panel elevation</td>
+ <td class="token-value">sm</td><td class="token-value">none</td><td class="token-value">lg</td>
+ <td><div class="shadow-box" style="box-shadow:0 1px 3px 0 rgba(0,0,0,0.08),0 1px 2px -1px rgba(0,0,0,0.05)"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">semantic.shadow.floating</span></td>
+ <td class="token-desc">Dropdowns, popovers</td>
+ <td class="token-value">md</td><td class="token-value">none</td><td class="token-value">xl</td>
+ <td><div class="shadow-box" style="box-shadow:0 4px 6px -1px rgba(0,0,0,0.08),0 2px 4px -2px rgba(0,0,0,0.05)"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">semantic.shadow.overlay</span></td>
+ <td class="token-desc">Modals, dialogs</td>
+ <td class="token-value">xl</td><td class="token-value">none</td><td class="token-value">2xl</td>
+ <td><div class="shadow-box" style="box-shadow:0 20px 25px -5px rgba(0,0,0,0.1)"></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">⭐ semantic.shadow.focus</span></td>
+ <td class="token-desc">Focus ring</td>
+ <td class="token-value" style="font-size:10px">0 0 0 3px rgba(147,51,234,0.4)</td>
+ <td class="token-value" style="font-size:10px">0 0 0 2px currentColor</td>
+ <td class="token-value" style="font-size:10px">0 0 0 4px rgba(147,51,234,0.35)</td>
+ <td><div class="shadow-box" style="box-shadow:0 0 0 3px rgba(147,51,234,0.4)"></div></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ TYPOGRAPHY
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="typography">
+ <div class="section-header">
+ <h2>Typography</h2>
+ <span class="section-count">primitives/typography.json</span>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Type Scale</div>
+ <table class="token-table">
+ <thead><tr><th style="width:160px">Token</th><th>Value</th><th>Sample</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">font.size.2xs</span></td><td class="token-value">10px</td><td><span class="type-sample" style="font-size:10px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.xs</span></td><td class="token-value">12px</td><td><span class="type-sample" style="font-size:12px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.sm</span></td><td class="token-value">14px</td><td><span class="type-sample" style="font-size:14px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.md ★ body</span></td><td class="token-value">16px</td><td><span class="type-sample" style="font-size:16px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.lg</span></td><td class="token-value">18px</td><td><span class="type-sample" style="font-size:18px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.xl</span></td><td class="token-value">20px</td><td><span class="type-sample" style="font-size:20px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.2xl</span></td><td class="token-value">24px</td><td><span class="type-sample" style="font-size:24px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.3xl</span></td><td class="token-value">30px</td><td><span class="type-sample" style="font-size:30px">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.size.4xl</span></td><td class="token-value">36px</td><td><span class="type-sample" style="font-size:36px;font-weight:600">Heading</span></td></tr>
+ <tr><td><span class="token-name">font.size.5xl</span></td><td class="token-value">48px</td><td><span class="type-sample" style="font-size:48px;font-weight:600">Display</span></td></tr>
+ <tr><td><span class="token-name">font.size.6xl</span></td><td class="token-value">60px</td><td><span class="type-sample" style="font-size:60px;font-weight:700;letter-spacing:-0.03em">Hero</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Font Weights</div>
+ <table class="token-table">
+ <thead><tr><th style="width:200px">Token</th><th>Value</th><th>Sample</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">font.weight.thin</span></td><td class="token-value">100</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:100">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.extraLight</span></td><td class="token-value">200</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:200">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.light</span></td><td class="token-value">300</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:300">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.regular</span></td><td class="token-value">400</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:400">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.medium</span></td><td class="token-value">500</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:500">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.semibold</span></td><td class="token-value">600</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:600">The quick brown fox</span></td></tr>
+ <tr><td><span class="token-name">font.weight.bold</span></td><td class="token-value">700</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:700">The quick brown fox</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">⭐ Semantic Typography — Theme override points</div>
+ <table class="token-table">
+ <thead><tr><th style="width:280px">Token</th><th>Role</th><th>Base value</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">⭐ semantic.typography.family-body</span></td><td class="token-desc">Body / UI font — swap for personality</td><td class="token-value">Geologica</td></tr>
+ <tr><td><span class="token-name">⭐ semantic.typography.family-heading</span></td><td class="token-desc">Heading font — swap for personality</td><td class="token-value">Geologica</td></tr>
+ <tr><td><span class="token-name">semantic.typography.family-code</span></td><td class="token-desc">Code blocks</td><td class="token-value">JetBrains Mono</td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ SEMANTIC TEXT STYLES
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="sem-text-styles">
+ <div class="section-header">
+ <h2>Text Styles — Composite</h2>
+ <span class="section-count">semantic/base.json → textStyle</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">Composite styles combining family, size, weight, line-height and letter-spacing. Components consume these directly. Each maps to a Figma Text Style.</p>
+
+ <div class="subsection">
+ <div class="subsection-label">Display & Headings</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th style="width:80px">Size</th><th style="width:100px">Weight</th><th>Sample</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">textStyle.display-2xl</span></td><td class="token-value">72px</td><td class="token-value">bold</td><td><span style="font-family:var(--font-sans);font-size:36px;font-weight:700;letter-spacing:-0.025em;line-height:1.2">Display 2XL</span></td></tr>
+ <tr><td><span class="token-name">textStyle.display-xl</span></td><td class="token-value">60px</td><td class="token-value">bold</td><td><span style="font-family:var(--font-sans);font-size:30px;font-weight:700;letter-spacing:-0.025em;line-height:1.2">Display XL</span></td></tr>
+ <tr><td><span class="token-name">textStyle.heading-xl</span></td><td class="token-value">36px</td><td class="token-value">bold</td><td><span style="font-family:var(--font-sans);font-size:28px;font-weight:700;letter-spacing:-0.025em;line-height:1.2">Heading XL</span></td></tr>
+ <tr><td><span class="token-name">textStyle.heading-lg</span></td><td class="token-value">30px</td><td class="token-value">bold</td><td><span style="font-family:var(--font-sans);font-size:24px;font-weight:700;letter-spacing:-0.025em;line-height:1.2">Heading LG</span></td></tr>
+ <tr><td><span class="token-name">textStyle.heading-md</span></td><td class="token-value">24px</td><td class="token-value">semibold</td><td><span style="font-family:var(--font-sans);font-size:20px;font-weight:600;letter-spacing:-0.025em;line-height:1.375">Heading MD</span></td></tr>
+ <tr><td><span class="token-name">textStyle.heading-sm</span></td><td class="token-value">20px</td><td class="token-value">semibold</td><td><span style="font-family:var(--font-sans);font-size:18px;font-weight:600;line-height:1.375">Heading SM</span></td></tr>
+ <tr><td><span class="token-name">textStyle.heading-xs</span></td><td class="token-value">18px</td><td class="token-value">semibold</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:600;line-height:1.375">Heading XS</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Body</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th style="width:80px">Size</th><th style="width:100px">Weight</th><th>Sample</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">textStyle.body-lg</span></td><td class="token-value">18px</td><td class="token-value">light</td><td><span style="font-family:var(--font-sans);font-size:18px;font-weight:300;line-height:1.625">The quick brown fox jumps over the lazy dog</span></td></tr>
+ <tr><td><span class="token-name">textStyle.body-md</span></td><td class="token-value">16px</td><td class="token-value">light</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:300;line-height:1.5">The quick brown fox jumps over the lazy dog</span></td></tr>
+ <tr><td><span class="token-name">textStyle.body-sm</span></td><td class="token-value">14px</td><td class="token-value">regular</td><td><span style="font-family:var(--font-sans);font-size:14px;font-weight:400;line-height:1.5">The quick brown fox jumps over the lazy dog</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Labels, Captions & Utility</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th style="width:80px">Size</th><th style="width:100px">Weight</th><th>Sample</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">textStyle.label-lg</span></td><td class="token-value">16px</td><td class="token-value">medium</td><td><span style="font-family:var(--font-sans);font-size:16px;font-weight:500;line-height:1.2">Button Label</span></td></tr>
+ <tr><td><span class="token-name">textStyle.label-md</span></td><td class="token-value">14px</td><td class="token-value">medium</td><td><span style="font-family:var(--font-sans);font-size:14px;font-weight:500;line-height:1.2">Input Label</span></td></tr>
+ <tr><td><span class="token-name">textStyle.label-sm</span></td><td class="token-value">12px</td><td class="token-value">medium</td><td><span style="font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.025em;line-height:1.2">Badge Tag Chip</span></td></tr>
+ <tr><td><span class="token-name">textStyle.caption</span></td><td class="token-value">12px</td><td class="token-value">light</td><td><span style="font-family:var(--font-sans);font-size:12px;font-weight:300;line-height:1.5">Image caption or helper text</span></td></tr>
+ <tr><td><span class="token-name">textStyle.footnote</span></td><td class="token-value">10px</td><td class="token-value">light</td><td><span style="font-family:var(--font-sans);font-size:10px;font-weight:300;line-height:1.5">Legal text, footnotes, fine print</span></td></tr>
+ <tr><td><span class="token-name">textStyle.overline</span></td><td class="token-value">12px</td><td class="token-value">semibold</td><td><span style="font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;line-height:1.2">SECTION LABEL</span></td></tr>
+ <tr><td><span class="token-name">textStyle.code</span></td><td class="token-value">14px</td><td class="token-value">regular</td><td><span style="font-family:var(--font-mono);font-size:14px;font-weight:400;line-height:1.625">const token = "value"</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ SPACING
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="spacing">
+ <div class="section-header">
+ <h2>Spacing</h2>
+ <span class="section-count">primitives/spacing.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:20px">4px base unit. All values are multiples of 4.</p>
+ <table class="token-table">
+ <thead><tr><th style="width:160px">Token</th><th style="width:80px">Value</th><th>Visual</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">space.0.5</span></td><td class="token-value">2px</td><td><div class="spacing-bar" style="width:2px"></div></td></tr>
+ <tr><td><span class="token-name">space.1</span></td><td class="token-value">4px</td><td><div class="spacing-bar" style="width:4px"></div></td></tr>
+ <tr><td><span class="token-name">space.2</span></td><td class="token-value">8px</td><td><div class="spacing-bar" style="width:8px"></div></td></tr>
+ <tr><td><span class="token-name">space.3</span></td><td class="token-value">12px</td><td><div class="spacing-bar" style="width:12px"></div></td></tr>
+ <tr><td><span class="token-name">space.4</span></td><td class="token-value">16px</td><td><div class="spacing-bar" style="width:16px"></div></td></tr>
+ <tr><td><span class="token-name">space.5</span></td><td class="token-value">20px</td><td><div class="spacing-bar" style="width:20px"></div></td></tr>
+ <tr><td><span class="token-name">space.6</span></td><td class="token-value">24px</td><td><div class="spacing-bar" style="width:24px"></div></td></tr>
+ <tr><td><span class="token-name">space.8</span></td><td class="token-value">32px</td><td><div class="spacing-bar" style="width:32px"></div></td></tr>
+ <tr><td><span class="token-name">space.10</span></td><td class="token-value">40px</td><td><div class="spacing-bar" style="width:40px"></div></td></tr>
+ <tr><td><span class="token-name">space.12</span></td><td class="token-value">48px</td><td><div class="spacing-bar" style="width:48px"></div></td></tr>
+ <tr><td><span class="token-name">space.16</span></td><td class="token-value">64px</td><td><div class="spacing-bar" style="width:64px"></div></td></tr>
+ <tr><td><span class="token-name">space.20</span></td><td class="token-value">80px</td><td><div class="spacing-bar" style="width:80px"></div></td></tr>
+ <tr><td><span class="token-name">space.24</span></td><td class="token-value">96px</td><td><div class="spacing-bar" style="width:96px"></div></td></tr>
+ <tr><td><span class="token-name">space.32</span></td><td class="token-value">128px</td><td><div class="spacing-bar" style="width:128px"></div></td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ SHAPE PRIMITIVES
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="shape-primitives">
+ <div class="section-header">
+ <h2>Radius &amp; Shadow — Primitives</h2>
+ <span class="section-count">primitives/shape.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">Raw scale values. Components consume these via semantic tokens, not directly.</p>
+
+ <div class="subsection">
+ <div class="subsection-label">Border Radius Scale</div>
+ <table class="token-table">
+ <thead><tr><th style="width:180px">Token</th><th style="width:80px">Value</th><th>Visual</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">radius.none</span></td><td class="token-value">0px</td><td><div class="radius-box" style="border-radius:0"></div></td></tr>
+ <tr><td><span class="token-name">radius.xs</span></td><td class="token-value">2px</td><td><div class="radius-box" style="border-radius:2px"></div></td></tr>
+ <tr><td><span class="token-name">radius.sm</span></td><td class="token-value">4px</td><td><div class="radius-box" style="border-radius:4px"></div></td></tr>
+ <tr><td><span class="token-name">radius.md</span></td><td class="token-value">6px</td><td><div class="radius-box" style="border-radius:6px"></div></td></tr>
+ <tr><td><span class="token-name">radius.lg</span></td><td class="token-value">8px</td><td><div class="radius-box" style="border-radius:8px"></div></td></tr>
+ <tr><td><span class="token-name">radius.xl</span></td><td class="token-value">12px</td><td><div class="radius-box" style="border-radius:12px"></div></td></tr>
+ <tr><td><span class="token-name">radius.2xl</span></td><td class="token-value">16px</td><td><div class="radius-box" style="border-radius:16px"></div></td></tr>
+ <tr><td><span class="token-name">radius.3xl</span></td><td class="token-value">24px</td><td><div class="radius-box" style="border-radius:24px"></div></td></tr>
+ <tr><td><span class="token-name">radius.full</span></td><td class="token-value">9999px</td><td><div class="radius-box" style="border-radius:9999px;width:64px;height:24px"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Shadow Scale</div>
+ <table class="token-table">
+ <thead><tr><th style="width:160px">Token</th><th>CSS Value</th><th>Role</th><th style="width:80px">Visual</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">shadow.none</span></td><td class="token-value">none</td><td class="token-desc">No elevation</td><td><div class="shadow-box"></div></td></tr>
+ <tr><td><span class="token-name">shadow.xs</span></td><td class="token-value" style="font-size:10px">0 1px 2px 0 rgba(0,0,0,0.05)</td><td class="token-desc">Inputs, chips</td><td><div class="shadow-box" style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.05)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.sm</span></td><td class="token-value" style="font-size:10px">0 1px 3px 0 rgba(0,0,0,0.08),<br>0 1px 2px -1px rgba(0,0,0,0.05)</td><td class="token-desc">Default component elevation</td><td><div class="shadow-box" style="box-shadow:0 1px 3px 0 rgba(0,0,0,0.08),0 1px 2px -1px rgba(0,0,0,0.05)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.md</span></td><td class="token-value" style="font-size:10px">0 4px 6px -1px rgba(0,0,0,0.08),<br>0 2px 4px -2px rgba(0,0,0,0.05)</td><td class="token-desc">Cards, dropdowns</td><td><div class="shadow-box" style="box-shadow:0 4px 6px -1px rgba(0,0,0,0.08),0 2px 4px -2px rgba(0,0,0,0.05)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.lg</span></td><td class="token-value" style="font-size:10px">0 10px 15px -3px rgba(0,0,0,0.08),<br>0 4px 6px -4px rgba(0,0,0,0.05)</td><td class="token-desc">Floating panels, popovers</td><td><div class="shadow-box" style="box-shadow:0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.05)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.xl</span></td><td class="token-value" style="font-size:10px">0 20px 25px -5px rgba(0,0,0,0.1),<br>0 8px 10px -6px rgba(0,0,0,0.05)</td><td class="token-desc">Modals, dialogs</td><td><div class="shadow-box" style="box-shadow:0 20px 25px -5px rgba(0,0,0,0.1),0 8px 10px -6px rgba(0,0,0,0.05)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.2xl</span></td><td class="token-value" style="font-size:10px">0 25px 50px -12px rgba(0,0,0,0.18)</td><td class="token-desc">Drawers, full-screen overlays</td><td><div class="shadow-box" style="box-shadow:0 25px 50px -12px rgba(0,0,0,0.18)"></div></td></tr>
+ <tr><td><span class="token-name">shadow.inner</span></td><td class="token-value" style="font-size:10px">inset 0 2px 4px 0 rgba(0,0,0,0.05)</td><td class="token-desc">Inset fields, pressed states</td><td><div class="shadow-box" style="box-shadow:inset 0 2px 4px 0 rgba(0,0,0,0.05)"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Border Width</div>
+ <table class="token-table">
+ <thead><tr><th style="width:180px">Token</th><th>Value</th><th style="width:160px">Visual</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">border.width.none</span></td><td class="token-value">0px</td><td></td></tr>
+ <tr><td><span class="token-name">border.width.thin</span></td><td class="token-value">1px</td><td><div style="height:1px;width:120px;background:#1a1a18"></div></td></tr>
+ <tr><td><span class="token-name">border.width.medium</span></td><td class="token-value">2px</td><td><div style="height:2px;width:120px;background:#1a1a18"></div></td></tr>
+ <tr><td><span class="token-name">border.width.thick</span></td><td class="token-value">4px</td><td><div style="height:4px;width:120px;background:#1a1a18"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ MOTION
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="motion">
+ <div class="section-header">
+ <h2>Motion</h2>
+ <span class="section-count">primitives/shape.json → duration + easing</span>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Duration</div>
+ <table class="token-table">
+ <thead><tr><th style="width:200px">Token</th><th>Value</th><th>Role</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">duration.fast</span></td><td class="token-value">100ms</td><td class="token-desc">Micro-interactions, tooltips</td></tr>
+ <tr><td><span class="token-name">duration.normal</span></td><td class="token-value">200ms</td><td class="token-desc">Standard transitions</td></tr>
+ <tr><td><span class="token-name">duration.slow</span></td><td class="token-value">300ms</td><td class="token-desc">Panels, modals entering</td></tr>
+ <tr><td><span class="token-name">duration.slower</span></td><td class="token-value">500ms</td><td class="token-desc">Larger layout shifts</td></tr>
+ <tr><td><span class="token-name">duration.lazy</span></td><td class="token-value">700ms</td><td class="token-desc">Page-level animations</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Easing — hover any box to preview</div>
+ <table class="token-table">
+ <thead><tr><th style="width:200px">Token</th><th>Value</th><th>Role</th><th style="width:120px">Preview</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">easing.default</span></td><td class="token-value" style="font-size:10px">cubic-bezier(0.4,0,0.2,1)</td><td class="token-desc">General purpose</td><td class="motion-cell"><div class="motion-demo" style="--demo-easing:cubic-bezier(0.4,0,0.2,1);--demo-dur:200ms"></div></td></tr>
+ <tr><td><span class="token-name">easing.in</span></td><td class="token-value" style="font-size:10px">cubic-bezier(0.4,0,1,1)</td><td class="token-desc">Exits</td><td class="motion-cell"><div class="motion-demo" style="--demo-easing:cubic-bezier(0.4,0,1,1);--demo-dur:200ms"></div></td></tr>
+ <tr><td><span class="token-name">easing.out</span></td><td class="token-value" style="font-size:10px">cubic-bezier(0,0,0.2,1)</td><td class="token-desc">Entrances</td><td class="motion-cell"><div class="motion-demo" style="--demo-easing:cubic-bezier(0,0,0.2,1);--demo-dur:200ms"></div></td></tr>
+ <tr><td><span class="token-name">easing.spring</span></td><td class="token-value" style="font-size:10px">cubic-bezier(0.34,1.56,0.64,1)</td><td class="token-desc">Springy, playful</td><td class="motion-cell"><div class="motion-demo" style="--demo-easing:cubic-bezier(0.34,1.56,0.64,1);--demo-dur:300ms"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ GRID
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="grid">
+ <div class="section-header">
+ <h2>Grid &amp; Layout</h2>
+ <span class="section-count">primitives/grid.json</span>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Column min-widths (CSS Grid minmax)</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th>Value</th><th>Role</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">grid.column.min-xs</span></td><td class="token-value">120px</td><td class="token-desc">Dense grids, icon lists</td></tr>
+ <tr><td><span class="token-name">grid.column.min-sm</span></td><td class="token-value">160px</td><td class="token-desc">Compact cards, small tiles</td></tr>
+ <tr><td><span class="token-name">grid.column.min-md</span></td><td class="token-value">240px</td><td class="token-desc">Standard cards, form fields</td></tr>
+ <tr><td><span class="token-name">grid.column.min-lg</span></td><td class="token-value">320px</td><td class="token-desc">Wide cards, content columns</td></tr>
+ <tr><td><span class="token-name">grid.column.min-xl</span></td><td class="token-value">400px</td><td class="token-desc">Large content blocks</td></tr>
+ <tr><td><span class="token-name">grid.column.sidebar</span></td><td class="token-value">260px</td><td class="token-desc">Sidebar in named-area layouts</td></tr>
+ <tr><td><span class="token-name">grid.column.panel</span></td><td class="token-value">360px</td><td class="token-desc">Detail panel, drawer</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Breakpoints — min-width (mobile-first)</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th>Value</th><th>Role</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">breakpoint.xs</span></td><td class="token-value">0px</td><td class="token-desc">Mobile — default, no media query needed</td></tr>
+ <tr><td><span class="token-name">breakpoint.sm</span></td><td class="token-value">480px</td><td class="token-desc">Large mobile / small tablet</td></tr>
+ <tr><td><span class="token-name">breakpoint.md</span></td><td class="token-value">768px</td><td class="token-desc">Tablet</td></tr>
+ <tr><td><span class="token-name">breakpoint.lg</span></td><td class="token-value">1024px</td><td class="token-desc">Small desktop / landscape tablet</td></tr>
+ <tr><td><span class="token-name">breakpoint.xl</span></td><td class="token-value">1280px</td><td class="token-desc">Desktop</td></tr>
+ <tr><td><span class="token-name">breakpoint.2xl</span></td><td class="token-value">1536px</td><td class="token-desc">Wide desktop</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Gutters &amp; Margins per breakpoint</div>
+ <table class="token-table">
+ <thead><tr><th style="width:100px">Breakpoint</th><th>Min width</th><th>Gutter</th><th>Outer margin</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">xs</span></td><td class="token-value">0px</td><td class="token-value">16px</td><td class="token-value">16px</td></tr>
+ <tr><td><span class="token-name">sm</span></td><td class="token-value">480px</td><td class="token-value">16px</td><td class="token-value">24px</td></tr>
+ <tr><td><span class="token-name">md</span></td><td class="token-value">768px</td><td class="token-value">24px</td><td class="token-value">32px</td></tr>
+ <tr><td><span class="token-name">lg</span></td><td class="token-value">1024px</td><td class="token-value">32px</td><td class="token-value">48px</td></tr>
+ <tr><td><span class="token-name">xl</span></td><td class="token-value">1280px</td><td class="token-value">32px</td><td class="token-value">64px</td></tr>
+ <tr><td><span class="token-name">2xl</span></td><td class="token-value">1536px</td><td class="token-value">40px</td><td class="token-value">80px</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Max widths</div>
+ <table class="token-table">
+ <thead><tr><th style="width:220px">Token</th><th>Value</th><th>Role</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">grid.maxWidth.content</span></td><td class="token-value">720px</td><td class="token-desc">Prose / article body</td></tr>
+ <tr><td><span class="token-name">grid.maxWidth.layout</span></td><td class="token-value">1280px</td><td class="token-desc">Standard page layout</td></tr>
+ <tr><td><span class="token-name">grid.maxWidth.wide</span></td><td class="token-value">1536px</td><td class="token-desc">Wide / dashboard layouts</td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ THEMES OVERVIEW
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="themes-overview">
+ <div class="section-header">
+ <h2>Theme Overview</h2>
+ <span class="section-count">6 built-in combinations</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">Each theme is a combination of a color mode and a style personality. Community themes override only the semantic tokens.</p>
+
+ <table class="theme-compare">
+ <thead>
+ <tr>
+ <th>Theme</th>
+ <th>Color mode</th>
+ <th>Shape personality</th>
+ <th>Radius component</th>
+ <th>Shadow component</th>
+ <th>Surface / Interactive</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><span class="token-name">light</span></td>
+ <td class="token-desc">Light</td><td class="token-desc">Base (friendly)</td>
+ <td class="token-value">8px</td><td class="token-value">xs</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#ffffff; border-radius:8px"></div><div class="theme-swatch" style="background:#6F5A7E; border-radius:8px"></div></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">dark</span></td>
+ <td class="token-desc">Dark</td><td class="token-desc">Base (friendly)</td>
+ <td class="token-value">8px</td><td class="token-value">xs (dark)</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#030712; border-radius:8px"></div><div class="theme-swatch" style="background:#a6808c; border-radius:8px"></div></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">light-sharp</span></td>
+ <td class="token-desc">Light</td><td class="token-desc">Sharp / flat</td>
+ <td class="token-value">0px</td><td class="token-value">none</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#ffffff;border-radius:0"></div><div class="theme-swatch" style="background:#6F5A7E;border-radius:0"></div></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">dark-sharp</span></td>
+ <td class="token-desc">Dark</td><td class="token-desc">Sharp / flat</td>
+ <td class="token-value">0px</td><td class="token-value">none</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#030712;border-radius:0"></div><div class="theme-swatch" style="background:#a6808c;border-radius:0"></div></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">light-elevated</span></td>
+ <td class="token-desc">Light</td><td class="token-desc">Elevated / soft</td>
+ <td class="token-value">12px</td><td class="token-value">sm</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#ffffff;border-radius:12px"></div><div class="theme-swatch" style="background:#6F5A7E;border-radius:12px"></div></div></td>
+ </tr>
+ <tr>
+ <td><span class="token-name">dark-elevated</span></td>
+ <td class="token-desc">Dark</td><td class="token-desc">Elevated / soft</td>
+ <td class="token-value">12px</td><td class="token-value">sm (dark)</td>
+ <td><div class="theme-swatch-group"><div class="theme-swatch" style="background:#030712;border-radius:12px"></div><div class="theme-swatch" style="background:#a6808c;border-radius:12px"></div></div></td>
+ </tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ LIGHT THEME REFERENCE
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="light-theme">
+ <div class="section-header">
+ <h2>Light Theme</h2>
+ <span class="section-count">semantic/base.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">All semantic color tokens resolved for the light theme. Components consume these values via CSS custom properties.</p>
+
+ <div class="subsection">
+ <div class="subsection-label">Surface</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.surface.default</span></td><td class="token-desc">Page background</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.subtle</span></td><td class="token-desc">Dashboard canvas, sidebar</td><td class="token-value">#faf7f5 <span class="token-ref">{color.sand.50}</span></td><td><div class="swatch" style="background:#faf7f5"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.raised</span></td><td class="token-desc">Cards, panels</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.overlay</span></td><td class="token-desc">Modals, drawers</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#ffffff"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.sunken</span></td><td class="token-desc">Inset areas, code blocks</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.skeleton</span></td><td class="token-desc">Skeleton elements</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:#d1d5db"></div></td></tr>
+
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Text</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.text.default</span></td><td class="token-desc">Body text</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.subtle</span></td><td class="token-desc">Captions, metadata</td><td class="token-value">#4b5563 <span class="token-ref">{color.neutral.600}</span></td><td><div class="swatch" style="background:#4b5563"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.disabled</span></td><td class="token-desc">Disabled — WCAG exempt</td><td class="token-value">#9ca3af <span class="token-ref">{color.neutral.400}</span></td><td><div class="swatch" style="background:#9ca3af"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.inverse</span></td><td class="token-desc">On dark backgrounds</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#111827;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.link</span></td><td class="token-desc">Link</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.linkHover</span></td><td class="token-desc">Link hover</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Border</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.border.default</span></td><td class="token-desc">Standard borders</td><td class="token-value">#ede0d8 <span class="token-ref">{color.sand.200}</span></td><td><div class="swatch" style="background:#ede0d8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.subtle</span></td><td class="token-desc">Hairline, dividers</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.strong</span></td><td class="token-desc">Emphasized borders</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:#d1d5db"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.focus</span></td><td class="token-desc">Focus ring</td><td class="token-value">#9333ea <span class="token-ref">{color.purple.600}</span></td><td><div class="swatch" style="background:#9333ea"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Interactive</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.interactive.primary</span></td><td class="token-desc">Primary button fill</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryHover</span></td><td class="token-desc">Darkens on hover</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryActive</span></td><td class="token-desc">Darkens on press</td><td class="token-value">#433c4a <span class="token-ref">{color.mauve.800}</span></td><td><div class="swatch" style="background:#433c4a"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primarySubtle</span></td><td class="token-desc">Selected/active bg</td><td class="token-value">#f6f3f5 <span class="token-ref">{color.mauve.50}</span></td><td><div class="swatch" style="background:#f6f3f5"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.actionText</span></td><td class="token-desc">Text on primary button — white</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#6F5A7E;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondary</span></td><td class="token-desc">Filled secondary button</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryHover</span></td><td class="token-desc">Darkens on hover</td><td class="token-value">#111827 <span class="token-ref">{color.neutral.900}</span></td><td><div class="swatch" style="background:#111827"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryActive</span></td><td class="token-desc">Darkens on press</td><td class="token-value">#030712 <span class="token-ref">{color.neutral.950}</span></td><td><div class="swatch" style="background:#030712"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.ghostHover</span></td><td class="token-desc">Ghost / list item hover bg — transient</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.ghostActive</span></td><td class="token-desc">Ghost / list item pressed bg — transient</td><td class="token-value">#ede0d8 <span class="token-ref">{color.sand.200}</span></td><td><div class="swatch" style="background:#ede0d8"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelected</span></td><td class="token-desc">Selected nav/list item bg — dark, persistent</td><td class="token-value">#6F5A7E <span class="token-ref">{color.mauve.600}</span></td><td><div class="swatch" style="background:#6F5A7E"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelectedText</span></td><td class="token-desc">Text on selected item — white on dark bg</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#6F5A7E;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelectedHover</span></td><td class="token-desc">Hover on already-selected item</td><td class="token-value">#5a5160 <span class="token-ref">{color.mauve.700}</span></td><td><div class="swatch" style="background:#5a5160"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navUnselected</span></td><td class="token-desc">Persistent unselected bg — subtle warm tint</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:#f5ede8"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.danger</span></td><td class="token-desc">Danger button background</td><td class="token-value">#BB1637 <span class="token-ref">{color.red.700}</span></td><td><div class="swatch" style="background:#BB1637"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerHover</span></td><td class="token-desc">Danger button background hover</td><td class="token-value">#95020E <span class="token-ref">{color.red.800}</span></td><td><div class="swatch" style="background:#95020E"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerActive</span></td><td class="token-desc">Danger button background active</td><td class="token-value">#6E0B13 <span class="token-ref">{color.red.900}</span></td><td><div class="swatch" style="background:#6E0B13"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Status</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.status.success</span></td><td class="token-desc">Positive</td><td class="token-value">#148448 <span class="token-ref">{color.green.700}</span></td><td><div class="swatch" style="background:#148448"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.successSubtle</span></td><td class="token-desc">Success background tint</td><td class="token-value">#dcfce7 <span class="token-ref">{color.green.100}</span></td><td><div class="swatch" style="background:#dcfce7"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warning</span></td><td class="token-desc">Caution</td><td class="token-value">#c94500 <span class="token-ref">{color.orange.700}</span></td><td><div class="swatch" style="background:#c94500"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warningSubtle</span></td><td class="token-desc">Warning background tint</td><td class="token-value">#fbebd8 <span class="token-ref">{color.orange.100}</span></td><td><div class="swatch" style="background:#fbebd8"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.error</span></td><td class="token-desc">Error</td><td class="token-value">#d9233b <span class="token-ref">{color.red.600}</span></td><td><div class="swatch" style="background:#d9233b"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.errorSubtle</span></td><td class="token-desc">Error background tint</td><td class="token-value">#fee2e2 <span class="token-ref">{color.red.100}</span></td><td><div class="swatch" style="background:#fee2e2"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.info</span></td><td class="token-desc">Informational</td><td class="token-value">#9333ea <span class="token-ref">{color.purple.600}</span></td><td><div class="swatch" style="background:#9333ea"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.infoSubtle</span></td><td class="token-desc">Info background tint</td><td class="token-value">#f3e8ff <span class="token-ref">{color.purple.100}</span></td><td><div class="swatch" style="background:#f3e8ff"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ DARK THEME REFERENCE
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="dark-theme">
+ <div class="section-header">
+ <h2>Dark Theme</h2>
+ <span class="section-count">themes/dark.json</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">Semantic overrides for dark mode. Interactive primary uses <span class="token-name">mauve.400</span> with dark text (8.43 AAA). Status colors shifted to 400-step for AAA on dark surfaces. Status subtle backgrounds are 15% tinted hex values.</p>
+
+ <div class="subsection">
+ <div class="subsection-label">Surface</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.surface.default</span></td><td class="token-desc">Page background</td><td class="token-value">#030712 <span class="token-ref">{color.neutral.950}</span></td><td><div class="swatch" style="background:#030712"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.subtle</span></td><td class="token-desc">Sidebar, secondary areas</td><td class="token-value">#111827 <span class="token-ref">{color.neutral.900}</span></td><td><div class="swatch" style="background:#111827"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.raised</span></td><td class="token-desc">Cards, panels</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.overlay</span></td><td class="token-desc">Modals, drawers</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.sunken</span></td><td class="token-desc">Inset areas, code blocks</td><td class="token-value">#000000 <span class="token-ref">{color.neutral.1000}</span></td><td><div class="swatch" style="background:#000000"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.surface.skeleton</span></td><td class="token-desc">Skeleton elements</td><td class="token-value">#4b5563 <span class="token-ref">{color.neutral.600}</span></td><td><div class="swatch" style="background:#4b5563"></div></td></tr>
+
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Text</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.text.default</span></td><td class="token-desc">Body text</td><td class="token-value">#f9fafb <span class="token-ref">{color.neutral.50}</span></td><td><div class="swatch" style="background:#f9fafb"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.subtle</span></td><td class="token-desc">Captions, metadata</td><td class="token-value">#9ca3af <span class="token-ref">{color.neutral.400}</span></td><td><div class="swatch" style="background:#9ca3af"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.disabled</span></td><td class="token-desc">Disabled — WCAG exempt</td><td class="token-value">#4b5563 <span class="token-ref">{color.neutral.600}</span></td><td><div class="swatch" style="background:#4b5563"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.inverse</span></td><td class="token-desc">On light surfaces in dark theme</td><td class="token-value">#111827 <span class="token-ref">{color.neutral.900}</span></td><td><div class="swatch" style="background:#f9fafb;display:flex;align-items:center;justify-content:center"><span style="color:#111827;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.link</span></td><td class="token-desc">Link</td><td class="token-value">#a6808c <span class="token-ref">{color.mauve.400}</span></td><td><div class="swatch" style="background:#a6808c"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.text.linkHover</span></td><td class="token-desc">Link hover</td><td class="token-value">#c9b5bf <span class="token-ref">{color.mauve.300}</span></td><td><div class="swatch" style="background:#c9b5bf"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Border</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.border.default</span></td><td class="token-desc">Standard — 3:1+ on dark</td><td class="token-value">#4b5563 <span class="token-ref">{color.neutral.600}</span></td><td><div class="swatch" style="background:#4b5563"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.subtle</span></td><td class="token-desc">Hairline, dividers</td><td class="token-value">#374151 <span class="token-ref">{color.neutral.700}</span></td><td><div class="swatch" style="background:#374151"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.strong</span></td><td class="token-desc">Emphasized borders</td><td class="token-value">#6b7280 <span class="token-ref">{color.neutral.500}</span></td><td><div class="swatch" style="background:#6b7280"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.border.focus</span></td><td class="token-desc">Focus ring</td><td class="token-value">#a855f7 <span class="token-ref">{color.purple.500}</span></td><td><div class="swatch" style="background:#a855f7"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Interactive</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.interactive.primary</span></td><td class="token-desc">Primary button fill</td><td class="token-value">#a6808c <span class="token-ref">{color.mauve.400}</span></td><td><div class="swatch" style="background:#a6808c"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryHover</span></td><td class="token-desc">Lightens on hover</td><td class="token-value">#c9b5bf <span class="token-ref">{color.mauve.300}</span></td><td><div class="swatch" style="background:#c9b5bf"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primaryActive</span></td><td class="token-desc">Darkens on press</td><td class="token-value">#8d6876 <span class="token-ref">{color.mauve.500}</span></td><td><div class="swatch" style="background:#8d6876"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.primarySubtle</span></td><td class="token-desc">Selected/active bg</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.actionText</span></td><td class="token-desc">Dark text on light mauve</td><td class="token-value">#030712 <span class="token-ref">{color.neutral.950}</span></td><td><div class="swatch" style="background:#a6808c;display:flex;align-items:center;justify-content:center"><span style="color:#030712;font-size:10px">Aa</span></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondary</span></td><td class="token-desc">Filled secondary button (light fill)</td><td class="token-value">#e5e7eb <span class="token-ref">{color.neutral.200}</span></td><td><div class="swatch" style="background:#e5e7eb"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryHover</span></td><td class="token-desc">Lightens on hover</td><td class="token-value">#f3f4f6 <span class="token-ref">{color.neutral.100}</span></td><td><div class="swatch" style="background:#f3f4f6"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.interactive.secondaryActive</span></td><td class="token-desc">Slightly darker on press</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:#d1d5db"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.ghostHover</span></td><td class="token-desc">Ghost / list item hover bg — transient</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.ghostActive</span></td><td class="token-desc">Ghost / list item pressed bg — transient</td><td class="token-value">#374151 <span class="token-ref">{color.neutral.700}</span></td><td><div class="swatch" style="background:#374151"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelected</span></td><td class="token-desc">Selected nav/list item — brand mauve, persistent</td><td class="token-value">#a6808c <span class="token-ref">{color.mauve.400}</span></td><td><div class="swatch" style="background:#a6808c"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelectedText</span></td><td class="token-desc">Text on selected item — white on mauve, 5.43 AA</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:#a6808c;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:10px">Aa</span></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navSelectedHover</span></td><td class="token-desc">Hover on already-selected item</td><td class="token-value">#c9b5bf <span class="token-ref">{color.mauve.300}</span></td><td><div class="swatch" style="background:#c9b5bf"></div></td></tr>
+          <tr><td><span class="token-name">semantic.color.interactive.navUnselected</span></td><td class="token-desc">Persistent unselected bg — subtle dark tint</td><td class="token-value">#1f2937 <span class="token-ref">{color.neutral.800}</span></td><td><div class="swatch" style="background:#1f2937"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.danger</span></td><td class="token-desc">Danger button background</td><td class="token-value">#f87171 <span class="token-ref">{color.red.400}</span></td><td><div class="swatch" style="background:#f87171"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerHover</span></td><td class="token-desc">Danger button background hover</td><td class="token-value">#F5A5B0 <span class="token-ref">{color.red.300}</span></td><td><div class="swatch" style="background:#F5A5B0"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.interactive.dangerActive</span></td><td class="token-desc">Danger button background active</td><td class="token-value">#ef4444 <span class="token-ref">{color.red.500}</span></td><td><div class="swatch" style="background:#ef4444"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Status — 400-step colors, 15%-tinted subtle backgrounds</div>
+ <table class="token-table">
+ <thead><tr><th style="width:320px">Token</th><th>Role</th><th style="width:220px">Value</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">semantic.color.status.success</span></td><td class="token-desc">Positive</td><td class="token-value">#4ade80 <span class="token-ref">{color.green.400}</span></td><td><div class="swatch" style="background:#4ade80"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.successSubtle</span></td><td class="token-desc">Success bg — green.400 @ 15% opacity</td><td class="token-value" style="font-size:11px">rgba(74,222,128,0.15)</td><td><div class="swatch" style="background:rgba(74,222,128,0.15)"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warning</span></td><td class="token-desc">Caution</td><td class="token-value">#fb923c <span class="token-ref">{color.orange.400}</span></td><td><div class="swatch" style="background:#fb923c"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.warningSubtle</span></td><td class="token-desc">Warning bg — orange.400 @ 15% opacity</td><td class="token-value" style="font-size:11px">rgba(251,146,60,0.15)</td><td><div class="swatch" style="background:rgba(251,146,60,0.15)"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.error</span></td><td class="token-desc">Error</td><td class="token-value">#f87171 <span class="token-ref">{color.red.400}</span></td><td><div class="swatch" style="background:#f87171"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.errorSubtle</span></td><td class="token-desc">Error bg — red.400 @ 15% opacity</td><td class="token-value" style="font-size:11px">rgba(248,113,113,0.15)</td><td><div class="swatch" style="background:rgba(248,113,113,0.15)"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.info</span></td><td class="token-desc">Info</td><td class="token-value">#c084fc <span class="token-ref">{color.purple.400}</span></td><td><div class="swatch" style="background:#c084fc"></div></td></tr>
+ <tr><td><span class="token-name">semantic.color.status.infoSubtle</span></td><td class="token-desc">Info bg — purple.400 @ 15% opacity</td><td class="token-value" style="font-size:11px">rgba(192,132,252,0.15)</td><td><div class="swatch" style="background:rgba(192,132,252,0.15)"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <!-- ═══════════════════════════════════════════════════
+ DATAVIZ
+ ════════════════════════════════════════════════════ -->
+ <section class="section" id="dataviz">
+ <div class="section-header">
+ <h2>Dataviz Colors</h2>
+ <span class="section-count">primitives/color.json → dataviz</span>
+ </div>
+ <p class="token-desc" style="margin-bottom:24px">Categorical series colors and semantic chart indicators. Series colors are pulled from existing palette ramps at their most perceptually distinct steps. Never use series colors to convey positive/negative meaning — use the indicator tokens for that.</p>
+
+ <div class="subsection">
+ <div class="subsection-label">Categorical Series — 10 colors</div>
+ <table class="token-table">
+ <thead><tr><th style="width:240px">Token</th><th>Value</th><th>Role</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">dataviz.blue</span></td><td class="token-value">#3b82f6</td><td class="token-desc">Series 1</td><td><div class="swatch" style="background:#3b82f6"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.teal</span></td><td class="token-value">#14b8a6</td><td class="token-desc">Series 2</td><td><div class="swatch" style="background:#14b8a6"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.purple</span></td><td class="token-value">#a855f7</td><td class="token-desc">Series 3</td><td><div class="swatch" style="background:#a855f7"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.orange</span></td><td class="token-value">#f97316</td><td class="token-desc">Series 4</td><td><div class="swatch" style="background:#f97316"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.pink</span></td><td class="token-value">#ec4899</td><td class="token-desc">Series 5</td><td><div class="swatch" style="background:#ec4899"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.yellow</span></td><td class="token-value">#f5b000</td><td class="token-desc">Series 6</td><td><div class="swatch" style="background:#f5b000"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.cyan</span></td><td class="token-value">#06b6d4</td><td class="token-desc">Series 7</td><td><div class="swatch" style="background:#06b6d4"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.green</span></td><td class="token-value">#22c55e</td><td class="token-desc">Series 8</td><td><div class="swatch" style="background:#22c55e"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.magenta</span></td><td class="token-value">#e029a8</td><td class="token-desc">Series 9</td><td><div class="swatch" style="background:#e029a8"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.sand</span></td><td class="token-value">#b89d92</td><td class="token-desc">Series 10</td><td><div class="swatch" style="background:#b89d92"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Series — visual strip</div>
+ <div style="display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:8px">
+ <div style="flex:1;height:48px;background:#3b82f6;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">1</span></div>
+ <div style="flex:1;height:48px;background:#14b8a6;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">2</span></div>
+ <div style="flex:1;height:48px;background:#a855f7;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">3</span></div>
+ <div style="flex:1;height:48px;background:#f97316;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">4</span></div>
+ <div style="flex:1;height:48px;background:#ec4899;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">5</span></div>
+ <div style="flex:1;height:48px;background:#f5b000;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">6</span></div>
+ <div style="flex:1;height:48px;background:#06b6d4;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">7</span></div>
+ <div style="flex:1;height:48px;background:#22c55e;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">8</span></div>
+ <div style="flex:1;height:48px;background:#e029a8;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">9</span></div>
+ <div style="flex:1;height:48px;background:#b89d92;display:flex;align-items:flex-end;padding:4px 6px"><span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.8)">10</span></div>
+ </div>
+ <p class="token-desc" style="font-size:11px">Tip: run through a CVD simulator before finalizing chart components for accessibility.</p>
+ </div>
+
+ <div class="subsection">
+ <div class="subsection-label">Semantic Indicators</div>
+ <table class="token-table">
+ <thead><tr><th style="width:240px">Token</th><th>Value</th><th>Role</th><th style="width:56px">Swatch</th></tr></thead>
+ <tbody>
+ <tr><td><span class="token-name">dataviz.positive</span></td><td class="token-value">#16a34a</td><td class="token-desc">Positive trend, growth, success</td><td><div class="swatch" style="background:#16a34a"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.negative</span></td><td class="token-value">#dc2626</td><td class="token-desc">Negative trend, decline, loss</td><td><div class="swatch" style="background:#dc2626"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.neutral</span></td><td class="token-value">#6b7280</td><td class="token-desc">Flat / no change</td><td><div class="swatch" style="background:#6b7280"></div></td></tr>
+ <tr><td><span class="token-name">dataviz.highlight</span></td><td class="token-value">#a855f7</td><td class="token-desc">Selected or hovered series</td><td><div class="swatch" style="background:#a855f7"></div></td></tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+</main>
+
+<script>
+ // Highlight active nav link on scroll
+ const sections = document.querySelectorAll('section[id]');
+ const links = document.querySelectorAll('nav a');
+ const observer = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ links.forEach(l => l.classList.remove('active'));
+ const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+ if (active) active.classList.add('active');
+ }
+ });
+ }, { rootMargin: '-20% 0px -70% 0px' });
+ sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
