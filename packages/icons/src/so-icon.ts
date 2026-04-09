@@ -27,6 +27,21 @@ export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
  */
 @customElement('so-icon')
 export class SoIcon extends LitElement {
+  /**
+   * Set once at app startup to the URL where sprite.svg is served.
+   *
+   * Fragment-only hrefs (`#so-name`) do not resolve correctly from inside
+   * shadow roots in most browsers — the lookup stays scoped to the shadow
+   * tree instead of searching the main document. An absolute URL forces
+   * the browser to fetch the sprite directly, bypassing that limitation.
+   *
+   * @example
+   * // index.ts (called once before any so-icon renders)
+   * import { SoIcon } from '@snowyowl/icons';
+   * SoIcon.spriteUrl = '/sprite.svg';
+   */
+  static spriteUrl: string = '';
+
   static styles = css`
     :host {
       display: inline-flex;
@@ -73,6 +88,10 @@ export class SoIcon extends LitElement {
   render() {
     if (!this.name) return nothing;
 
+    const href = SoIcon.spriteUrl
+      ? `${SoIcon.spriteUrl}#so-${this.name}`
+      : `#so-${this.name}`;
+
     return html`
       <svg
         part="svg"
@@ -82,7 +101,7 @@ export class SoIcon extends LitElement {
         focusable="false"
         fill="currentColor"
       >
-        <use href="#so-${this.name}"></use>
+        <use href="${href}"></use>
       </svg>
     `;
   }

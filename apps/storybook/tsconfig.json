@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "types": ["vite/client"]
+  },
+  "include": [
+    ".storybook/**/*",
+    "../../packages/components/src/**/*",
+    "../../packages/icons/src/**/*"
+  ]
+}
