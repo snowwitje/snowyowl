@@ -22,7 +22,7 @@ shape personality: radius, shadow, border) by overriding semantic tokens only.
 |-------|-----------|
 | Components | Lit 3.x (web components) |
 | Tokens | Style Dictionary v4 + Tokens Studio format (W3C DTCG `$value`/`$type`) |
-| Storybook | `@storybook/web-components-vite` |
+| Storybook | `@storybook/web-components-vite` 8.x — running at `apps/storybook/` |
 | Monorepo | pnpm workspaces + Turborepo |
 | Language | TypeScript throughout |
 | CSS | CSS custom properties driven by tokens — no CSS-in-JS |
@@ -37,9 +37,11 @@ snowyowl/
 ├── packages/
 │   ├── tokens/          # @snowyowl/tokens — Style Dictionary source + build
 │   ├── components/      # @snowyowl/components — Lit web components
-│   └── themes/          # @snowyowl/themes — community theme packages
+│   └── icons/           # @snowyowl/icons — 278 SVG icons + so-icon component
 ├── apps/
-│   └── storybook/       # Documentation site
+│   └── storybook/       # Documentation site (Storybook 8, web-components-vite)
+├── docs/
+│   └── token-reference.html  # Living token reference page
 ├── .github/workflows/   # CI/CD
 └── CLAUDE.md            # This file
 ```
@@ -55,12 +57,12 @@ Raw values with no semantic meaning. Named by scale, not purpose.
 
 ### Tier 2: Semantic (`packages/tokens/src/semantic/base.json`)
 Meaning-mapped aliases that components consume via CSS custom properties.
-- `--so-color-surface-default`, `--so-semantic-radius-component`, `--so-semantic-shadow-container`
+- `--soSemanticColorSurfaceDefault`, `--soSemanticRadiusComponent`, `--soSemanticShadowContainer`
 - These are what themes override.
 
 ### Tier 3: Component tokens (`packages/tokens/src/components/[name].json`)
 Per-component token aliases (optional, only when a component needs independent overrides).
-- `--so-button-radius` → `var(--so-semantic-radius-component)`
+- `--soButtonRadius` → `var(--soSemanticRadiusComponent)`
 
 ### The four ⭐ shape personality tokens
 These four semantic tokens control visual character. When writing a theme, only these need to change for a full personality shift:
@@ -71,14 +73,29 @@ These four semantic tokens control visual character. When writing a theme, only 
 
 ---
 
-## Token Naming Convention
+## Token Naming Convention — CRITICAL
 
-CSS custom properties use this pattern:
+Style Dictionary with the `tokens-studio` transform group + `so` prefix produces **camelCase** CSS custom properties. **Always use camelCase. Never kebab-case.**
+
 ```
---so-{tier}-{category}-{variant}
---so-semantic-color-surface-default
---so-semantic-radius-component
---so-primitive-color-blue-500
+semantic.color.interactive.primary  →  --soSemanticColorInteractivePrimary
+semantic.radius.component           →  --soSemanticRadiusComponent
+semantic.shadow.focus               →  --soSemanticShadowFocus
+color.blue.500 (primitive)          →  --soColorBlue500
+space.4 (primitive)                 →  --soSpace4
+radius.md (primitive)               →  --soRadiusMd
+```
+
+**Wrong** (will not match compiled output):
+```css
+border-radius: var(--so-semantic-radius-component);   /* ❌ kebab-case */
+color: var(--so-color-interactive-primary);            /* ❌ kebab-case */
+```
+
+**Correct**:
+```css
+border-radius: var(--soSemanticRadiusComponent);       /* ✅ camelCase */
+color: var(--soSemanticColorInteractivePrimary);        /* ✅ camelCase */
 ```
 
 When writing new tokens, always follow the existing naming pattern in the JSON files.
@@ -108,11 +125,12 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('so-button')
 export class SoButton extends LitElement {
   // Always consume tokens via CSS custom properties, never hardcoded values
+  // IMPORTANT: use camelCase token names — kebab-case won't match compiled output
   static styles = css`
     :host {
       display: inline-flex;
-      border-radius: var(--so-semantic-radius-component);
-      box-shadow: var(--so-semantic-shadow-component);
+      border-radius: var(--soSemanticRadiusComponent);
+      box-shadow: var(--soSemanticShadowComponent);
     }
   `;
 
@@ -132,11 +150,23 @@ export class SoButton extends LitElement {
 - Always expose a CSS part for the main inner element: `part="base"`
 
 ### CSS rules in components
-- Use `var(--so-semantic-*)` for all visual properties
-- Use `var(--so-primitive-space-*)` for internal spacing
+- Use `var(--soSemantic*)` for all visual properties (camelCase — see naming convention above)
+- Use `var(--soSpace*)` for internal spacing (e.g. `var(--soSpace4)`)
 - Never hardcode colors, radii, shadows, or font values
 - Use `:host` for layout/display properties, internal elements for visual styling
-- Always include `:host([disabled])` and focus styles using `var(--so-semantic-shadow-focus)`
+- Always include `:host([disabled])` and focus styles using `var(--soSemanticShadowFocus)`
+
+### Using so-icon inside components
+`so-icon` uses an SVG sprite. Shadow DOM does not resolve fragment-only `href="#id"` references
+against the main document. Components that embed `so-icon` work correctly once the consumer
+sets `SoIcon.spriteUrl` at app startup:
+
+```typescript
+import { SoIcon } from '@snowyowl/icons';
+SoIcon.spriteUrl = '/sprite.svg'; // call once before first render
+```
+
+In Storybook this is already configured in `apps/storybook/.storybook/preview.ts`.
 
 ---
 
@@ -148,9 +178,9 @@ Standard pattern for responsive grids:
 ```css
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--so-primitive-grid-column-min-md), 1fr));
-  gap: var(--so-primitive-grid-gutter-md);
-  padding-inline: var(--so-primitive-grid-margin-md);
+  grid-template-columns: repeat(auto-fill, minmax(var(--soGridColumnMinMd), 1fr));
+  gap: var(--soGridGutterMd);
+  padding-inline: var(--soGridMarginMd);
 }
 ```
 
@@ -159,13 +189,15 @@ Named area layouts for page structure:
 .layout {
   display: grid;
   grid-template-areas: "sidebar main";
-  grid-template-columns: var(--so-primitive-grid-column-sidebar) 1fr;
+  grid-template-columns: var(--soGridColumnSidebar) 1fr;
 }
 ```
 
 ---
 
 ## Storybook Conventions
+
+Storybook is running at `apps/storybook/`. Start with `pnpm storybook` from root or `npm run storybook` from `apps/storybook/`.
 
 Every component must have these stories:
 1. **Default** — base state, all defaults
@@ -179,10 +211,10 @@ Story file convention:
 ```typescript
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import '../../../packages/components/src/components/button';
+import '@snowyowl/components/components/button';
 
 const meta: Meta = {
-  title: 'Components/Button',
+  title: 'Atomic/Button',
   component: 'so-button',
   tags: ['autodocs'],
 };
@@ -203,10 +235,10 @@ export const MyTheme: SnowyOwlTheme = {
   extends: 'light', // base theme to inherit from
   overrides: {
     // Only override what you need — everything else inherits
-    'semantic-radius-component': '0px',
-    'semantic-radius-container': '4px',
-    'semantic-shadow-component': 'none',
-    'semantic-color-interactive-primary': '#7c3aed',
+    'soSemanticRadiusComponent': '0px',
+    'soSemanticRadiusContainer': '4px',
+    'soSemanticShadowComponent': 'none',
+    'soSemanticColorInteractivePrimary': '#7c3aed',
   },
 };
 ```
@@ -227,6 +259,7 @@ A theme must document: what it overrides, what it inherits, and include a screen
 ## What Claude Should Never Do
 
 - Hardcode any color, radius, shadow, spacing, or font value in a component
+- Use kebab-case CSS variable names — always use camelCase (`--soSemanticRadiusComponent` not `--so-semantic-radius-component`)
 - Use CSS-in-JS or style attributes for component styling
 - Create a component without a corresponding Storybook story
 - Reference `{color.blue.500}` directly in component CSS (always go through semantic tokens)
@@ -244,6 +277,9 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | Init | Slightly rounded + subtle shadows for base theme | Versatile starting point |
 | Init | pnpm + Turborepo monorepo | Best-practice for multi-package DS |
 | Init | Style Dictionary v4 + W3C DTCG format | Future-proof, Tokens Studio compatible |
+| Init | camelCase CSS variables (`--soSemanticColorInteractivePrimary`) | Style Dictionary tokens-studio transform group output format |
+| 2026-04 | `SoIcon.spriteUrl` static property | Fragment-only `href="#id"` in SVG `<use>` does not resolve from shadow DOM in Chrome; absolute URL required |
+| 2026-04 | Storybook uses `staticDirs` to serve `sprite.svg` at `/` | Enables `SoIcon.spriteUrl = '/sprite.svg'` without bundling the sprite into JS |
 
 ---
 

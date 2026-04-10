@@ -126,7 +126,7 @@ export class SoButton extends LitElement {
       --so-btn-line-height:   17px;
       --so-btn-letter-spacing: 0;
       --so-btn-gap:           12px;
-      --so-btn-icon-size:     14px;
+      --so-btn-icon-size:     16px;
     }
 
     /* lg — 48px */
@@ -137,7 +137,7 @@ export class SoButton extends LitElement {
       --so-btn-line-height:   19px;
       --so-btn-letter-spacing: 0;
       --so-btn-gap:           16px;
-      --so-btn-icon-size:     16px;
+      --so-btn-icon-size:     20px;
     }
 
     /* ── Icon-only: square, no horizontal padding ── */
