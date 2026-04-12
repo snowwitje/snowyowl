@@ -13,7 +13,7 @@
       "container":  { "$value": "none",                             "$type": "shadow" },
       "floating":   { "$value": "{shadow.none}",                    "$type": "shadow" },
       "overlay":    { "$value": "{shadow.none}",                    "$type": "shadow" },
-      "focus":      { "$value": "0 0 0 2px currentColor",           "$type": "shadow", "$description": "Solid outline, no blur" }
+      "focus":      { "$value": "0 0 0 2px rgba(147, 51, 234, 1)",  "$type": "shadow", "$description": "Solid outline, no blur" }
     }
   }
 }
