@@ -1,0 +1,80 @@
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      # Re-deploy whenever tokens or the reference page change
+      - 'packages/tokens/**'
+      - 'docs/**'
+  workflow_dispatch: # allow manual trigger from Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; don't cancel in-progress runs
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build tokens + docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # pin to your pnpm version
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build tokens
+        run: pnpm --filter @snowyowl/tokens build
+        # Produces: packages/tokens/dist/css/*.css
+
+      - name: Assemble docs site
+        run: |
+          mkdir -p _site/docs
+          mkdir -p _site/packages/tokens/dist/css
+          # Copy the compiled token CSS themes
+          cp packages/tokens/dist/css/*.css _site/packages/tokens/dist/css/
+          # Copy the docs HTML + CSS
+          cp docs/snowyowl-token-reference.html _site/docs/index.html
+          cp docs/token-reference.css _site/docs/token-reference.css
+          # Copy favicon if present
+          if [ -d assets ]; then
+            cp -r assets _site/assets
+          fi
+        # _site/ now mirrors the relative path ../packages/tokens/dist/css/
+        # that snowyowl-token-reference.html expects
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
