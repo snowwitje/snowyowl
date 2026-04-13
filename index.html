@@ -17,6 +17,7 @@
       margin: 0;
       min-height: 100dvh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: var(--soSemanticColorSurfaceSubtle);
@@ -118,6 +119,9 @@
       line-height: var(--soFontLineHeightRelaxed);
       color: var(--soSemanticColorTextDefault);
     }
+    strong {
+      font-weight: var(--soFontWeightBold);
+    }
 
     /* ─── Buttons ─── */
     /*
@@ -179,8 +183,7 @@
         /* Extra top padding prevents the owl (which overflows above the card)
            from being clipped at the viewport edge */
         padding: calc(var(--soSpace12) + 50px) var(--soSpace12) var(--soSpace12);
-        align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
       .card {
@@ -221,6 +224,28 @@
       top: 10px;
       left: 40px;}
     }
+    /* ─── Footer ─── */
+    footer {
+      margin-top: var(--soSpace5);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: var(--soFontSizeSm);
+      font-weight: var(--soFontWeightLight);
+      color: var(--soSemanticColorTextSubtle);
+    }
+
+    footer a {
+      color: var(--soSemanticColorTextLink);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--soSemanticColorTextLinkHover);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -252,14 +277,15 @@
     </div>
 
     <nav class="card-actions" aria-label="Site navigation">
-      <a href="/docs" class="btn-outline">Token Reference</a>
+      <a href="/snowyowl/docs" class="btn-outline">Token Reference</a>
       <a href="https://github.com/snowwitje/snowyowl"
          class="btn-outline"
          target="_blank"
-         rel="noopener noreferrer">GitHub Repository</a>
+         rel="noopener noreferrer" aria-label="Github page (opens in a new tab)">GitHub Repository</a>
       <!-- Third button (Storybook) will be added when static site is deployed -->
     </nav>
 
   </article>
+  <footer><p>Project by <a href="https://snowwitje.github.io" target="_parent" aria-label="Alissa Nedossekina portfolio link (opens in a new tab)">snowwitje</a>. Copyright &copy; 2026</p></footer>
 </body>
 </html>
