@@ -283,4 +283,7 @@ A theme must document: what it overrides, what it inherits, and include a screen
 
 ---
 
+## Skills
+For any frontend/UI tasks, read /mnt/skills/public/frontend-design/SKILL.md before writing code.
+
 *Update this file whenever a significant architectural decision is made.*

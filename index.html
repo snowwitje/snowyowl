@@ -22,7 +22,7 @@
       justify-content: center;
       background-color: var(--soSemanticColorSurfaceSubtle);
       font-family: var(--soFontFamilySans);
-      padding: var(--soSpace10) var(--soSpace4);
+      padding: var(--soSpace8) var(--soSpace4);
     }
 
     /* ─── Card ─── */
@@ -182,7 +182,7 @@
       body {
         /* Extra top padding prevents the owl (which overflows above the card)
            from being clipped at the viewport edge */
-        padding: calc(var(--soSpace12) + 50px) var(--soSpace12) var(--soSpace12);
+        padding: calc(var(--soSpace12) + 40px) var(--soSpace12) var(--soSpace12);
         justify-content: flex-start;
       }
 
@@ -245,6 +245,10 @@
     footer a:hover {
       color: var(--soSemanticColorTextLinkHover);
       text-decoration: underline;
+    }
+    footer a:focus-visible {
+      outline: none;
+      box-shadow: var(--soSemanticShadowFocus);
     }
   </style>
 </head>
