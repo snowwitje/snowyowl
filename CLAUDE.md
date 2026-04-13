@@ -36,15 +36,43 @@ shape personality: radius, shadow, border) by overriding semantic tokens only.
 snowyowl/
 ├── packages/
 │   ├── tokens/          # @snowyowl/tokens — Style Dictionary source + build
+│   │                    #   dist/ is NOT committed — built in CI
 │   ├── components/      # @snowyowl/components — Lit web components
 │   └── icons/           # @snowyowl/icons — 278 SVG icons + so-icon component
 ├── apps/
 │   └── storybook/       # Documentation site (Storybook 8, web-components-vite)
 ├── docs/
-│   └── token-reference.html  # Living token reference page
-├── .github/workflows/   # CI/CD
+│   ├── snowyowl-token-reference.html  # Token reference source
+│   └── token-reference.css
+├── assets/              # Static assets (snowyowl.svg logo, favicon.ico)
+├── index.html           # Public homepage — token-driven, no build step required
+├── .github/workflows/   # CI/CD — deploys to GitHub Pages on push to main
 └── CLAUDE.md            # This file
 ```
+
+## Deployment (GitHub Pages)
+
+Live site: **`https://snowwitje.github.io/snowyowl/`**
+
+The deploy workflow (`.github/workflows/deploy-docs.yml`) runs on push to `main` when
+`packages/tokens/**`, `docs/**`, or `index.html` change. It:
+1. Builds tokens (`pnpm --filter @snowyowl/tokens build`) → produces `dist/css/*.css`
+2. Assembles `_site/`:
+   - `index.html` → `_site/index.html`
+   - `docs/snowyowl-token-reference.html` → `_site/docs/index.html`
+   - `packages/tokens/dist/css/*.css` → `_site/packages/tokens/dist/css/`
+   - `assets/` → `_site/assets/`
+
+Deployed URL structure:
+```
+/                          → homepage (index.html)
+/docs/                     → token reference
+/packages/tokens/dist/css/ → compiled token CSS (light, dark, and 4 variants)
+/assets/                   → logo SVG, favicon
+```
+
+`index.html` links token CSS as `packages/tokens/dist/css/light.css` (relative path),
+which matches the `_site/` layout. The `dist/` directory is never committed.
 
 ---
 
@@ -280,6 +308,8 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | Init | camelCase CSS variables (`--soSemanticColorInteractivePrimary`) | Style Dictionary tokens-studio transform group output format |
 | 2026-04 | `SoIcon.spriteUrl` static property | Fragment-only `href="#id"` in SVG `<use>` does not resolve from shadow DOM in Chrome; absolute URL required |
 | 2026-04 | Storybook uses `staticDirs` to serve `sprite.svg` at `/` | Enables `SoIcon.spriteUrl = '/sprite.svg'` without bundling the sprite into JS |
+| 2026-04 | `index.html` at repo root, no build step | Homepage uses compiled token CSS via relative path; `dist/` is built in CI and never committed |
+| 2026-04 | GitHub Pages base path `/snowyowl/` | Repo is `snowwitje/snowyowl`; internal links use `/snowyowl/docs` not `/docs` |
 
 ---
 
