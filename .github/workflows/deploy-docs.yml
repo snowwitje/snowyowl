@@ -5,9 +5,10 @@ on:
     branches:
       - main
     paths:
-      # Re-deploy whenever tokens or the reference page change
+      # Re-deploy whenever tokens, the reference page, or the homepage change
       - 'packages/tokens/**'
       - 'docs/**'
+      - 'index.html'
   workflow_dispatch: # allow manual trigger from Actions tab
 
 permissions:
@@ -55,7 +56,9 @@ jobs:
           # Copy the docs HTML + CSS
           cp docs/snowyowl-token-reference.html _site/docs/index.html
           cp docs/token-reference.css _site/docs/token-reference.css
-          # Copy favicon if present
+          # Copy the homepage
+          cp index.html _site/index.html
+          # Copy favicon and other assets
           if [ -d assets ]; then
             cp -r assets _site/assets
           fi

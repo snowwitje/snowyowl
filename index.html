@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnowyOwl Design System</title>
+  <meta name="description" content="Lightweight, modern, open-source design system built as framework-agnostic web components using Lit.">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Token CSS: all --soSemantic* and primitive custom properties -->
+  <link rel="stylesheet" href="packages/tokens/dist/css/light.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--soSemanticColorSurfaceSubtle);
+      font-family: var(--soFontFamilySans);
+      padding: var(--soSpace10) var(--soSpace4);
+    }
+
+    /* ─── Card ─── */
+    .card {
+      background: var(--soSemanticColorSurfaceRaised);
+      border: 1px solid var(--soSemanticColorBorderDefault);
+      border-radius: var(--soRadius3xl); /* 24px */
+      /*box-shadow: var(--soShadowMd);*/
+      width: 100%;
+      max-width: 460px;
+      padding: var(--soSpace8);
+      position: relative;
+    }
+
+    /* ─── Owl mascot ─── */
+    /*
+     * The owl figure uses two layered circles:
+     *   .owl-circle-accent  — sand.400 peeks from bottom-left
+     *   .owl-circle-main    — mauve.800 main circle, contains the SVG
+     *
+     * To add blink animation in the future: replace <img> with inline <svg>
+     * and target the eye elements with a CSS @keyframes animation.
+     */
+    .owl-figure {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto var(--soSpace8);
+      flex-shrink: 0;
+    }
+
+    .owl-circle-accent {
+      position: absolute;
+      width: 174px;
+      height: 174px;
+      border-radius: 50%;
+      background-color: var(--soColorSand400);
+      top: 10px;
+      left: 0;
+    }
+
+    .owl-circle-main {
+      position: absolute;
+      width: 174px;
+      height: 174px;
+      border-radius: 50%;
+      background-color: var(--soColorMauve800);
+      top: 10px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .owl-img {
+      display: block;
+      width: 116px;
+      height: 116px;
+    }
+
+    /* ─── Typography ─── */
+    .card-title {
+      margin: 0 0 var(--soSpace2);
+      font-size: var(--soFontSize3xl);       /* 30px */
+      font-weight: var(--soFontWeightSemibold); 
+      line-height: var(--soFontLineHeightTight);
+      letter-spacing: var(--soFontLetterSpacingTight);
+      color: var(--soSemanticColorTextDefault);
+    }
+
+    /* "Design System" in mauve — split on a <em> so only that part is coloured */
+    .card-title em {
+      font-style: normal;
+      color: var(--soSemanticColorTextSubtle);
+    }
+
+    .card-subtitle {
+      margin: 0 0 var(--soSpace4);
+      font-size: var(--soFontSizeXl);         
+      font-weight: var(--soFontWeightMedium);  
+      line-height: var(--soFontLineHeightSnug);
+      color: var(--soSemanticColorTextSubtle);
+    }
+
+    /* ─── Body copy ─── */
+    .card-body {
+      margin-bottom: var(--soSpace8);
+    }
+
+    .card-body p {
+      margin: 0;
+      font-size: var(--soFontSizeMd);          /* 16px */
+      font-weight: var(--soFontWeightLight);
+      line-height: var(--soFontLineHeightRelaxed);
+      color: var(--soSemanticColorTextDefault);
+    }
+
+    /* ─── Buttons ─── */
+    /*
+     * Mirrors so-button variant="outline" size="lg":
+     *   height: 48px, padding: 0 20px, font 16px medium,
+     *   1.5px border in --soSemanticColorInteractivePrimary,
+     *   border-radius: --soSemanticRadiusComponent (8px)
+     */
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--soSpace3); /* 12px */
+    }
+
+    .btn-outline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 var(--soSpace5); /* 0 20px */
+      font-family: var(--soFontFamilySans);
+      font-size: var(--soFontSizeMd);           /* 16px */
+      font-weight: var(--soFontWeightMedium);   /* 500 */
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--soSemanticColorInteractivePrimary);
+      background: transparent;
+      border: 1.5px solid var(--soSemanticColorInteractivePrimary);
+      border-radius: var(--soSemanticRadiusComponent); /* 8px */
+      cursor: pointer;
+      transition:
+        background-color 120ms ease,
+        color 120ms ease,
+        border-color 120ms ease,
+        box-shadow 120ms ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--soSemanticColorInteractiveGhostHover);
+      color: var(--soSemanticColorInteractivePrimaryHover);
+      border-color: var(--soSemanticColorInteractivePrimaryHover);
+    }
+
+    .btn-outline:active {
+      background: var(--soSemanticColorInteractiveGhostActive);
+      color: var(--soSemanticColorInteractivePrimaryActive);
+      border-color: var(--soSemanticColorInteractivePrimaryActive);
+    }
+
+    .btn-outline:focus-visible {
+      outline: none;
+      box-shadow: var(--soSemanticShadowFocus);
+    }
+
+    /* ─── Desktop (≥ 768px) ─── */
+    @media (min-width: 768px) {
+      body {
+        /* Extra top padding prevents the owl (which overflows above the card)
+           from being clipped at the viewport edge */
+        padding: calc(var(--soSpace12) + 50px) var(--soSpace12) var(--soSpace12);
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .card {
+        max-width: 740px;
+        /* Right padding reserves space for the absolute-positioned owl column.
+           Owl is 174px wide + 48px right offset + 40px breathing room ≈ 262px */
+        padding: var(--soSpace10) 180px var(--soSpace10) var(--soSpace12);
+        overflow: visible; /* let the owl overflow the card boundary */
+      }
+
+      .owl-figure {
+        /* Lift out of normal flow and anchor to card's top-right corner */
+        position: absolute;
+        top: -40px;
+        right: 0;
+        margin: 0;
+      }
+
+      .card-title {
+        font-size: var(--soFontSize3xl); 
+      }
+
+      .card-actions {
+        flex-direction: row;
+        gap: var(--soSpace3);
+      }
+
+      .btn-outline {
+        width: auto; /* shrink-to-content on desktop */
+      }
+
+    .owl-circle-accent {
+      top: 10px;
+      left: 20px;
+    }
+
+    .owl-circle-main {
+      top: 10px;
+      left: 40px;}
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+
+    <!--
+      Owl mascot — two layered circles + SVG.
+      aria-hidden: decorative element; meaningful alt text would be redundant
+      with the heading text that follows.
+
+      Future: replace <img> with inline <svg> and add a CSS @keyframes blink
+      targeting the eye pupils/lids within the SVG structure.
+    -->
+    <figure class="owl-figure" aria-hidden="true">
+      <div class="owl-circle-accent"></div>
+      <div class="owl-circle-main">
+        <img class="owl-img" src="assets/snowyowl.svg" alt="SnowyOwl mascot">
+      </div>
+    </figure>
+
+    <h1 class="card-title">SnowyOwl<em> Design System</em></h1>
+    <p class="card-subtitle">Lightweight, modern, open-source</p>
+
+    <div class="card-body">
+      <p><strong>SnowyOwl</strong> is an open-source, theme-extensible design system
+      built as framework-agnostic web components using Lit. It is inspired by IBM's
+      Carbon Design System in terms of documentation depth and best practices, but
+      designed to be lightweight and community-customizable.</p>
+    </div>
+
+    <nav class="card-actions" aria-label="Site navigation">
+      <a href="/docs" class="btn-outline">Token Reference</a>
+      <a href="https://github.com/snowwitje/snowyowl"
+         class="btn-outline"
+         target="_blank"
+         rel="noopener noreferrer">GitHub Repository</a>
+      <!-- Third button (Storybook) will be added when static site is deployed -->
+    </nav>
+
+  </article>
+</body>
+</html>
