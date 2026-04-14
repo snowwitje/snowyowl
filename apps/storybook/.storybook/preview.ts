@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/web-components';
 import { html } from 'lit';
+import theme from './theme';
 
 // ── Token themes ───────────────────────────────────────────────────────────────
 // All 6 compiled theme CSS files — each scoped to [data-theme="..."]
@@ -76,6 +77,9 @@ const preview: Preview = {
     layout: 'fullscreen',
     backgrounds: { disable: true }, // we control bg via tokens
     controls: { matchers: { color: /(color)$/i } },
+    docs: {
+      theme,   // SnowyOwl-themed docs via the manager theme, which also supports dark mode switching
+    },
   },
 };
 

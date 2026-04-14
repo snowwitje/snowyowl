@@ -20,7 +20,7 @@ const config: StorybookConfig = {
     options: {},
   },
 
-staticDirs: [{ from: '../../../packages/icons/', to: '/' }],
+staticDirs: [{ from: '../../../packages/icons/', to: '/' },  { from: '../../../assets', to: '/assets' }],
 
   docs: { autodocs: 'tag' },
 
