@@ -310,6 +310,10 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | Storybook uses `staticDirs` to serve `sprite.svg` at `/` | Enables `SoIcon.spriteUrl = '/sprite.svg'` without bundling the sprite into JS |
 | 2026-04 | `index.html` at repo root, no build step | Homepage uses compiled token CSS via relative path; `dist/` is built in CI and never committed |
 | 2026-04 | GitHub Pages base path `/snowyowl/` | Repo is `snowwitje/snowyowl`; internal links use `/snowyowl/docs` not `/docs` |
+| 2026-04 | Form controls use single size + `touch` boolean instead of sm/md/lg | Checkbox size variation is an a11y concern not a design variation; `touch` better expresses intent than `size` |
+| 2026-04 | Input value font fixed at 16px (textStyle.body-md) | iOS Safari auto-zooms on focus for inputs below 16px — functional requirement |
+| 2026-04 | `part="control"` on visual checkbox box | Allows consumers to override the visual box independently of the native input |
+| 2026-04 | so-checkbox-group deferred to separate iteration | Build and verify so-checkbox first; group introduces additional state management complexity |
 
 ---
 

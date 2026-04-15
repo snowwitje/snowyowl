@@ -221,6 +221,11 @@
         "$value": "{radius.full}",
         "$type": "borderRadius",
         "$description": "Tags and badges"
+      },
+      "control": {
+        "$value": "{radius.xs}",
+        "$type": "borderRadius",
+        "$description": "Checkbox button visual box radius — 2px base, 0px in sharp themes"
       }
     },
     "shadow": {
