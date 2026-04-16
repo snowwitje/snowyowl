@@ -1,22 +1,41 @@
 {
   "name": "@snowyowl/tokens",
   "version": "0.1.0",
-  "description": "SnowyOwl design tokens — primitives, semantic, and component-level",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "description": "SnowyOwl design tokens — primitives, semantic, and component-level CSS custom properties",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snowwitje/snowyowl.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://snowwitje.github.io/snowyowl/docs/",
+  "keywords": [
+    "design-tokens",
+    "css-custom-properties",
+    "design-system",
+    "theming",
+    "snowyowl",
+    "style-dictionary",
+    "tokens-studio"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/js/light.mjs",
+      "require": "./dist/js/light.cjs"
     },
-    "./css": "./dist/tokens.css",
-    "./json": "./dist/tokens.json"
+    "./css/*": "./dist/css/*.css",
+    "./js/*": {
+      "import": "./dist/js/*.mjs",
+      "require": "./dist/js/*.cjs"
+    },
+    "./json/*": "./dist/json/*.json"
   },
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs --watch",
