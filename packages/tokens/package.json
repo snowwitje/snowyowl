@@ -31,7 +31,8 @@
     "./json/*": "./dist/json/*.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public"
