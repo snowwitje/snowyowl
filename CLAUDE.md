@@ -314,6 +314,7 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | Input value font fixed at 16px (textStyle.body-md) | iOS Safari auto-zooms on focus for inputs below 16px — functional requirement |
 | 2026-04 | `part="control"` on visual checkbox box | Allows consumers to override the visual box independently of the native input |
 | 2026-04 | so-checkbox-group deferred to separate iteration | Build and verify so-checkbox first; group introduces additional state management complexity |
+| 2026-04 | `@snowyowl/tokens` published to npm (v0.1.0) | Tokens are stable enough for public consumption; CSS/JS/JSON exports all available via package exports map |
 
 ---
 

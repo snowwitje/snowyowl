@@ -15,7 +15,8 @@ npm install @snowyowl/tokens
 Load one theme CSS file. It sets all token variables on the appropriate selector.
 
 ```html
-<link rel="stylesheet" href="node_modules/@snowyowl/tokens/css/light" />
+<!-- Direct file path in HTML -->
+<link rel="stylesheet" href="node_modules/@snowyowl/tokens/dist/css/light.css" />
 ```
 
 Or in a CSS/JS bundler:

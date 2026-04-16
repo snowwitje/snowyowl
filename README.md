@@ -10,9 +10,9 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 
 | Package | Description | Status |
 |---------|-------------|--------|
-| `@snowyowl/tokens` | Design tokens — CSS custom properties, JS, JSON | Active |
+| `@snowyowl/tokens` | Design tokens | [![npm](https://img.shields.io/npm/v/@snowyowl/tokens)](https://www.npmjs.com/package/@snowyowl/tokens) |
 | `@snowyowl/components` | Lit web components | Active development |
-| `@snowyowl/icons` | 278 SVG icons + `so-icon` web component | Active |
+| `@snowyowl/icons` | 278 SVG icons + `so-icon` web component | Active development |
 
 ### Components
 
@@ -22,7 +22,29 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | `so-checkbox` | Checkbox — checked / indeterminate, touch mode, skeleton | ✅ Stable |
 | `so-icon` | SVG icon backed by sprite (278 icons) | ✅ Stable |
 
-> **npm packages are not yet published.** Use the repository directly for now — see [Development](#development).
+## Installation
+
+`@snowyowl/tokens` is published to npm:
+
+```bash
+npm install @snowyowl/tokens
+# or
+pnpm add @snowyowl/tokens
+```
+
+Then load a theme CSS file:
+
+```css
+/* In a CSS/JS bundler */
+@import '@snowyowl/tokens/css/light';
+```
+
+```html
+<!-- Or in plain HTML (direct file path) -->
+<link rel="stylesheet" href="node_modules/@snowyowl/tokens/dist/css/light.css" />
+```
+
+> `@snowyowl/components` and `@snowyowl/icons` are not yet published. Use the repository directly — see [Development](#development).
 
 ---
 
