@@ -315,6 +315,9 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | `part="control"` on visual checkbox box | Allows consumers to override the visual box independently of the native input |
 | 2026-04 | so-checkbox-group deferred to separate iteration | Build and verify so-checkbox first; group introduces additional state management complexity |
 | 2026-04 | `@snowyowl/tokens` published to npm (v0.1.0) | Tokens are stable enough for public consumption; CSS/JS/JSON exports all available via package exports map |
+| 2026-04 | Radio control 18×18px, checkbox control 16×16px | Radio circle is slightly larger to better accommodate the inner dot and match optical weight of the square checkbox |
+| 2026-04 | Hover halo standardised to 5px padding around control (checkbox 26×26px, radio 28×28px) | Consistent spatial relationship between control and halo across both form controls |
+| 2026-04 | Radio hover halo is a full circle (`border-radius: 50%`); checkbox halo is a rounded square (`--soSemanticRadiusControl`) | Halo shape mirrors the control shape — circular halo for circular radio, rounded square for square checkbox |
 
 ---
 

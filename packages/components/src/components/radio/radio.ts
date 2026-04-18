@@ -1,7 +1,7 @@
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { checkboxStyles } from './checkbox.styles.js';
-import type { CheckboxChangeDetail } from './checkbox.types.js';
+import { radioStyles } from './radio.styles.js';
+import type { RadioChangeDetail } from './radio.types.js';
 
 /* ── Inline icons ──────────────────────────────────────────────────────────── */
 
@@ -25,48 +25,45 @@ const warningIconSvg = html`
 `;
 
 /**
- * `so-checkbox` — SnowyOwl Checkbox component.
+ * `so-radio` — SnowyOwl Radio Button component.
  *
- * States: unchecked | checked | indeterminate
+ * States: unchecked | checked
  * Extras: disabled, skeleton, error, warning, touch (44px target)
  *
- * @slot - Checkbox value label (the text next to the box)
+ * @slot - Radio value label (the text next to the circle)
  *
- * @csspart base    - The hidden native <input type="checkbox">
- * @csspart control - The visible 16×16 box <span>
- * @csspart label   - The optional field label above the checkbox
+ * @csspart base    - The hidden native <input type="radio">
+ * @csspart control - The visible 16×16 circle <span>
+ * @csspart label   - The optional field label above the radio
  * @csspart helper  - The optional helper text below the label
  * @csspart value   - The wrapper around the slotted value text
  * @csspart error   - The error feedback message
  * @csspart warning - The warning feedback message
  *
  * @fires so-change - Fired on user interaction.
- *   detail: { checked: boolean, indeterminate: boolean }
+ *   detail: { checked: boolean, value: string }
  *
  * @example
- * <so-checkbox name="accept">I accept the terms</so-checkbox>
+ * <so-radio name="size" value="sm">Small</so-radio>
  *
  * @example
- * <so-checkbox
+ * <so-radio
  *   label="Preferences"
- *   helper-text="Select all that apply"
+ *   helper-text="Choose one"
+ *   name="pref"
+ *   value="a"
  *   checked
  * >
- *   Receive notifications
- * </so-checkbox>
- *
- * @example
- * <so-checkbox error-text="This field is required">
- *   Subscribe to newsletter
- * </so-checkbox>
+ *   Option A
+ * </so-radio>
  */
-@customElement('so-checkbox')
-export class SoCheckbox extends LitElement {
-  static styles = checkboxStyles;
+@customElement('so-radio')
+export class SoRadio extends LitElement {
+  static styles = radioStyles;
 
   /* ── Props ── */
 
-  /** Optional field label displayed above the checkbox row. */
+  /** Optional field label displayed above the radio row. */
   @property({ type: String }) label = '';
 
   /** Optional helper text displayed below the field label. */
@@ -74,13 +71,6 @@ export class SoCheckbox extends LitElement {
 
   /** Checked state — reflected as attribute for CSS state selectors. */
   @property({ type: Boolean, reflect: true }) checked = false;
-
-  /**
-   * Indeterminate state — reflects as attribute.
-   * When true, renders a horizontal bar instead of a checkmark.
-   * The native input's `indeterminate` DOM property is set accordingly.
-   */
-  @property({ type: Boolean, reflect: true }) indeterminate = false;
 
   /** Disabled — blocks interaction and dims the control. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -108,7 +98,7 @@ export class SoCheckbox extends LitElement {
 
   /**
    * The value submitted with the form when checked.
-   * Defaults to the string "on" (same as native checkbox).
+   * Defaults to the string "on" (same as native radio).
    */
   @property({ type: String }) value = 'on';
 
@@ -121,10 +111,9 @@ export class SoCheckbox extends LitElement {
     if (this.disabled || this.skeleton) return;
     const input = e.target as HTMLInputElement;
     this.checked = input.checked;
-    this.indeterminate = input.indeterminate;
     this.dispatchEvent(
-      new CustomEvent<CheckboxChangeDetail>('so-change', {
-        detail: { checked: this.checked, indeterminate: this.indeterminate },
+      new CustomEvent<RadioChangeDetail>('so-change', {
+        detail: { checked: this.checked, value: this.value },
         bubbles: true,
         composed: true,
       }),
@@ -156,9 +145,8 @@ export class SoCheckbox extends LitElement {
           <!-- Hidden native input — part="base" per API contract -->
           <input
             part="base"
-            type="checkbox"
+            type="radio"
             .checked=${this.checked}
-            .indeterminate=${this.indeterminate}
             .value=${this.value}
             ?disabled=${this.disabled || this.skeleton}
             ?required=${this.required}
@@ -168,22 +156,10 @@ export class SoCheckbox extends LitElement {
             @change=${this._handleChange}
           />
 
-          <!-- Visual 16×16 box — part="control" per API contract.
-               Both marks are always in the DOM; opacity is controlled by CSS
-               via :host([checked]) and :host([indeterminate]) so the layout
-               never changes when the user checks or unchecks the box. -->
-          <span part="control" ?data-error=${!!this.errorText} aria-hidden="true">
-            <svg class="checkmark" viewBox="0 0 10 8" fill="none" aria-hidden="true">
-              <path
-                d="M1 4L3.5 6.5L9 1"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <span class="indeterminate-bar"></span>
-          </span>
+          <!-- Visual 16×16 circle — part="control" per API contract.
+               Inner dot is rendered via ::after pseudo-element, toggled by
+               :host([checked]) so no layout shift occurs on state change. -->
+          <span part="control" ?data-error=${showError} aria-hidden="true"></span>
 
           <!-- Slotted value label -->
           <span part="value"><slot></slot></span>
@@ -215,6 +191,6 @@ export class SoCheckbox extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'so-checkbox': SoCheckbox;
+    'so-radio': SoRadio;
   }
 }

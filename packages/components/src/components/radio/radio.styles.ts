@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const checkboxStyles = css`
+export const radioStyles = css`
   :host {
     display: inline-block;
     vertical-align: top;
@@ -11,7 +11,6 @@ export const checkboxStyles = css`
   .wrapper {
     display: inline-flex;
     flex-direction: column;
-    /* 4px base gap; .row and .feedback add 4px margin-top each → 8px total from prev item */
     gap: 4px;
   }
 
@@ -65,11 +64,10 @@ export const checkboxStyles = css`
   }
 
   /* ════════════════
-     CHECKBOX ROW
+     RADIO ROW
   ════════════════ */
 
   .row {
-    /* 4px extra margin-top + wrapper gap 4px = 8px from previous item */
     margin: 4px 0 0 0;
     padding: 0;
     display: inline-flex;
@@ -104,8 +102,8 @@ export const checkboxStyles = css`
   [part='base'] {
     /* Visually hidden but accessible + focusable */
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     opacity: 0;
     margin: 0;
     padding: 0;
@@ -117,24 +115,23 @@ export const checkboxStyles = css`
   }
 
   /* ════════════════
-     VISUAL CONTROL BOX
+     VISUAL CONTROL CIRCLE
   ════════════════ */
 
   [part='control'] {
     /* Fixed dimensions — flex shorthand prevents grow/shrink in the row */
-    flex: 0 0 16px;
-    width: 16px;
-    height: 16px;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
     box-sizing: border-box;
-    border-radius: var(--soSemanticRadiusControl, 2px);
+    border-radius: 50%;
     border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
     background: transparent;
-    /* position: relative for absolute-positioned marks */
+    /* position: relative for pseudo-element marks */
     position: relative;
     /* No overflow:hidden — focus ring (box-shadow) must show */
     overflow: visible;
     transition:
-      background-color 120ms ease,
       border-color 120ms ease,
       box-shadow 120ms ease;
   }
@@ -145,7 +142,7 @@ export const checkboxStyles = css`
     box-shadow: var(--soSemanticShadowFocus, 0 0 0 3px rgba(147, 51, 234, 1));
   }
 
-  /* ── Hover halo (26×26 area centered on the 16×16 control) ──
+  /* ── Hover halo (28×28 circle centered on the 18×18 control) ──
      Placed on .row::before so it paints behind [part='control'] in
      document order — avoids z-index stacking context issues. */
   .row::before {
@@ -154,9 +151,9 @@ export const checkboxStyles = css`
     left: -5px;
     top: 50%;
     transform: translateY(-50%);
-    width: 26px;
-    height: 26px;
-    border-radius: var(--soSemanticRadiusControl, 2px);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
     background: transparent;
     pointer-events: none;
     transition: background-color 120ms ease;
@@ -166,56 +163,23 @@ export const checkboxStyles = css`
     background: var(--soSemanticColorInteractiveGhostHover, #f3f4f6);
   }
 
-  /* ── Checked ── */
-  :host([checked]) [part='control'] {
-    background: var(--soSemanticColorTextDefault, #1f2937);
-    border-color: var(--soSemanticColorTextDefault, #1f2937);
-  }
-
-  /* ── Indeterminate (overrides checked visually) ── */
-  :host([indeterminate]) [part='control'] {
-    background: var(--soSemanticColorTextDefault, #1f2937);
-    border-color: var(--soSemanticColorTextDefault, #1f2937);
-  }
-
-  /* ── Marks: always in DOM, positioned absolutely, shown via opacity ──
-     Using opacity (not display/visibility) prevents any layout recalculation
-     when checking/unchecking, which eliminates the 1px row-shift bug. */
-
-  .checkmark {
+  /* ── Inner dot (always in DOM; opacity toggled by checked state) ── */
+  [part='control']::after {
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    /* SVG is 10×8, translate by half to center */
     transform: translate(-50%, -50%);
-    width: 10px;
+    width: 8px;
     height: 8px;
-    display: block;
-    color: var(--soSemanticColorTextInverse, #ffffff);
+    border-radius: 50%;
+    background: var(--soSemanticColorTextDefault, #1f2937);
     opacity: 0;
     pointer-events: none;
+    transition: opacity 120ms ease;
   }
 
-  .indeterminate-bar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 2px;
-    background: var(--soSemanticColorTextInverse, #ffffff);
-    border-radius: 1px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* Show checkmark only when checked and NOT indeterminate */
-  :host([checked]:not([indeterminate])) [part='control'] .checkmark {
-    opacity: 1;
-  }
-
-  /* Show bar only when indeterminate */
-  :host([indeterminate]) [part='control'] .indeterminate-bar {
+  :host([checked]) [part='control']::after {
     opacity: 1;
   }
 
@@ -270,10 +234,14 @@ export const checkboxStyles = css`
     border-color: var(--soSemanticColorTextDisabled, #9ca3af);
   }
 
-  :host([disabled][checked]) [part='control'],
-  :host([disabled][indeterminate]) [part='control'] {
+  :host([disabled][checked]) [part='control']::after {
     background: var(--soSemanticColorTextDisabled, #9ca3af);
-    border-color: var(--soSemanticColorTextDisabled, #9ca3af);
+  }
+
+  /* Suppress hover halo when disabled or skeleton */
+  :host([disabled]) .row:hover::before,
+  :host([skeleton]) .row:hover::before {
+    background: transparent;
   }
 
   /* ════════════════
