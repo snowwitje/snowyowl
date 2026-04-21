@@ -31,6 +31,11 @@
           "$value": "{color.neutral.300}",
           "$type": "color",
           "$description": "Skeleton elements"
+        },
+        "disabled": {
+          "$value": "{color.neutral.100}",
+          "$type": "color",
+          "$description": "Fill for disabled input fields and form controls."
         }
       },
       "border": {
