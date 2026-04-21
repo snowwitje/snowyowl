@@ -4,6 +4,20 @@
 
 ### Added
 
+- **`so-input`** — Text input web component (`packages/components/src/components/input/`)
+  - Sizes: `md` (40px height, default) and `lg` (48px height) — reflected as attribute
+  - Optional `label` prop (above the field) with optional `helper-text` (below the label)
+  - Character counter: `current/max` shown on the label row when `maxlength` is set
+  - Default border: `1px solid var(--soSemanticColorTextSubtle)`. Hover: `1.5px solid var(--soSemanticColorTextDefault)`. Focus: `box-shadow: var(--soSemanticShadowFocus)`, border resets to default — no `outline`
+  - Input font fixed at 16px / weight 300 (textStyle.body-md) — prevents iOS Safari auto-zoom
+  - `error-text`, `warning-text`, `success-text` — shown below the input with coloured icon; error takes precedence
+  - `part="prefix"` / `part="suffix"` named slots for icon injection; slots are hidden when empty via `slotchange` tracking
+  - `type="password"`: automatic eye-toggle button in suffix position using `so-icon` (so-eye / so-eye-off)
+  - Disabled: `var(--soSemanticColorSurfaceDisabled)` fill, `var(--soSemanticColorTextDisabled)` text and border, `pointer-events: none`
+  - Skeleton: animated pulse on the control, `so-skeleton-pulse` keyframe — same pattern as other components
+  - Fires `so-input` (every keystroke) and `so-change` (blur/commit), both with `detail: { value: string }`
+  - Parts: `base`, `control`, `label`, `helper`, `prefix`, `suffix`, `counter`, `error`, `warning`, `success`
+
 - **`so-toggle`** — Toggle (switch) web component (`packages/components/src/components/toggle/`)
   - States: unchecked (off), checked (on)
   - Optional field `label` prop (above the row) and `helper-text` prop

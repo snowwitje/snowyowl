@@ -26,10 +26,6 @@ export const radioStyles = css`
     color: var(--soSemanticColorTextSubtle, #6b7280);
   }
 
-  :host([disabled]) [part='label'] {
-    color: var(--soSemanticColorTextDisabled, #9ca3af);
-  }
-
   /* ── Field label skeleton bar ── */
   :host([skeleton]) [part='label'] {
     color: transparent;
@@ -57,10 +53,6 @@ export const radioStyles = css`
     font-weight: 300;
     line-height: 1.4;
     color: var(--soSemanticColorTextSubtle, #6b7280);
-  }
-
-  :host([disabled]) [part='helper'] {
-    color: var(--soSemanticColorTextDisabled, #9ca3af);
   }
 
   /* ════════════════

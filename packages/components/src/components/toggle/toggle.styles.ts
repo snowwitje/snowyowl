@@ -26,10 +26,6 @@ export const toggleStyles = css`
     color: var(--soSemanticColorTextSubtle, #6b7280);
   }
 
-  :host([disabled]) [part='label'] {
-    color: var(--soSemanticColorTextDisabled, #9ca3af);
-  }
-
   :host([skeleton]) [part='label'] {
     color: transparent;
     position: relative;
@@ -56,10 +52,6 @@ export const toggleStyles = css`
     font-weight: 300;
     line-height: 1.4;
     color: var(--soSemanticColorTextSubtle, #6b7280);
-  }
-
-  :host([disabled]) [part='helper'] {
-    color: var(--soSemanticColorTextDisabled, #9ca3af);
   }
 
   /* ════════════════
