@@ -61,3 +61,22 @@
   - Shape personality tokens: `--soSemanticRadiusComponent`, `--soSemanticRadiusContainer`,
     `--soSemanticShadowComponent`, `--soSemanticShadowContainer`
   - `--soSemanticRadiusControl` — 2px base / 0px sharp (for checkboxes and tight form elements)
+
+## 0.1.1 — 2026-04
+
+### Added
+
+- **Token system** (`@snowyowl/tokens`)
+  - New `--soSemanticColorSurfaceDisabled` token for disabled inputs fill
+
+## 0.1.2 — 2026-04
+
+### Changed
+- **Token system** (`@snowyowl/tokens`)
+  - Fixed `--soSemanticRadiusBadge` in elevated theme to have full radius
+
+### Added
+
+- **Token system** (`@snowyowl/tokens`)
+  - New `--soSemanticColorTextPlaceholder` token for placeholder text color
+  - New `--soSemanticRadiusInput` token for border-radius on input fields
