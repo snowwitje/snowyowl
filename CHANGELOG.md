@@ -4,6 +4,17 @@
 
 ### Added
 
+- **`so-toggle`** — Toggle (switch) web component (`packages/components/src/components/toggle/`)
+  - States: unchecked (off), checked (on)
+  - Optional field `label` prop (above the row) and `helper-text` prop
+  - `disabled` state dims the control and blocks interaction
+  - `skeleton` state shows animated placeholder pill for the track and grey bar for the value label
+  - `touch` prop enforces 44px minimum touch target height (WCAG 2.5.8 / mobile a11y)
+  - `part="base"` on hidden `<input type="checkbox" role="switch">`, `part="control"` on 48×24px pill track, `part="thumb"` on 18×18px sliding circle
+  - Thumb slides from left (off, 3px inset, primary colour) to right (on, 3px inset, white) via CSS `transform: translateX(24px)` with 150ms ease transition
+  - Focus ring via `box-shadow: var(--soSemanticShadowFocus)` on `part="control"`, `:focus-visible` only
+  - Fires `so-change` custom event with `{ checked, value }` detail
+
 - **`so-radio`** — Radio button web component (`packages/components/src/components/radio/`)
   - States: unchecked, checked
   - Optional field `label` prop (above the row) and `helper-text` prop
