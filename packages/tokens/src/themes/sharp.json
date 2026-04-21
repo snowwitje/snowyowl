@@ -5,8 +5,9 @@
       "component":   { "$value": "{radius.none}", "$type": "borderRadius" },
       "container":   { "$value": "{radius.none}", "$type": "borderRadius" },
       "interactive": { "$value": "{radius.none}", "$type": "borderRadius" },
-      "badge":       { "$value": "{radius.xs}",   "$type": "borderRadius" },
-      "control":     { "$value": "{radius.none}", "$type": "borderRadius" }
+      "badge":       { "$value": "{radius.full}", "$type": "borderRadius" },
+      "control":     { "$value": "{radius.none}", "$type": "borderRadius" },
+      "input":       { "$value": "{radius.none}", "$type": "borderRadius" }
     },
 
     "shadow": {

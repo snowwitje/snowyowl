@@ -6,7 +6,8 @@
       "container":   { "$value": "{radius.2xl}", "$type": "borderRadius" },
       "interactive": { "$value": "{radius.xl}",  "$type": "borderRadius" },
       "badge":       { "$value": "{radius.full}", "$type": "borderRadius" },
-      "control":     { "$value": "{radius.xs}", "$type": "borderRadius" }
+      "control":     { "$value": "{radius.xs}", "$type": "borderRadius" },
+      "input":       { "$value": "{radius.md}", "$type": "borderRadius" }
     },
 
     "shadow": {

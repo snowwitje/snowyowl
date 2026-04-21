@@ -73,6 +73,11 @@
           "$type": "color",
           "$description": "Disabled \u2014 WCAG exempt for inactive UI"
         },
+        "placeholder": {
+          "$value": "{color.neutral.400}",
+          "$type": "color",
+          "$description": "Placeholder text color"
+        },
         "inverse": {
           "$value": "{color.neutral.0}",
           "$type": "color",
@@ -230,7 +235,12 @@
       "control": {
         "$value": "{radius.xs}",
         "$type": "borderRadius",
-        "$description": "Checkbox button visual box radius — 2px base, 0px in sharp themes"
+        "$description": "Checkbox button visual box radius"
+      },
+      "input": { 
+        "$value": "{radius.sm}",
+        "$type": "borderRadius",
+        "$description": "Input field radius"
       }
     },
     "shadow": {

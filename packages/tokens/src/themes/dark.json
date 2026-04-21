@@ -74,6 +74,11 @@
           "$type": "color",
           "$description": "WCAG exempt \u2014 inactive UI"
         },
+        "placeholder": {
+          "$value": "{color.neutral.600}",
+          "$type": "color",
+          "$description": "Placeholder text color"
+        },
         "inverse": {
           "$value": "{color.neutral.900}",
           "$type": "color",
