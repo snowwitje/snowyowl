@@ -45,6 +45,9 @@
 
 ### Changed
 
+- **All form controls** (`so-input`, `so-toggle`, `so-checkbox`, `so-radio`) — When `disabled`, `[part='label']` and `[part='helper']` now retain their **default text colors** (`--soSemanticColorTextSubtle`). Only the interactive control itself (field wrapper, toggle track/thumb, circle, box) uses disabled colors. Intentional divergence from Carbon Design System — disabled fields remain scannable and their labels remain semantically readable.
+- **`so-input`** — Wrapper gap corrected to `8px` (was `4px`). Gap between helper text→control and between control→feedback messages is now consistently 8px, matching the checkbox and radio spacing convention.
+- **`so-toggle`** — Checked thumb `translateX` corrected to `22px` (was calculated 21px from box-model; 22px is visually optimal with the 1.5px border).
 - **`so-checkbox`** — Hover halo enlarged: 26×26px rounded square (`border-radius: var(--soSemanticRadiusControl)`) via `.row::before`, 5px padding around the 16×16 control (was 22×22px / 3px padding). Not shown when `disabled` or `skeleton`.
 - **`so-checkbox`** — Error border fixed: `[part='control']` now applies
   `border-color: var(--soSemanticColorStatusError)` (1.5px) when `error-text` is set,

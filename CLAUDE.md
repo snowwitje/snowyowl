@@ -318,6 +318,10 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | Radio control 18×18px, checkbox control 16×16px | Radio circle is slightly larger to better accommodate the inner dot and match optical weight of the square checkbox |
 | 2026-04 | Hover halo standardised to 5px padding around control (checkbox 26×26px, radio 28×28px) | Consistent spatial relationship between control and halo across both form controls |
 | 2026-04 | Radio hover halo is a full circle (`border-radius: 50%`); checkbox halo is a rounded square (`--soSemanticRadiusControl`) | Halo shape mirrors the control shape — circular halo for circular radio, rounded square for square checkbox |
+| 2026-04 | Toggle checked thumb `translateX(22px)` — manually tuned rather than exact box-model math | Box-model gives 21px (track 48px − 2×1.5px border = 45px content; 45 − 18 − 3 − 3 = 21px); 22px was visually optimal with the 1.5px border at render time |
+| 2026-04 | Disabled `[part='label']` and `[part='helper']` retain default text colors across all form controls | Disabled labels remain scannable and semantically accurate; only the interactive control itself (field, track, circle, box) should use muted disabled color. Intentional divergence from Carbon Design System. |
+| 2026-04 | Form control wrapper gap is `8px` for `so-input` (matching checkbox/radio 8px above/below-control convention) | Consistent visual breathing room around the interactive control in all form components |
+| 2026-04 | Storybook `import '@snowyowl/icons'` removed from individual component and story files | Caused `importers[path] is not a function` error in autodocs virtual-module analysis; `preview.ts` registers `so-icon` globally — no per-story import needed |
 
 ---
 
