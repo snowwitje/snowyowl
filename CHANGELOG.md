@@ -4,6 +4,25 @@
 
 ### Added
 
+- **`so-select`** — Select / dropdown web component (`packages/components/src/components/select/`)
+  - Single-select and multi-select modes (`multiple` attribute)
+  - Optional live search field inside the panel (`searchable` — defaults to `false` for single, `true` for multi)
+  - Options via slotted `<so-option value="…">` elements; label falls back to slotted text content
+  - Trigger sizes: `md` (40px, default) and `lg` (48px) — matching `so-input`
+  - `touch` prop sets 48px item height in the dropdown list for mobile a11y
+  - Trigger right side: count badge (multi) → clear button (×) → separator → chevron; chevron rotates 180° when open
+  - Dropdown panel: absolute-positioned, flips above trigger when insufficient viewport space below; `z-index: 1000`; `max-height: 220px` with scroll; `var(--soSemanticShadowFloating)` shadow
+  - Search field: sticky at top of panel, filters options case-insensitively; search clear (×) button
+  - Selected option display: single shows checkmark right-aligned; multi shows embedded checkbox left-aligned with `var(--soSemanticColorInteractivePrimarySubtle)` background
+  - Keyboard navigation follows Carbon DS spec: `Enter`/`Space`/`↓` opens; `↑`/`↓` navigates; `Enter`/`Space` selects; `Esc`/`Tab` closes; `Delete` on multi clears all; search `Esc` clears search first, second `Esc` closes
+  - ARIA: `role="combobox"` + `aria-haspopup="listbox"` on trigger; `role="listbox"` + `aria-multiselectable` on panel; `role="option"` + `aria-selected` + `aria-disabled` on items; `aria-invalid` when `errorText` set
+  - `error-text` / `warning-text` shown below trigger with coloured icon; error takes precedence
+  - Disabled: `var(--soSemanticColorSurfaceDisabled)` fill, pointer-events none; skeleton: pulsing trigger bar
+  - Companion `so-option` element (`value`, `label`, `disabled`) — not rendered directly
+  - Fires `so-change` (with `detail: SelectChangeDetail`), `so-open`, `so-close`
+  - Parts: `trigger`, `clear`, `chevron`, `panel`, `search`, `listbox`, `label`, `helper`, `error`, `warning`
+  - All token references are camelCase (`--soSemanticColorBorderDefault`, `--soSemanticShadowFloating`, etc.)
+
 - **`so-input`** — Text input web component (`packages/components/src/components/input/`)
   - Sizes: `md` (40px height, default) and `lg` (48px height) — reflected as attribute
   - Optional `label` prop (above the field) with optional `helper-text` (below the label)
