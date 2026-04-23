@@ -281,7 +281,8 @@ export const selectStyles = css`
     transform: rotate(180deg);
   }
 
-  :host([disabled]) .chevron-wrapper {
+  :host([disabled]) .chevron-wrapper,
+  :host([disabled]) .clear-btn {
     color: var(--soSemanticColorTextDisabled, #9ca3af);
   }
 
