@@ -4,6 +4,18 @@
 
 ### Added
 
+- **`so-loader`** — Spinner / loader web component (`packages/components/src/components/loader/`)
+  - Sizes: `sm` (24px), `md` (40px, default), `lg` (56px), `xl` (72px); track widths 3/4.5/6/7px respectively
+  - Variant `arc` (default): inline SVG with track ring + rotating arc (~40% circumference), `stroke-linecap="round"`, driven by CSS `so-spin` keyframe (1s linear infinite)
+  - Variant `gradient`: layered comet-tail effect — three concentric arcs (40%/25%/15% of circumference) stacked in paint order with `stroke-dashoffset` alignment so all layers share the same leading tip; colors sweep from `#deccc3` (sand.300, trailing) through `#a6808c` (mauve.400) to `var(--soSemanticColorInteractivePrimary)` (leading tip). Hardcoded primitive palette values are intentional for the decorative gradient effect.
+  - SVG arc parameters computed from size at render time — not hardcoded per-size
+  - Layout modes: default (centered flex block), `inline` (inline-flex, vertically aligned with text), `overlay` (absolute positioned with 75% opacity scrim via `::before` so spinner is not dimmed; parent must have `position: relative`)
+  - `label` prop: always used as `aria-label` (fallback `"Loading"`); also rendered as visible text below spinner in overlay mode (`margin-top: 12px`, `font-size: 14px`, `font-weight: 400`)
+  - ARIA: `:host` has `role="status"` and `aria-live="polite"` (set via `connectedCallback`); `aria-label` updates reactively
+  - Parts: `spinner` (the SVG), `label` (overlay visible text)
+  - No custom events emitted
+  - Stories: `Default`, `Sizes`, `Variants`, `Inline`, `Overlay`, `WithLabel`, `ThemeShowcase`
+
 - **`so-select`** — Select / dropdown web component (`packages/components/src/components/select/`)
   - Single-select and multi-select modes (`multiple` attribute)
   - Optional search field inside the panel (`searchable` — explicit; defaults to `true` for multi-select); search field does **not** auto-focus on open — user clicks or tabs to it
