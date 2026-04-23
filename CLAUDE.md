@@ -329,6 +329,9 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | `so-select` on open: pre-focus first selected option; no selection → `_focusedIndex = -1` | Matches standard combobox UX — a selected value is immediately reachable; empty state keeps trigger as focus point |
 | 2026-04 | `so-select` keyboard nav: trigger handles ArrowDown/Up in all modes (searchable included) | Removed `if (isSearchable) return` early-exit so arrow keys work from trigger without search auto-focus |
 | 2026-04 | `so-select` ArrowUp from top option in searchable mode moves DOM focus to search input | Search field is in the visual navigation order (above options); consistent with "arrow keys navigate the whole panel" expectation |
+| 2026-04 | `so-loader` gradient variant uses hardcoded primitive colors (`#deccc3`, `#a6808c`) | Comet-tail effect is purely decorative; semantic tokens don't have mid-range palette steps. Acceptable exception documented in styles file. |
+| 2026-04 | `so-loader` overlay scrim uses `::before` opacity, not `opacity` on host | Applying opacity to `:host([overlay])` would dim the spinner itself; `::before` with `opacity: 0.75` isolates the scrim behind the spinner content |
+| 2026-04 | `so-loader` SVG arc parameters computed at render time from size prop | Avoids per-size hardcoded dasharray values; a single formula (`r = (d - tw) / 2`, `circ = 2πr`) covers all four sizes |
 
 ---
 
