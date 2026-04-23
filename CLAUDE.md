@@ -322,6 +322,13 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | Disabled `[part='label']` and `[part='helper']` retain default text colors across all form controls | Disabled labels remain scannable and semantically accurate; only the interactive control itself (field, track, circle, box) should use muted disabled color. Intentional divergence from Carbon Design System. |
 | 2026-04 | Form control wrapper gap is `8px` for `so-input` (matching checkbox/radio 8px above/below-control convention) | Consistent visual breathing room around the interactive control in all form components |
 | 2026-04 | Storybook `import '@snowyowl/icons'` removed from individual component and story files | Caused `importers[path] is not a function` error in autodocs virtual-module analysis; `preview.ts` registers `so-icon` globally — no per-story import needed |
+| 2026-04 | `so-select` trigger border uses `--soSemanticColorTextSubtle` (not `--soSemanticColorBorderDefault`) | Matches `so-input` border weight; subtle gray border reads as a text field, not a container |
+| 2026-04 | `so-select` separator only renders when a value is selected (i.e. clear button is visible) | Separator divides × from chevron — without a clear button there is nothing to separate |
+| 2026-04 | `so-select` search field does not auto-focus on panel open | Trigger should be the initial focus point; user explicitly clicks or tabs to the search field to type |
+| 2026-04 | `so-select` focus ring: `trigger-active` + `options-navigating` + `_searchFocused` three-class pattern | Guarantees exactly one element shows a focus ring at a time across all open/navigate/search states; avoids double rings that arise because the trigger div retains DOM focus during keyboard navigation |
+| 2026-04 | `so-select` on open: pre-focus first selected option; no selection → `_focusedIndex = -1` | Matches standard combobox UX — a selected value is immediately reachable; empty state keeps trigger as focus point |
+| 2026-04 | `so-select` keyboard nav: trigger handles ArrowDown/Up in all modes (searchable included) | Removed `if (isSearchable) return` early-exit so arrow keys work from trigger without search auto-focus |
+| 2026-04 | `so-select` ArrowUp from top option in searchable mode moves DOM focus to search input | Search field is in the visual navigation order (above options); consistent with "arrow keys navigate the whole panel" expectation |
 
 ---
 

@@ -6,22 +6,29 @@
 
 - **`so-select`** — Select / dropdown web component (`packages/components/src/components/select/`)
   - Single-select and multi-select modes (`multiple` attribute)
-  - Optional live search field inside the panel (`searchable` — defaults to `false` for single, `true` for multi)
+  - Optional search field inside the panel (`searchable` — explicit; defaults to `true` for multi-select); search field does **not** auto-focus on open — user clicks or tabs to it
   - Options via slotted `<so-option value="…">` elements; label falls back to slotted text content
   - Trigger sizes: `md` (40px, default) and `lg` (48px) — matching `so-input`
-  - `touch` prop sets 48px item height in the dropdown list for mobile a11y
-  - Trigger right side: count badge (multi) → clear button (×) → separator → chevron; chevron rotates 180° when open
-  - Dropdown panel: absolute-positioned, flips above trigger when insufficient viewport space below; `z-index: 1000`; `max-height: 220px` with scroll; `var(--soSemanticShadowFloating)` shadow
-  - Search field: sticky at top of panel, filters options case-insensitively; search clear (×) button
-  - Selected option display: single shows checkmark right-aligned; multi shows embedded checkbox left-aligned with `var(--soSemanticColorInteractivePrimarySubtle)` background
-  - Keyboard navigation follows Carbon DS spec: `Enter`/`Space`/`↓` opens; `↑`/`↓` navigates; `Enter`/`Space` selects; `Esc`/`Tab` closes; `Delete` on multi clears all; search `Esc` clears search first, second `Esc` closes
+  - `touch` prop sets `min-height: 48px` on option rows for mobile a11y
+  - Trigger right side: count badge (multi, inline left) → flex spacer → clear button (×) → separator → chevron; separator only rendered when a value is selected; chevron rotates 180° when open
+  - Multi-select: "N selected" pill badge sits inline left in the trigger; placeholder text is hidden when any value is selected
+  - Border: `1px solid var(--soSemanticColorTextSubtle)` (closed); `1.5px solid var(--soSemanticColorInteractivePrimary)` (open)
+  - Focus ring logic — exactly one ring visible at a time:
+    - `trigger-active` class: full focus glow on trigger when panel open and no option/search has focus (works for mouse + keyboard)
+    - `options-navigating` class: suppresses trigger `:focus-visible` while an option has the keyboard ring
+    - `_searchFocused` state: prevents `trigger-active` from firing when the search input owns DOM focus
+    - `options-active` class on search-wrapper: suppresses search `:focus-visible` during option keyboard navigation
+  - On open: trigger has focus ring when nothing selected; first selected option is keyboard-focused when a value exists
+  - Keyboard navigation: `Enter`/`Space`/`↓` opens; `↑`/`↓` navigates options from trigger; `ArrowUp` from top option moves to search field (searchable); `Enter`/`Space` selects; `Esc`/`Tab` closes; search `Esc` clears text first, second `Esc` closes; `Delete` on multi clears all
+  - Options: `min-height: 40px` (not fixed height) with `line-height: 1.5` to prevent text clipping; hover = background change only, no focus ring unless actually in keyboard focus
+  - Dropdown panel: absolute-positioned, flips above trigger when `< 240px` viewport space below; `z-index: 1000`; `max-height: 220px` with scroll; `var(--soSemanticShadowFloating)` shadow
+  - Single-select: selected option shows right-aligned checkmark; multi-select: embedded 16×16 checkbox left-aligned with `var(--soSemanticColorInteractivePrimarySubtle)` background
   - ARIA: `role="combobox"` + `aria-haspopup="listbox"` on trigger; `role="listbox"` + `aria-multiselectable` on panel; `role="option"` + `aria-selected` + `aria-disabled` on items; `aria-invalid` when `errorText` set
   - `error-text` / `warning-text` shown below trigger with coloured icon; error takes precedence
-  - Disabled: `var(--soSemanticColorSurfaceDisabled)` fill, pointer-events none; skeleton: pulsing trigger bar
-  - Companion `so-option` element (`value`, `label`, `disabled`) — not rendered directly
+  - Disabled: `var(--soSemanticColorSurfaceDisabled)` fill, pointer-events none; clear button (×) and chevron both use `--soSemanticColorTextDisabled`; skeleton: pulsing trigger bar
+  - Companion `so-option` element (`value`, `label`, `disabled`) — display: none, used as data holder only
   - Fires `so-change` (with `detail: SelectChangeDetail`), `so-open`, `so-close`
   - Parts: `trigger`, `clear`, `chevron`, `panel`, `search`, `listbox`, `label`, `helper`, `error`, `warning`
-  - All token references are camelCase (`--soSemanticColorBorderDefault`, `--soSemanticShadowFloating`, etc.)
 
 - **`so-input`** — Text input web component (`packages/components/src/components/input/`)
   - Sizes: `md` (40px height, default) and `lg` (48px height) — reflected as attribute
