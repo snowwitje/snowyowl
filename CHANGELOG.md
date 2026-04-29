@@ -4,6 +4,18 @@
 
 ### Added
 
+- **`so-tabs` / `so-tab`** — Tab strip component (`packages/components/src/components/tabs/`)
+  - Two elements: `so-tabs` (strip container) + `so-tab` (individual tab item)
+  - Variants: `line` (bottom indicator, no strip background) and `filled` (colored strip, top indicator)
+  - Icon slot on `so-tab` for icon-only or icon+label modes; icon size fixed at 20×20px
+  - Keyboard navigation: ARIA tabs pattern with roving tabindex; ArrowLeft/Right navigate focus, Home/End jump to ends, Enter/Space activates; disabled tabs are skipped
+  - ARIA: `so-tabs` has `role="tablist"` with optional `label` passthrough; `so-tab` has `role="tab"`, `aria-selected`, `aria-disabled`
+  - States: enabled, selected (4px inset indicator), hover, focus (purple ring via `--soSemanticShadowFocus`), disabled, skeleton (animated 80×14px bar)
+  - Focus ring uses combined `box-shadow` so the indicator + ring are both visible on selected+focused tabs
+  - `so-tabs` fires `so-change` on selection change; `so-tab` fires `so-tab-select` on activation
+  - Parts: `so-tabs[tablist]`, `so-tab[base]`, `so-tab[label]`, `so-tab[icon]`
+  - Stories: `Default`, `Filled`, `WithIcons`, `WithIconsAndLabels`, `States`, `WithDisabledTabs`, `SkeletonLoading`, `ThemeShowcase`
+
 - **`so-loader`** — Spinner / loader web component (`packages/components/src/components/loader/`)
   - Sizes: `sm` (24px), `md` (40px, default), `lg` (56px), `xl` (72px); track widths 3/4.5/6/7px respectively
   - Variant `arc` (default): inline SVG with track ring + rotating arc (~40% circumference), `stroke-linecap="round"`, driven by CSS `so-spin` keyframe (1s linear infinite)
