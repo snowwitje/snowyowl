@@ -19,7 +19,12 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | Component | Description | Status |
 |-----------|-------------|--------|
 | `so-button` | Button — 5 variants, 3 sizes, icon-only mode | ✅ Stable |
-| `so-checkbox` | Checkbox — checked / indeterminate, touch mode, skeleton | ✅ Stable |
+| `so-checkbox` | Checkbox — checked / indeterminate, touch mode | ✅ Stable |
+| `so-loader` | Loader - 2 variants, 4 sizes | ✅ Stable |
+| `so-radio` | Radio button - checked, touch mode | ✅ Stable |
+| `so-select` | Select - 2 sizes, single and multi-select | ✅ Stable |
+| `so-tabs` | Tabs - 2 variants, 1 size, with or without icons | ✅ Stable |
+| `so-toggle` | Toggle - 1 size, touch mode | ✅ Stable |
 | `so-icon` | SVG icon backed by sprite (278 icons) | ✅ Stable |
 
 ## Installation
