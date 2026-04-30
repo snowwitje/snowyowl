@@ -20,9 +20,9 @@ export const radioStyles = css`
 
   [part='label'] {
     display: block;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: var(--soSemanticTextStyleLabelMdFontSize);
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+    line-height: var(--soSemanticTextStyleLabelMdLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
   }
 
@@ -49,9 +49,9 @@ export const radioStyles = css`
 
   [part='helper'] {
     display: block;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
   }
 
@@ -182,10 +182,9 @@ export const radioStyles = css`
   [part='value'] {
     display: inline-block;
     position: relative;
-    /* textStyle.body-md: 16px, weight 300, line-height 1.4 */
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    line-height: var(--soSemanticTextStyleBodyMdLineHeight);
     color: var(--soSemanticColorTextDefault, #1f2937);
     user-select: none;
   }
@@ -256,9 +255,9 @@ export const radioStyles = css`
     display: flex;
     align-items: flex-start;
     gap: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
   }
 
   .feedback svg {

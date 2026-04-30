@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+### Changed
+
+- **Token architecture — `semantic.typography` trimmed to family tokens only** (`packages/tokens/src/semantic/base.json`)
+  - Removed 8 redundant tokens (`size-body`, `size-body-sm`, `weight-body`, `weight-body-sm`, `weight-heading`, `weight-label`, `weight-footnote`, `weight-caption`) that were not consumed by any component and created a false impression of being theme override points
+  - `semantic.typography` now contains only the three ⭐ theme levers: `family-body`, `family-heading`, `family-code`
+  - Font size and weight are design system constants expressed through `semantic.textStyle.*` tokens, not theme variables
+  - **Note:** the `add-font-styles` preprocessor in `@tokens-studio/sd-transforms` does not support chained references inside composite textStyle `fontFamily` values; consequently `textStyle.*.fontFamily` continues to reference font-family primitives directly. The theme cascade for font-family works correctly via the `:host { font-family: var(--soSemanticTypographyFamilyBody) }` pattern already in all components, where CSS inheritance propagates the family to all descendant text.
+
+- **All component styles now use `--soSemanticTextStyle*` tokens for typography** (button, checkbox, radio, toggle, input, select, loader, tab)
+  - Removed all hardcoded `font-size`, `font-weight`, and `line-height` values
+  - Role → token mapping applied consistently across all components:
+    - `[part='label']` → `LabelMd` (14px / medium / tight)
+    - `[part='helper']`, `.feedback`, `[part='counter']` → `Caption` (12px / light / normal)
+    - `[part='value']`, input/select body text → `BodyMd` (16px / light / normal)
+    - Tab and loader label text → `BodySm` (14px / regular / normal)
+    - Button sizes → `LabelSm` / `LabelMd` / `LabelLg` per size
+  - Minor visual adjustments: `line-height` on helper and feedback text changes from `1.4` → `1.5` (aligning to the `normal` primitive); feedback `font-weight` changes from `400` → `300` (light, matching `caption`)
+
 ### Added
 
 - **`so-tabs` / `so-tab`** — Tab strip component (`packages/components/src/components/tabs/`)

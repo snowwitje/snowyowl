@@ -25,9 +25,9 @@ export const inputStyles = css`
 
   [part='label'] {
     display: block;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: var(--soSemanticTextStyleLabelMdFontSize);
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+    line-height: var(--soSemanticTextStyleLabelMdLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     cursor: default;
   }
@@ -53,9 +53,9 @@ export const inputStyles = css`
   ════════════════ */
 
   [part='counter'] {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.2;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     white-space: nowrap;
   }
@@ -73,9 +73,9 @@ export const inputStyles = css`
 
   [part='helper'] {
     display: block;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     margin-top: -4px; /* net: 4px from label row (8px gap − 4px) */
   }
@@ -143,17 +143,17 @@ export const inputStyles = css`
     outline: none;
     background: transparent;
     font-family: inherit;
-    /* Fixed 16px — prevents iOS Safari auto-zoom on focus */
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.4;
+    /* body-md token = 16px — min size to prevent iOS Safari auto-zoom on focus */
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    line-height: var(--soSemanticTextStyleBodyMdLineHeight);
     color: var(--soSemanticColorTextDefault, #1f2937);
     padding: 0;
   }
 
   [part='base']::placeholder {
     color: var(--soSemanticColorTextPlaceholder, #9ca3af);
-    font-weight: 300;
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
   }
 
   /* ════════════════
@@ -247,9 +247,9 @@ export const inputStyles = css`
     display: flex;
     align-items: flex-start;
     gap: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
   }
 
   .feedback svg {

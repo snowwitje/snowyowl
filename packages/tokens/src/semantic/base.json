@@ -285,40 +285,6 @@
         "$value": "{font.family.mono}",
         "$type": "fontFamily"
       },
-      "size-body": {
-        "$value": "{font.size.md}",
-        "$type": "fontSize"
-      },
-      "size-body-sm": {
-        "$value": "{font.size.sm}",
-        "$type": "fontSize"
-      },
-      "weight-body": {
-        "$value": "{font.weight.light}",
-        "$type": "fontWeight",
-        "$description": "300 \u2014 Geologica is thick, light weight for body"
-      },
-      "weight-body-sm": {
-        "$value": "{font.weight.regular}",
-        "$type": "fontWeight",
-        "$description": "400 \u2014 regular at small sizes for readability"
-      },
-      "weight-heading": {
-        "$value": "{font.weight.bold}",
-        "$type": "fontWeight"
-      },
-      "weight-label": {
-        "$value": "{font.weight.medium}",
-        "$type": "fontWeight"
-      },
-      "weight-footnote": {
-        "$value": "{font.weight.light}",
-        "$type": "fontWeight"
-      },
-      "weight-caption": {
-        "$value": "{font.weight.light}",
-        "$type": "fontWeight"
-      }
     },
     "textStyle": {
       "display-2xl": {

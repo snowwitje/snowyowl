@@ -68,9 +68,9 @@ export const loaderStyles = css`
 
   [part='label'] {
     margin-top: 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+    line-height: var(--soSemanticTextStyleBodySmLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     text-align: center;
     font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);

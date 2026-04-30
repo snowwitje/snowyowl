@@ -27,9 +27,9 @@ export const selectStyles = css`
 
   [part='label'] {
     display: block;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: var(--soSemanticTextStyleLabelMdFontSize);
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+    line-height: var(--soSemanticTextStyleLabelMdLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     cursor: default;
   }
@@ -56,9 +56,9 @@ export const selectStyles = css`
 
   [part='helper'] {
     display: block;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     margin-top: -4px;
   }
@@ -172,9 +172,9 @@ export const selectStyles = css`
   .trigger-text {
     flex: 1;
     min-width: 0;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    line-height: var(--soSemanticTextStyleBodyMdLineHeight);
     color: var(--soSemanticColorTextDisabled, #9ca3af); /* placeholder color */
     white-space: nowrap;
     overflow: hidden;
@@ -201,8 +201,8 @@ export const selectStyles = css`
     flex-shrink: 0;
     background: var(--soSemanticColorInteractivePrimary, #7c3aed);
     color: var(--soSemanticColorTextInverse, #ffffff);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: var(--soSemanticTextStyleLabelSmFontSize);
+    font-weight: var(--soSemanticTextStyleLabelSmFontWeight);
     line-height: 1;
     padding: var(--soSpace2, 8px) 12px;
     border-radius: var(--soSemanticRadiusBadge, 9999px);
@@ -348,9 +348,9 @@ export const selectStyles = css`
     outline: none;
     background: transparent;
     font-family: inherit;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    line-height: var(--soSemanticTextStyleBodyMdLineHeight);
     color: var(--soSemanticColorTextDefault, #1f2937);
     padding: 0;
     /* Suppress browser's native search input styling */
@@ -371,7 +371,7 @@ export const selectStyles = css`
 
   .search-input::placeholder {
     color: var(--soSemanticColorTextDisabled, #9ca3af);
-    font-weight: 300;
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
   }
 
   /* Remove native search cancel button */
@@ -398,9 +398,9 @@ export const selectStyles = css`
     min-height: 40px;
     padding: 0 var(--soSpace3, 12px);
     gap: var(--soSpace3, 12px);
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    line-height: var(--soSemanticTextStyleBodyMdLineHeight);
     color: var(--soSemanticColorTextDefault, #1f2937);
     cursor: pointer;
     box-sizing: border-box;
@@ -510,8 +510,8 @@ export const selectStyles = css`
     align-items: center;
     justify-content: center;
     height: 40px;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
     padding: 0 var(--soSpace3, 12px);
   }
@@ -524,9 +524,9 @@ export const selectStyles = css`
     display: flex;
     align-items: flex-start;
     gap: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
   }
 
   .feedback svg {

@@ -64,7 +64,7 @@ export class SoButton extends LitElement {
       /* Typography */
       font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);
       font-size: var(--so-btn-font-size);
-      font-weight: 500;
+      font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
       line-height: var(--so-btn-line-height);
       letter-spacing: var(--so-btn-letter-spacing, 0);
 
@@ -111,9 +111,9 @@ export class SoButton extends LitElement {
     :host(:not([size])) [part='base'] {
       --so-btn-height:        32px;
       --so-btn-padding-h:     12px;
-      --so-btn-font-size:     12px;
-      --so-btn-line-height:   14px;
-      --so-btn-letter-spacing: 0.025em;
+      --so-btn-font-size:     var(--soSemanticTextStyleLabelSmFontSize);
+      --so-btn-line-height:   var(--soSemanticTextStyleLabelSmLineHeight);
+      --so-btn-letter-spacing: var(--soSemanticTextStyleLabelSmLetterSpacing);
       --so-btn-gap:           8px;
       --so-btn-icon-size:     12px;
     }
@@ -122,9 +122,9 @@ export class SoButton extends LitElement {
     :host([size='md']) [part='base'] {
       --so-btn-height:        40px;
       --so-btn-padding-h:     16px;
-      --so-btn-font-size:     14px;
-      --so-btn-line-height:   17px;
-      --so-btn-letter-spacing: 0;
+      --so-btn-font-size:     var(--soSemanticTextStyleLabelMdFontSize);
+      --so-btn-line-height:   var(--soSemanticTextStyleLabelMdLineHeight);
+      --so-btn-letter-spacing: var(--soSemanticTextStyleLabelMdLetterSpacing);
       --so-btn-gap:           12px;
       --so-btn-icon-size:     16px;
     }
@@ -133,9 +133,9 @@ export class SoButton extends LitElement {
     :host([size='lg']) [part='base'] {
       --so-btn-height:        48px;
       --so-btn-padding-h:     20px;
-      --so-btn-font-size:     16px;
-      --so-btn-line-height:   19px;
-      --so-btn-letter-spacing: 0;
+      --so-btn-font-size:     var(--soSemanticTextStyleLabelLgFontSize);
+      --so-btn-line-height:   var(--soSemanticTextStyleLabelLgLineHeight);
+      --so-btn-letter-spacing: var(--soSemanticTextStyleLabelLgLetterSpacing);
       --so-btn-gap:           16px;
       --so-btn-icon-size:     20px;
     }

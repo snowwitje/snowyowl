@@ -29,9 +29,9 @@ export const tabStyles = css`
     height: 44px;
     padding: var(--soSpace2, 8px) var(--soSpace4, 16px);
     font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+    line-height: 1; /* intentional: fixed 44px height needs ratio 1 to avoid line box interference */
     white-space: nowrap;
     cursor: pointer;
     background: transparent;
@@ -61,7 +61,7 @@ export const tabStyles = css`
   :host([selected][variant='line']) [part='base'] {
     background: var(--soSemanticColorInteractivePrimarySubtle, #f3e8ff);
     color: var(--soSemanticColorTextDefault, #1f2937);
-    font-weight: 500;
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
     box-shadow: inset 0 -4px 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
   }
 
@@ -97,7 +97,7 @@ export const tabStyles = css`
   :host([selected][variant='filled']) [part='base'] {
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     color: var(--soSemanticColorTextDefault, #1f2937);
-    font-weight: 500;
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
     box-shadow: inset 0 var(--soBorderWidthThick) 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
   }
 
