@@ -295,7 +295,7 @@ export const selectStyles = css`
     left: 0;
     right: 0;
     top: calc(100% + 4px);
-    z-index: var(--soZIndexDropdown);
+    z-index: 100;
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     border: 1px solid var(--soSemanticColorBorderDefault, #e5e7eb);
     border-radius: var(--soSemanticRadiusInput, 4px);
