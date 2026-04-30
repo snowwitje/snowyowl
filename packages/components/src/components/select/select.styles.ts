@@ -108,10 +108,10 @@ export const selectStyles = css`
     outline: none;
     gap: 4px;
     transition:
-      border-color 120ms ease,
-      border-width 120ms ease,
-      box-shadow 120ms ease,
-      background-color 120ms ease;
+      border-color var(--soDurationNormal) ease,
+      border-width var(--soDurationNormal) ease,
+      box-shadow var(--soDurationNormal) ease,
+      background-color var(--soDurationNormal) ease;
   }
 
   :host([size='lg']) .trigger-container {
@@ -227,7 +227,7 @@ export const selectStyles = css`
     cursor: pointer;
     color: var(--soSemanticColorTextSubtle, #6b7280);
     border-radius: 2px;
-    transition: color 120ms ease;
+    transition: color var(--soDurationNormal) ease;
   }
 
   .icon-btn:hover {
@@ -274,7 +274,7 @@ export const selectStyles = css`
     width: 16px;
     height: 16px;
     display: block;
-    transition: transform 200ms ease;
+    transition: transform var(--soDurationNormal) ease;
   }
 
   .trigger-container.open .chevron-wrapper svg {
@@ -295,7 +295,7 @@ export const selectStyles = css`
     left: 0;
     right: 0;
     top: calc(100% + 4px);
-    z-index: 1000;
+    z-index: var(--soZIndexDropdown);
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     border: 1px solid var(--soSemanticColorBorderDefault, #e5e7eb);
     border-radius: var(--soSemanticRadiusInput, 4px);
@@ -405,7 +405,7 @@ export const selectStyles = css`
     cursor: pointer;
     box-sizing: border-box;
     border-bottom: 1px solid var(--soSemanticColorBorderStrong, #d1d5db);
-    transition: background-color 80ms ease;
+    transition: background-color var(--soDurationFast) ease;
     /* Prevents text-selection during keyboard navigation */
     user-select: none;
   }
@@ -476,8 +476,8 @@ export const selectStyles = css`
     background: transparent;
     color: var(--soSemanticColorTextInverse, #ffffff);
     transition:
-      background-color 120ms ease,
-      border-color 120ms ease;
+      background-color var(--soDurationNormal) ease,
+      border-color var(--soDurationNormal) ease;
   }
 
   .option-checkbox.checked {

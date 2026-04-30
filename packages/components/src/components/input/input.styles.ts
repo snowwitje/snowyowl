@@ -96,10 +96,10 @@ export const inputStyles = css`
     border-radius: var(--soSemanticRadiusInput, 4px);
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     transition:
-      border-color 120ms ease,
-      border-width 120ms ease,
-      box-shadow 120ms ease,
-      background-color 120ms ease;
+      border-color var(--soDurationFast) ease,
+      border-width var(--soDurationFast) ease,
+      box-shadow var(--soDurationFast) ease,
+      background-color var(--soDurationFast) ease;
   }
 
   :host([size='lg']) [part='control'] {
@@ -187,7 +187,7 @@ export const inputStyles = css`
     cursor: pointer;
     color: var(--soSemanticColorTextSubtle, #6b7280);
     border-radius: 2px;
-    transition: color 120ms ease;
+    transition: color var(--soDurationFast) ease;
   }
 
   .eye-btn:hover {
