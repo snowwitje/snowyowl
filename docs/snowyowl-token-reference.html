@@ -20,7 +20,7 @@
  <img src="../assets/snowyowl.svg" width="32" height="32" alt="SnowyOwl">
  <span>SnowyOwl</span>
  </div>
- <div class="nav-logo-sub">Token Reference v0.1.2</div>
+ <div class="nav-logo-sub">Token Reference v0.2.0</div>
  </div>
  <div class="nav-section">
  <div class="nav-section-label">Primitives</div>
@@ -36,6 +36,11 @@
  <a href="#sem-color">Color — semantic</a>
  <a href="#sem-shape">Shape personality</a>
  <a href="#sem-text-styles">Text Styles</a>
+ <a href="#sem-spacing">Spacing</a>
+ <a href="#sem-zindex">Z-Index</a>
+ <a href="#sem-border">Border Width</a>
+ <a href="#sem-motion">Motion</a>
+ <a href="#sem-opacity">Opacity</a>
  </div>
  <div class="nav-section">
  <div class="nav-section-label">Themes</div>
@@ -356,6 +361,7 @@
  <tr><td><span class="token-name">semantic.color.surface.overlay</span></td><td class="token-desc">Modals, drawers</td><td class="token-value">#ffffff <span class="token-ref">{color.neutral.0}</span></td><td><div class="swatch" style="background:var(--soSemanticColorSurfaceOverlay)"></div></td></tr>
  <tr><td><span class="token-name">semantic.color.surface.sunken</span></td><td class="token-desc">Inset areas, code blocks</td><td class="token-value">#f5ede8 <span class="token-ref">{color.sand.100}</span></td><td><div class="swatch" style="background:var(--soSemanticColorSurfaceSunken)"></div></td></tr>
  <tr><td><span class="token-name">semantic.color.surface.skeleton</span></td><td class="token-desc">Skeleton elements</td><td class="token-value">#d1d5db <span class="token-ref">{color.neutral.300}</span></td><td><div class="swatch" style="background:var(--soSemanticColorSurfaceSkeleton)"></div></td></tr>
+<tr><td><span class="token-name">semantic.color.surface.disabled</span></td><td class="token-desc">Fill for disabled input fields and form controls</td><td class="token-value">#f3f4f6 <span class="token-ref">{color.neutral.100}</span></td><td><div class="swatch" style="background:var(--soSemanticColorSurfaceDisabled)"></div></td></tr>
  </tbody>
  </table>
  </div>
@@ -656,6 +662,132 @@
  </section>
 
  <!-- ═══════════════════════════════════════════════════
+SEMANTIC SPACING
+════════════════════════════════════════════════════ -->
+<section class="section" id="sem-spacing">
+<div class="section-header">
+<h2>Spacing — Semantic</h2>
+<span class="section-count">semantic/base.json → spacing</span>
+</div>
+<p class="token-desc" style="margin-bottom:24px">Named spacing aliases for common component and layout use cases. Components consume these instead of raw space.* primitives.</p>
+<table class="token-table">
+<thead><tr><th style="width:280px">Token</th><th>Role</th><th>Value</th><th>Visual</th></tr></thead>
+<tbody>
+<tr><td><span class="token-name">semantic.spacing.component-xs</span></td><td class="token-desc">Tight internal padding (icons, chips)</td><td class="token-value">4px <span class="token-ref">{space.1}</span></td><td><div class="spacing-bar" style="width:4px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.component-sm</span></td><td class="token-desc">Small internal padding</td><td class="token-value">8px <span class="token-ref">{space.2}</span></td><td><div class="spacing-bar" style="width:8px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.component-md</span></td><td class="token-desc">Standard internal padding (buttons, inputs)</td><td class="token-value">16px <span class="token-ref">{space.4}</span></td><td><div class="spacing-bar" style="width:16px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.component-lg</span></td><td class="token-desc">Large internal padding (cards, panels)</td><td class="token-value">24px <span class="token-ref">{space.6}</span></td><td><div class="spacing-bar" style="width:24px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.layout-sm</span></td><td class="token-desc">Small layout gap / section spacing</td><td class="token-value">32px <span class="token-ref">{space.8}</span></td><td><div class="spacing-bar" style="width:32px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.layout-md</span></td><td class="token-desc">Standard layout gap</td><td class="token-value">48px <span class="token-ref">{space.12}</span></td><td><div class="spacing-bar" style="width:48px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.layout-lg</span></td><td class="token-desc">Section / page-level spacing</td><td class="token-value">64px <span class="token-ref">{space.16}</span></td><td><div class="spacing-bar" style="width:64px"></div></td></tr>
+<tr><td><span class="token-name">semantic.spacing.layout-xl</span></td><td class="token-desc">Hero / marketing sections</td><td class="token-value">96px <span class="token-ref">{space.24}</span></td><td><div class="spacing-bar" style="width:96px"></div></td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+SEMANTIC Z-INDEX
+════════════════════════════════════════════════════ -->
+<section class="section" id="sem-zindex">
+<div class="section-header">
+<h2>Z-Index — Semantic</h2>
+<span class="section-count">semantic/base.json → zindex</span>
+</div>
+<p class="token-desc" style="margin-bottom:24px">Layering tokens that control stacking order across the UI. Use <span class="star">★</span>-marked tokens in component CSS — never raw numbers.</p>
+<table class="token-table">
+<thead><tr><th style="width:280px">Token</th><th>Role</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><span class="token-name">semantic.zindex.sticky</span></td><td class="token-desc">Sticky elements within a scrollable panel (e.g. search bar inside dropdown)</td><td class="token-value">10</td></tr>
+<tr><td><span class="token-name">⭐ semantic.zindex.dropdown</span></td><td class="token-desc">Floating panels: dropdowns, popovers, tooltips</td><td class="token-value">100</td></tr>
+<tr><td><span class="token-name">⭐ semantic.zindex.overlay</span></td><td class="token-desc">Full-surface loading overlays</td><td class="token-value">300</td></tr>
+<tr><td><span class="token-name">⭐ semantic.zindex.modal</span></td><td class="token-desc">Modals and dialogs</td><td class="token-value">400</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+SEMANTIC BORDER WIDTH
+════════════════════════════════════════════════════ -->
+<section class="section" id="sem-border">
+<div class="section-header">
+<h2>Border Width — Semantic</h2>
+<span class="section-count">semantic/base.json → border</span>
+</div>
+<p class="token-desc" style="margin-bottom:24px">Semantic border thickness tokens for form controls and indicators. Use these instead of raw border.width.* primitives in components.</p>
+<table class="token-table">
+<thead><tr><th style="width:280px">Token</th><th>Role</th><th>Value</th><th>Visual</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="token-name">semantic.border.width-control</span></td>
+  <td class="token-desc">Standard form control border (input, select, checkbox at rest)</td>
+  <td class="token-value">1px <span class="token-ref">{border.width.thin}</span></td>
+  <td><div style="height:1px;width:80px;background:var(--soSemanticColorBorderDefault)"></div></td>
+</tr>
+<tr>
+  <td><span class="token-name">⭐ semantic.border.width-control-active</span></td>
+  <td class="token-desc">Hover / focus / error border weight on form controls</td>
+  <td class="token-value">1.5px <span class="token-ref">{border.width.semi}</span></td>
+  <td><div style="height:1.5px;width:80px;background:var(--soSemanticColorInteractivePrimary)"></div></td>
+</tr>
+<tr>
+  <td><span class="token-name">semantic.border.width-indicator</span></td>
+  <td class="token-desc">Selected tab indicator thickness</td>
+  <td class="token-value">4px <span class="token-ref">{border.width.thick}</span></td>
+  <td><div style="height:4px;width:80px;background:var(--soSemanticColorInteractivePrimary)"></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+SEMANTIC MOTION
+════════════════════════════════════════════════════ -->
+<section class="section" id="sem-motion">
+<div class="section-header">
+<h2>Motion — Semantic</h2>
+<span class="section-count">semantic/base.json → motion</span>
+</div>
+<p class="token-desc" style="margin-bottom:24px">Semantic timing and easing tokens that components consume for transitions. <span class="star">★</span>-marked tokens are theme override points — swap durations to change the overall feel of the UI.</p>
+<table class="token-table">
+<thead><tr><th style="width:280px">Token</th><th>Role</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><span class="token-name">⭐ semantic.motion.duration-control</span></td><td class="token-desc">Micro-interactions: checkbox, radio, toggle, button hover/press</td><td class="token-value">100ms <span class="token-ref">{duration.fast}</span></td></tr>
+<tr><td><span class="token-name">⭐ semantic.motion.duration-panel</span></td><td class="token-desc">Dropdown open/close, field hover/focus transitions</td><td class="token-value">200ms <span class="token-ref">{duration.normal}</span></td></tr>
+<tr><td><span class="token-name">semantic.motion.duration-skeleton</span></td><td class="token-desc">Skeleton pulse cycle — intentionally not a theme variable</td><td class="token-value">1500ms</td></tr>
+<tr><td><span class="token-name">⭐ semantic.motion.easing-default</span></td><td class="token-desc">Standard UI transition easing</td><td class="token-value">cubic-bezier(0.4, 0, 0.2, 1) <span class="token-ref">{easing.default}</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+SEMANTIC OPACITY
+════════════════════════════════════════════════════ -->
+<section class="section" id="sem-opacity">
+<div class="section-header">
+<h2>Opacity — Semantic</h2>
+<span class="section-count">semantic/base.json → opacity</span>
+</div>
+<p class="token-desc" style="margin-bottom:24px">Semantic opacity values for disabled states and overlay scrims. <span class="star">★</span>-marked tokens can be overridden in themes.</p>
+<table class="token-table">
+<thead><tr><th style="width:280px">Token</th><th>Role</th><th>Value</th><th>Visual</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="token-name">⭐ semantic.opacity.disabled</span></td>
+  <td class="token-desc">Opacity for disabled interactive elements</td>
+  <td class="token-value">0.4 <span class="token-ref">{opacity.40}</span></td>
+  <td><div style="display:flex;gap:8px;align-items:center"><div style="width:40px;height:24px;border-radius:4px;background:var(--soSemanticColorInteractivePrimary);opacity:1"></div><div style="width:40px;height:24px;border-radius:4px;background:var(--soSemanticColorInteractivePrimary);opacity:0.4"></div></div></td>
+</tr>
+<tr>
+  <td><span class="token-name">⭐ semantic.opacity.scrim</span></td>
+  <td class="token-desc">Overlay scrim opacity behind loaders and modals</td>
+  <td class="token-value">0.75 <span class="token-ref">{opacity.75}</span></td>
+  <td><div style="display:flex;gap:8px;align-items:center"><div style="width:40px;height:24px;border-radius:4px;background:#111827;opacity:0.75"></div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
  SPACING
  ════════════════════════════════════════════════════ -->
  <section class="section" id="spacing">
