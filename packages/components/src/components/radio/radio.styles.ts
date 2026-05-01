@@ -40,7 +40,7 @@ export const radioStyles = css`
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -117,15 +117,15 @@ export const radioStyles = css`
     height: 18px;
     box-sizing: border-box;
     border-radius: 50%;
-    border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorTextDefault, #1f2937);
     background: transparent;
     /* position: relative for pseudo-element marks */
     position: relative;
     /* No overflow:hidden — focus ring (box-shadow) must show */
     overflow: visible;
     transition:
-      border-color 120ms ease,
-      box-shadow 120ms ease;
+      border-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   /* Focus ring — triggers when the hidden input receives keyboard focus */
@@ -148,7 +148,7 @@ export const radioStyles = css`
     border-radius: 50%;
     background: transparent;
     pointer-events: none;
-    transition: background-color 120ms ease;
+    transition: background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   .row:hover::before {
@@ -168,7 +168,7 @@ export const radioStyles = css`
     background: var(--soSemanticColorTextDefault, #1f2937);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 120ms ease;
+    transition: opacity var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   :host([checked]) [part='control']::after {
@@ -206,7 +206,7 @@ export const radioStyles = css`
     inset: 3px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -242,7 +242,7 @@ export const radioStyles = css`
   :host([skeleton]) [part='control'] {
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-color: transparent;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════

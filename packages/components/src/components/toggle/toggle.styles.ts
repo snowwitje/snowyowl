@@ -39,7 +39,7 @@ export const toggleStyles = css`
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -113,15 +113,15 @@ export const toggleStyles = css`
     height: 24px;
     box-sizing: border-box;
     border-radius: var(--soSemanticRadiusBadge, 9999px);
-    border: 1.5px solid var(--soSemanticColorInteractivePrimary, #7c3aed);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorInteractivePrimary, #7c3aed);
     background: transparent;
     /* relative so [part='thumb'] is positioned inside */
     position: relative;
     overflow: visible; /* keep so focus ring (box-shadow) is not clipped */
     transition:
-      background-color 150ms ease,
-      border-color 150ms ease,
-      box-shadow 120ms ease;
+      background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      border-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   /* Focus ring — triggered when the hidden input gets keyboard focus */
@@ -166,8 +166,8 @@ export const toggleStyles = css`
     border-radius: 50%;
     background: var(--soSemanticColorInteractivePrimary, #7c3aed);
     transition:
-      transform 150ms ease,
-      background-color 150ms ease;
+      transform var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
     pointer-events: none;
   }
 
@@ -207,7 +207,7 @@ export const toggleStyles = css`
     inset: 3px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -241,7 +241,7 @@ export const toggleStyles = css`
   :host([skeleton]) [part='control'] {
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-color: transparent;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   :host([skeleton]) [part='thumb'] {

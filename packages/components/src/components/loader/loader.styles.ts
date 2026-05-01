@@ -26,7 +26,7 @@ export const loaderStyles = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: var(--soSemanticZindexOverlay);
   }
 
   /*
@@ -38,7 +38,7 @@ export const loaderStyles = css`
     position: absolute;
     inset: 0;
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
-    opacity: 0.75;
+    opacity: var(--soSemanticOpacityScrim);
     z-index: -1;
   }
 

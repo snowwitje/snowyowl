@@ -712,6 +712,83 @@
         "$value": "{space.24}",
         "$type": "spacing"
       }
+    },
+
+    "zindex": {
+      "sticky": {
+        "$value": "{zIndex.raised}",
+        "$type": "number",
+        "$description": "Sticky elements within a scrollable panel — e.g. search bar inside dropdown (local stacking context)"
+      },
+      "dropdown": {
+        "$value": "{zIndex.dropdown}",
+        "$type": "number",
+        "$description": "⭐ Floating panels: dropdowns, popovers, tooltips"
+      },
+      "overlay": {
+        "$value": "{zIndex.overlay}",
+        "$type": "number",
+        "$description": "⭐ Full-surface loading overlays"
+      },
+      "modal": {
+        "$value": "{zIndex.modal}",
+        "$type": "number",
+        "$description": "⭐ Modals and dialogs"
+      }
+    },
+
+    "border": {
+      "width-control": {
+        "$value": "{border.width.thin}",
+        "$type": "borderWidth",
+        "$description": "Standard form control border (1px)"
+      },
+      "width-control-active": {
+        "$value": "{border.width.semi}",
+        "$type": "borderWidth",
+        "$description": "⭐ Hover/focus/error border weight on form controls (1.5px)"
+      },
+      "width-indicator": {
+        "$value": "{border.width.thick}",
+        "$type": "borderWidth",
+        "$description": "Selected tab indicator thickness (4px)"
+      }
+    },
+
+    "motion": {
+      "duration-control": {
+        "$value": "{duration.fast}",
+        "$type": "duration",
+        "$description": "⭐ Micro-interactions: checkbox, radio, toggle, button hover/press"
+      },
+      "duration-panel": {
+        "$value": "{duration.normal}",
+        "$type": "duration",
+        "$description": "⭐ Dropdown open/close, field hover/focus transitions"
+      },
+      "duration-skeleton": {
+        "$value": "1500ms",
+        "$type": "duration",
+        "$description": "Skeleton pulse cycle — intentionally not a theme variable"
+      },
+      "easing-default": {
+        "$value": "{easing.default}",
+        "$type": "cubicBezier",
+        "$description": "⭐ Standard UI transition easing"
+      }
+    },
+
+    "opacity": {
+      "disabled": {
+        "$value": "{opacity.40}",
+        "$type": "opacity",
+        "$description": "⭐ Opacity for disabled interactive elements"
+      },
+      "scrim": {
+        "$value": "{opacity.75}",
+        "$type": "opacity",
+        "$description": "⭐ Overlay scrim opacity behind loaders and modals"
+      }
     }
   }
 }

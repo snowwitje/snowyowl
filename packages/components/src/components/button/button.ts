@@ -80,11 +80,11 @@ export class SoButton extends LitElement {
 
       /* Transitions */
       transition:
-        background-color 120ms ease,
-        color 120ms ease,
-        border-color 120ms ease,
-        box-shadow 120ms ease,
-        opacity 120ms ease;
+        background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+        color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+        border-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+        box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+        opacity var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
 
       -webkit-appearance: none;
       appearance: none;
@@ -193,7 +193,7 @@ export class SoButton extends LitElement {
     :host([variant='outline']) [part='base'] {
       --so-btn-bg:           transparent;
       --so-btn-color:        var(--soSemanticColorInteractivePrimary, #6f5a7e);
-      --so-btn-border-width: 1.5px;
+      --so-btn-border-width: var(--soSemanticBorderWidthControlActive);
       --so-btn-border-color: var(--soSemanticColorInteractivePrimary, #6f5a7e);
     }
     :host([variant='outline']:not([disabled]):not([skeleton])) [part='base']:hover {
@@ -240,7 +240,7 @@ export class SoButton extends LitElement {
       pointer-events: none;
     }
     :host([disabled]) [part='base'] {
-      opacity: 0.4;
+      opacity: var(--soSemanticOpacityDisabled);
       cursor: not-allowed;
     }
 
@@ -250,7 +250,7 @@ export class SoButton extends LitElement {
       --so-btn-color:        transparent;
       --so-btn-border-color: transparent;
       pointer-events: none;
-      animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+      animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
     }
     :host([skeleton]) ::slotted(*) {
       opacity: 0;

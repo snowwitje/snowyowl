@@ -2,6 +2,33 @@
 
 ## Unreleased
 
+### Added
+
+- **`semantic.border.*` tokens** (`packages/tokens/src/semantic/base.json`) + new `border.width.semi` primitive
+  - `--soSemanticBorderWidthControl` → `--soBorderWidthThin` (1px) — standard form control border
+  - `--soSemanticBorderWidthControlActive` → `--soBorderWidthSemi` (1.5px) ⭐ — hover/focus/error border on form controls
+  - `--soSemanticBorderWidthIndicator` → `--soBorderWidthThick` (4px) — selected tab indicator
+  - New primitive `border.width.semi` (1.5px) added to `primitives/shape.json`
+
+- **`semantic.motion.*` tokens** (`packages/tokens/src/semantic/base.json`)
+  - `--soSemanticMotionDurationControl` → `--soDurationFast` (100ms) ⭐ — micro-interactions: checkbox, radio, toggle, button
+  - `--soSemanticMotionDurationPanel` → `--soDurationNormal` (200ms) ⭐ — dropdown open/close, field hover/focus
+  - `--soSemanticMotionDurationSkeleton` → `1500ms` — skeleton pulse cycle (not a theme variable)
+  - `--soSemanticMotionEasingDefault` → `cubic-bezier(0.4, 0, 0.2, 1)` ⭐ — standard UI transition easing
+
+- **`semantic.opacity.*` tokens** (`packages/tokens/src/semantic/base.json`) + new `opacity.75` primitive
+  - `--soSemanticOpacityDisabled` → `--soOpacity40` (0.4) ⭐ — disabled interactive elements
+  - `--soSemanticOpacityScrim` → `--soOpacity75` (0.75) ⭐ — overlay scrim behind loaders and modals
+  - New primitive `opacity.75` (0.75) added to `primitives/shape.json`
+
+- **`semantic.zindex.*` tokens** (`packages/tokens/src/semantic/base.json`)
+  - Four new semantic z-index tokens mapping to existing primitives in `grid.json`:
+    - `--soSemanticZindexSticky` → `--soZIndexRaised` (10) — sticky elements within a scrollable panel (e.g. search bar inside dropdown)
+    - `--soSemanticZindexDropdown` → `--soZIndexDropdown` (100) — floating panels: dropdowns, popovers, tooltips ⭐
+    - `--soSemanticZindexOverlay` → `--soZIndexOverlay` (300) — full-surface loading overlays ⭐
+    - `--soSemanticZindexModal` → `--soZIndexModal` (400) — modals and dialogs ⭐
+  - No new primitive tokens needed — full z-index scale was already in `primitives/grid.json`
+
 ### Changed
 
 - **Token architecture — `semantic.typography` trimmed to family tokens only** (`packages/tokens/src/semantic/base.json`)
@@ -9,6 +36,27 @@
   - `semantic.typography` now contains only the three ⭐ theme levers: `family-body`, `family-heading`, `family-code`
   - Font size and weight are design system constants expressed through `semantic.textStyle.*` tokens, not theme variables
   - **Note:** the `add-font-styles` preprocessor in `@tokens-studio/sd-transforms` does not support chained references inside composite textStyle `fontFamily` values; consequently `textStyle.*.fontFamily` continues to reference font-family primitives directly. The theme cascade for font-family works correctly via the `:host { font-family: var(--soSemanticTypographyFamilyBody) }` pattern already in all components, where CSS inheritance propagates the family to all descendant text.
+
+- **Border widths tokenized across all form controls and tabs**
+  - All `1.5px` border values → `var(--soSemanticBorderWidthControlActive)` across button (outline variant), checkbox, radio, toggle, input (hover + feedback states), select (hover, open, feedback, multi-select checkbox)
+  - `tab.styles.ts` indicator: `var(--soBorderWidthThick)` (primitive violation) → `var(--soSemanticBorderWidthIndicator)`; `-4px` hardcoded offset → `calc(-1 * var(--soSemanticBorderWidthIndicator))`
+
+- **Transition durations and easing tokenized across all components**
+  - button, checkbox, radio, toggle: `120ms ease` / `150ms ease` → `var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault)`
+  - input, tab: `var(--soDurationFast) ease` (primitive) → `var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault)`
+  - select: `var(--soDurationNormal) ease` (primitive) → `var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault)` for panel transitions; `var(--soDurationFast) ease` → control token for option hover
+  - Skeleton animation: `1.5s ease-in-out` → `var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault)` across all 7 components
+  - Note: `ease-in-out` easing replaced with the design system's `cubic-bezier(0.4, 0, 0.2, 1)` — intentional standardisation. Keyframe mid-point opacity values (e.g. `50% { opacity: 0.4; }`) remain as raw values — they are animation control values, not theme tokens.
+
+- **Opacity values tokenized**
+  - `button.ts` disabled `opacity: 0.4` → `var(--soSemanticOpacityDisabled)`
+  - `loader.styles.ts` scrim `opacity: 0.75` → `var(--soSemanticOpacityScrim)`
+
+- **Z-index values tokenized in `select` and `loader`**
+  - `select.styles.ts` panel `z-index: 100` → `var(--soSemanticZindexDropdown)`
+  - `select.styles.ts` search-wrapper `z-index: 1` → `var(--soSemanticZindexSticky)` (local sticky within dropdown panel stacking context)
+  - `loader.styles.ts` overlay host `z-index: 100` → `var(--soSemanticZindexOverlay)`
+  - `loader.styles.ts` scrim `::before z-index: -1` left as raw — this is a structural CSS technique (send ::before behind flex siblings within the local overlay stacking context; no semantic meaning)
 
 - **All component styles now use `--soSemanticTextStyle*` tokens for typography** (button, checkbox, radio, toggle, input, select, loader, tab)
   - Removed all hardcoded `font-size`, `font-weight`, and `line-height` values

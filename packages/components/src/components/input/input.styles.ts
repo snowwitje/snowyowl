@@ -45,7 +45,7 @@ export const inputStyles = css`
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -96,10 +96,10 @@ export const inputStyles = css`
     border-radius: var(--soSemanticRadiusInput, 4px);
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     transition:
-      border-color var(--soDurationFast) ease,
-      border-width var(--soDurationFast) ease,
-      box-shadow var(--soDurationFast) ease,
-      background-color var(--soDurationFast) ease;
+      border-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      border-width var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   :host([size='lg']) [part='control'] {
@@ -108,20 +108,20 @@ export const inputStyles = css`
 
   /* ── Hover (only when no feedback state is active) ── */
   [part='control']:not([data-feedback]):hover {
-    border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorTextDefault, #1f2937);
   }
 
   /* ── Feedback state borders ── */
   [part='control'][data-feedback='error'] {
-    border: 1.5px solid var(--soSemanticColorStatusError, #dc2626);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorStatusError, #dc2626);
   }
 
   [part='control'][data-feedback='warning'] {
-    border: 1.5px solid var(--soSemanticColorStatusWarning, #d97706);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorStatusWarning, #d97706);
   }
 
   [part='control'][data-feedback='success'] {
-    border: 1.5px solid var(--soSemanticColorStatusSuccess, #16a34a);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorStatusSuccess, #16a34a);
   }
 
   /* ── Focus ring (overrides hover and state borders) ── */
@@ -187,7 +187,7 @@ export const inputStyles = css`
     cursor: pointer;
     color: var(--soSemanticColorTextSubtle, #6b7280);
     border-radius: 2px;
-    transition: color var(--soDurationFast) ease;
+    transition: color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   .eye-btn:hover {
@@ -231,7 +231,7 @@ export const inputStyles = css`
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-color: transparent;
     pointer-events: none;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   :host([skeleton]) [part='base'] {

@@ -41,7 +41,7 @@ export const checkboxStyles = css`
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -119,16 +119,16 @@ export const checkboxStyles = css`
     height: 16px;
     box-sizing: border-box;
     border-radius: var(--soSemanticRadiusControl, 2px);
-    border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorTextDefault, #1f2937);
     background: transparent;
     /* position: relative for absolute-positioned marks */
     position: relative;
     /* No overflow:hidden — focus ring (box-shadow) must show */
     overflow: visible;
     transition:
-      background-color 120ms ease,
-      border-color 120ms ease,
-      box-shadow 120ms ease;
+      background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      border-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   /* Focus ring — triggers when the hidden input receives keyboard focus */
@@ -151,7 +151,7 @@ export const checkboxStyles = css`
     border-radius: var(--soSemanticRadiusControl, 2px);
     background: transparent;
     pointer-events: none;
-    transition: background-color 120ms ease;
+    transition: background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   .row:hover::before {
@@ -242,7 +242,7 @@ export const checkboxStyles = css`
     inset: 3px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -274,7 +274,7 @@ export const checkboxStyles = css`
   :host([skeleton]) [part='control'] {
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-color: transparent;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════

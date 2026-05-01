@@ -47,7 +47,7 @@ export const selectStyles = css`
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* ════════════════
@@ -80,7 +80,7 @@ export const selectStyles = css`
     border-radius: var(--soSemanticRadiusInput, 4px);
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     pointer-events: none;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   :host([size='lg']) .skeleton-trigger {
@@ -108,10 +108,10 @@ export const selectStyles = css`
     outline: none;
     gap: 4px;
     transition:
-      border-color var(--soDurationNormal) ease,
-      border-width var(--soDurationNormal) ease,
-      box-shadow var(--soDurationNormal) ease,
-      background-color var(--soDurationNormal) ease;
+      border-color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault),
+      border-width var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault),
+      background-color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
   }
 
   :host([size='lg']) .trigger-container {
@@ -120,14 +120,14 @@ export const selectStyles = css`
 
   /* Hover — suppressed when feedback is active or panel is open */
   .trigger-container:not([data-feedback]):not(.open):hover {
-    border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorTextDefault, #1f2937);
   }
 
   /* Open state — purple border, no glow by default */
   .trigger-container.open {
     outline: none;
     border-color: var(--soSemanticColorInteractivePrimary, #7c3aed);
-    border-width: 1.5px;
+    border-width: var(--soSemanticBorderWidthControlActive);
     box-shadow: none;
   }
 
@@ -149,12 +149,12 @@ export const selectStyles = css`
 
   /* Error border */
   .trigger-container[data-feedback='error'] {
-    border: 1.5px solid var(--soSemanticColorStatusError, #dc2626);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorStatusError, #dc2626);
   }
 
   /* Warning border */
   .trigger-container[data-feedback='warning'] {
-    border: 1.5px solid var(--soSemanticColorStatusWarning, #d97706);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorStatusWarning, #d97706);
   }
 
   /* Disabled */
@@ -227,7 +227,7 @@ export const selectStyles = css`
     cursor: pointer;
     color: var(--soSemanticColorTextSubtle, #6b7280);
     border-radius: 2px;
-    transition: color var(--soDurationNormal) ease;
+    transition: color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
   }
 
   .icon-btn:hover {
@@ -274,7 +274,7 @@ export const selectStyles = css`
     width: 16px;
     height: 16px;
     display: block;
-    transition: transform var(--soDurationNormal) ease;
+    transition: transform var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
   }
 
   .trigger-container.open .chevron-wrapper svg {
@@ -295,7 +295,7 @@ export const selectStyles = css`
     left: 0;
     right: 0;
     top: calc(100% + 4px);
-    z-index: 100;
+    z-index: var(--soSemanticZindexDropdown);
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     border: 1px solid var(--soSemanticColorBorderDefault, #e5e7eb);
     border-radius: var(--soSemanticRadiusInput, 4px);
@@ -317,7 +317,7 @@ export const selectStyles = css`
   .search-wrapper {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: var(--soSemanticZindexSticky);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -405,7 +405,7 @@ export const selectStyles = css`
     cursor: pointer;
     box-sizing: border-box;
     border-bottom: 1px solid var(--soSemanticColorBorderStrong, #d1d5db);
-    transition: background-color var(--soDurationFast) ease;
+    transition: background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
     /* Prevents text-selection during keyboard navigation */
     user-select: none;
   }
@@ -472,12 +472,12 @@ export const selectStyles = css`
     height: 16px;
     box-sizing: border-box;
     border-radius: var(--soSemanticRadiusControl, 2px);
-    border: 1.5px solid var(--soSemanticColorTextDefault, #1f2937);
+    border: var(--soSemanticBorderWidthControlActive) solid var(--soSemanticColorTextDefault, #1f2937);
     background: transparent;
     color: var(--soSemanticColorTextInverse, #ffffff);
     transition:
-      background-color var(--soDurationNormal) ease,
-      border-color var(--soDurationNormal) ease;
+      background-color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault),
+      border-color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
   }
 
   .option-checkbox.checked {

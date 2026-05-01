@@ -42,9 +42,9 @@ export const tabStyles = css`
     position: relative;
     box-shadow: none;
     transition:
-      background-color var(--soDurationFast) ease,
-      color var(--soDurationFast) ease,
-      box-shadow var(--soDurationFast) ease;
+      background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault),
+      box-shadow var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
   /* ════════════════
@@ -62,7 +62,7 @@ export const tabStyles = css`
     background: var(--soSemanticColorInteractivePrimarySubtle, #f3e8ff);
     color: var(--soSemanticColorTextDefault, #1f2937);
     font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
-    box-shadow: inset 0 -4px 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
+    box-shadow: inset 0 calc(-1 * var(--soSemanticBorderWidthIndicator)) 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
   }
 
   /* Selected hover */
@@ -73,7 +73,7 @@ export const tabStyles = css`
   /* Selected focus-visible */
   :host([selected][variant='line']) [part='base']:focus-visible {
     box-shadow:
-      inset 0 -4px 0 var(--soSemanticColorInteractivePrimary, #7c3aed),
+      inset 0 calc(-1 * var(--soSemanticBorderWidthIndicator)) 0 var(--soSemanticColorInteractivePrimary, #7c3aed),
       var(--soSemanticShadowFocus, 0 0 0 3px rgba(147, 51, 234, 1));
   }
 
@@ -98,7 +98,7 @@ export const tabStyles = css`
     background: var(--soSemanticColorSurfaceDefault, #ffffff);
     color: var(--soSemanticColorTextDefault, #1f2937);
     font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
-    box-shadow: inset 0 var(--soBorderWidthThick) 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
+    box-shadow: inset 0 var(--soSemanticBorderWidthIndicator) 0 var(--soSemanticColorInteractivePrimary, #7c3aed);
   }
 
   /* Selected hover */
@@ -109,7 +109,7 @@ export const tabStyles = css`
   /* Selected focus-visible */
   :host([selected][variant='filled']) [part='base']:focus-visible {
     box-shadow:
-      inset 0 var(--soBorderWidthThick) 0 var(--soSemanticColorInteractivePrimary, #7c3aed),
+      inset 0 var(--soSemanticBorderWidthIndicator) 0 var(--soSemanticColorInteractivePrimary, #7c3aed),
       var(--soSemanticShadowFocus, 0 0 0 3px rgba(147, 51, 234, 1));
   }
 
@@ -171,7 +171,7 @@ export const tabStyles = css`
     height: 14px;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
     border-radius: 2px;
-    animation: so-skeleton-pulse 1.5s ease-in-out infinite;
+    animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
   /* Hide actual content while skeleton is active */
