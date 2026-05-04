@@ -121,6 +121,7 @@
  }
  .token-desc { color: var(--text-subtle); font-size: 14px; }
  .star { color: #d4a017; margin-right: 3px; }
+ .token-name .star { font-size: 20px; line-height: 0.8; }
 
  /* ── Color Swatch ── */
  .swatch-wrap { display: flex; align-items: center; gap: 10px; }
