@@ -112,41 +112,65 @@ export const TopTitle: Story = {
 export const WithActions: Story = {
   render: () => html`
     <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start;">
-     <div> ${label('outline buttons')}
 
-      <so-card style="max-width: 300px">
-        ${MEDIA_IMG}
-        Card with media on top
-        <span slot="secondary">Secondary text goes here</span>
-        <span slot="body">With small-size action buttons shown — can also be icon-only buttons</span>
-        <so-button slot="actions" variant="outline" size="sm">Share</so-button>
-        <so-button slot="actions" variant="outline" size="sm">Save</so-button>
-      </so-card></div>
+      <div>${label('outline buttons')}
+        <so-card style="max-width: 300px">
+          ${MEDIA_IMG}
+          Card with media on top
+          <span slot="secondary">Secondary text goes here</span>
+          <span slot="body">With small-size action buttons shown — can also be icon-only buttons</span>
+          <so-button slot="actions" variant="outline" size="sm">Share</so-button>
+          <so-button slot="actions" variant="outline" size="sm">Save</so-button>
+        </so-card>
       </div>
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-top: 2rem;">
-      <div>${label('primary action')}
-      <so-card style="max-width: 300px">
-        ${MEDIA_IMG}
-        Card with media on top
-        <span slot="secondary">Secondary text goes here</span>
-        <span slot="body">With default-size action buttons shown — can also be icon-only buttons</span>
-        <so-button slot="actions" variant="outline" size="md">Share</so-button>
-        <so-button slot="actions" variant="primary" size="md">Save</so-button>
-      </so-card></div>
+
+      <div>${label('primary + outline')}
+        <so-card style="max-width: 300px">
+          ${MEDIA_IMG}
+          Card with media on top
+          <span slot="secondary">Secondary text goes here</span>
+          <span slot="body">With default-size action buttons shown — can also be icon-only buttons</span>
+          <so-button slot="actions" variant="outline" size="md">Share</so-button>
+          <so-button slot="actions" variant="primary" size="md">Save</so-button>
+        </so-card>
       </div>
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-top: 2rem;">
-      <div>${label('overflow menu')}
-      <so-card style="max-width: 300px">
-        ${MEDIA_IMG}
-        Card with media on top
-        <span slot="secondary">Secondary text goes here</span>
-        <span slot="body">With action(s) shown — can also be icon-only buttons</span>
-        <so-button slot="actions" variant="outline" size="sm">Share</so-button>
-        <so-button slot="actions" variant="outline" size="sm">Save</so-button>
-        <so-button slot="actions" variant="ghost" size="sm" icon-only label="More options">
-          <so-icon slot="prefix" name="menu-dots" decorative></so-icon>
-        </so-button>
-      </so-card></div>
+
+      <div>${label('stretch row (flex: 1)')}
+        <so-card style="max-width: 300px">
+          ${MEDIA_IMG}
+          Card with media on top
+          <span slot="secondary">Secondary text goes here</span>
+          <span slot="body">Buttons share the row equally — add style="flex: 1" to each</span>
+          <so-button slot="actions" variant="outline" size="md" style="flex: 1">Share</so-button>
+          <so-button slot="actions" variant="primary" size="md" style="flex: 1">Save</so-button>
+        </so-card>
+      </div>
+
+      <div>${label('full-width stacked')}
+        <so-card style="max-width: 300px">
+          ${MEDIA_IMG}
+          Card with media on top
+          <span slot="secondary">Secondary text goes here</span>
+          <span slot="body">Each button takes its own row — add full-width attribute</span>
+          <so-button slot="actions" variant="outline" size="md" full-width>Share</so-button>
+          <so-button slot="actions" variant="primary" size="md" full-width>Save</so-button>
+        </so-card>
+      </div>
+
+      <div>${label('overflow menu (right-aligned)')}
+        <so-card style="max-width: 300px">
+          ${MEDIA_IMG}
+          Card with media on top
+          <span slot="secondary">Secondary text goes here</span>
+          <span slot="body">With action(s) shown — can also be icon-only buttons</span>
+          <so-button slot="actions" variant="outline" size="sm">Share</so-button>
+          <so-button slot="actions" variant="outline" size="sm">Save</so-button>
+          <so-button slot="actions" variant="ghost" size="sm" icon-only label="More options" style="margin-left: auto">
+            <so-icon slot="prefix" name="menu-dots" decorative></so-icon>
+          </so-button>
+        </so-card>
+      </div>
+
     </div>
   `,
 };
@@ -159,11 +183,11 @@ export const WithCornerAction: Story = {
   render: () => html`
     <so-card style="max-width: 300px">
       ${MEDIA_IMG}
-      Card with media on top
+      Card title
       <span slot="secondary">Secondary text goes here</span>
       <span slot="body">With action(s) shown — can also be icon-only buttons</span>
       <so-button slot="corner-action" variant="ghost" size="sm" icon-only label="Open in new tab">
-        <so-icon slot="prefix" name="external-link" decorative></so-icon>
+        <so-icon slot="prefix" name="expand" decorative></so-icon>
       </so-button>
     </so-card>
   `,
@@ -176,7 +200,12 @@ export const WithCornerAction: Story = {
 export const KpiBasic: Story = {
   render: () => html`
     <so-card style="max-width: 280px">
-      KPI Label
+      <span style="
+        font-size: var(--soSemanticTextStyleLabelLgFontSize, 16px);
+        font-weight: var(--soSemanticTextStyleLabelLgFontWeight, 500);
+        color: var(--soSemanticColorTextSubtle);
+        display: block;
+      ">KPI Label</span>
       <span
         slot="secondary"
         style="
@@ -202,28 +231,84 @@ export const KpiBasic: Story = {
 
 export const KpiWithDelta: Story = {
   render: () => html`
-    <so-card style="max-width: 280px">
-      KPI Label
-      <div
-        slot="secondary"
-        style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
-      >
-        <span
-          style="
-            font-size: var(--soSemanticTextStyleHeadingLgFontSize, 30px);
-            font-weight: var(--soSemanticTextStyleHeadingLgFontWeight, 700);
-            font-family: var(--soSemanticTextStyleHeadingLgFontFamily, system-ui);
-            line-height: 1.2;
-            color: var(--soSemanticColorTextDefault);
-          "
-        >
-          30%
-        </span>
-        <so-card-delta value="1.2%" direction="up" sentiment="positive"></so-card-delta>
+    <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div>${label('positive sentiment')}
+        <so-card style="max-width: 280px">
+          <span style="
+            font-size: var(--soSemanticTextStyleLabelLgFontSize, 16px);
+            font-weight: var(--soSemanticTextStyleLabelLgFontWeight, 500);
+            color: var(--soSemanticColorTextSubtle);
+            display: block;
+          ">KPI Label</span>
+          <div
+            slot="secondary"
+            style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
+          >
+            <span style="
+              font-size: var(--soSemanticTextStyleHeadingLgFontSize, 30px);
+              font-weight: var(--soSemanticTextStyleHeadingLgFontWeight, 700);
+              font-family: var(--soSemanticTextStyleHeadingLgFontFamily, system-ui);
+              line-height: 1.2;
+              color: var(--soSemanticColorTextDefault);
+            ">30%</span>
+            <so-card-delta value="1.2%" direction="up" sentiment="positive"></so-card-delta>
+          </div>
+          <span slot="body">Details about KPI go here</span>
+        </so-card>
       </div>
-      <span slot="body">Details about KPI go here</span>
-      <div slot="chart">${sparkline()}</div>
-    </so-card>
+
+      <div>${label('negative sentiment')}
+        <so-card style="max-width: 280px">
+          <span style="
+            font-size: var(--soSemanticTextStyleLabelLgFontSize, 16px);
+            font-weight: var(--soSemanticTextStyleLabelLgFontWeight, 500);
+            color: var(--soSemanticColorTextSubtle);
+            display: block;
+          ">KPI Label</span>
+          <div
+            slot="secondary"
+            style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
+          >
+            <span style="
+              font-size: var(--soSemanticTextStyleHeadingLgFontSize, 30px);
+              font-weight: var(--soSemanticTextStyleHeadingLgFontWeight, 700);
+              font-family: var(--soSemanticTextStyleHeadingLgFontFamily, system-ui);
+              line-height: 1.2;
+              color: var(--soSemanticColorTextDefault);
+            ">30%</span>
+            <so-card-delta value="1.2%" direction="up" sentiment="negative"></so-card-delta>
+          </div>
+          <span slot="body">Details about KPI go here</span>
+        </so-card>
+      </div>
+
+      <div>${label('down + negative')}
+        <so-card style="max-width: 280px">
+          <span style="
+            font-size: var(--soSemanticTextStyleLabelLgFontSize, 16px);
+            font-weight: var(--soSemanticTextStyleLabelLgFontWeight, 500);
+            color: var(--soSemanticColorTextSubtle);
+            display: block;
+          ">KPI Label</span>
+          <div
+            slot="secondary"
+            style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"
+          >
+            <span style="
+              font-size: var(--soSemanticTextStyleHeadingLgFontSize, 30px);
+              font-weight: var(--soSemanticTextStyleHeadingLgFontWeight, 700);
+              font-family: var(--soSemanticTextStyleHeadingLgFontFamily, system-ui);
+              line-height: 1.2;
+              color: var(--soSemanticColorTextDefault);
+            ">30%</span>
+            <so-card-delta value="1.2%" direction="down" sentiment="negative"></so-card-delta>
+          </div>
+          <span slot="body">Details about KPI go here</span>
+        </so-card>
+      </div>
+
+    </div>
   `,
 };
 
@@ -234,7 +319,12 @@ export const KpiWithDelta: Story = {
 export const KpiWithActions: Story = {
   render: () => html`
     <so-card style="max-width: 280px">
-      KPI Label
+      <span style="
+        font-size: var(--soSemanticTextStyleLabelLgFontSize, 16px);
+        font-weight: var(--soSemanticTextStyleLabelLgFontWeight, 500);
+        color: var(--soSemanticColorTextSubtle);
+        display: block;
+      ">KPI Label</span>
       <div
         slot="secondary"
         style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"

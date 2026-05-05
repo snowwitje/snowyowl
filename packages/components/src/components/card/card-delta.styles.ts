@@ -32,18 +32,8 @@ export const cardDeltaStyles = css`
 
   /* ── Parts ── */
 
+  /* so-icon carries its own size via size="sm" (16px); color inherits from :host */
   [part='arrow'] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
     flex-shrink: 0;
-  }
-
-  [part='arrow'] svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
   }
 `;

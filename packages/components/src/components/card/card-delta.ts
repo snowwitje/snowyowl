@@ -30,22 +30,10 @@ export class SoCardDelta extends LitElement {
 
   private _renderArrow() {
     if (this.direction === 'up') {
-      return html`
-        <span part="arrow" aria-hidden="true">
-          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 3.5L3.5 10h9L8 3.5z" />
-          </svg>
-        </span>
-      `;
+      return html`<so-icon part="arrow" name="arrow-up" size="sm" decorative></so-icon>`;
     }
     if (this.direction === 'down') {
-      return html`
-        <span part="arrow" aria-hidden="true">
-          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 12.5L12.5 6h-9L8 12.5z" />
-          </svg>
-        </span>
-      `;
+      return html`<so-icon part="arrow" name="arrow-down" size="sm" decorative></so-icon>`;
     }
     return nothing;
   }
