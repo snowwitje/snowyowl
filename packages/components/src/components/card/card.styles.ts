@@ -151,7 +151,7 @@ export const cardStyles = css`
   [part='actions'] {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--soSemanticSpacingComponentMd); /* 16px */
+    gap: var(--soSemanticSpacingComponentSm);
     align-items: center;
     padding: 0 var(--soSemanticSpacingComponentLg) var(--soSemanticSpacingComponentLg);
   }

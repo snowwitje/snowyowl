@@ -119,10 +119,8 @@ export const WithActions: Story = {
         Card with media on top
         <span slot="secondary">Secondary text goes here</span>
         <span slot="body">With small-size action buttons shown — can also be icon-only buttons</span>
-        <div slot="actions">
-          <so-button variant="outline" size="sm">Share</so-button>
-          <so-button variant="outline" size="sm">Save</so-button>
-        </div>
+        <so-button slot="actions" variant="outline" size="sm">Share</so-button>
+        <so-button slot="actions" variant="outline" size="sm">Save</so-button>
       </so-card></div>
       </div>
       <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-top: 2rem;">
@@ -132,10 +130,8 @@ export const WithActions: Story = {
         Card with media on top
         <span slot="secondary">Secondary text goes here</span>
         <span slot="body">With default-size action buttons shown — can also be icon-only buttons</span>
-        <div slot="actions">
-          <so-button variant="outline" size="md">Share</so-button>
-          <so-button variant="primary" size="md">Save</so-button>
-        </div>
+        <so-button slot="actions" variant="outline" size="md">Share</so-button>
+        <so-button slot="actions" variant="primary" size="md">Save</so-button>
       </so-card></div>
       </div>
       <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-top: 2rem;">
@@ -145,13 +141,11 @@ export const WithActions: Story = {
         Card with media on top
         <span slot="secondary">Secondary text goes here</span>
         <span slot="body">With action(s) shown — can also be icon-only buttons</span>
-        <div slot="actions">
-          <so-button variant="outline" size="sm">Share</so-button>
-          <so-button variant="outline" size="sm">Save</so-button>
-          <so-button variant="ghost" size="sm" icon-only label="More options">
-            <so-icon slot="prefix" name="dots-vertical" decorative></so-icon>
-          </so-button>
-        </div>
+        <so-button slot="actions" variant="outline" size="sm">Share</so-button>
+        <so-button slot="actions" variant="outline" size="sm">Save</so-button>
+        <so-button slot="actions" variant="ghost" size="sm" icon-only label="More options">
+          <so-icon slot="prefix" name="menu-dots" decorative></so-icon>
+        </so-button>
       </so-card></div>
     </div>
   `,
@@ -169,7 +163,7 @@ export const WithCornerAction: Story = {
       <span slot="secondary">Secondary text goes here</span>
       <span slot="body">With action(s) shown — can also be icon-only buttons</span>
       <so-button slot="corner-action" variant="ghost" size="sm" icon-only label="Open in new tab">
-        <so-icon slot="prefix" name="arrow-up-right" decorative></so-icon>
+        <so-icon slot="prefix" name="external-link" decorative></so-icon>
       </so-button>
     </so-card>
   `,
@@ -260,10 +254,8 @@ export const KpiWithActions: Story = {
       </div>
       <span slot="body">Details about KPI go here</span>
       <div slot="chart">${sparkline()}</div>
-      <div slot="actions">
-        <so-button variant="outline" size="sm">Action 1</so-button>
-        <so-button variant="outline" size="sm">Action 2</so-button>
-      </div>
+      <so-button slot="actions" variant="outline" size="sm">Action 1</so-button>
+      <so-button slot="actions" variant="outline" size="sm">Action 2</so-button>
     </so-card>
   `,
 };
@@ -390,10 +382,8 @@ export const ThemeShowcase: Story = {
               Card with media on top
               <span slot="secondary">Secondary text goes here</span>
               <span slot="body">Supporting text goes here</span>
-              <div slot="actions">
-                <so-button variant="outline" size="sm">Share</so-button>
-                <so-button variant="primary" size="sm">Save</so-button>
-              </div>
+              <so-button slot="actions" variant="outline" size="sm">Share</so-button>
+              <so-button slot="actions" variant="primary" size="sm">Save</so-button>
             </so-card>
           </div>
         `,
