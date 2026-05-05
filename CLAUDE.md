@@ -332,6 +332,10 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-04 | `so-loader` gradient variant uses hardcoded primitive colors (`#deccc3`, `#a6808c`) | Comet-tail effect is purely decorative; semantic tokens don't have mid-range palette steps. Acceptable exception documented in styles file. |
 | 2026-04 | `so-loader` overlay scrim uses `::before` opacity, not `opacity` on host | Applying opacity to `:host([overlay])` would dim the spinner itself; `::before` with `opacity: 0.75` isolates the scrim behind the spinner content |
 | 2026-04 | `so-loader` SVG arc parameters computed at render time from size prop | Avoids per-size hardcoded dasharray values; a single formula (`r = (d - tw) / 2`, `circ = 2πr`) covers all four sizes |
+| 2026-05 | `so-card` slot detection: `firstUpdated()` + `assignedNodes()` + `slotchange` + `querySelector` fallback in render | `slotchange` fires after Lit render cycle; custom elements that upgrade asynchronously (e.g. `so-button`) delay the event further; `querySelector` fallback ensures correct initial render without waiting for the event |
+| 2026-05 | `so-card` `clickable` + `href` renders as `<a>`; `clickable` alone renders as `<button>` | Semantic HTML — link vs. button semantics affect a11y and keyboard behavior; interactive children must not be placed inside a `clickable` card (nested interactive elements inside `<button>` are invalid HTML) |
+| 2026-05 | `so-card-delta` `direction` and `sentiment` are independent props | Up arrow can be negative (spend increased = bad); coupling direction to sentiment would lose expressiveness for mixed-signal KPIs |
+| 2026-05 | `so-card` media position switched via CSS `order` property | Avoids duplicating the slot markup; `media-position="bottom"` sets `[part='media'] { order: 1 }` so media renders after the header zone without any JS reordering |
 
 ---
 

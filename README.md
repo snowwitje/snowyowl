@@ -19,6 +19,8 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | Component | Description | Status |
 |-----------|-------------|--------|
 | `so-button` | Button — 5 variants, 3 sizes, icon-only mode | ✅ Stable |
+| `so-card` | Card — media, KPI, actions, clickable, skeleton | ✅ Stable |
+| `so-card-delta` | Inline delta indicator — independent direction + sentiment | ✅ Stable |
 | `so-checkbox` | Checkbox — checked / indeterminate, touch mode | ✅ Stable |
 | `so-loader` | Loader - 2 variants, 4 sizes | ✅ Stable |
 | `so-radio` | Radio button - checked, touch mode | ✅ Stable |
