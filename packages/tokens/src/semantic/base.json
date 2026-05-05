@@ -10,12 +10,12 @@
         "subtle": {
           "$value": "{color.sand.50}",
           "$type": "color",
-          "$description": "Dashboard canvas, sidebar \u2014 warm sand tint"
+          "$description": "Dashboard canvas, sidebar — warm sand tint"
         },
         "raised": {
           "$value": "{color.neutral.0}",
           "$type": "color",
-          "$description": "Cards, panels \u2014 sits on subtle"
+          "$description": "Cards, panels — sits on subtle"
         },
         "overlay": {
           "$value": "{color.neutral.0}",
@@ -71,7 +71,7 @@
         "disabled": {
           "$value": "{color.neutral.400}",
           "$type": "color",
-          "$description": "Disabled \u2014 WCAG exempt for inactive UI"
+          "$description": "Disabled — WCAG exempt for inactive UI"
         },
         "placeholder": {
           "$value": "{color.neutral.400}",
@@ -113,7 +113,7 @@
         "actionText": {
           "$value": "{color.neutral.0}",
           "$type": "color",
-          "$description": "Text/icon on all filled buttons \u2014 primary and secondary"
+          "$description": "Text/icon on all filled buttons — primary and secondary"
         },
         "secondary": {
           "$value": "{color.neutral.800}",
@@ -123,32 +123,32 @@
         "secondaryHover": {
           "$value": "{color.neutral.900}",
           "$type": "color",
-          "$description": "Secondary button hover \u2014 darkens"
+          "$description": "Secondary button hover — darkens"
         },
         "secondaryActive": {
           "$value": "{color.neutral.950}",
           "$type": "color",
-          "$description": "Secondary button press \u2014 darkest"
+          "$description": "Secondary button press — darkest"
         },
         "ghostHover": {
           "$value": "{color.sand.100}",
           "$type": "color",
-          "$description": "Ghost / list item hover bg \u2014 transient"
+          "$description": "Ghost / list item hover bg — transient"
         },
         "ghostActive": {
           "$value": "{color.sand.200}",
           "$type": "color",
-          "$description": "Ghost / list item pressed bg \u2014 transient"
+          "$description": "Ghost / list item pressed bg — transient"
         },
-        "navSelected": { 
+        "navSelected": {
           "$value": "{color.mauve.600}",
           "$type": "color",
           "$description": "Selected nav/list item bg — dark, persistent"
         },
-        "navSelectedText": { 
+        "navSelectedText": {
           "$value": "{color.neutral.0}",
           "$type": "color",
-          "$description": "Text on selected nav/list item — white on dark bg" 
+          "$description": "Text on selected nav/list item — white on dark bg"
         },
         "navSelectedHover": {
           "$value": "{color.mauve.700}",
@@ -158,9 +158,9 @@
         "navUnselected": {
           "$value": "{color.sand.100}",
           "$type": "color",
-          "$description": "Persistent unselected bg \u2014 subtle warm tint"
+          "$description": "Persistent unselected bg — subtle warm tint"
         },
-         "danger": {
+        "danger": {
           "$value": "{color.red.700}",
           "$type": "color",
           "$description": "Danger button color"
@@ -168,12 +168,12 @@
         "dangerHover": {
           "$value": "{color.red.800}",
           "$type": "color",
-          "$description": "Danger button hover \u2014 darkens"
+          "$description": "Danger button hover — darkens"
         },
         "dangerActive": {
           "$value": "{color.red.900}",
           "$type": "color",
-          "$description": "Danger button press \u2014 darkest"
+          "$description": "Danger button press — darkest"
         }
       },
       "status": {
@@ -215,17 +215,17 @@
       "component": {
         "$value": "{radius.lg}",
         "$type": "borderRadius",
-        "$description": "\u2b50 Buttons, inputs, chips"
+        "$description": "⭐ Buttons, inputs, chips"
       },
       "container": {
         "$value": "{radius.xl}",
         "$type": "borderRadius",
-        "$description": "\u2b50 Cards, panels, modals"
+        "$description": "⭐ Cards, panels, modals"
       },
       "interactive": {
         "$value": "{radius.lg}",
         "$type": "borderRadius",
-        "$description": "\u2b50 Interactive elements"
+        "$description": "⭐ Interactive elements"
       },
       "badge": {
         "$value": "{radius.full}",
@@ -237,7 +237,7 @@
         "$type": "borderRadius",
         "$description": "Checkbox button visual box radius"
       },
-      "input": { 
+      "input": {
         "$value": "{radius.sm}",
         "$type": "borderRadius",
         "$description": "Input field radius"
@@ -247,17 +247,17 @@
       "component": {
         "$value": "{shadow.xs}",
         "$type": "shadow",
-        "$description": "\u2b50 Inputs, chips"
+        "$description": "⭐ Inputs, chips"
       },
       "container": {
         "$value": "{shadow.md}",
         "$type": "shadow",
-        "$description": "\u2b50 Cards, panels"
+        "$description": "⭐ Cards, panels"
       },
       "floating": {
-        "$value": "{shadow.md}",
+        "$value": "{shadow.lg}",
         "$type": "shadow",
-        "$description": "Dropdowns, popovers"
+        "$description": "Dropdowns, popovers — one tier above container"
       },
       "overlay": {
         "$value": "{shadow.xl}",
@@ -267,29 +267,29 @@
       "focus": {
         "$value": "0 0 0 3px rgba(147, 51, 234, 1)",
         "$type": "shadow",
-        "$description": "\u2b50 Focus ring"
+        "$description": "⭐ Focus ring"
       }
     },
     "typography": {
       "family-body": {
         "$value": "{font.family.sans}",
         "$type": "fontFamily",
-        "$description": "\u2b50 Body / UI font"
+        "$description": "⭐ Body / UI font"
       },
       "family-heading": {
         "$value": "{font.family.sans}",
         "$type": "fontFamily",
-        "$description": "\u2b50 Heading font \u2014 swap for personality"
+        "$description": "⭐ Heading font — swap for personality"
       },
       "family-code": {
         "$value": "{font.family.mono}",
         "$type": "fontFamily"
-      },
+      }
     },
     "textStyle": {
       "display-2xl": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -308,11 +308,11 @@
           "$value": "{font.letterSpacing.tight}",
           "$type": "letterSpacing"
         },
-        "$description": "Hero / marketing display \u2014 72px bold"
+        "$description": "Hero / marketing display — 72px bold"
       },
       "display-xl": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -331,11 +331,11 @@
           "$value": "{font.letterSpacing.tight}",
           "$type": "letterSpacing"
         },
-        "$description": "Large display \u2014 60px bold"
+        "$description": "Large display — 60px bold"
       },
       "heading-xl": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -354,11 +354,11 @@
           "$value": "{font.letterSpacing.tight}",
           "$type": "letterSpacing"
         },
-        "$description": "Page title \u2014 36px bold"
+        "$description": "Page title — 36px bold"
       },
       "heading-lg": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -377,11 +377,11 @@
           "$value": "{font.letterSpacing.tight}",
           "$type": "letterSpacing"
         },
-        "$description": "Section heading \u2014 30px bold"
+        "$description": "Section heading — 30px bold"
       },
       "heading-md": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -400,11 +400,11 @@
           "$value": "{font.letterSpacing.tight}",
           "$type": "letterSpacing"
         },
-        "$description": "Subsection heading \u2014 24px semibold"
+        "$description": "Subsection heading — 24px semibold"
       },
       "heading-sm": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -423,11 +423,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Card heading, panel title \u2014 20px semibold"
+        "$description": "Card heading, panel title — 20px semibold"
       },
       "heading-xs": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-heading}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -446,11 +446,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Small heading, widget title \u2014 18px semibold"
+        "$description": "Small heading, widget title — 18px semibold"
       },
       "body-lg": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -469,11 +469,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Large body \u2014 18px light, long-form prose"
+        "$description": "Large body — 18px light, long-form prose"
       },
       "body-md": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -492,11 +492,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Default body \u2014 16px light"
+        "$description": "Default body — 16px light"
       },
       "body-sm": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -515,11 +515,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Small body \u2014 14px regular (heavier for readability)"
+        "$description": "Small body — 14px regular (heavier for readability)"
       },
       "label-lg": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -538,11 +538,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Button label, form label \u2014 16px medium"
+        "$description": "Button label, form label — 16px medium"
       },
       "label-md": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -561,11 +561,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Small button, input label \u2014 14px medium"
+        "$description": "Small button, input label — 14px medium"
       },
       "label-sm": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -584,11 +584,11 @@
           "$value": "{font.letterSpacing.wide}",
           "$type": "letterSpacing"
         },
-        "$description": "Badge, tag, chip label \u2014 12px medium, slightly tracked"
+        "$description": "Badge, tag, chip label — 12px medium, slightly tracked"
       },
       "caption": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -607,11 +607,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Image captions, helper text \u2014 12px light"
+        "$description": "Image captions, helper text — 12px light"
       },
       "footnote": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -630,11 +630,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Legal, footnotes \u2014 10px light"
+        "$description": "Legal, footnotes — 10px light"
       },
       "code": {
         "fontFamily": {
-          "$value": "{font.family.mono}",
+          "$value": "{semantic.typography.family-code}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -653,11 +653,11 @@
           "$value": "{font.letterSpacing.normal}",
           "$type": "letterSpacing"
         },
-        "$description": "Inline code, code blocks \u2014 JetBrains Mono 14px"
+        "$description": "Inline code, code blocks — JetBrains Mono 14px"
       },
       "overline": {
         "fontFamily": {
-          "$value": "{font.family.sans}",
+          "$value": "{semantic.typography.family-body}",
           "$type": "fontFamily"
         },
         "fontSize": {
@@ -676,7 +676,7 @@
           "$value": "{font.letterSpacing.widest}",
           "$type": "letterSpacing"
         },
-        "$description": "Section labels, eyebrow text \u2014 12px semibold, wide tracking"
+        "$description": "Section labels, eyebrow text — 12px semibold, wide tracking"
       }
     },
     "spacing": {
@@ -713,7 +713,6 @@
         "$type": "spacing"
       }
     },
-
     "zindex": {
       "sticky": {
         "$value": "{zIndex.raised}",
@@ -736,7 +735,6 @@
         "$description": "⭐ Modals and dialogs"
       }
     },
-
     "border": {
       "width-control": {
         "$value": "{border.width.thin}",
@@ -754,7 +752,6 @@
         "$description": "Selected tab indicator thickness (4px)"
       }
     },
-
     "motion": {
       "duration-control": {
         "$value": "{duration.fast}",
@@ -777,7 +774,6 @@
         "$description": "⭐ Standard UI transition easing"
       }
     },
-
     "opacity": {
       "disabled": {
         "$value": "{opacity.40}",

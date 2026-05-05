@@ -4,6 +4,11 @@
 
 ### Added
 
+- **`so-card`** (`packages/components/src/components/card/`) — Card container with `media`, default (title), `secondary` (subtitle), `body`, `chart`, `actions`, and `corner-action` slots. `media-position` prop switches media between top/bottom via CSS `order`. `clickable` renders card as `<button>` (or `<a>` with `href`) with hover/focus elevation transitions. `align` prop centres all text zones. `skeleton` prop renders animated placeholder zones.
+- **`so-card-delta`** — Inline delta indicator with independent `direction` (`up`/`down`/`none`) and `sentiment` (`positive`/`negative`/`none`) props. Positive = green chip, negative = red chip, none = subtle text. Arrow rendered as inline SVG.
+
+
+
 - **`semantic.border.*` tokens** (`packages/tokens/src/semantic/base.json`) + new `border.width.semi` primitive
   - `--soSemanticBorderWidthControl` → `--soBorderWidthThin` (1px) — standard form control border
   - `--soSemanticBorderWidthControlActive` → `--soBorderWidthSemi` (1.5px) ⭐ — hover/focus/error border on form controls
