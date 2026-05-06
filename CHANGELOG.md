@@ -6,6 +6,7 @@
 
 - **`so-card`** (`packages/components/src/components/card/`) — Card container with `media`, default (title), `secondary` (subtitle), `body`, `chart`, `actions`, and `corner-action` slots. `media-position` prop switches media between top/bottom via CSS `order`. `clickable` renders card as `<button>` (or `<a>` with `href`) with hover/focus elevation transitions. `align` prop centres all text zones. `skeleton` prop renders animated placeholder zones.
 - **`so-card-delta`** — Inline delta indicator with independent `direction` (`up`/`down`/`none`) and `sentiment` (`positive`/`negative`/`none`) props. Positive = green chip, negative = red chip, none = subtle text. Arrow rendered as inline SVG.
+- **`so-modal`** (`packages/components/src/components/modal/`) — Dialog component with `sm`/`md`/`lg`/`fullscreen` sizes. Fade + scale open/close animation using `--soSemanticMotionDurationPanel`. Focus trap (pierces slotted shadow DOM), scroll lock with scrollbar-width compensation, and `Escape` key support via document-level listener. `preventClose` disables all closing mechanisms for destructive confirmations. `loading` prop shows `so-loader` overlay (scrim via `::before` — spinner not dimmed). `so-request-close` event is cancellable for unsaved-changes guards. `so-open` and `so-close` events fire after animation completes. Parts: `backdrop`, `dialog`, `header`, `title`, `subtitle`, `close`, `body`, `footer`, `loader`.
 
 
 

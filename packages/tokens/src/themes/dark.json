@@ -97,19 +97,19 @@
       },
       "interactive": {
         "primary": {
-          "$value": "{color.mauve.400}",
-          "$type": "color",
-          "$description": "8.43 AAA on surface.default"
-        },
-        "primaryHover": {
           "$value": "{color.mauve.300}",
           "$type": "color",
-          "$description": "12.10 AAA \u2014 lightens on hover"
+          "$description": "7.58 AAA on surface.raised/overlay — outline button text, border, and filled button bg (with neutral.950 action text)"
+        },
+        "primaryHover": {
+          "$value": "{color.mauve.200}",
+          "$type": "color",
+          "$description": "Lightens on hover"
         },
         "primaryActive": {
-          "$value": "{color.mauve.500}",
+          "$value": "{color.mauve.400}",
           "$type": "color",
-          "$description": "5.68 AA \u2014 darkens on press"
+          "$description": "Darkens on press"
         },
         "primarySubtle": {
           "$value": "{color.neutral.800}",
@@ -137,12 +137,12 @@
           "$description": "Slightly darker on press"
         },
         "ghostHover": {
-          "$value": "{color.neutral.800}",
+          "$value": "{color.neutral.700}",
           "$type": "color",
-          "$description": "Ghost/list item hover \u2014 dark tint"
+          "$description": "Ghost/list item hover"
         },
         "ghostActive": {
-          "$value": "{color.neutral.700}",
+          "$value": "{color.neutral.600}",
           "$type": "color",
           "$description": "Ghost/list item pressed"
         },

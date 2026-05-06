@@ -7,3 +7,4 @@ export * from './components/select/index.js';
 export * from './components/loader/index.js';
 export * from './components/tabs/index.js';
 export * from './components/card/index.js';
+export * from './components/modal/index.js';
