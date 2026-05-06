@@ -163,12 +163,12 @@ export const buttonStyles = css`
       --so-btn-border-color: var(--soSemanticColorInteractivePrimary, #6f5a7e);
     }
     :host([variant='outline']:not([disabled]):not([skeleton])) [part='base']:hover {
-      --so-btn-bg:           var(--soSemanticColorInteractiveGhostHover, #f5ede8);
+      --so-btn-bg:           var(--soSemanticColorInteractivePrimarySubtle, #f6f3f5);
       --so-btn-color:        var(--soSemanticColorInteractivePrimaryHover, #5a5160);
       --so-btn-border-color: var(--soSemanticColorInteractivePrimaryHover, #5a5160);
     }
     :host([variant='outline']:not([disabled]):not([skeleton])) [part='base']:active {
-      --so-btn-bg:           var(--soSemanticColorInteractiveGhostActive, #ede0d8);
+      --so-btn-bg:           var(--soSemanticColorInteractivePrimarySubtle, #f6f3f5);
       --so-btn-color:        var(--soSemanticColorInteractivePrimaryActive, #433c4a);
       --so-btn-border-color: var(--soSemanticColorInteractivePrimaryActive, #433c4a);
     }
