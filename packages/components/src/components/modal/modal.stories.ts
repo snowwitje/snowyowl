@@ -375,6 +375,7 @@ const themeShell = (theme: string) => html`
         style="
           padding: 20px;
           font-size: var(--soSemanticTextStyleBodyMdFontSize);
+          font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
           line-height: var(--soSemanticTextStyleBodyMdLineHeight);
           color: var(--soSemanticColorTextDefault);
           font-family: var(--soSemanticTypographyFamilyBody, system-ui, sans-serif);
@@ -393,8 +394,8 @@ const themeShell = (theme: string) => html`
           border-top: 1px solid var(--soSemanticColorBorderSubtle);
         "
       >
-        <so-button variant="outline" size="sm">Cancel</so-button>
-        <so-button variant="primary" size="sm">Confirm</so-button>
+        <so-button variant="outline" >Cancel</so-button>
+        <so-button variant="primary" >Confirm</so-button>
       </div>
     </div>
   </div>

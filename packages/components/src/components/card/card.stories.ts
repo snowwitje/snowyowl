@@ -472,8 +472,8 @@ export const ThemeShowcase: Story = {
               Card with media on top
               <span slot="secondary">Secondary text goes here</span>
               <span slot="body">Supporting text goes here</span>
-              <so-button slot="actions" variant="outline" size="sm">Share</so-button>
-              <so-button slot="actions" variant="primary" size="sm">Save</so-button>
+              <so-button slot="actions" variant="outline">Share</so-button>
+              <so-button slot="actions" variant="primary">Save</so-button>
             </so-card>
           </div>
         `,
