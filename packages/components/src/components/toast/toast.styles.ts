@@ -158,6 +158,12 @@ export const toastStyles = css`
   /* ── Close button ── */
   [part='close'] {
     flex-shrink: 0;
+    align-self: flex-start;
+    /* The sm so-button is 32px tall; the × icon is 16px centered inside it,
+       leaving 8px of implicit padding above. Pull up by that 8px so the icon
+       top aligns with the container's 16px padding line. */
+    margin-top: -8px;
+    margin-right: -8px;
     color: var(--soSemanticColorTextSubtle);
   }
 

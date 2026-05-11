@@ -17,7 +17,7 @@ export const notificationStyles = css`
     align-items: flex-start;
     gap: var(--soSpace3, 12px);
     padding: var(--soSemanticSpacingComponentMd, 16px);
-    border-radius: var(--soSemanticRadiusContainer);
+    border-radius: var(--soSemanticRadiusControl);
     border-width: var(--soSemanticBorderWidthControl, 1px);
     border-style: solid;
 
@@ -112,6 +112,12 @@ export const notificationStyles = css`
   /* ── Close button ── */
   [part='close'] {
     flex-shrink: 0;
+    align-self: flex-start;
+    /* The sm so-button is 32px tall; the × icon is 16px centered inside it,
+       leaving 8px of implicit padding above. Pull up by that 8px so the icon
+       top aligns with the container's 16px padding line. */
+    margin-top: -8px;
+    margin-right: -8px;
     color: var(--soSemanticColorTextSubtle);
   }
 
