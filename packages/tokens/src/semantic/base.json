@@ -733,6 +733,11 @@
         "$value": "{zIndex.modal}",
         "$type": "number",
         "$description": "⭐ Modals and dialogs"
+      },
+      "toast": {
+        "$value": "{zIndex.toast}",
+        "$type": "number",
+        "$description": "⭐ Toast notifications — above modals"
       }
     },
     "border": {
