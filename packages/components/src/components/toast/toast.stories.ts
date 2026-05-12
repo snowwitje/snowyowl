@@ -74,6 +74,7 @@ export const WithAction: Story = {
     const toast = staticToast('warning', {
       message: 'A new version of this page is available.',
       actionLabel: 'Reload',
+      dismissible: true,
     });
     toast.onAction = () => alert('Reload action triggered');
     return toast;
@@ -91,6 +92,7 @@ export const WithTitleAndAction: Story = {
       message: 'The file exceeds the maximum allowed size of 10 MB.',
       actionLabel: 'Try again',
       timestamp: '2 minutes ago',
+      dismissible: true,
     });
     toast.onAction = () => alert('Try again triggered');
     return toast;

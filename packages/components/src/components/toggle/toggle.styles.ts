@@ -157,7 +157,7 @@ export const toggleStyles = css`
 
   [part='thumb'] {
     position: absolute;
-    left: 3px;
+    left: 2px;
     top: 50%;
     /* Center vertically; horizontal slide via translateX */
     transform: translateY(-50%);
@@ -173,7 +173,7 @@ export const toggleStyles = css`
 
   /* Checked — thumb slides right and turns white. */
   :host([checked]) [part='thumb'] {
-    transform: translateY(-50%) translateX(22px);
+    transform: translateY(-50%) translateX(23px);
     background: var(--soSemanticColorTextInverse, #ffffff);
   }
 

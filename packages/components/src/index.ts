@@ -10,3 +10,4 @@ export * from './components/card/index.js';
 export * from './components/modal/index.js';
 export * from './components/notification/index.js';
 export * from './components/toast/index.js';
+export * from './components/tag/index.js';
