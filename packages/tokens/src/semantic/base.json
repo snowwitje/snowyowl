@@ -36,6 +36,11 @@
           "$value": "{color.neutral.100}",
           "$type": "color",
           "$description": "Fill for disabled input fields and form controls."
+        },
+        "tooltip": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "Tooltip and toggletip background — dark in both light and dark themes"
         }
       },
       "border": {
@@ -90,6 +95,11 @@
         "linkHover": {
           "$value": "{color.mauve.700}",
           "$type": "color"
+        },
+        "onTooltip": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Text on tooltip/toggletip background — light in both themes"
         }
       },
       "interactive": {
