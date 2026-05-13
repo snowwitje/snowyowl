@@ -38,7 +38,7 @@
           "$description": "Fill for disabled input fields and form controls."
         },
         "tooltip": {
-          "$value": "{color.neutral.900}",
+          "$value": "{color.neutral.800}",
           "$type": "color",
           "$description": "Tooltip and toggletip background — dark in both light and dark themes"
         }
@@ -97,7 +97,7 @@
           "$type": "color"
         },
         "onTooltip": {
-          "$value": "{color.neutral.0}",
+          "$value": "{color.neutral.50}",
           "$type": "color",
           "$description": "Text on tooltip/toggletip background — light in both themes"
         }

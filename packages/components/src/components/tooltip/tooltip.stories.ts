@@ -143,7 +143,7 @@ export const ThemeShowcase: Story = {
           >
             <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soSemanticColorTextSubtle); font-family: monospace;">${theme}</div>
             <so-tooltip text="Tooltip in ${theme} theme" placement="top" delay="0">
-              <so-button variant="outline" size="sm">Hover me</so-button>
+              <so-button variant="outline" size="md">Hover me</so-button>
             </so-tooltip>
           </div>
         `,

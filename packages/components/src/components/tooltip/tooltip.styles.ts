@@ -31,7 +31,7 @@ export const tooltipPanelCSS = `
   box-shadow: var(--soSemanticShadowFloating);
   font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);
   font-size: var(--soSemanticTextStyleBodySmFontSize);
-  font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+  font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
   line-height: var(--soSemanticTextStyleBodySmLineHeight);
   word-break: break-word;
   pointer-events: none;

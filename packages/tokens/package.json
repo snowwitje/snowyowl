@@ -1,6 +1,6 @@
 {
   "name": "@snowyowl/tokens",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "SnowyOwl design tokens — primitives, semantic, and component-level CSS custom properties",
   "license": "MIT",
   "repository": {
