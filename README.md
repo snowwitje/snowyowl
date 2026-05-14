@@ -33,6 +33,7 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | `so-modal` | Modal - 3 sizes + fullscreen | ✅ Stable |
 | `so-notification` | Inline notification - 4 types | ✅ Stable |
 | `so-toast` | Toast notification - 4 types | ✅ Stable |
+| `so-breadcrumb` / `so-breadcrumb-item` | Breadcrumb navigation — link items, current-page item, chevron separators, optional truncation with tooltip, optional wrapping | ✅ Stable |
 | `so-icon` | SVG icon backed by sprite (278 icons) | ✅ Stable |
 
 ## Installation

@@ -336,6 +336,9 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-05 | `so-card` `clickable` + `href` renders as `<a>`; `clickable` alone renders as `<button>` | Semantic HTML — link vs. button semantics affect a11y and keyboard behavior; interactive children must not be placed inside a `clickable` card (nested interactive elements inside `<button>` are invalid HTML) |
 | 2026-05 | `so-card-delta` `direction` and `sentiment` are independent props | Up arrow can be negative (spend increased = bad); coupling direction to sentiment would lose expressiveness for mixed-signal KPIs |
 | 2026-05 | `so-card` media position switched via CSS `order` property | Avoids duplicating the slot markup; `media-position="bottom"` sets `[part='media'] { order: 1 }` so media renders after the header zone without any JS reordering |
+| 2026-05 | `so-breadcrumb` marks the last item via JS `slotchange` + `assignedElements()`, not CSS `:last-child` | `:last-child` misfires when text nodes exist between slotted elements; `assignedElements({ flatten: true })` reliably finds only element children |
+| 2026-05 | `so-breadcrumb-item` tooltip for truncated items is wired inside `render()`, not in a lifecycle hook | `so-tooltip` must wrap the `<a>` element in shadow DOM; conditional rendering in `render()` keeps the tooltip in sync with `maxWidth` changes without manual DOM manipulation |
+| 2026-05 | `so-breadcrumb-item` reads slot text into `@state() _slotText` via `slotchange` + `firstUpdated()` | Tooltip `text` prop requires a plain string; slotted content is only reachable via `assignedNodes()` after upgrade; `@state` triggers a re-render so the tooltip has the correct label before first hover |
 
 ---
 
