@@ -13,3 +13,4 @@ export * from './components/toast/index.js';
 export * from './components/tag/index.js';
 export * from './components/tooltip/index.js';
 export * from './components/toggletip/index.js';
+export * from './components/breadcrumb/index.js';
