@@ -15,3 +15,5 @@ export * from './components/tooltip/index.js';
 export * from './components/toggletip/index.js';
 export * from './components/breadcrumb/index.js';
 export * from './components/textarea/index.js';
+export * from './components/divider/index.js';
+export * from './components/badge/index.js';
