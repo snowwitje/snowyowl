@@ -221,7 +221,9 @@ export const OverlayUsage: Story = {
       <!-- top-right (default) -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
-          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">🔔</div>
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
+            <so-icon name="bell" size="md" label="Notifications"></so-icon>
+          </div>
           <so-badge variant="count" count="3" color="red" overlay overlay-position="top-right"></so-badge>
         </div>
         <span style="font-family: monospace; font-size: 11px; color: #888;">top-right</span>
@@ -230,8 +232,10 @@ export const OverlayUsage: Story = {
       <!-- top-left -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
-          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">✉️</div>
-          <so-badge variant="count" count="12" color="blue" overlay overlay-position="top-left"></so-badge>
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
+            <so-icon name="mail" size="md" label="Messages"></so-icon>
+          </div>
+          <so-badge variant="count" count="12" size="sm" color="blue" overlay overlay-position="top-left"></so-badge>
         </div>
         <span style="font-family: monospace; font-size: 11px; color: #888;">top-left</span>
       </div>
@@ -239,7 +243,9 @@ export const OverlayUsage: Story = {
       <!-- bottom-right -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
-          <div style="width: 40px; height: 40px; border-radius: 50%; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-size: 18px;">👤</div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
+            <so-icon name="user" size="lg" label="User profile"></so-icon>
+          </div>
           <so-badge variant="status" status="online" overlay overlay-position="bottom-right"></so-badge>
         </div>
         <span style="font-family: monospace; font-size: 11px; color: #888;">bottom-right (status)</span>
@@ -248,8 +254,10 @@ export const OverlayUsage: Story = {
       <!-- bottom-left -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
-          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">⚙️</div>
-          <so-badge variant="label" label="New" color="green" overlay overlay-position="bottom-left"></so-badge>
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
+            <so-icon name="settings" size="md" label="Settings"></so-icon>
+          </div>
+          <so-badge variant="label" label="NEW" color="cyan" size="sm" overlay overlay-position="bottom-left"></so-badge>
         </div>
         <span style="font-family: monospace; font-size: 11px; color: #888;">bottom-left (label)</span>
       </div>
@@ -311,10 +319,11 @@ export const ThemeShowcase: Story = {
             <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soSemanticColorTextSubtle); margin-bottom: 12px; font-family: monospace;">${theme}</div>
             <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
               <so-badge variant="count" count="7"  color="red"></so-badge>
-              <so-badge variant="count" count="99" color="mauve"></so-badge>
+              <so-badge variant="count" count="99" color="sand" size="sm"></so-badge>
               <so-badge variant="status" status="online"></so-badge>
               <so-badge variant="status" status="busy"></so-badge>
               <so-badge variant="status" status="away"></so-badge>
+              <so-badge variant="status" status="new"></so-badge>
               <so-badge variant="status" status="offline"></so-badge>
               <so-badge variant="label" label="New"  color="blue"></so-badge>
               <so-badge variant="label" label="Beta" color="purple"></so-badge>

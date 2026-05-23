@@ -38,25 +38,25 @@ export const badgeStyles = css`
   :host([overlay]:not([overlay-position])) {
     top: 0;
     right: 0;
-    transform: translate(50%, -50%);
+    transform: translate(25%, -25%);
   }
 
   :host([overlay][overlay-position='top-left']) {
     top: 0;
     left: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, -25%);
   }
 
   :host([overlay][overlay-position='bottom-right']) {
     bottom: 0;
     right: 0;
-    transform: translate(50%, 50%);
+    transform: translate(25%, 25%);
   }
 
   :host([overlay][overlay-position='bottom-left']) {
     bottom: 0;
     left: 0;
-    transform: translate(-50%, 50%);
+    transform: translate(-25%, 25%);
   }
 
   /* ═══════════════════════════════════════════════════════════════

@@ -28,11 +28,11 @@ const COLOR_PRESETS: Record<string, { fill: string; text: string; border: string
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  online:  'var(--soSemanticColorStatusSuccess)',
-  busy:    'var(--soSemanticColorStatusError)',
-  away:    'var(--soSemanticColorStatusWarning)',
-  new:    'var(--soSemanticColorStatusInfo)',
-  offline: 'var(--soSemanticColorTextPlaceholder)',
+  online:  'var(--soColorGreen500)',
+  busy:    'var(--soColorRed600)',
+  away:    'var(--soColorYellow500)',
+  new:     'var(--soColorBlue500)',
+  offline: 'var(--soColorNeutral500)',
 };
 
 /**
