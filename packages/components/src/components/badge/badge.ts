@@ -23,6 +23,7 @@ const COLOR_PRESETS: Record<string, { fill: string; text: string; border: string
   yellow:  { fill: 'var(--soColorYellow200)',   text: 'var(--soColorNeutral800)',  border: 'var(--soColorYellow200)'  },
   sand:  { fill: 'var(--soColorSand300)',   text: 'var(--soColorNeutral900)',  border: 'var(--soColorSand300)'  },
   blue:    { fill: 'var(--soColorBlue700)',      text: 'var(--soColorNeutral0)',    border: 'var(--soColorBlue700)'    },
+  cyan:    { fill: 'var(--soColorCyan400)',      text: 'var(--soColorNeutral0)',    border: 'var(--soColorCyan400)'    },
   purple:  { fill: 'var(--soColorPurple700)',   text: 'var(--soColorNeutral0)',  border: 'var(--soColorPurple700)'  },
 };
 

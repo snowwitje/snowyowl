@@ -3,7 +3,7 @@ import { html } from 'lit';
 import '@snowyowl/components/components/badge';
 
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
-const COLORS = ['neutral', 'mauve', 'sand', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] as const;
+const COLORS = ['neutral', 'mauve', 'sand', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'] as const;
 const STATUSES = ['online', 'busy', 'away', 'offline', 'new'] as const;
 
 const meta: Meta = {
