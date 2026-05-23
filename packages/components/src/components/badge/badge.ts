@@ -15,19 +15,22 @@ import type {
    override semantic tokens.
 ─────────────────────────────────────────────────────────────────────────── */
 const COLOR_PRESETS: Record<string, { fill: string; text: string; border: string }> = {
-  neutral: { fill: 'var(--soColorNeutral200)', text: 'var(--soColorNeutral800)', border: 'var(--soColorNeutral400)' },
-  mauve:   { fill: 'var(--soColorMauve100)',   text: 'var(--soColorMauve800)',   border: 'var(--soColorMauve400)'   },
-  green:   { fill: 'var(--soColorGreen100)',    text: 'var(--soColorGreen800)',   border: 'var(--soColorGreen500)'   },
-  red:     { fill: 'var(--soColorRed100)',      text: 'var(--soColorRed800)',     border: 'var(--soColorRed400)'     },
-  orange:  { fill: 'var(--soColorOrange100)',   text: 'var(--soColorOrange800)',  border: 'var(--soColorOrange500)'  },
-  blue:    { fill: 'var(--soColorBlue100)',      text: 'var(--soColorBlue800)',    border: 'var(--soColorBlue400)'    },
-  purple:  { fill: 'var(--soColorPurple100)',   text: 'var(--soColorPurple800)',  border: 'var(--soColorPurple500)'  },
+  neutral: { fill: 'var(--soColorNeutral200)', text: 'var(--soColorNeutral800)', border: 'var(--soColorNeutral200)' },
+  mauve:   { fill: 'var(--soColorMauve600)',   text: 'var(--soColorNeutral0)',   border: 'var(--soColorMauve600)'   },
+  green:   { fill: 'var(--soColorGreen700)',    text: 'var(--soColorNeutral0)',   border: 'var(--soColorGreen700)'   },
+  red:     { fill: 'var(--soColorRed700)',      text: 'var(--soColorNeutral0)',     border: 'var(--soColorRed700)'     },
+  orange:  { fill: 'var(--soColorOrange500)',   text: 'var(--soColorNeutral0)',  border: 'var(--soColorOrange500)'  },
+  yellow:  { fill: 'var(--soColorYellow200)',   text: 'var(--soColorNeutral800)',  border: 'var(--soColorYellow200)'  },
+  sand:  { fill: 'var(--soColorSand300)',   text: 'var(--soColorNeutral900)',  border: 'var(--soColorSand300)'  },
+  blue:    { fill: 'var(--soColorBlue700)',      text: 'var(--soColorNeutral0)',    border: 'var(--soColorBlue700)'    },
+  purple:  { fill: 'var(--soColorPurple700)',   text: 'var(--soColorNeutral0)',  border: 'var(--soColorPurple700)'  },
 };
 
 const STATUS_COLORS: Record<string, string> = {
   online:  'var(--soSemanticColorStatusSuccess)',
   busy:    'var(--soSemanticColorStatusError)',
   away:    'var(--soSemanticColorStatusWarning)',
+  new:    'var(--soSemanticColorStatusInfo)',
   offline: 'var(--soSemanticColorTextPlaceholder)',
 };
 

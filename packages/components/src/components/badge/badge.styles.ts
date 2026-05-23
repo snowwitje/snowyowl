@@ -5,8 +5,8 @@ export const badgeStyles = css`
   :host {
     --so-badge-height: 20px;
     --so-badge-dot-size: 12px;
-    --so-badge-count-padding: 0 6px;
-    --so-badge-label-padding: 0 8px;
+    --so-badge-count-padding: 0 4px;
+    --so-badge-label-padding: 0 6px;
 
     display: inline-flex;
     align-items: center;
@@ -22,7 +22,7 @@ export const badgeStyles = css`
     --so-badge-height: 16px;
     --so-badge-dot-size: 8px;
     --so-badge-count-padding: 0 4px;
-    --so-badge-label-padding: 0 6px;
+    --so-badge-label-padding: 2px 6px;
   }
 
   :host([hidden]) {
@@ -114,16 +114,16 @@ export const badgeStyles = css`
   ═══════════════════════════════════════════════════════════════ */
 
   [part='label'] {
-    font-size: var(--soSemanticTextStyleLabelSmFontSize);
-    font-weight: var(--soSemanticTextStyleLabelSmFontWeight);
-    line-height: var(--soSemanticTextStyleLabelSmLineHeight);
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     font-variant-numeric: tabular-nums;
     color: inherit;
   }
 
   :host([size='sm']) [part='label'] {
-    font-size: var(--soSemanticTextStyleCaptionFontSize);
-    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
-    line-height: var(--soSemanticTextStyleCaptionLineHeight);
+    font-size: var(--soSemanticTextStyleFootnoteFontSize);
+    font-weight: var(--soSemanticTextStyleLabelSmFontWeight);
+    line-height: var(--soSemanticTextStyleFootnoteLineHeight);
   }
 `;

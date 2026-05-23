@@ -3,8 +3,8 @@ import { html } from 'lit';
 import '@snowyowl/components/components/badge';
 
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
-const COLORS = ['neutral', 'mauve', 'green', 'red', 'orange', 'blue', 'purple'] as const;
-const STATUSES = ['online', 'busy', 'away', 'offline'] as const;
+const COLORS = ['neutral', 'mauve', 'sand', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] as const;
+const STATUSES = ['online', 'busy', 'away', 'offline', 'new'] as const;
 
 const meta: Meta = {
   title: 'Atomic/Badge',
@@ -204,6 +204,7 @@ export const LabelVariant: Story = {
         <so-badge variant="label" color="blue"   label="Pro"  size="md"></so-badge>
         <so-badge variant="label" color="green"  label="Live" size="md"></so-badge>
         <so-badge variant="label" color="orange" label="Soon" size="md"></so-badge>
+        <so-badge variant="label" color="yellow" label="Last-minute sale" size="sm"></so-badge>
         <so-badge variant="label" color="red"    label="Deprecated" size="sm"></so-badge>
       </div>
     </div>
