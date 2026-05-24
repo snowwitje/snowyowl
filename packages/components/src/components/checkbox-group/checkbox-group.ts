@@ -151,26 +151,16 @@ export class SoCheckboxGroup extends LitElement {
 
   private _applyProps() {
     const checkboxes = this._getCheckboxes();
-    const activeError = this.errorText || this._autoError;
-    const showError = !!activeError;
-    const showWarning = !showError && !!this.warningText;
+    const showError = !!(this.errorText || this._autoError);
 
     for (const cb of checkboxes) {
       const cbEl = cb as any;
       if (this.name) cbEl.name = this.name;
       if (this.disabled) cbEl.disabled = true;
       if (this.touch) cbEl.touch = true;
-      // Propagate error/warning state (group overrides individual)
-      if (showError) {
-        cbEl.errorText = activeError;
-        cbEl.warningText = '';
-      } else if (showWarning) {
-        cbEl.errorText = '';
-        cbEl.warningText = this.warningText;
-      } else {
-        cbEl.errorText = '';
-        cbEl.warningText = '';
-      }
+      // Show red border on non-disabled children when the group is invalid.
+      // Error/warning text is shown only once at group level — never on children.
+      cbEl.invalid = showError && !cbEl.disabled;
     }
   }
 

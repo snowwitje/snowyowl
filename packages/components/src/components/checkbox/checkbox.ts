@@ -100,6 +100,13 @@ export class SoCheckbox extends LitElement {
   /** Error message. When present, takes precedence over warning-text. */
   @property({ type: String, attribute: 'error-text' }) errorText = '';
 
+  /**
+   * Shows the error-state red border on the control without rendering
+   * an error message. Used by `so-checkbox-group` to highlight invalid
+   * items while displaying a single group-level error message.
+   */
+  @property({ type: Boolean, reflect: true }) invalid = false;
+
   /** Warning message. Only shown when error-text is absent. */
   @property({ type: String, attribute: 'warning-text' }) warningText = '';
 
@@ -172,7 +179,7 @@ export class SoCheckbox extends LitElement {
                Both marks are always in the DOM; opacity is controlled by CSS
                via :host([checked]) and :host([indeterminate]) so the layout
                never changes when the user checks or unchecks the box. -->
-          <span part="control" ?data-error=${!!this.errorText} aria-hidden="true">
+          <span part="control" ?data-error=${!!this.errorText || this.invalid} aria-hidden="true">
             <svg class="checkmark" viewBox="0 0 10 8" fill="none" aria-hidden="true">
               <path
                 d="M1 4L3.5 6.5L9 1"

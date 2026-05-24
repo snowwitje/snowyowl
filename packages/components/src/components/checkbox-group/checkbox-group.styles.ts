@@ -17,7 +17,7 @@ export const checkboxGroupStyles = css`
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--soSemanticSpacingComponentMd);
+    gap: 8px; /* matches so-input .wrapper gap */
   }
 
   /* ════════════════
@@ -29,7 +29,7 @@ export const checkboxGroupStyles = css`
     display: block;
     font-size: var(--soSemanticTextStyleLabelMdFontSize);
     font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
-    color: var(--soSemanticColorTextDefault, #1f2937);
+    color: var(--soSemanticColorTextSubtle, #6b7280); /* matches so-input [part='label'] */
     padding: 0;
     float: left;
     width: 100%;
@@ -42,9 +42,12 @@ export const checkboxGroupStyles = css`
 
   [part='helper'] {
     display: block;
-    font-size: var(--soSemanticTextStyleBodySmFontSize);
-    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+    font-size: var(--soSemanticTextStyleCaptionFontSize);
+    font-weight: var(--soSemanticTextStyleCaptionFontWeight);
+    line-height: var(--soSemanticTextStyleCaptionLineHeight);
     color: var(--soSemanticColorTextSubtle, #6b7280);
+    /* Net 4px from legend (8px gap − 4px) — same as so-input */
+    margin-top: -4px;
     clear: left;
   }
 
@@ -66,13 +69,14 @@ export const checkboxGroupStyles = css`
   [part='items'] {
     display: flex;
     flex-direction: column;
-    gap: var(--soSemanticSpacingComponentMd);
+    gap: var(--soSpace1);
     clear: left;
   }
 
   :host([orientation='horizontal']) [part='items'] {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: var(--soSemanticSpacingComponentMd);
   }
 
   /* ════════════════

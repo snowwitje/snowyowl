@@ -151,26 +151,16 @@ export class SoRadioGroup extends LitElement {
   private _applyProps() {
     const radios = this._getRadios();
     const effectiveName = this._effectiveName;
-    const activeError = this.errorText || this._autoError;
-    const showError = !!activeError;
-    const showWarning = !showError && !!this.warningText;
+    const showError = !!(this.errorText || this._autoError);
 
     for (const r of radios) {
       const rEl = r as any;
       rEl.name = effectiveName;
       if (this.disabled) rEl.disabled = true;
       if (this.touch) rEl.touch = true;
-      // Propagate error/warning (group overrides individual)
-      if (showError) {
-        rEl.errorText = activeError;
-        rEl.warningText = '';
-      } else if (showWarning) {
-        rEl.errorText = '';
-        rEl.warningText = this.warningText;
-      } else {
-        rEl.errorText = '';
-        rEl.warningText = '';
-      }
+      // Show red border on non-disabled children when the group is invalid.
+      // Error/warning text is shown only once at group level — never on children.
+      rEl.invalid = showError && !rEl.disabled;
     }
   }
 

@@ -90,6 +90,13 @@ export class SoRadio extends LitElement {
   /** Error message. When present, takes precedence over warning-text. */
   @property({ type: String, attribute: 'error-text' }) errorText = '';
 
+  /**
+   * Shows the error-state red border on the control without rendering
+   * an error message. Used by `so-radio-group` to highlight invalid
+   * items while displaying a single group-level error message.
+   */
+  @property({ type: Boolean, reflect: true }) invalid = false;
+
   /** Warning message. Only shown when error-text is absent. */
   @property({ type: String, attribute: 'warning-text' }) warningText = '';
 
@@ -159,7 +166,7 @@ export class SoRadio extends LitElement {
           <!-- Visual 16×16 circle — part="control" per API contract.
                Inner dot is rendered via ::after pseudo-element, toggled by
                :host([checked]) so no layout shift occurs on state change. -->
-          <span part="control" ?data-error=${showError} aria-hidden="true"></span>
+          <span part="control" ?data-error=${showError || this.invalid} aria-hidden="true"></span>
 
           <!-- Slotted value label -->
           <span part="value"><slot></slot></span>

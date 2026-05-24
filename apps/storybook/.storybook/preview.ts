@@ -80,6 +80,13 @@ const preview: Preview = {
     docs: {
       theme,   // SnowyOwl-themed docs via the manager theme, which also supports dark mode switching
     },
+    options: {
+      // Within every component folder, individual stories appear first
+      // and any "Group" sub-folder always sorts to the end.
+      storySort: {
+        order: ['*', ['*', ['*', 'Group']]],
+      },
+    },
   },
 };
 
