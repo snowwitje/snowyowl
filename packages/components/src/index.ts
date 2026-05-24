@@ -17,3 +17,5 @@ export * from './components/breadcrumb/index.js';
 export * from './components/textarea/index.js';
 export * from './components/divider/index.js';
 export * from './components/badge/index.js';
+export * from './components/checkbox-group/index.js';
+export * from './components/radio-group/index.js';
