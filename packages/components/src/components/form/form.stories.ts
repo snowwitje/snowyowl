@@ -13,7 +13,7 @@ import '@snowyowl/components/components/textarea';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Form',
+  title: 'Composite/Form',
   component: 'so-form',
   tags: ['autodocs'],
   argTypes: {
@@ -60,10 +60,8 @@ export const Default: Story = {
         <so-checkbox value="text">Text</so-checkbox>
         <so-checkbox value="mail">Mail</so-checkbox>
       </so-checkbox-group>
-      <div slot="footer">
-        <so-button variant="outline">Cancel</so-button>
-        <so-button variant="primary">Save</so-button>
-      </div>
+      <so-button slot="footer" variant="outline">Cancel</so-button>
+      <so-button slot="footer" variant="primary">Save</so-button>
     </so-form>
   `,
 };
@@ -76,10 +74,8 @@ export const NoHeader: Story = {
       <so-input label="First Name"></so-input>
       <so-input label="Last Name"></so-input>
       <so-input label="Email" type="email"></so-input>
-      <div slot="footer">
-        <so-button variant="outline">Cancel</so-button>
-        <so-button variant="primary">Submit</so-button>
-      </div>
+      <so-button slot="footer" variant="outline">Cancel</so-button>
+      <so-button slot="footer" variant="primary">Submit</so-button>
     </so-form>
   `,
 };
@@ -100,10 +96,8 @@ export const Loading: Story = {
         <so-option value="indiana">Indiana</so-option>
         <so-option value="california">California</so-option>
       </so-select>
-      <div slot="footer">
-        <so-button variant="outline">Cancel</so-button>
-        <so-button variant="primary">Save</so-button>
-      </div>
+      <so-button slot="footer" variant="outline">Cancel</so-button>
+      <so-button slot="footer" variant="primary">Save</so-button>
     </so-form>
   `,
 };
@@ -121,10 +115,8 @@ export const Disabled: Story = {
       <so-input label="First Name" value="Alissa"></so-input>
       <so-input label="Last Name" value="Snowy"></so-input>
       <so-toggle label="Receive notifications" checked></so-toggle>
-      <div slot="footer">
-        <so-button variant="outline">Cancel</so-button>
-        <so-button variant="primary">Save</so-button>
-      </div>
+      <so-button slot="footer" variant="outline">Cancel</so-button>
+      <so-button slot="footer" variant="primary">Save</so-button>
     </so-form>
   `,
 };
@@ -141,10 +133,8 @@ export const WithDivider: Story = {
       <so-input label="Last Name" value="Snowy"></so-input>
       <so-toggle label="Receive notifications" checked></so-toggle>
       <so-divider></so-divider>
-      <div slot="footer">
-        <so-button variant="outline">Cancel</so-button>
-        <so-button variant="primary">Save</so-button>
-      </div>
+      <so-button slot="footer" variant="outline">Cancel</so-button>
+      <so-button slot="footer" variant="primary">Save</so-button>
     </so-form>
   `,
 };
@@ -173,10 +163,8 @@ export const ThemeShowcase: Story = {
                 <so-checkbox value="email">Email</so-checkbox>
                 <so-checkbox value="sms">SMS</so-checkbox>
               </so-checkbox-group>
-              <div slot="footer">
-                <so-button variant="outline">Cancel</so-button>
-                <so-button variant="primary">Save</so-button>
-              </div>
+              <so-button slot="footer" variant="outline">Cancel</so-button>
+              <so-button slot="footer" variant="primary">Save</so-button>
             </so-form>
           </div>
         `,

@@ -82,9 +82,9 @@ const preview: Preview = {
     },
     options: {
       // Within every component folder, individual stories appear first
-      // and any "Group" sub-folder always sorts to the end.
+      // and any group sub-folders sort to the end.
       storySort: {
-        order: ['*', ['*', ['*', 'Group']]],
+        order: ['*', ['*', ['*', 'Checkbox Group', 'Radio Group']]],
       },
     },
   },
