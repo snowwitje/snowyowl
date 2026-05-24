@@ -19,21 +19,27 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | Component | Description | Status |
 |-----------|-------------|--------|
 | `so-button` | Button — 5 variants, 3 sizes, icon-only mode | ✅ Stable |
-| `so-card` | Card — media, KPI, actions, clickable, skeleton | ✅ Stable |
-| `so-card-delta` | Inline delta indicator — independent direction + sentiment | ✅ Stable |
+| `so-card` / `so-card-delta` | Card — media, KPI delta, actions, clickable, skeleton | ✅ Stable |
 | `so-checkbox` | Checkbox — checked / indeterminate, touch mode | ✅ Stable |
-| `so-loader` | Loader - 2 variants, 4 sizes | ✅ Stable |
-| `so-radio` | Radio button - checked, touch mode | ✅ Stable |
-| `so-select` | Select - 2 sizes, single and multi-select | ✅ Stable |
-| `so-tabs` | Tabs - 2 variants, 1 size, with or without icons | ✅ Stable |
-| `so-tag` | Tag - read-only or selectable, 1 size, with or without icons | ✅ Stable |
-| `so-toggle` | Toggle - 1 size, touch mode | ✅ Stable |
-| `so-toggletip` | Toggletip - 1 variant, placement options | ✅ Stable |
-| `so-tooltip` | Tooltip - 1 variant, placement options | ✅ Stable |
-| `so-modal` | Modal - 3 sizes + fullscreen | ✅ Stable |
-| `so-notification` | Inline notification - 4 types | ✅ Stable |
-| `so-toast` | Toast notification - 4 types | ✅ Stable |
-| `so-breadcrumb` / `so-breadcrumb-item` | Breadcrumb navigation — link items, current-page item, chevron separators, optional truncation with tooltip, optional wrapping | ✅ Stable |
+| `so-checkbox-group` | Managed checkbox group — vertical/horizontal, select-all, min/max/required validation | ✅ Stable |
+| `so-radio` | Radio button — touch mode | ✅ Stable |
+| `so-radio-group` | Managed radio group — vertical/horizontal, arrow-key navigation, required validation | ✅ Stable |
+| `so-toggle` | Toggle switch — touch mode | ✅ Stable |
+| `so-input` | Text input — 2 sizes, password eye, prefix/suffix slots, counter, feedback states | ✅ Stable |
+| `so-textarea` | Multiline text area — auto-grow, max-rows, counter, feedback states | ✅ Stable |
+| `so-select` | Select — 2 sizes, single and multi-select, searchable | ✅ Stable |
+| `so-form` | Layout-only form wrapper — configurable gap, title/description header, footer slot, loading overlay, disabled propagation | ✅ Stable |
+| `so-loader` | Loader — 2 variants (arc / gradient), 4 sizes, overlay mode | ✅ Stable |
+| `so-tabs` / `so-tab` | Tabs — 2 variants, with or without icons | ✅ Stable |
+| `so-tag` | Tag — 4 interaction modes, 9 color presets | ✅ Stable |
+| `so-badge` | Badge — count pill, status dot, label pill; overlay positioning | ✅ Stable |
+| `so-divider` | Divider — horizontal / vertical, subtle / strong, optional label | ✅ Stable |
+| `so-tooltip` | Tooltip — hover/focus, placement options, delay | ✅ Stable |
+| `so-toggletip` | Toggletip — click-triggered interactive panel, placement options | ✅ Stable |
+| `so-modal` | Modal — 3 sizes + fullscreen, focus trap, loading overlay | ✅ Stable |
+| `so-notification` | Inline notification — 4 types, dismissible, rich content slot | ✅ Stable |
+| `so-toast` / `so-toast-provider` | Toast notifications — programmatic API, 6 positions, auto-dismiss | ✅ Stable |
+| `so-breadcrumb` / `so-breadcrumb-item` | Breadcrumb — link items, truncation with tooltip, wrapping | ✅ Stable |
 | `so-icon` | SVG icon backed by sprite (278 icons) | ✅ Stable |
 
 ## Installation

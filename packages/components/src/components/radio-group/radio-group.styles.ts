@@ -58,7 +58,7 @@ export const radioGroupStyles = css`
   [part='items'] {
     display: flex;
     flex-direction: column;
-    gap: var(--soSpace1);
+    gap: var(--soSemanticSpacingComponentXs);
     clear: left;
   }
 

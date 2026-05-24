@@ -19,3 +19,4 @@ export * from './components/divider/index.js';
 export * from './components/badge/index.js';
 export * from './components/checkbox-group/index.js';
 export * from './components/radio-group/index.js';
+export * from './components/form/index.js';
