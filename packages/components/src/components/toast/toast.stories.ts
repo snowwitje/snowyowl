@@ -27,7 +27,7 @@ const staticToast = (
 };
 
 const meta: Meta = {
-  title: 'Feedback/Toast',
+  title: 'Components/Toast',
   component: 'so-toast',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

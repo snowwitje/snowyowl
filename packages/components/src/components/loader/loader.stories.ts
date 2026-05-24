@@ -5,7 +5,7 @@ import '@snowyowl/components/components/loader';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Loader',
+  title: 'Components/Loader',
   component: 'so-loader',
   tags: ['autodocs'],
   argTypes: {

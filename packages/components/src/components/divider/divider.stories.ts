@@ -5,7 +5,7 @@ import '@snowyowl/components/components/divider';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Divider',
+  title: 'Components/Divider',
   component: 'so-divider',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

@@ -5,7 +5,7 @@ import '@snowyowl/components/components/radio';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Radio',
+  title: 'Components/Radio',
   component: 'so-radio',
   tags: ['autodocs'],
   argTypes: {

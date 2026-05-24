@@ -7,7 +7,7 @@ const COLORS = ['neutral', 'mauve', 'sand', 'red', 'orange', 'yellow', 'green', 
 const STATUSES = ['online', 'busy', 'away', 'offline', 'new'] as const;
 
 const meta: Meta = {
-  title: 'Atomic/Badge',
+  title: 'Components/Badge',
   component: 'so-badge',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

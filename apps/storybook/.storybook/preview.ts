@@ -81,10 +81,12 @@ const preview: Preview = {
       theme,   // SnowyOwl-themed docs via the manager theme, which also supports dark mode switching
     },
     options: {
-      // Within every component folder, individual stories appear first
-      // and any group sub-folders sort to the end.
       storySort: {
-        order: ['*', ['*', ['*', 'Checkbox Group', 'Radio Group']]],
+        // Alphabetical within every level.
+        // Components is pinned first so a future Examples section stays below it.
+        // Within Checkbox and Radio, the Group sub-folder sorts after the individual stories.
+        method: 'alphabetical',
+        order: ['Components', ['*', ['*', 'Checkbox Group', 'Radio Group']], 'Examples'],
       },
     },
   },

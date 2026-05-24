@@ -7,7 +7,7 @@ const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 
 const PLACEMENTS = ['top', 'bottom', 'left', 'right'] as const;
 
 const meta: Meta = {
-  title: 'Atomic/Toggletip',
+  title: 'Components/Toggletip',
   component: 'so-toggletip',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

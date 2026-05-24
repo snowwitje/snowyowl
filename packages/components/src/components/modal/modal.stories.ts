@@ -39,7 +39,7 @@ Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam id d
 /* ── Meta ─────────────────────────────────────────────────────────────────── */
 
 const meta: Meta = {
-  title: 'Composite/Modal',
+  title: 'Components/Modal',
   component: 'so-modal',
   tags: ['autodocs'],
   parameters: { layout: 'centered' },

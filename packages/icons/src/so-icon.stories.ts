@@ -4,7 +4,7 @@ import { SO_ICON_NAMES } from '../icon-names.js';
 import './so-icon.js';
 
 const meta: Meta = {
-  title: 'Atomic/Icon',
+  title: 'Components/Icon',
   component: 'so-icon',
   tags: ['autodocs'],
   argTypes: {

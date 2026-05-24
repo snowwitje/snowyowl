@@ -5,7 +5,7 @@ import '@snowyowl/components/components/tabs';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Tabs',
+  title: 'Components/Tabs',
   component: 'so-tabs',
   tags: ['autodocs'],
   argTypes: {

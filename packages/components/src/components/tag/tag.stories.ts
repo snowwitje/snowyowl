@@ -7,7 +7,7 @@ const COLORS = ['neutral', 'mauve', 'sand', 'green', 'red', 'orange', 'teal', 'b
 const VARIANTS = ['read-only', 'dismissible', 'selectable', 'operational'] as const;
 
 const meta: Meta = {
-  title: 'Atomic/Tag',
+  title: 'Components/Tag',
   component: 'so-tag',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

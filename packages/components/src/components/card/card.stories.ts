@@ -48,7 +48,7 @@ const label = (text: string) => html`
 /* ── Meta ─────────────────────────────────────────────────────────────────── */
 
 const meta: Meta = {
-  title: 'Composite/Card',
+  title: 'Components/Card',
   component: 'so-card',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

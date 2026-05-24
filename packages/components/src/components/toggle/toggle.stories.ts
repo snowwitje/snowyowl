@@ -5,7 +5,7 @@ import '@snowyowl/components/components/toggle';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Toggle',
+  title: 'Components/Toggle',
   component: 'so-toggle',
   tags: ['autodocs'],
   argTypes: {

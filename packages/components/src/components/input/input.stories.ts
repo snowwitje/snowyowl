@@ -6,7 +6,7 @@ import '@snowyowl/components/components/input';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Input',
+  title: 'Components/Input',
   component: 'so-input',
   tags: ['autodocs'],
   argTypes: {

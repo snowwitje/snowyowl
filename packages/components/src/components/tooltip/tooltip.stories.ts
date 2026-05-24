@@ -7,7 +7,7 @@ const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 
 const PLACEMENTS = ['top', 'bottom', 'left', 'right'] as const;
 
 const meta: Meta = {
-  title: 'Atomic/Tooltip',
+  title: 'Components/Tooltip',
   component: 'so-tooltip',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

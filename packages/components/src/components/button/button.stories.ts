@@ -6,7 +6,7 @@ import '@snowyowl/components/components/button';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Button',
+  title: 'Components/Button',
   component: 'so-button',
   tags: ['autodocs'],
   argTypes: {

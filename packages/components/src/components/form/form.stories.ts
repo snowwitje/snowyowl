@@ -13,7 +13,7 @@ import '@snowyowl/components/components/textarea';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Composite/Form',
+  title: 'Components/Form',
   component: 'so-form',
   tags: ['autodocs'],
   argTypes: {

@@ -7,7 +7,7 @@ const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 
 const TYPES = ['info', 'success', 'warning', 'error'] as const;
 
 const meta: Meta = {
-  title: 'Feedback/Notification',
+  title: 'Components/Notification',
   component: 'so-notification',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

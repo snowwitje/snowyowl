@@ -6,7 +6,7 @@ import '@snowyowl/components/components/checkbox';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Checkbox/Checkbox Group',
+  title: 'Components/Checkbox/Checkbox Group',
   component: 'so-checkbox-group',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

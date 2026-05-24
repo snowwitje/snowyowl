@@ -5,7 +5,7 @@ import '@snowyowl/components/components/breadcrumb';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Navigation/Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: 'so-breadcrumb',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

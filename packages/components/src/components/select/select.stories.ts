@@ -5,7 +5,7 @@ import '@snowyowl/components/components/select';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Select',
+  title: 'Components/Select',
   component: 'so-select',
   tags: ['autodocs'],
   argTypes: {

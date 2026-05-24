@@ -5,7 +5,7 @@ import '@snowyowl/components/components/textarea';
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
 const meta: Meta = {
-  title: 'Atomic/Textarea',
+  title: 'Components/Textarea',
   component: 'so-textarea',
   tags: ['autodocs'],
   argTypes: {
