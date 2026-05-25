@@ -40,6 +40,9 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 | `so-notification` | Inline notification — 4 types, dismissible, rich content slot | ✅ Stable |
 | `so-toast` / `so-toast-provider` | Toast notifications — programmatic API, 6 positions, auto-dismiss | ✅ Stable |
 | `so-breadcrumb` / `so-breadcrumb-item` | Breadcrumb — link items, truncation with tooltip, wrapping | ✅ Stable |
+| `so-stack` | Flex layout primitive — direction, gap, align, justify, wrap, inline, full-width/height | ✅ Stable |
+| `so-grid` | CSS Grid layout container — auto-fill, fixed columns, custom templates, independent row/column gap | ✅ Stable |
+| `so-section` | Content grouping primitive — heading, description, actions slot, optional divider and padding | ✅ Stable |
 | `so-icon` | SVG icon backed by sprite (278 icons) | ✅ Stable |
 
 ## Installation
