@@ -23,3 +23,5 @@ export * from './components/form/index.js';
 export * from './components/stack/index.js';
 export * from './components/grid/index.js';
 export * from './components/section/index.js';
+export * from './components/accordion/index.js';
+export * from './components/avatar/index.js';
