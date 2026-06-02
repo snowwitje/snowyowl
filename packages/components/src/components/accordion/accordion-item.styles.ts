@@ -3,11 +3,11 @@ import { css } from 'lit';
 export const accordionItemStyles = css`
   :host {
     display: block;
-    border-top: var(--soBorderWidthThin) solid var(--soSemanticColorBorderSubtle);
+    border-top: var(--soBorderWidthThin) solid var(--soSemanticColorBorderStrong);
   }
 
   :host([last-item]) {
-    border-bottom: var(--soBorderWidthThin) solid var(--soSemanticColorBorderSubtle);
+    border-bottom: var(--soBorderWidthThin) solid var(--soSemanticColorBorderStrong);
   }
 
   /* ── Heading element — strip browser margin ── */
@@ -83,7 +83,7 @@ export const accordionItemStyles = css`
 
   /* ── Chevron icon ── */
   [part='icon'] {
-    --so-icon-size: 16px; /* intentional hardcode — no icon.size.xs token */
+    --so-icon-size: 12px; /* intentional hardcode — no icon.size.xs token */
     color: var(--soSemanticColorTextDefault);
     flex-shrink: 0;
     transition: transform var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
@@ -115,15 +115,15 @@ export const accordionItemStyles = css`
 
   /* ── Content ── */
   [part='content'] {
-    padding: 0 var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
-    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    padding: var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
     font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
     color: var(--soSemanticColorTextDefault);
     box-sizing: border-box;
   }
 
   :host([flush]) [part='content'] {
-    padding: 0 0 var(--soSemanticSpacingComponentMd) 0;
+    padding: var(--soSemanticSpacingComponentMd) 0 var(--soSemanticSpacingComponentMd) 0;
   }
 
   /* ── Reduced motion ── */

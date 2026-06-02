@@ -129,13 +129,13 @@ export const FlushAlignment: Story = {
       <p style="margin: 0 0 8px; font-size: 12px; color: var(--soSemanticColorTextSubtle); font-family: monospace; text-transform: uppercase; letter-spacing: 0.05em;">Sidebar</p>
       <so-accordion flush>
         <so-accordion-item heading="Settings" open>
-          <p style="margin: 0; font-size: 14px;">General and advanced settings.</p>
+          <p style="margin: 0;">General and advanced settings.</p>
         </so-accordion-item>
         <so-accordion-item heading="Appearance">
-          <p style="margin: 0; font-size: 14px;">Theme, colours, and fonts.</p>
+          <p style="margin: 0;">Theme, colours, and fonts.</p>
         </so-accordion-item>
         <so-accordion-item heading="Help">
-          <p style="margin: 0; font-size: 14px;">Documentation and support resources.</p>
+          <p style="margin: 0;">Documentation and support resources.</p>
         </so-accordion-item>
       </so-accordion>
     </div>
@@ -315,13 +315,13 @@ export const ThemeShowcase: Story = {
             <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soSemanticColorTextSubtle); margin-bottom: 12px; font-family: monospace;">${theme}</div>
             <so-accordion>
               <so-accordion-item heading="Getting started" open>
-                <p style="margin: 0; font-size: 14px;">Introduction and quick start guide.</p>
+                <p style="margin: 0;">Introduction and quick start guide.</p>
               </so-accordion-item>
               <so-accordion-item heading="Configuration">
-                <p style="margin: 0; font-size: 14px;">Theme and token configuration.</p>
+                <p style="margin: 0;">Theme and token configuration.</p>
               </so-accordion-item>
               <so-accordion-item heading="Advanced" disabled>
-                <p style="margin: 0; font-size: 14px;">Advanced options (disabled).</p>
+                <p style="margin: 0;">Advanced options (disabled).</p>
               </so-accordion-item>
             </so-accordion>
           </div>
