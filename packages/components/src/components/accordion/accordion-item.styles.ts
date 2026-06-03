@@ -3,11 +3,11 @@ import { css } from 'lit';
 export const accordionItemStyles = css`
   :host {
     display: block;
-    border-top: var(--soBorderWidthThin) solid var(--soSemanticColorBorderStrong);
+    border-top: var(--soBorderWidthThin) solid var(--soSemanticColorBorderDefault);
   }
 
   :host([last-item]) {
-    border-bottom: var(--soBorderWidthThin) solid var(--soSemanticColorBorderStrong);
+    border-bottom: var(--soBorderWidthThin) solid var(--soSemanticColorBorderDefault);
   }
 
   /* ── Heading element — strip browser margin ── */
@@ -60,16 +60,19 @@ export const accordionItemStyles = css`
     border-radius: var(--soSemanticRadiusControl);
   }
 
-  [part='trigger'][disabled] {
+  :host([disabled]) [part='icon'] {
     cursor: not-allowed;
     opacity: var(--soSemanticOpacityDisabled);
+  }
+  [part='trigger'][disabled] {
+    cursor: not-allowed;
   }
 
   /* ── Heading text ── */
   [part='heading-text'] {
     flex: 1;
-    font-size: var(--soSemanticTextStyleLabelMdFontSize);
-    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+    font-size: var(--soSemanticTextStyleLabelLgFontSize);
+    font-weight: var(--soSemanticTextStyleLabelLgFontWeight);
     color: var(--soSemanticColorTextDefault);
   }
 
@@ -116,7 +119,7 @@ export const accordionItemStyles = css`
   /* ── Content ── */
   [part='content'] {
     padding: var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
-    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
     font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
     color: var(--soSemanticColorTextDefault);
     box-sizing: border-box;

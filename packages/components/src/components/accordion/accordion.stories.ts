@@ -3,6 +3,7 @@ import { html } from 'lit';
 import '@snowyowl/components/components/accordion';
 import '@snowyowl/components/components/input';
 import '@snowyowl/components/components/checkbox';
+import '@snowyowl/components/components/checkbox-group';
 import '@snowyowl/components/components/button';
 
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
@@ -34,7 +35,7 @@ type Story = StoryObj;
 export const Default: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Personal information" open>
+      <so-accordion-item heading="Personal Information" open>
         <p style="margin: 0;">
           Manage your personal details including name, date of birth, and contact information.
         </p>
@@ -60,7 +61,7 @@ export const Default: Story = {
 export const AllClosed: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Personal information">
+      <so-accordion-item heading="Personal Information">
         <p style="margin: 0;">Content for personal information.</p>
       </so-accordion-item>
       <so-accordion-item heading="Notifications">
@@ -80,7 +81,7 @@ export const AllClosed: Story = {
 export const AllOpen: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Personal information" open>
+      <so-accordion-item heading="Personal Information" open>
         <p style="margin: 0;">Manage your personal details including name and contact info.</p>
       </so-accordion-item>
       <so-accordion-item heading="Notifications" open>
@@ -100,7 +101,7 @@ export const AllOpen: Story = {
 export const MultiExpand: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Account details" open>
+      <so-accordion-item heading="Account Details" open>
         <p style="margin: 0;">Username, email address, and account type.</p>
       </so-accordion-item>
       <so-accordion-item heading="Billing" open>
@@ -169,7 +170,7 @@ export const IconStart: Story = {
 export const WithDisabledItem: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Personal information" open>
+      <so-accordion-item heading="Personal Information" open>
         <p style="margin: 0;">Manage your personal details.</p>
       </so-accordion-item>
       <so-accordion-item heading="Billing (requires upgrade)" disabled>
@@ -189,7 +190,7 @@ export const WithDisabledItem: Story = {
 export const RichContent: Story = {
   render: () => html`
     <so-accordion style="max-width: 640px;">
-      <so-accordion-item heading="Contact details" open>
+      <so-accordion-item heading="Contact Details" open>
         <div style="display: flex; flex-direction: column; gap: 12px;">
           <so-input label="First name" placeholder="Jane"></so-input>
           <so-input label="Last name" placeholder="Smith"></so-input>
@@ -197,14 +198,17 @@ export const RichContent: Story = {
         </div>
       </so-accordion-item>
       <so-accordion-item heading="Preferences">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <so-checkbox label="Email marketing updates"></so-checkbox>
-          <so-checkbox label="Product announcements"></so-checkbox>
-          <so-checkbox label="Weekly digest"></so-checkbox>
-        </div>
+        <so-checkbox-group
+        orientation="horizontal"
+        name="preferences"
+        .value=${['email']}
+      >
+        <so-checkbox value="email">Email marketing updates</so-checkbox>
+        <so-checkbox value="product">Product announcements</so-checkbox>
+      </so-checkbox-group>
       </so-accordion-item>
       <so-accordion-item heading="Advanced">
-        <p style="margin: 0; color: var(--soSemanticColorTextSubtle); font-size: 14px;">
+        <p style="margin: 0; color: var(--soSemanticColorTextSubtle);">
           Advanced developer options for API access and integrations.
         </p>
       </so-accordion-item>
