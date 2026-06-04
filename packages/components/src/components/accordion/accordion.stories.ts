@@ -15,14 +15,21 @@ const meta: Meta = {
   parameters: { layout: 'padded' },
   argTypes: {
     flush: { control: 'boolean' },
+    exclusive: { control: 'boolean' },
     iconAlign: {
       control: 'select',
       options: ['end', 'start'],
     },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
   },
   args: {
     flush: false,
+    exclusive: false,
     iconAlign: 'end',
+    size: 'sm',
   },
 };
 export default meta;
@@ -95,7 +102,74 @@ export const AllOpen: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   4. MultiExpand — 5 items, demonstrates multiple panels open simultaneously
+   4. Sizes — sm (default 14px) / md (16px) / lg (18px heading)
+══════════════════════════════════════════════════════════════════════════ */
+
+export const Sizes: Story = {
+  render: () => html`
+    <div style="display: flex; flex-direction: column; gap: 32px;">
+      <div>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">size="sm" (default) — 14px label + 14px content</p>
+        <so-accordion style="max-width: 640px;">
+          <so-accordion-item heading="Personal Information" open>
+            <p style="margin: 0;">Manage your personal details including name and contact information.</p>
+          </so-accordion-item>
+          <so-accordion-item heading="Notifications">
+            <p style="margin: 0;">Control which notifications you receive and how they are delivered.</p>
+          </so-accordion-item>
+        </so-accordion>
+      </div>
+      <div>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">size="md" — 16px label + 16px content</p>
+        <so-accordion size="md" style="max-width: 640px;">
+          <so-accordion-item heading="Personal Information" open>
+            <p style="margin: 0;">Manage your personal details including name and contact information.</p>
+          </so-accordion-item>
+          <so-accordion-item heading="Notifications">
+            <p style="margin: 0;">Control which notifications you receive and how they are delivered.</p>
+          </so-accordion-item>
+        </so-accordion>
+      </div>
+      <div>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">size="lg" — 18px semibold heading + 16px content</p>
+        <so-accordion size="lg" style="max-width: 640px;">
+          <so-accordion-item heading="Personal Information" open>
+            <p style="margin: 0;">Manage your personal details including name and contact information.</p>
+          </so-accordion-item>
+          <so-accordion-item heading="Notifications">
+            <p style="margin: 0;">Control which notifications you receive and how they are delivered.</p>
+          </so-accordion-item>
+        </so-accordion>
+      </div>
+    </div>
+  `,
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+   5. SingleOpen — exclusive mode: only one panel open at a time
+══════════════════════════════════════════════════════════════════════════ */
+
+export const SingleOpen: Story = {
+  render: () => html`
+    <so-accordion exclusive style="max-width: 640px;">
+      <so-accordion-item heading="Personal Information" open>
+        <p style="margin: 0;">Manage your personal details including name, date of birth, and contact information.</p>
+      </so-accordion-item>
+      <so-accordion-item heading="Notifications">
+        <p style="margin: 0;">Control which notifications you receive and how they are delivered.</p>
+      </so-accordion-item>
+      <so-accordion-item heading="Privacy &amp; Security">
+        <p style="margin: 0;">Review your privacy settings and manage connected applications.</p>
+      </so-accordion-item>
+      <so-accordion-item heading="Advanced">
+        <p style="margin: 0;">Developer options and API access controls.</p>
+      </so-accordion-item>
+    </so-accordion>
+  `,
+};
+
+/* ══════════════════════════════════════════════════════════════════════════
+   6. MultiExpand — 5 items, demonstrates multiple panels open simultaneously
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const MultiExpand: Story = {
@@ -121,7 +195,7 @@ export const MultiExpand: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   5. FlushAlignment — flush attribute removes horizontal padding
+   7. FlushAlignment — flush attribute removes horizontal padding
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const FlushAlignment: Story = {
@@ -144,7 +218,7 @@ export const FlushAlignment: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   6. IconStart — icon-align="start" — tree-like layout
+   8. IconStart — icon-align="start" — tree-like layout
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const IconStart: Story = {
@@ -164,7 +238,7 @@ export const IconStart: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   7. WithDisabledItem — second of 3 items disabled
+   9. WithDisabledItem — second of 3 items disabled
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const WithDisabledItem: Story = {
@@ -184,7 +258,7 @@ export const WithDisabledItem: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   8. RichContent — real form use case with so-input and so-checkbox
+   10. RichContent — real form use case with so-input and so-checkbox
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const RichContent: Story = {
@@ -217,14 +291,18 @@ export const RichContent: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   9. HeadingLevels — h2/h3/h4 shown side by side
+   11. HeadingLevels — h2/h3/h4 for document outline / accessibility
+   NOTE: heading-level controls the semantic HTML element only (h2/h3/h4)
+   so that screen readers and search engines see the correct page hierarchy.
+   Visual size is controlled by the `size` prop on `so-accordion`, not by
+   heading-level. All three levels intentionally look identical by default.
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const HeadingLevels: Story = {
   render: () => html`
     <div style="display: flex; flex-direction: column; gap: 32px;">
       <div>
-        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h2"</p>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h2" — use when accordion lives under a page title</p>
         <so-accordion style="max-width: 640px;">
           <so-accordion-item heading="Section heading (h2)" heading-level="h2" open>
             <p style="margin: 0;">Content under an h2 heading.</p>
@@ -235,7 +313,7 @@ export const HeadingLevels: Story = {
         </so-accordion>
       </div>
       <div>
-        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h3" (default)</p>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h3" (default) — use inside a section already headed by h2</p>
         <so-accordion style="max-width: 640px;">
           <so-accordion-item heading="Subsection heading (h3)" open>
             <p style="margin: 0;">Content under an h3 heading.</p>
@@ -246,7 +324,7 @@ export const HeadingLevels: Story = {
         </so-accordion>
       </div>
       <div>
-        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h4"</p>
+        <p style="margin: 0 0 8px; font-family: monospace; font-size: 12px; color: var(--soSemanticColorTextSubtle);">heading-level="h4" — use inside a nested section</p>
         <so-accordion style="max-width: 640px;">
           <so-accordion-item heading="Deep heading (h4)" heading-level="h4" open>
             <p style="margin: 0;">Content under an h4 heading.</p>
@@ -261,7 +339,7 @@ export const HeadingLevels: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   10. Controlled — open/close controlled externally via buttons
+   12. Controlled — open/close controlled externally via buttons
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const Controlled: Story = {
@@ -279,8 +357,8 @@ export const Controlled: Story = {
     return html`
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px;">
         <div style="display: flex; gap: 8px;">
-          <so-button variant="secondary" size="sm" @click=${openAll}>Open all</so-button>
-          <so-button variant="secondary" size="sm" @click=${closeAll}>Close all</so-button>
+          <so-button variant="secondary"  @click=${openAll}>Open all</so-button>
+          <so-button variant="secondary"  @click=${closeAll}>Close all</so-button>
         </div>
         <so-accordion id="controlled-accordion">
           <so-accordion-item heading="Panel one" open>
@@ -299,7 +377,7 @@ export const Controlled: Story = {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   11. ThemeShowcase — all 6 themes, default alignment
+   13. ThemeShowcase — all 6 themes, default alignment
 ══════════════════════════════════════════════════════════════════════════ */
 
 export const ThemeShowcase: Story = {

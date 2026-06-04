@@ -24,7 +24,7 @@ export const accordionItemStyles = css`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 44px;
+    height: 40px; /* size="sm" default */
     padding: 0 var(--soSemanticSpacingComponentMd);
     background: transparent;
     border: none;
@@ -68,11 +68,11 @@ export const accordionItemStyles = css`
     cursor: not-allowed;
   }
 
-  /* ── Heading text ── */
+  /* ── Heading text — size: sm default (14px medium) ── */
   [part='heading-text'] {
     flex: 1;
-    font-size: var(--soSemanticTextStyleLabelLgFontSize);
-    font-weight: var(--soSemanticTextStyleLabelLgFontWeight);
+    font-size: var(--soSemanticTextStyleLabelMdFontSize);
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
     color: var(--soSemanticColorTextDefault);
   }
 
@@ -116,17 +116,47 @@ export const accordionItemStyles = css`
     max-height: 0;
   }
 
-  /* ── Content ── */
+  /* ── Content — size: sm default (14px regular) ── */
   [part='content'] {
     padding: var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
-    font-size: var(--soSemanticTextStyleBodyMdFontSize);
-    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
     color: var(--soSemanticColorTextDefault);
     box-sizing: border-box;
   }
 
   :host([flush]) [part='content'] {
     padding: var(--soSemanticSpacingComponentMd) 0 var(--soSemanticSpacingComponentMd) 0;
+  }
+
+  /* ── Size: md — 16px trigger label + 16px content ── */
+  :host([size='md']) [part='trigger'] {
+    height: 44px;
+  }
+
+  :host([size='md']) [part='heading-text'] {
+    font-size: var(--soSemanticTextStyleLabelLgFontSize);
+    font-weight: var(--soSemanticTextStyleLabelLgFontWeight);
+  }
+
+  :host([size='md']) [part='content'] {
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
+  }
+
+  /* ── Size: lg — 18px semibold heading + 16px content ── */
+  :host([size='lg']) [part='trigger'] {
+    height: 56px;
+  }
+
+  :host([size='lg']) [part='heading-text'] {
+    font-size: var(--soSemanticTextStyleHeadingXsFontSize);
+    font-weight: var(--soSemanticTextStyleHeadingXsFontWeight);
+  }
+
+  :host([size='lg']) [part='content'] {
+    font-size: var(--soSemanticTextStyleBodyMdFontSize);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
   }
 
   /* ── Reduced motion ── */

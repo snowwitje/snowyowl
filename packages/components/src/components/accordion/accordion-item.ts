@@ -1,7 +1,7 @@
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { accordionItemStyles } from './accordion-item.styles.js';
-import type { AccordionToggleDetail } from './accordion.types.js';
+import type { AccordionSize, AccordionToggleDetail } from './accordion.types.js';
 
 /** Module-level UID counter for unique IDs. */
 let _uid = 0;
@@ -58,6 +58,12 @@ export class SoAccordionItem extends LitElement {
    */
   @property({ type: String, reflect: true, attribute: 'icon-align' })
   iconAlign: 'end' | 'start' = 'end';
+
+  /**
+   * Visual size of this item. Propagated from `so-accordion` — do not set manually.
+   * Controls trigger height and font sizes for both the heading and content.
+   */
+  @property({ type: String, reflect: true }) size: AccordionSize = 'sm';
 
   /* ── Private ── */
 
