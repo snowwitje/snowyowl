@@ -45,15 +45,15 @@
       },
       "border": {
         "default": {
-          "$value": "{color.sand.200}",
+          "$value": "{color.neutral.300}",
           "$type": "color"
         },
         "subtle": {
-          "$value": "{color.sand.100}",
+          "$value": "{color.neutral.200}",
           "$type": "color"
         },
         "strong": {
-          "$value": "{color.neutral.300}",
+          "$value": "{color.neutral.400}",
           "$type": "color"
         },
         "focus": {
