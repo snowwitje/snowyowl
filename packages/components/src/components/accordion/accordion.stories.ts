@@ -263,7 +263,7 @@ export const WithDisabledItem: Story = {
 
 export const RichContent: Story = {
   render: () => html`
-    <so-accordion style="max-width: 640px;">
+    <so-accordion style="max-width: 640px;" size="md">
       <so-accordion-item heading="Contact Details" open>
         <div style="display: flex; flex-direction: column; gap: 12px;">
           <so-input label="First name" placeholder="Jane"></so-input>

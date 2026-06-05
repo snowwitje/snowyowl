@@ -120,7 +120,7 @@ export const accordionItemStyles = css`
   [part='content'] {
     padding: var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
     font-size: var(--soSemanticTextStyleBodySmFontSize);
-    font-weight: var(--soSemanticTextStyleBodySmFontWeight);
+    font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
     color: var(--soSemanticColorTextDefault);
     box-sizing: border-box;
   }
