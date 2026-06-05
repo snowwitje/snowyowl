@@ -20,7 +20,7 @@ export const tabsStyles = css`
 
   /* Line variant — full-width bottom border provides the track line */
   :host([variant='line']) [part='tablist'] {
-    border-bottom: 1px solid var(--soSemanticColorBorderStrong, #d1d5db);
+    border-bottom: 1px solid var(--soSemanticColorBorderDefault, #d1d5db);
   }
 
   /* Filled variant — colored strip background */

@@ -42,7 +42,7 @@ export const cardStyles = css`
 
   :host([clickable]) [part='base']:hover {
     box-shadow: var(--soSemanticShadowFloating);
-    border: var(--soSemanticBorderWidthControl) solid var(--soSemanticColorBorderStrong);
+    border: var(--soSemanticBorderWidthControl) solid var(--soSemanticColorBorderDefault);
   }
 
   :host([clickable]) [part='base']:focus-visible {
