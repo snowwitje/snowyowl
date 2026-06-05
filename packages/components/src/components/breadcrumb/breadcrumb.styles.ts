@@ -67,7 +67,7 @@ export const breadcrumbItemStyles = css`
   a[part='link']:focus-visible {
     outline: none;
     box-shadow: var(--soSemanticShadowFocus);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusInteractive);
   }
 
   /* Truncation — display:inline-block required for text-overflow to work */

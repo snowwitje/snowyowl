@@ -46,7 +46,7 @@ export const selectStyles = css`
     position: absolute;
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusControl, 2px);
     animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
@@ -226,7 +226,7 @@ export const selectStyles = css`
     margin: 0;
     cursor: pointer;
     color: var(--soSemanticColorTextSubtle, #6b7280);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusInteractive);
     transition: color var(--soSemanticMotionDurationPanel) var(--soSemanticMotionEasingDefault);
   }
 
@@ -361,7 +361,7 @@ export const selectStyles = css`
   .search-input:focus-visible {
     outline: none;
     box-shadow: var(--soSemanticShadowFocus, 0 0 0 3px rgba(147, 51, 234, 1));
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusInteractive);
   }
 
   /* Suppress search focus ring while keyboard-navigating options (only one ring at a time) */

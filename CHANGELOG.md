@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+### Changed
+
+- **`so-accordion`** / **`so-accordion-item`** — Default `size` changed from `'sm'` to `'md'`. The `md` size (44px trigger height, 16px label + 16px content) is a better general-purpose default for most layouts. Existing usage that relied on the `sm` default should add `size="sm"` explicitly.
+
+- **`so-avatar`** — `show-tooltip` now uses `so-tooltip` (hover/focus) instead of `so-toggletip` (click). The tooltip shows name and email separated by ` · ` (e.g. `"Alex Morgan · alex@example.com"`) as plain text. This is the expected UX for an identity hover label — the previous toggletip required an explicit click.
+
+### Fixed
+
+- **`so-input`** — `.eye-btn` (password visibility toggle) `border-radius` was hardcoded to `2px`; now uses `var(--soSemanticRadiusInteractive)` so sharp themes correctly render a square button.
+- **`so-select`** — `.icon-btn` (clear button) and `.search-input:focus-visible` `border-radius` were hardcoded to `2px`; now use `var(--soSemanticRadiusInteractive)`.
+- **`so-input`**, **`so-select`**, **`so-textarea`**, **`so-checkbox`**, **`so-radio`**, **`so-toggle`**, **`so-tabs` (`so-tab`)** — Skeleton placeholder `::after` `border-radius` was hardcoded to `2px`; now uses `var(--soSemanticRadiusControl, 2px)` so sharp/custom themes are applied consistently to loading states.
+- **`so-breadcrumb-item`** — `a[part='link']:focus-visible` `border-radius` was hardcoded to `2px`; now uses `var(--soSemanticRadiusInteractive)`.
+
 ### Added
 
 - **`so-accordion`** / **`so-accordion-item`** (`packages/components/src/components/accordion/`) — Multi-expand accordion. `so-accordion` is the container (propagates `flush`, `icon-align`, and `size` to children via slotchange; marks the last item with `last-item` attribute for correct border rendering). `so-accordion-item` manages its own open/close state independently — multiple panels can be open simultaneously. `max-height` CSS transition for smooth expand/collapse (double-rAF pattern for reliable scrollHeight measurement; `transitionend` callback re-applies `hidden` after close). `flush` prop removes horizontal padding for sidebar use. `icon-align` (`end` | `start`) positions chevron right (default) or left (tree-like). `size` prop (`sm` | `md` | `lg`, default `sm`) controls trigger height and font sizes: `sm` = 40px / 14px medium label (label-md) / 14px regular content (body-sm); `md` = 44px / 16px medium label (label-lg) / 16px light content (body-md); `lg` = 56px / 18px semibold heading (heading-xs) / 16px light content (body-md). `exclusive` boolean — when set, opening any item automatically closes all others (single-expand; `so-toggle` listener on the container uses `composedPath()[0]` to identify the opener across shadow DOM boundaries; programmatic closes do not fire `so-toggle`). Chevron rotates 180° (end) or 0°/−90° (start) via CSS transitions. `disabled` items render the header at reduced opacity with `cursor: not-allowed` and `color: --soSemanticColorTextDisabled` on the label. `heading-level` (`h2` | `h3` | `h4`, default `h3`) controls the semantic HTML element for document outline / screen readers only — visual size is controlled independently by `size`. ARIA: `role="list"` on container, `role="listitem"` on each item, `aria-expanded` + `aria-controls` on trigger button, `role="region"` + `aria-labelledby` on panel. `prefers-reduced-motion` respected. `so-toggle` event fires on user-initiated open/close. Parts: `base` (accordion); `item`, `heading-el`, `trigger`, `heading-text`, `icon`, `panel`, `content` (accordion-item). Stories: `Default`, `AllClosed`, `AllOpen`, `Sizes`, `SingleOpen`, `MultiExpand`, `FlushAlignment`, `IconStart`, `WithDisabledItem`, `RichContent`, `HeadingLevels`, `Controlled`, `ThemeShowcase`.

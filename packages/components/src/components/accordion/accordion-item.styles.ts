@@ -24,7 +24,7 @@ export const accordionItemStyles = css`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 40px; /* size="sm" default */
+    height: 40px; /* size="sm" */
     padding: 0 var(--soSemanticSpacingComponentMd);
     background: transparent;
     border: none;
@@ -68,7 +68,7 @@ export const accordionItemStyles = css`
     cursor: not-allowed;
   }
 
-  /* ── Heading text — size: sm default (14px medium) ── */
+  /* ── Heading text — size: sm (14px medium) ── */
   [part='heading-text'] {
     flex: 1;
     font-size: var(--soSemanticTextStyleLabelMdFontSize);
@@ -116,7 +116,7 @@ export const accordionItemStyles = css`
     max-height: 0;
   }
 
-  /* ── Content — size: sm default (14px regular) ── */
+  /* ── Content — size: sm (14px regular) ── */
   [part='content'] {
     padding: var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentMd);
     font-size: var(--soSemanticTextStyleBodySmFontSize);

@@ -339,6 +339,11 @@ A theme must document: what it overrides, what it inherits, and include a screen
 | 2026-05 | `so-breadcrumb` marks the last item via JS `slotchange` + `assignedElements()`, not CSS `:last-child` | `:last-child` misfires when text nodes exist between slotted elements; `assignedElements({ flatten: true })` reliably finds only element children |
 | 2026-05 | `so-breadcrumb-item` tooltip for truncated items is wired inside `render()`, not in a lifecycle hook | `so-tooltip` must wrap the `<a>` element in shadow DOM; conditional rendering in `render()` keeps the tooltip in sync with `maxWidth` changes without manual DOM manipulation |
 | 2026-05 | `so-breadcrumb-item` reads slot text into `@state() _slotText` via `slotchange` + `firstUpdated()` | Tooltip `text` prop requires a plain string; slotted content is only reachable via `assignedNodes()` after upgrade; `@state` triggers a re-render so the tooltip has the correct label before first hover |
+| 2026-06 | `so-accordion` default `size` changed from `'sm'` to `'md'` | `md` (44px trigger, 16px label) is a better general-purpose default; `sm` remains available explicitly |
+| 2026-06 | `so-avatar` `show-tooltip` uses `so-tooltip` (hover) not `so-toggletip` (click) | Avatar name/email is purely informational; `so-toggletip` is for interactive panels; hover is the expected UX. Plain text format: `"Name · email"` |
+| 2026-06 | `so-avatar` badge rendered as sibling of `so-tooltip`, not inside it | Keeps badge `position: absolute` relative to `so-avatar` host (position: relative); avoids badge being clipped or repositioned by the tooltip's containing block |
+| 2026-06 | All skeleton `::after` `border-radius: 2px` hardcodes replaced with `var(--soSemanticRadiusControl, 2px)` | Ensures sharp themes (radius=0) render square skeleton placeholders consistently across all components |
+| 2026-06 | Icon button `border-radius` in `so-input` (`.eye-btn`) and `so-select` (`.icon-btn`, `.search-input`) replaced with `var(--soSemanticRadiusInteractive)` | Hardcoded `2px` would keep rounded corners even in sharp themes; token allows full theme control |
 
 ---
 

@@ -52,11 +52,11 @@ export class SoAccordion extends LitElement {
 
   /**
    * Visual size of all child items.
-   * - `'sm'` (default) — 14px trigger label + 14px content, 40px trigger height
-   * - `'md'` — 16px trigger label + 16px content, 44px trigger height
+   * - `'sm'` — 14px trigger label + 14px content, 40px trigger height
+   * - `'md'` (default) — 16px trigger label + 16px content, 44px trigger height
    * - `'lg'` — 18px semibold trigger label + 16px content, 56px trigger height
    */
-  @property({ type: String, reflect: true }) size: AccordionSize = 'sm';
+  @property({ type: String, reflect: true }) size: AccordionSize = 'md';
 
   /**
    * When true, opening an item automatically closes all other open items.

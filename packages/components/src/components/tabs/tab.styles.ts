@@ -170,7 +170,7 @@ export const tabStyles = css`
     width: var(--so-tab-skeleton-width, 80px);
     height: 14px;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusControl, 2px);
     animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 

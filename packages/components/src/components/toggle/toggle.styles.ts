@@ -38,7 +38,7 @@ export const toggleStyles = css`
     position: absolute;
     inset: 1px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusControl, 2px);
     animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 
@@ -206,7 +206,7 @@ export const toggleStyles = css`
     position: absolute;
     inset: 3px 0;
     background: var(--soSemanticColorSurfaceSkeleton, #d1d5db);
-    border-radius: 2px;
+    border-radius: var(--soSemanticRadiusControl, 2px);
     animation: so-skeleton-pulse var(--soSemanticMotionDurationSkeleton) var(--soSemanticMotionEasingDefault) infinite;
   }
 

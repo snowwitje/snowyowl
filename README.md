@@ -20,6 +20,8 @@ An open-source, theme-extensible design system built as framework-agnostic web c
 |-----------|-------------|--------|
 | `so-button` | Button — 5 variants, 3 sizes, icon-only mode | ✅ Stable |
 | `so-card` / `so-card-delta` | Card — media, KPI delta, actions, clickable, skeleton | ✅ Stable |
+| `so-accordion` / `so-accordion-item` | Accordion — multi-expand, exclusive mode, 3 sizes (default `md`), flush + icon-align variants | ✅ Stable |
+| `so-avatar` | Avatar — image / initials / icon fallback, 5 sizes, 8 hash colors, status badge, hover tooltip | ✅ Stable |
 | `so-checkbox` | Checkbox — checked / indeterminate, touch mode | ✅ Stable |
 | `so-checkbox-group` | Managed checkbox group — vertical/horizontal, select-all, min/max/required validation | ✅ Stable |
 | `so-radio` | Radio button — touch mode | ✅ Stable |

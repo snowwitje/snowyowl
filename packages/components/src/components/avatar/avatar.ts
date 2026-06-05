@@ -3,7 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { avatarStyles } from './avatar.styles.js';
 import type { AvatarSize, AvatarVariant, AvatarStatus, AvatarClickDetail } from './avatar.types.js';
 import '../badge/badge.js';
-import '../toggletip/toggletip.js';
+import '../tooltip/tooltip.js';
 
 /* ── Hash-based color palette ────────────────────────────────────────────
    Primitive tokens used intentionally — the avatar color is a visual
@@ -194,7 +194,6 @@ export class SoAvatar extends LitElement {
         >
           ${this._renderContent()}
         </button>
-        ${this._renderBadge()}
       `;
     }
 
@@ -206,43 +205,24 @@ export class SoAvatar extends LitElement {
       >
         ${this._renderContent()}
       </div>
-      ${this._renderBadge()}
     `;
   }
 
   render() {
     if (this.showTooltip && this.name) {
+      const tooltipText = this.email ? `${this.name} · ${this.email}` : this.name;
       return html`
-        <so-toggletip label=${this.name} placement="bottom">
-          <div slot="trigger">
-            ${this._renderBase()}
-          </div>
-          <div slot="content">
-            <div
-              style="
-                font-weight: var(--soSemanticTextStyleLabelSmFontWeight);
-                font-size: var(--soSemanticTextStyleLabelSmFontSize);
-                color: var(--soSemanticColorTextOnTooltip);
-              "
-            >${this.name}</div>
-            ${this.email
-              ? html`
-                <div
-                  style="
-                    font-size: var(--soSemanticTextStyleBodySmFontSize);
-                    /* rgba fallback: --soSemanticColorTextSubtle resolves too dark on dark tooltip bg */
-                    color: rgba(255, 255, 255, 0.7);
-                    margin-top: 2px;
-                  "
-                >${this.email}</div>
-              `
-              : nothing}
-          </div>
-        </so-toggletip>
+        <so-tooltip text=${tooltipText} placement="bottom">
+          ${this._renderBase()}
+        </so-tooltip>
+        ${this._renderBadge()}
       `;
     }
 
-    return html`${this._renderBase()}`;
+    return html`
+      ${this._renderBase()}
+      ${this._renderBadge()}
+    `;
   }
 }
 

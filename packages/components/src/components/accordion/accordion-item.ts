@@ -63,7 +63,7 @@ export class SoAccordionItem extends LitElement {
    * Visual size of this item. Propagated from `so-accordion` — do not set manually.
    * Controls trigger height and font sizes for both the heading and content.
    */
-  @property({ type: String, reflect: true }) size: AccordionSize = 'sm';
+  @property({ type: String, reflect: true }) size: AccordionSize = 'md';
 
   /* ── Private ── */
 
