@@ -1,0 +1,129 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Welcome" />
+
+# Welcome to SnowyOwl
+
+SnowyOwl is an open-source, theme-extensible design system built as framework-agnostic web components using [Lit](https://lit.dev). Load a theme, override a handful of CSS custom properties, and your entire UI shifts personality — colors, radii, shadows, and typography all in sync.
+
+**[Live site](https://snowwitje.github.io/snowyowl/) · [Token reference](https://snowwitje.github.io/snowyowl/docs/) · [GitHub](https://github.com/snowwitje/snowyowl)**
+
+---
+
+## Quick start
+
+### 1 — Install tokens
+
+`@snowyowl/tokens` is published to npm. Components and icons are consumed directly from the repository during active development.
+
+```bash
+npm install @snowyowl/tokens
+# or
+pnpm add @snowyowl/tokens
+```
+
+### 2 — Load a theme
+
+Each theme is a single CSS file that defines all primitive and semantic tokens. Load one at startup — it scopes to `:root` so the whole page is styled by default.
+
+```css
+/* CSS / bundler */
+@import '@snowyowl/tokens/css/light';
+```
+
+```html
+<!-- Plain HTML -->
+<link rel="stylesheet" href="node_modules/@snowyowl/tokens/dist/css/light.css" />
+```
+
+### 3 — Import and use a component
+
+Components register as standard custom elements. Import the module once, then use the tag anywhere in your HTML.
+
+```html
+<script type="module">
+  import '/node_modules/@snowyowl/components/dist/components/button/button.js';
+</script>
+
+<so-button variant="primary">Get started</so-button>
+<so-button variant="secondary">Learn more</so-button>
+```
+
+> **`@snowyowl/components`** is not yet published to npm. Clone the repository and use pnpm workspaces to reference it locally — see the [README](https://github.com/snowwitje/snowyowl#development) for setup instructions.
+
+---
+
+## Theming
+
+Six compiled themes are included. Switch at runtime by setting `data-theme` on any container — all SnowyOwl components inside automatically inherit the active theme.
+
+| Theme | Character |
+|-------|-----------|
+| `light` | Default — slightly rounded corners, subtle shadows |
+| `dark` | Dark surface counterpart of `light` |
+| `light-sharp` | Zero border-radius, high-contrast edges |
+| `dark-sharp` | Dark + sharp |
+| `light-elevated` | Richer shadows and depth |
+| `dark-elevated` | Dark + elevated |
+
+```html
+<!-- Scope a theme to any container -->
+<div data-theme="dark-elevated">
+  <so-card>This card uses the dark-elevated theme.</so-card>
+</div>
+```
+
+Use the **Theme** toolbar control at the top of this Storybook to preview any component in all six themes. Every component also has a **ThemeShowcase** story that renders all six side by side.
+
+### Custom themes
+
+A custom theme is just a CSS block that overrides semantic tokens — you only change what you need, everything else inherits from the base theme.
+
+```css
+/* Extend the light base, then apply your brand */
+@import '@snowyowl/tokens/css/light';
+
+[data-theme="my-brand"] {
+  --soSemanticColorInteractivePrimary: #0f766e;
+  --soSemanticColorInteractivePrimaryHover: #0d6b64;
+  --soSemanticRadiusComponent: 0px;
+  --soSemanticRadiusContainer: 6px;
+  --soSemanticShadowComponent: none;
+  --soSemanticShadowContainer: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+```
+
+### The four shape personality tokens
+
+These four tokens control the entire visual character of the system. Changing only them shifts the design from "friendly and rounded" to "precise and sharp":
+
+| Token | Controls |
+|-------|---------|
+| `--soSemanticRadiusComponent` | Buttons, inputs, tags, chips |
+| `--soSemanticRadiusContainer` | Cards, panels, modals |
+| `--soSemanticShadowComponent` | Input / chip elevation |
+| `--soSemanticShadowContainer` | Card / panel elevation |
+
+### Token naming — camelCase only
+
+All CSS custom properties use **camelCase**. This is intentional — Style Dictionary's `tokens-studio` transform group outputs camelCase. Kebab-case equivalents do not exist.
+
+```css
+/* ✅ Correct */
+color: var(--soSemanticColorInteractivePrimary);
+border-radius: var(--soSemanticRadiusComponent);
+
+/* ❌ Wrong — these variables are not defined */
+color: var(--so-semantic-color-interactive-primary);
+border-radius: var(--so-semantic-radius-component);
+```
+
+The full token reference — every primitive and semantic token with its resolved value across all themes — is published at [snowwitje.github.io/snowyowl/docs](https://snowwitje.github.io/snowyowl/docs/).
+
+---
+
+## Explore
+
+Browse the **Components** section in the sidebar for every component with live examples, prop controls, and accessibility notes.
+
+The **Examples** section shows how SnowyOwl components compose into real UI patterns — starting with a [Login Form](?path=/story/examples-login-form--default).

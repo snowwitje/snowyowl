@@ -86,7 +86,7 @@ const preview: Preview = {
         // Components is pinned first so a future Examples section stays below it.
         // Within Checkbox and Radio, the Group sub-folder sorts after the individual stories.
         method: 'alphabetical',
-        order: ['Components', ['*', ['*', 'Checkbox Group', 'Radio Group']], 'Examples'],
+        order: ['Introduction', 'Components', ['*', ['*', 'Checkbox Group', 'Radio Group']], 'Examples'],
       },
     },
   },
