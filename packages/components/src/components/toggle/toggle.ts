@@ -8,6 +8,7 @@ import type { ToggleChangeDetail } from './toggle.types.js';
  *
  * States: unchecked | checked
  * Extras: disabled, skeleton, touch (44px target)
+ * Layout: inline (default) | settings (full-width, label left, control right)
  *
  * @slot - Toggle value label (the text next to the track)
  *
@@ -15,7 +16,7 @@ import type { ToggleChangeDetail } from './toggle.types.js';
  * @csspart control - The visible 48×24px pill track
  * @csspart thumb   - The 18×18px sliding circle inside the track
  * @csspart label   - The optional field label above the row
- * @csspart helper  - The optional helper text below the label
+ * @csspart helper  - The optional helper text (above row in inline; inline subtitle in settings)
  * @csspart value   - The wrapper around the slotted value text
  *
  * @fires so-change - Fired on user interaction.
@@ -31,6 +32,11 @@ import type { ToggleChangeDetail } from './toggle.types.js';
  *   checked
  * >
  *   Dark mode
+ * </so-toggle>
+ *
+ * @example
+ * <so-toggle layout="settings" helper-text="New features and improvements" checked>
+ *   Product updates
  * </so-toggle>
  */
 @customElement('so-toggle')
@@ -63,6 +69,13 @@ export class SoToggle extends LitElement {
    */
   @property({ type: Boolean, reflect: true }) touch = false;
 
+  /**
+   * Layout variant.
+   * - `inline` (default): control left, value label right — compact inline usage.
+   * - `settings`: full-width row, value label left, control right — iOS-style settings lists.
+   */
+  @property({ type: String, reflect: true }) layout: 'inline' | 'settings' = 'inline';
+
   /** Native form field name. */
   @property({ type: String }) name = '';
 
@@ -91,7 +104,25 @@ export class SoToggle extends LitElement {
   }
 
   render() {
+    const isSettings = this.layout === 'settings';
     const describedBy = this.helperText ? 'so-helper' : undefined;
+
+    // Visual pill track + sliding thumb
+    const controlEl = html`
+      <span part="control" aria-hidden="true">
+        <span part="thumb"></span>
+      </span>
+    `;
+
+    // In settings layout with helperText, wrap value + helper in a column group
+    const valueBlock = isSettings && this.helperText
+      ? html`
+          <div class="value-group">
+            <span part="value"><slot></slot></span>
+            <span part="helper" id="so-helper">${this.helperText}</span>
+          </div>
+        `
+      : html`<span part="value"><slot></slot></span>`;
 
     return html`
       <div class="wrapper">
@@ -99,7 +130,7 @@ export class SoToggle extends LitElement {
           ? html`<span part="label">${this.label}</span>`
           : nothing}
 
-        ${this.helperText
+        ${this.helperText && !isSettings
           ? html`<span part="helper" id="so-helper">${this.helperText}</span>`
           : nothing}
 
@@ -118,14 +149,10 @@ export class SoToggle extends LitElement {
             @change=${this._handleChange}
           />
 
-          <!-- Visual pill track — part="control" per API contract -->
-          <span part="control" aria-hidden="true">
-            <!-- Sliding thumb circle -->
-            <span part="thumb"></span>
-          </span>
-
-          <!-- Slotted value label -->
-          <span part="value"><slot></slot></span>
+          <!-- settings: value left, control right; inline: control left, value right -->
+          ${isSettings
+            ? html`${valueBlock}${controlEl}`
+            : html`${controlEl}${valueBlock}`}
         </label>
       </div>
     `;

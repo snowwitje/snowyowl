@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- **`so-toggle`** — added `layout="settings"` variant: full-width row with label left and toggle control right, suitable for iOS-style settings lists. When `helper-text` is also set in settings layout, the helper renders as a subtitle below the value label inside the row rather than above it.
+
 ### Changed
 
 - **`so-accordion`** / **`so-accordion-item`** — Default `size` changed from `'sm'` to `'md'`. The `md` size (44px trigger height, 16px label + 16px content) is a better general-purpose default for most layouts. Existing usage that relied on the `sm` default should add `size="sm"` explicitly.

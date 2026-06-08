@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import '@snowyowl/components/components/toggle';
+import '@snowyowl/components/components/divider';
 
 const THEMES = ['light', 'dark', 'light-sharp', 'dark-sharp', 'light-elevated', 'dark-elevated'];
 
@@ -157,7 +158,59 @@ export const TouchTarget: Story = {
   `,
 };
 
-// ── 6. Theme Showcase ─────────────────────────────────────────────────────────
+// ── 6. Settings Layout ────────────────────────────────────────────────────────
+
+export const SettingsLayout: Story = {
+  render: () => html`
+    <div style="max-width: 480px; display: flex; flex-direction: column; gap: 0;">
+      <so-toggle layout="settings" checked>
+        Product updates
+      </so-toggle>
+      <so-divider></so-divider>
+      <so-toggle layout="settings" checked>
+        Security alerts
+      </so-toggle>
+      <so-divider></so-divider>
+      <so-toggle layout="settings">
+        Marketing emails
+      </so-toggle>
+    </div>
+  `,
+};
+
+// ── 7. Settings Layout with Helper Text ───────────────────────────────────────
+
+export const SettingsLayoutWithHelper: Story = {
+  render: () => html`
+    <div style="max-width: 480px; display: flex; flex-direction: column; gap: 0;">
+      <so-toggle layout="settings" helper-text="New features and improvements" checked>
+        Product updates
+      </so-toggle>
+      <so-divider></so-divider>
+      <so-toggle layout="settings" helper-text="Sign-ins and password changes" checked>
+        Security alerts
+      </so-toggle>
+      <so-divider></so-divider>
+      <so-toggle layout="settings" helper-text="Promotional offers and news">
+        Marketing emails
+      </so-toggle>
+    </div>
+  `,
+};
+
+// ── 8. Settings Layout Disabled ───────────────────────────────────────────────
+
+export const SettingsLayoutDisabled: Story = {
+  render: () => html`
+    <div style="max-width: 480px; display: flex; flex-direction: column; gap: 0;">
+      <so-toggle layout="settings" disabled>Disabled option</so-toggle>
+      <so-divider></so-divider>
+      <so-toggle layout="settings" disabled checked>Disabled checked</so-toggle>
+    </div>
+  `,
+};
+
+// ── 9. Theme Showcase ─────────────────────────────────────────────────────────
 
 export const ThemeShowcase: Story = {
   render: () => html`

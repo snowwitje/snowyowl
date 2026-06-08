@@ -249,6 +249,54 @@ export const toggleStyles = css`
   }
 
   /* ════════════════
+     SETTINGS LAYOUT
+  ════════════════ */
+
+  :host([layout='settings']) {
+    display: block;
+    width: 100%;
+  }
+
+  :host([layout='settings']) .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  :host([layout='settings']) .row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--soSemanticSpacingComponentMd);
+    min-height: 50px;
+    margin: 0;
+  }
+  :host([layout='settings']) .row:hover {
+    background: var(--soSemanticColorInteractivePrimarySubtle);
+  }
+
+  :host([layout='settings']) [part='value'] {
+    flex: 1;
+    min-width: 0;
+    font-size: var(--soSemanticTextStyleLabelMdFontSize);
+    font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+    line-height: var(--soSemanticTextStyleLabelMdLineHeight);
+  }
+
+  :host([layout='settings']) [part='control'] {
+    flex-shrink: 0;
+  }
+
+  :host([layout='settings']) .value-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ════════════════
      KEYFRAMES
   ════════════════ */
 
