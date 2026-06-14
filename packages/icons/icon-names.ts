@@ -43,8 +43,6 @@ export type SoIconName =
   | 'bolt'
   | 'book'
   | 'briefcase'
-  | 'buffer-outline'
-  | 'buffer'
   | 'bug'
   | 'building'
   | 'bullseye'
@@ -105,14 +103,12 @@ export type SoIconName =
   | 'desktop'
   | 'download'
   | 'edit-circle'
-  | 'edit-recipients'
   | 'edit'
   | 'envelope-outline'
   | 'exclamation-circle'
   | 'exclamation-triangle'
   | 'exclamation'
   | 'expand'
-  | 'external-link'
   | 'eye-off'
   | 'eye'
   | 'factory'
@@ -144,7 +140,6 @@ export type SoIconName =
   | 'folder-open'
   | 'folder-outline'
   | 'folder'
-  | 'gasbottle'
   | 'globe'
   | 'graduation-cap'
   | 'hand-pointer-outline'
@@ -193,7 +188,6 @@ export type SoIconName =
   | 'minus-circle'
   | 'minus-square-outline'
   | 'minus'
-  | 'mobile-signal'
   | 'moon-outline'
   | 'options'
   | 'page-multiple'
@@ -208,13 +202,10 @@ export type SoIconName =
   | 'plus'
   | 'power'
   | 'print'
-  | 'pulse-strong'
   | 'question-circle-thin-outline'
   | 'question-circle'
   | 'question'
-  | 'radio-tower'
-  | 'rain-weather'
-  | 'refinery'
+  | 'rain'
   | 'refresh'
   | 'repeat'
   | 'report'
@@ -232,9 +223,6 @@ export type SoIconName =
   | 'setting-tools'
   | 'settings-multi'
   | 'settings'
-  | 'smile'
-  | 'smiley-frown'
-  | 'smiley-meh'
   | 'sort-alpha-asc'
   | 'sort-alpha-desc'
   | 'sort-amount-asc'
@@ -244,7 +232,7 @@ export type SoIconName =
   | 'sort'
   | 'star-outline'
   | 'star'
-  | 'sun-weather'
+  | 'sun'
   | 'swap-exchange'
   | 'tag'
   | 'tags'
@@ -269,7 +257,6 @@ export type SoIconName =
   | 'user'
   | 'users-all'
   | 'users'
-  | 'valve'
   | 'video-camera'
   | 'volume-down'
   | 'volume-off'
@@ -323,8 +310,6 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'bolt',
   'book',
   'briefcase',
-  'buffer-outline',
-  'buffer',
   'bug',
   'building',
   'bullseye',
@@ -385,14 +370,12 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'desktop',
   'download',
   'edit-circle',
-  'edit-recipients',
   'edit',
   'envelope-outline',
   'exclamation-circle',
   'exclamation-triangle',
   'exclamation',
   'expand',
-  'external-link',
   'eye-off',
   'eye',
   'factory',
@@ -424,7 +407,6 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'folder-open',
   'folder-outline',
   'folder',
-  'gasbottle',
   'globe',
   'graduation-cap',
   'hand-pointer-outline',
@@ -473,7 +455,6 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'minus-circle',
   'minus-square-outline',
   'minus',
-  'mobile-signal',
   'moon-outline',
   'options',
   'page-multiple',
@@ -488,13 +469,10 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'plus',
   'power',
   'print',
-  'pulse-strong',
   'question-circle-thin-outline',
   'question-circle',
   'question',
-  'radio-tower',
-  'rain-weather',
-  'refinery',
+  'rain',
   'refresh',
   'repeat',
   'report',
@@ -512,9 +490,6 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'setting-tools',
   'settings-multi',
   'settings',
-  'smile',
-  'smiley-frown',
-  'smiley-meh',
   'sort-alpha-asc',
   'sort-alpha-desc',
   'sort-amount-asc',
@@ -524,7 +499,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'sort',
   'star-outline',
   'star',
-  'sun-weather',
+  'sun',
   'swap-exchange',
   'tag',
   'tags',
@@ -549,7 +524,6 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'user',
   'users-all',
   'users',
-  'valve',
   'video-camera',
   'volume-down',
   'volume-off',
