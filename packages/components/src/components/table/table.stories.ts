@@ -260,7 +260,7 @@ export const WithExpandableRows: Story = {
         t.detailTemplate = (row: TableRow) => {
           const p = row as unknown as Person;
           return html`
-            <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; padding-left: 60px;">
               <div>
                 <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soSemanticColorTextSubtle); margin-bottom: 4px;">Email</div>
                 <div style="font-size: 14px;">${p.email}</div>
@@ -287,7 +287,7 @@ export const WithExpandableRows: Story = {
 
 export const FrozenColumns: Story = {
   render: () => html`
-    <div style="width: 500px; border: 1px solid var(--soSemanticColorBorderSubtle); border-radius: 8px; overflow: hidden;">
+    <div style="width: 500px; ">
       <so-table
         freeze-columns="2"
         ${ref(el => {
@@ -373,8 +373,8 @@ export const EmptyStateCustom: Story = {
     >
       <div slot="empty" style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 48px; color: var(--soSemanticColorTextSubtle);">
         <so-icon name="search" size="xl" decorative></so-icon>
-        <p style="margin: 0; font-weight: 600;">No results found</p>
-        <p style="margin: 0; font-size: 13px;">Try adjusting your search or filters.</p>
+        <p style="margin: 0; font-size: var(--soSemanticTextStyleHeadingXsFontSize); font-weight: var(--soSemanticTextStyleHeadingXsFontWeight);">No results found</p>
+        <p style="margin: 0; font-size: var(--soSemanticTextStyleBodySmFontSize);">Try adjusting your search or filters.</p>
       </div>
     </so-table>
   `,
@@ -494,7 +494,7 @@ const CUSTOM_COLUMNS: ColumnDef<Person>[] = [
     align: 'end',
     render: () => html`
       <so-button variant="ghost" size="sm" icon-only label="More actions">
-        <so-icon slot="prefix" name="list" decorative></so-icon>
+        <so-icon slot="prefix" name="menu-dots" decorative></so-icon>
       </so-button>
     `,
   },

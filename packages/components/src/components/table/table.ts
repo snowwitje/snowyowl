@@ -634,7 +634,7 @@ export class SoTable extends LitElement {
               this._toggleExpand(row.id);
             }}
           >
-            <so-icon name="chevron-right" size="sm" decorative></so-icon>
+            <so-icon name="chevron-down" size="sm" decorative></so-icon>
           </button>
         </td>
       `);
@@ -698,7 +698,7 @@ export class SoTable extends LitElement {
         <td colspan=${this._totalCols} part="empty" class="empty-cell">
           <slot name="empty">
             <div class="empty-default">
-              <so-icon name="list" size="lg" decorative></so-icon>
+              <so-icon name="search" size="lg" decorative></so-icon>
               <p>${this.emptyMessage}</p>
             </div>
           </slot>

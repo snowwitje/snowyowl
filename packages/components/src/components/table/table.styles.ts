@@ -25,14 +25,14 @@ export const tableStyles = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--soSemanticSpacingComponentMd);
+    padding:  var(--soSemanticSpacingComponentXs) var(--soSemanticSpacingComponentMd) var(--soSemanticSpacingComponentXs) var(--soSemanticSpacingComponentSm);
     border-bottom: 1px solid var(--soSemanticColorBorderSubtle);
     min-height: 48px;
     gap: var(--soSemanticSpacingComponentMd);
   }
 
   .toolbar-batch {
-    background: var(--soSemanticColorInteractivePrimarySubtle);
+    background: var(--soSemanticColorSurfaceDim);
   }
 
   .toolbar-left {
@@ -80,7 +80,8 @@ export const tableStyles = css`
 
   [part='table'] {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
   }
 
   /* ════════════════
@@ -88,14 +89,11 @@ export const tableStyles = css`
   ════════════════ */
 
   [part='thead'] {
-    background: var(--soSemanticColorSurfaceSubtle);
-  }
-
-  [part='header-row'] {
-    border-bottom: 1px solid var(--soSemanticColorBorderDefault);
+    background: var(--soSemanticColorSurfaceMuted);
   }
 
   [part='header-cell'] {
+    border-bottom: 1px solid var(--soSemanticColorBorderDefault);
     padding: 0 var(--soSemanticSpacingComponentMd);
     font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);
     font-size: var(--soSemanticTextStyleLabelSmFontSize);
@@ -154,11 +152,14 @@ export const tableStyles = css`
 
   [part='tbody'] [part='row'] {
     background: var(--soSemanticColorSurfaceDefault);
-    border-bottom: 1px solid var(--soSemanticColorBorderSubtle);
     transition: background-color var(--soSemanticMotionDurationControl) var(--soSemanticMotionEasingDefault);
   }
 
-  [part='tbody'] [part='row']:last-child {
+  [part='tbody'] [part='row'] [part='cell'] {
+    border-bottom: 1px solid var(--soSemanticColorBorderSubtle);
+  }
+
+  [part='tbody'] [part='row']:last-child [part='cell'] {
     border-bottom: none;
   }
 
@@ -264,7 +265,7 @@ export const tableStyles = css`
   ════════════════ */
 
   :host([striped]) [part='tbody'] [part='row']:nth-child(even) {
-    background: var(--soSemanticColorSurfaceSubtle);
+    background: var(--soSemanticColorSurfaceDim);
   }
 
   /* Selected takes precedence over striped */
@@ -285,7 +286,7 @@ export const tableStyles = css`
 
   [part='thead'] .frozen {
     z-index: 2;
-    background: var(--soSemanticColorSurfaceSubtle);
+    background: var(--soSemanticColorSurfaceMuted);
   }
 
   .frozen-last {
@@ -327,7 +328,7 @@ export const tableStyles = css`
   }
 
   .expand-btn.expand-open {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 
   /* Detail row */
