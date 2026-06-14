@@ -27,6 +27,16 @@
           "$type": "color",
           "$description": "Inset areas, code blocks"
         },
+        "dim": {
+          "$value": "{color.neutral.50}",
+          "$type": "color",
+          "$description": "Striped table rows, dimmed areas"
+        },
+        "muted": {
+          "$value": "{color.neutral.100}",
+          "$type": "color",
+          "$description": "Table header background and similar"
+        },
         "skeleton": {
           "$value": "{color.neutral.300}",
           "$type": "color",

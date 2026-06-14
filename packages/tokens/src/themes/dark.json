@@ -27,6 +27,16 @@
           "$type": "color",
           "$description": "Pure black inset areas"
         },
+         "dim": {
+          "$value": "{color.neutral.900}",
+          "$type": "color",
+          "$description": "Striped table rows, dimmed areas"
+        },
+        "muted": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Table header background and similar"
+        },
         "skeleton": {
           "$value": "{color.neutral.600}",
           "$type": "color",
