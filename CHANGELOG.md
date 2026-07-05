@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+### Changed
+
+- **`@snowyowl/icons`** — Full icon set replacement: 278 icons → 528 icons.
+  - All SVG path fills updated from `fill="black"` → `fill="currentColor"` so icons inherit color from CSS.
+  - `width` and `height` attributes removed from all root `<svg>` elements (only `viewBox="0 0 32 32"` is kept) so icons scale correctly via CSS.
+  - `sprite.svg` now contains 528 `<symbol>` elements; `icon-names.ts` / `icon-names.js` export 528 entries.
+  - New `scripts/build-sprite.js` script generates `sprite.svg` and `icon-names.ts`/`icon-names.js` from `src/svg/*.svg`; wired to `build:sprite` npm script.
+  - Icon renames applied across the codebase:
+    - `eye` → `eye-open`, `eye-off` → `eye-close` (`so-input` password toggle)
+    - `gear` → `settings-cog` (JSDoc in `so-tabs`, `so-badge`)
+    - `bell` → `notification-bell` (JSDoc in `so-badge`, `badge.stories.ts`)
+    - `mail` → `envelope` (`badge.stories.ts`)
+    - `settings` → `settings-cog` (`badge.stories.ts`)
+    - `exclamation-triangle` → `warning-triangle` (`tag.stories.ts`)
+    - `star-outline` → `star-o` (`tag.stories.ts`)
+    - `expand` → `external-link` (`card.stories.ts` corner-action story)
+
 ### Added
 
 - **`so-table`** (`packages/components/src/components/table/`) — Data table component. All features opt-in via props. Sorting: per-column or global `sortable` prop; asc → desc → none cycle; client-side string/number comparison; server-side fires `so-sort`. Filtering: `filterable` shows debounced search input in toolbar; client-side case-insensitive substring match on `filterKeys` (empty = all columns); server-side fires `so-filter`. Selection: `selection="multi"` adds checkbox column with select-all header (indeterminate when partial); `selection="single"` makes full row clickable with inset left-border indicator (`box-shadow: inset 3px 0` to avoid layout shift); both fire `so-selection-change`; keyboard Space/Enter toggles selection. Batch actions: when any rows selected, toolbar switches to batch bar (primary-subtle bg) showing cancel button, count label, and `slot="batch-actions"` content. Pagination: `paginate` integrates `so-pagination` below the table; client-side slice of processed rows; server-side fires `so-page-change`; `totalRows` prop for server-side total calculation. Expandable rows: `expandable` + `detailTemplate` (function property) adds chevron expand column; detail row uses `max-height` CSS transition; fires `so-row-expand`. Frozen columns: `freezeColumns` prop (counts all columns including system ones); `position: sticky` with `left` offsets computed from `offsetWidth` in `updated()`; `frozen-last` right border. Skeleton loading: `loading` renders animated skeleton bars per column with varying widths (60/80/70/85/65% pattern); no toolbar or pagination. Striped: `striped` alternates even-row backgrounds; selected takes precedence. Custom cells: `ColumnDef.render(value, row, index) => TemplateResult | string`. Empty state: default with list icon + message; customizable via `slot="empty"`. Performance: `repeat()` directive with `row.id` key for efficient DOM diffing. ARIA: `role="grid"` (interactive) or `role="table"`; `aria-sort`; `aria-selected`; `aria-busy`; `aria-expanded`. Parts: `container`, `toolbar`, `batch-bar`, `scroll`, `table`, `thead`, `tbody`, `header-row`, `header-cell`, `row`, `cell`, `expand-cell`, `detail-row`, `empty`, `pagination`. Events: `so-sort`, `so-filter`, `so-selection-change`, `so-page-change`, `so-row-expand`. Slots: `toolbar-actions`, `batch-actions`, `empty`. Stories: `Basic`, `Sortable`, `WithFilter`, `WithSelection`, `SingleSelect`, `WithBatchActions`, `WithPagination`, `WithExpandableRows`, `FrozenColumns`, `Striped`, `Loading`, `EmptyState`, `EmptyStateCustom`, `ServerSide`, `FullFeatured`, `WithCustomCells`, `ThemeShowcase`.

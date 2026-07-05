@@ -138,13 +138,13 @@ export const WithIcons: Story = {
         <so-icon slot="icon" name="close-circle" size="sm"></so-icon>
       </so-tag>
       <so-tag variant="read-only" color="orange" label="Warning">
-        <so-icon slot="icon" name="exclamation-triangle" size="sm"></so-icon>
+        <so-icon slot="icon" name="warning-triangle" size="sm"></so-icon>
       </so-tag>
       <so-tag variant="selectable" color="blue" label="Starred">
         <so-icon slot="icon" name="star" size="sm"></so-icon>
       </so-tag>
       <so-tag variant="selectable" color="purple" label="Pinned">
-        <so-icon slot="icon" name="star-outline" size="sm"></so-icon>
+        <so-icon slot="icon" name="star-o" size="sm"></so-icon>
       </so-tag>
     </div>
   `,

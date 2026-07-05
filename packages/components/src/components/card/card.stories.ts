@@ -187,7 +187,7 @@ export const WithCornerAction: Story = {
       <span slot="secondary">Secondary text goes here</span>
       <span slot="body">With action(s) shown — can also be icon-only buttons</span>
       <so-button slot="corner-action" variant="ghost" size="sm" icon-only label="Open in new tab">
-        <so-icon slot="prefix" name="expand" decorative></so-icon>
+        <so-icon slot="prefix" name="external-link" decorative></so-icon>
       </so-button>
     </so-card>
   `,

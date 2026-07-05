@@ -15,7 +15,8 @@
   },
   "files": ["dist", "sprite.svg", "icon-names.ts", "icon-names.js"],
   "scripts": {
-    "build": "tsc",
+    "build:sprite": "node scripts/build-sprite.js",
+    "build": "npm run build:sprite && tsc",
     "dev": "tsc --watch",
     "clean": "rm -rf dist"
   },

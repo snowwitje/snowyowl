@@ -273,7 +273,7 @@ export class SoInput extends LitElement {
                 @click=${this._togglePassword}
               >
                 <so-icon
-                  name=${this._showPassword ? 'eye-off' : 'eye'}
+                  name=${this._showPassword ? 'eye-close' : 'eye-open'}
                   size="sm"
                   decorative
                 ></so-icon>

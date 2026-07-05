@@ -222,7 +222,7 @@ export const OverlayUsage: Story = {
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
           <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
-            <so-icon name="bell" size="md" label="Notifications"></so-icon>
+            <so-icon name="notification-bell" size="md" label="Notifications"></so-icon>
           </div>
           <so-badge variant="count" count="3" color="red" overlay overlay-position="top-right"></so-badge>
         </div>
@@ -233,7 +233,7 @@ export const OverlayUsage: Story = {
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
           <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
-            <so-icon name="mail" size="md" label="Messages"></so-icon>
+            <so-icon name="envelope" size="md" label="Messages"></so-icon>
           </div>
           <so-badge variant="count" count="12" size="sm" color="blue" overlay overlay-position="top-left"></so-badge>
         </div>
@@ -255,7 +255,7 @@ export const OverlayUsage: Story = {
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <div style="position: relative; display: inline-flex;">
           <div style="width: 40px; height: 40px; border-radius: 8px; background: #f3f4f6; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #374151;">
-            <so-icon name="settings" size="md" label="Settings"></so-icon>
+            <so-icon name="settings-cog" size="md" label="Settings"></so-icon>
           </div>
           <so-badge variant="label" label="NEW" color="cyan" size="sm" overlay overlay-position="bottom-left"></so-badge>
         </div>

@@ -33,7 +33,7 @@ import type { TabsVariant, TabSelectDetail } from './tabs.types.js';
  *     <so-icon slot="icon" name="cube" decorative></so-icon>
  *   </so-tab>
  *   <so-tab tab-id="tab2">
- *     <so-icon slot="icon" name="gear" decorative></so-icon>
+ *     <so-icon slot="icon" name="settings-cog" decorative></so-icon>
  *   </so-tab>
  * </so-tabs>
  */

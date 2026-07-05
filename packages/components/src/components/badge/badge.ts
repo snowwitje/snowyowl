@@ -57,7 +57,7 @@ const STATUS_COLORS: Record<string, string> = {
  * ```html
  * <div style="position: relative; display: inline-flex;">
  *   <so-button variant="ghost" icon-only label="Notifications">
- *     <so-icon slot="prefix" name="bell" decorative></so-icon>
+ *     <so-icon slot="prefix" name="notification-bell" decorative></so-icon>
  *   </so-button>
  *   <so-badge variant="count" count="3" color="red" overlay></so-badge>
  * </div>
