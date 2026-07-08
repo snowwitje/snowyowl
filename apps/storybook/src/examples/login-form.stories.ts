@@ -75,8 +75,23 @@ const brandHeader = html`
 
 /* ── Footer CTA ─────────────────────────────────────────────────────────── */
 const footerCta = html`
-  <p style="
+<p style="
     margin: 24px 0 0;
+    text-align: center;
+    font-size: var(--soSemanticTextStyleBodySmFontSize);
+    color: var(--soSemanticColorTextSubtle);
+  "><a
+      href="#"
+      style="
+        font-size: var(--soSemanticTextStyleBodySmFontSize);
+        color: var(--soSemanticColorInteractivePrimary);
+        text-decoration: none;
+      "
+      @click=${(e: Event) => e.preventDefault()}
+    >Forgot password?</a>
+</p>  
+<p style="
+    margin: 8px 0 0;
     text-align: center;
     font-size: var(--soSemanticTextStyleBodySmFontSize);
     color: var(--soSemanticColorTextSubtle);
@@ -97,16 +112,8 @@ const rememberRow = html`
     justify-content: space-between;
     align-items: center;
   ">
-    <so-checkbox label="Remember me"></so-checkbox>
-    <a
-      href="#"
-      style="
-        font-size: var(--soSemanticTextStyleBodySmFontSize);
-        color: var(--soSemanticColorInteractivePrimary);
-        text-decoration: none;
-      "
-      @click=${(e: Event) => e.preventDefault()}
-    >Forgot password?</a>
+    <so-checkbox>Remember me</so-checkbox>
+    
   </div>
 `;
 
@@ -131,7 +138,7 @@ export const Default: Story = {
         autocomplete="current-password"
       ></so-input>
       ${rememberRow}
-      <so-button type="submit" full-width>Sign in</so-button>
+      <so-button type="submit" full-width size="md">Log in</so-button>
     </so-form>
     ${footerCta}
   `),
@@ -166,7 +173,7 @@ export const ValidationErrors: Story = {
         error-text="Password must be at least 8 characters."
       ></so-input>
       ${rememberRow}
-      <so-button type="submit" full-width>Sign in</so-button>
+      <so-button type="submit" full-width>Log in</so-button>
     </so-form>
     ${footerCta}
   `),
@@ -200,7 +207,7 @@ export const Loading: Story = {
         autocomplete="current-password"
       ></so-input>
       ${rememberRow}
-      <so-button type="submit" full-width disabled>Sign in</so-button>
+      <so-button type="submit" full-width disabled>Log in</so-button>
     </so-form>
     ${footerCta}
   `),
