@@ -98,7 +98,7 @@ export const Gallery: Story = {
   render: () => html`
     <div style="
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       gap: 8px;
       font-family: sans-serif;
       color: #1f2937;
@@ -106,7 +106,7 @@ export const Gallery: Story = {
       ${SO_ICON_NAMES.map(name => html`
         <div style="
           display:flex;flex-direction:column;align-items:center;
-          gap:6px;padding:12px 4px;border-radius:6px;
+          gap:12px;padding:12px 8px;border-radius:6px;
           border:1px solid #e5e7eb;cursor:default;
         "
           title=${name}

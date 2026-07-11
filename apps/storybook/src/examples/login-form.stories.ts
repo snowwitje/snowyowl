@@ -68,6 +68,7 @@ const brandHeader = html`
     <p style="
       margin: 0;
       font-size: var(--soSemanticTextStyleBodySmFontSize);
+      font-weight: var(--soSemanticTextStyleBodySmFontWeight);
       color: var(--soSemanticColorTextSubtle);
     ">Sign in to your account</p>
   </div>

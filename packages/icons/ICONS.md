@@ -272,7 +272,7 @@
 - `search-minus`
 - `search-plus`
 - `sensor`
-- `setting-tools`
+- `settings-tools`
 - `settings`
 - `settings-multi`
 - `smile`

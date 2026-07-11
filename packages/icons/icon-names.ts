@@ -411,7 +411,7 @@ export type SoIconName =
   | 'send-plane-o'
   | 'send-plane'
   | 'sensor'
-  | 'setting-tools'
+  | 'settings-tools'
   | 'settings-cog-o'
   | 'settings-cog'
   | 'settings-cogs'
@@ -941,7 +941,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'send-plane-o',
   'send-plane',
   'sensor',
-  'setting-tools',
+  'settings-tools',
   'settings-cog-o',
   'settings-cog',
   'settings-cogs',

@@ -54,7 +54,7 @@ export const WithAction: Story = {
             <div style="
               display:flex;align-items:center;justify-content:space-between;
               padding:12px 16px;border-radius:8px;
-              background:var(--soSemanticColorSurfaceContainer,#f3eef7)
+              background:var(--soSemanticColorSurfaceSubtle,#f3eef7)
             ">
               <span style="font-size:14px;color:var(--soSemanticColorTextDefault)">${name}</span>
               <so-button size="sm" variant="ghost">Remove</so-button>

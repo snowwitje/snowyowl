@@ -30,7 +30,7 @@ export const buttonStyles = css`
       /* Typography */
       font-family: var(--soSemanticTypographyFamilyBody, 'Geologica', system-ui, sans-serif);
       font-size: var(--so-btn-font-size);
-      font-weight: var(--soSemanticTextStyleLabelMdFontWeight);
+      font-weight: var(--soSemanticTextStyleBodyMdFontWeight);
       line-height: var(--so-btn-line-height);
       letter-spacing: var(--so-btn-letter-spacing, 0);
 
