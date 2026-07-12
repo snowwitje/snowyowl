@@ -260,7 +260,7 @@ export type SoIconName =
   | 'layers'
   | 'layout-accordion'
   | 'layout-checklist'
-  | 'layout-column-line'
+  | 'layout-column'
   | 'layout-footer'
   | 'layout-grid-large'
   | 'layout-grid'
@@ -269,7 +269,7 @@ export type SoIconName =
   | 'layout-o'
   | 'layout-panel-left'
   | 'layout-panel-right'
-  | 'layout-row-line'
+  | 'layout-row'
   | 'layout-table'
   | 'layout'
   | 'leaf-o'
@@ -790,7 +790,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'layers',
   'layout-accordion',
   'layout-checklist',
-  'layout-column-line',
+  'layout-column',
   'layout-footer',
   'layout-grid-large',
   'layout-grid',
@@ -799,7 +799,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'layout-o',
   'layout-panel-left',
   'layout-panel-right',
-  'layout-row-line',
+  'layout-row',
   'layout-table',
   'layout',
   'leaf-o',
