@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import '@snowyowl/components/components/section';
 import '@snowyowl/components/components/stack';
+import '@snowyowl/components/components/grid';
 import '@snowyowl/components/components/input';
 import '@snowyowl/components/components/toggle';
 import '@snowyowl/components/components/checkbox';
@@ -76,10 +77,12 @@ export const Divided: Story = {
       divided
       style="max-width: 480px"
     >
-      <so-stack gap="md">
-        <so-toggle label="Email notifications" checked></so-toggle>
-        <so-toggle label="Push notifications"></so-toggle>
-        <so-toggle label="SMS alerts"></so-toggle>
+      <so-stack gap="none">
+        <so-toggle layout="settings" checked>Email notifications</so-toggle>
+        <so-divider></so-divider>
+        <so-toggle layout="settings">Push notifications</so-toggle>
+        <so-divider></so-divider>
+        <so-toggle layout="settings">SMS alerts</so-toggle>
       </so-stack>
     </so-section>
   `,
@@ -90,7 +93,7 @@ export const Divided: Story = {
 export const Padded: Story = {
   render: () => html`
     <div style="
-      background:var(--soSemanticColorSurfaceContainer,#f3eef7);
+      background:var(--soSemanticColorSurfaceDim);
       border-radius:12px;
       max-width:480px
     ">
@@ -100,9 +103,10 @@ export const Padded: Story = {
         padded
         divided
       >
-        <so-stack gap="md">
-          <so-toggle label="Two-factor authentication" checked></so-toggle>
-          <so-toggle label="Login notifications"></so-toggle>
+        <so-stack gap="none">
+          <so-toggle layout="settings">Two-factor authentication</so-toggle>
+          <so-divider></so-divider>
+          <so-toggle layout="settings">Login notifications</so-toggle>
         </so-stack>
       </so-section>
     </div>
@@ -120,7 +124,7 @@ export const HeadingLevels: Story = {
         heading-level="h2"
         divided
       >
-        <div style="padding:16px;background:var(--soSemanticColorSurfaceContainer,#f3eef7);border-radius:8px;
+        <div style="padding:16px;background:var(--soSemanticColorSurfaceMuted);border-radius:8px;
                     font-size:14px;color:var(--soSemanticColorTextSubtle)">Content area</div>
       </so-section>
 
@@ -130,7 +134,7 @@ export const HeadingLevels: Story = {
         heading-level="h3"
         divided
       >
-        <div style="padding:16px;background:var(--soSemanticColorSurfaceContainer,#f3eef7);border-radius:8px;
+        <div style="padding:16px;background:var(--soSemanticColorSurfaceMuted);border-radius:8px;
                     font-size:14px;color:var(--soSemanticColorTextSubtle)">Content area</div>
       </so-section>
 
@@ -140,7 +144,7 @@ export const HeadingLevels: Story = {
         heading-level="h4"
         divided
       >
-        <div style="padding:16px;background:var(--soSemanticColorSurfaceContainer,#f3eef7);border-radius:8px;
+        <div style="padding:16px;background:var(--soSemanticColorSurfaceMuted);border-radius:8px;
                     font-size:14px;color:var(--soSemanticColorTextSubtle)">Content area</div>
       </so-section>
     </so-stack>
@@ -171,9 +175,9 @@ export const SettingsPage: Story = {
         divided
       >
         <so-stack gap="md">
-          <so-toggle label="Product updates" helper-text="New features and improvements" checked></so-toggle>
-          <so-toggle label="Security alerts" helper-text="Sign-ins and password changes" checked></so-toggle>
-          <so-toggle label="Marketing emails" helper-text="Tips, offers, and announcements"></so-toggle>
+          <so-toggle layout="settings" helper-text="New features and improvements" checked>Product updates</so-toggle>
+          <so-toggle layout="settings" helper-text="Sign-ins and password changes" checked>Security alerts</so-toggle>
+          <so-toggle layout="settings" helper-text="Tips, offers, and announcements">Marketing emails</so-toggle>
         </so-stack>
       </so-section>
 
@@ -182,11 +186,12 @@ export const SettingsPage: Story = {
         description="Manage your password and authentication methods."
         divided
       >
-        <so-stack gap="md">
-          <so-toggle label="Two-factor authentication" helper-text="Adds a second verification step at sign-in" checked></so-toggle>
+        <so-stack gap="sm">
+          <so-toggle layout="settings" helper-text="Adds a second verification step at sign-in" checked>Two-factor authentication</so-toggle>
+          <so-divider></so-divider>
           <so-stack direction="row" gap="sm" justify="end">
-            <so-button variant="ghost" size="sm">Change password</so-button>
-            <so-button variant="primary" size="sm">Save changes</so-button>
+            <so-button variant="outline" size="md">Change password</so-button>
+            <so-button variant="primary" size="md">Save changes</so-button>
           </so-stack>
         </so-stack>
       </so-section>

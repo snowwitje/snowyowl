@@ -49,7 +49,7 @@ export const Default: Story = {
         <so-option value="texas">Texas</so-option>
         <so-option value="florida">Florida</so-option>
       </so-select>
-      <so-toggle label="Receive notifications" checked></so-toggle>
+      <so-toggle checked>Receive notifications</so-toggle>
       <so-checkbox-group
         label="Notification Delivery"
         helper-text="Select all that apply"
