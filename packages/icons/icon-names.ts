@@ -260,7 +260,7 @@ export type SoIconName =
   | 'layers'
   | 'layout-accordion'
   | 'layout-checklist'
-  | 'layout-column'
+  | 'layout-column-line'
   | 'layout-footer'
   | 'layout-grid-large'
   | 'layout-grid'
@@ -269,7 +269,7 @@ export type SoIconName =
   | 'layout-o'
   | 'layout-panel-left'
   | 'layout-panel-right'
-  | 'layout-row'
+  | 'layout-row-line'
   | 'layout-table'
   | 'layout'
   | 'leaf-o'
@@ -411,7 +411,7 @@ export type SoIconName =
   | 'send-plane-o'
   | 'send-plane'
   | 'sensor'
-  | 'settings-tools'
+  | 'setting-tools'
   | 'settings-cog-o'
   | 'settings-cog'
   | 'settings-cogs'
@@ -790,7 +790,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'layers',
   'layout-accordion',
   'layout-checklist',
-  'layout-column',
+  'layout-column-line',
   'layout-footer',
   'layout-grid-large',
   'layout-grid',
@@ -799,7 +799,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'layout-o',
   'layout-panel-left',
   'layout-panel-right',
-  'layout-row',
+  'layout-row-line',
   'layout-table',
   'layout',
   'leaf-o',
@@ -941,7 +941,7 @@ export const SO_ICON_NAMES: SoIconName[] = [
   'send-plane-o',
   'send-plane',
   'sensor',
-  'settings-tools',
+  'setting-tools',
   'settings-cog-o',
   'settings-cog',
   'settings-cogs',
